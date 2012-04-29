@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
+    <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="icons\icon-128.png" />
     <Content Include="icons\icon-16.png" />
     <Content Include="icons\icon-24.png" />
@@ -78,15 +79,28 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="demos\DemoPageBase.cs">
+    <Compile Include="demos\Demo.Master.cs">
+      <DependentUpon>Demo.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Demo.Master.designer.cs">
+      <DependentUpon>Demo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="demos\DistributorPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\addOperator.aspx.cs">
+      <DependentUpon>addOperator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\addOperator.aspx.designer.cs">
+      <DependentUpon>addOperator.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="demos\distributor-media\" />
     <Folder Include="demos\distributor-operator-media\" />
-    <Folder Include="demos\distributor\" />
     <Folder Include="demos\operator\" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +118,9 @@
       <Project>{5b5322c7-1408-451f-a0ce-04aba1b36059}</Project>
       <Name>Narnoo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="demos\Demo.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

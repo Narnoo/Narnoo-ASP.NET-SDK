@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Demo.master.cs" Inherits="Narnoo.Example.demos.Demo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    
+    <link href="<%= this.ResolveUrl("~/scripts/highlight/highlight.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= this.ResolveUrl("~//css/demo.css") %>" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="<%= this.ResolveUrl("~//scripts/highlight/highlight.js") %>"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('pre.code').highlight({ source: 1, zebra: 1, indent: 'space', list: 'ol' });
+
+        });
+</script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

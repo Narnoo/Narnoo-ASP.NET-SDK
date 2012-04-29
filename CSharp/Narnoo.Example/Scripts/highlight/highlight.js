@@ -106,8 +106,8 @@
 			var comments		= [];	// store comments
 		
 			code = code
-				//replace keywords
-				.replace(/(var|function|typeof|new|return|if|for|in|while|break|do|continue|case|switch)([^a-z0-9\$_])/gi,'<span class="kwd">$1</span>$2')
+			//replace keywords
+				.replace(/(var|function|typeof|new|return|if|for|in|while|break|do|continue|case|switch|else|string|bool|this|catch)([^a-z0-9\$_])/gi,'<span class="kwd">$1</span>$2')
 				//replace keywords
 				.replace(/(\{|\}|\]|\[|\|)/gi,'<span class="kwd">$1</span>')
 				//replace strings

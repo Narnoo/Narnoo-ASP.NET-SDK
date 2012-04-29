@@ -6,5 +6,9 @@ namespace Narnoo
 {
     public class DistributorNarnooRequest : NarnooRequest
     {
+        public bool AddOperator(string operatorId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
