@@ -56,6 +56,8 @@
     <Content Include="demos\distributor-media\downloadVideo.aspx" />
     <Content Include="demos\distributor-media\getAlbumImages.aspx" />
     <Content Include="demos\distributor-media\getAlbums.aspx" />
+    <Content Include="demos\distributor-media\getBrochures.aspx" />
+    <Content Include="demos\distributor-media\getChannelList.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -129,6 +131,20 @@
     </Compile>
     <Compile Include="demos\distributor-media\getAlbums.aspx.designer.cs">
       <DependentUpon>getAlbums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\getBrochures.aspx.cs">
+      <DependentUpon>getBrochures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\getBrochures.aspx.designer.cs">
+      <DependentUpon>getBrochures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\getChannelList.aspx.cs">
+      <DependentUpon>getChannelList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\getChannelList.aspx.designer.cs">
+      <DependentUpon>getChannelList.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

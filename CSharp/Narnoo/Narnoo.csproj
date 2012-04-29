@@ -45,7 +45,13 @@
     <Compile Include="AlbumImageResponse.cs" />
     <Compile Include="AlbumImagesResponse.cs" />
     <Compile Include="AlbumResponse.cs" />
+    <Compile Include="Brochure.cs" />
+    <Compile Include="BrochureResponse.cs" />
+    <Compile Include="Channel.cs" />
+    <Compile Include="ChannelResponse.cs" />
     <Compile Include="DistributorAlbumsResponse.cs" />
+    <Compile Include="DistributorBrochuresResponse.cs" />
+    <Compile Include="DistributorChannelsResponse.cs" />
     <Compile Include="DownloadVideo.cs" />
     <Compile Include="DownloadVideoResponse.cs" />
     <Compile Include="DownloadVideosResponse.cs" />

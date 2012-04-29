@@ -102,5 +102,43 @@ namespace Narnoo
                 yield return i.album;
             }
         }
+
+        public IEnumerable<Brochure> GetBrochures()
+        {
+            var content = this.GetResponse(this.remote_url, "getBrochures");
+
+            var list = this.Deserialize<DistributorBrochuresResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorBrochuresResponse();
+            }
+
+
+            foreach (var i in list.distributor_brochures)
+            {
+                yield return i.brochure;
+            }
+        }
+
+        public IEnumerable<Channel> GetChannelList()
+        {
+            var content = this.GetResponse(this.remote_url, "getChannelList");
+
+            var list = this.Deserialize<DistributorChannelsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorChannelsResponse();
+            }
+
+
+            foreach (var i in list.distributor_channel_list)
+            {
+                yield return i.channel;
+            }
+        }
     }
 }
