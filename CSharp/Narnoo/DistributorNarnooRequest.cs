@@ -71,5 +71,23 @@ namespace Narnoo
                 yield return i.Operator;
             }
         }
+
+        public Operator SingleOperatorDetail(string operatorId)
+        {
+             var content = this.GetResponse(this.interaction_url, "singleOperatorDetail",new RequestParameter("operator_id",operatorId));
+             content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
+
+             var list = this.Deserialize<OperatorDetailResponse>(content);
+
+             if (list != null && list.operator_detail.Count > 0)
+             {
+                 return list.operator_detail[0].Operator;
+             }
+             else
+             {
+                 return null;
+             }
+
+        }
     }
 }

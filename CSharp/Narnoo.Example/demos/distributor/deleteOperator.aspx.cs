@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.distributor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.lblMessage.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

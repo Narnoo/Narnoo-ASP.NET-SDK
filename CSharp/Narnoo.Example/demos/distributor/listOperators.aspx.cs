@@ -10,6 +10,8 @@ namespace Narnoo.Example.demos.distributor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.lblMessage.Visible = false;
+
             try
             {
 
@@ -24,6 +26,7 @@ namespace Narnoo.Example.demos.distributor
             }
             catch (InvalidNarnooRequestException ex)
             {
+                this.lblMessage.Visible = true;
                 this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
             }
         }

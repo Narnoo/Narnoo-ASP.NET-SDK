@@ -55,6 +55,7 @@
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
+    <Content Include="demos\distributor\singleOperatorDetail.aspx" />
     <Content Include="icons\icon-128.png" />
     <Content Include="icons\icon-16.png" />
     <Content Include="icons\icon-24.png" />
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="demos\distributor\searchOperators.aspx.designer.cs">
       <DependentUpon>searchOperators.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor\singleOperatorDetail.aspx.cs">
+      <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
+      <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.distributor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -25,6 +25,7 @@ namespace Narnoo.Example.demos.distributor
                 var result = request.AddOperator(operatorId);
                 if (result)
                 {
+                    
                     this.lblMessage.Text = "Success";
                 }
                 else

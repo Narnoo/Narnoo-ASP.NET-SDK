@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.distributor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.lblMessage.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace Narnoo.Example.demos.distributor
             }
             catch (InvalidNarnooRequestException ex)
             {
+                this.lblMessage.Visible = true;
                 this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
             }
         }

@@ -8,10 +8,26 @@
         Distributor's can search Opeartors</h2>
     <p>
         Distributors use this function to search Operator's on Narnoo</p>
-    <pre class="code" lang="php">	
-	$request = new DistributorNarnooRequest ();
-	$request->setAuth ( app_key, secret_key );
-	$message = $request->searchOperators ( $country, $category, $subcategory, $state, $suburb, $postal_code );
+    <pre class="code" lang="csharp">	
+    var country = this.txtCountry.Text;
+    var category = this.txtCategory.Text;
+    var subcategory = this.txtSubCategory.Text;
+    var state = this.txtState.Text;
+    var suburb = this.txtSuburb.Text;
+    var postal_code = this.txtPostal_code.Text;
+
+    try
+    {
+        var request = new DistributorNarnooRequest();
+        request.SetAuth(this.appkey, this.secretkey);
+        var list = request.SearchOperators(country, category, subcategory, state, suburb, postal_code);
+        this.rptList.DataSource = list;
+        this.rptList.DataBind();
+    }
+    catch (InvalidNarnooRequestException ex)
+    {
+        this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+    }
 	</pre>
     <div id="demo-frame">
         <label for="country">
