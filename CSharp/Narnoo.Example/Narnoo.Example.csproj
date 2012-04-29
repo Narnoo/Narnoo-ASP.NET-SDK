@@ -52,6 +52,7 @@
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
     <Content Include="demos\distributor\addOperator.aspx" />
+    <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="icons\icon-128.png" />
     <Content Include="icons\icon-16.png" />
     <Content Include="icons\icon-24.png" />
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="demos\distributor\addOperator.aspx.designer.cs">
       <DependentUpon>addOperator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor\deleteOperator.aspx.cs">
+      <DependentUpon>deleteOperator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\deleteOperator.aspx.designer.cs">
+      <DependentUpon>deleteOperator.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
