@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
     <Compile Include="AlbumImageResponse.cs" />
     <Compile Include="AlbumImagesResponse.cs" />
+    <Compile Include="AlbumResponse.cs" />
+    <Compile Include="DistributorAlbumsResponse.cs" />
     <Compile Include="DownloadVideo.cs" />
     <Compile Include="DownloadVideoResponse.cs" />
     <Compile Include="DownloadVideosResponse.cs" />
