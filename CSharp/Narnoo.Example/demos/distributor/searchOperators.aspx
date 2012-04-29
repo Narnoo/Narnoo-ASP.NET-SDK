@@ -1,29 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
-    CodeBehind="listOperators.aspx.cs" Inherits="Narnoo.Example.demos.distributor.listOperators" %>
+    CodeBehind="searchOperators.aspx.cs" Inherits="Narnoo.Example.demos.distributor.searchOperators" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Distributor's can list Opeartors</h2>
+        Distributor's can search Opeartors</h2>
     <p>
-        Distributors use this function to list the details of Operator on their access list</p>
-    <pre class="code" lang="csharp">	
-    try
-    {
-        var request = new DistributorNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var list = request.ListOperators();
-        this.rptList.DataSource = list;
-        this.rptList.DataBind();
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
-    }
-    
+        Distributors use this function to search Operator's on Narnoo</p>
+    <pre class="code" lang="php">	
+	$request = new DistributorNarnooRequest ();
+	$request->setAuth ( app_key, secret_key );
+	$message = $request->searchOperators ( $country, $category, $subcategory, $state, $suburb, $postal_code );
 	</pre>
     <div id="demo-frame">
+        <label for="country">
+            country</label>
+        <asp:TextBox ID="txtCountry" runat="server">
+        </asp:TextBox>
+        <br />
+        <label for="category">
+            category</label>
+        <asp:TextBox ID="txtCategory" runat="server"></asp:TextBox>
+        <br />
+        <label for="subcategory">
+            subcategory</label>
+        <asp:TextBox ID="txtSubCategory" runat="server"></asp:TextBox>
+        <br />
+        <label for="state">
+            state</label>
+        <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
+        <br />
+        <label for="suburb">
+            suburb</label>
+        <asp:TextBox ID="txtSuburb" runat="server"></asp:TextBox>
+        <br />
+        <label for="postal_code">
+            postal_code</label>
+        <asp:TextBox ID="txtPostal_code" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
@@ -62,23 +78,5 @@
             </FooterTemplate>
         </asp:Repeater>
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
-        <%--			foreach ( $message->operators as $item ) {
-				$business = $item->operator;
-				echo '<li><ul>';
-				echo '<li>operator_id : ' . $business->operator_id . '</li>';
-				echo '<li>category : ' . $business->category . '</li>';
-				echo '<li>sub_category : ' . $business->sub_category . '</li>';
-				echo '<li>operator_businessname : ' . $business->operator_businessname . '</li>';
-				echo '<li>country_name : ' . $business->country_name . '</li>';
-				echo '<li>state : ' . $business->state . '</li>';
-				echo '<li>suburb : ' . $business->suburb . '</li>';
-				echo '<li>latitude : ' . $business->latitude . '</li>';
-				echo '<li>longitude : ' . $business->longitude . '</li>';
-				echo '<li>postcode : ' . $business->postcode . '</li>';
-				echo '<li>keywords : ' . $business->keywords . '</li>';
-				echo '</ul></li>';
-			}
-			
---%>
     </div>
 </asp:Content>

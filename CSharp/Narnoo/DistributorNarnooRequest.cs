@@ -43,5 +43,10 @@ namespace Narnoo
             }
 
         }
+
+        public object SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
