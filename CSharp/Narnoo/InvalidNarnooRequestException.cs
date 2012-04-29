@@ -12,7 +12,7 @@ namespace Narnoo
         {
             this.Error = new NarnooError
             {
-                ErrorCode = errorCode
+                ErrorCode = errorCode,
                 ErrorMessage = errorMessage
             };
         }

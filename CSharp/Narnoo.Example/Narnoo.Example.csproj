@@ -78,10 +78,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demos\DemoPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="demos\distributor-media\" />
+    <Folder Include="demos\distributor-operator-media\" />
+    <Folder Include="demos\distributor\" />
+    <Folder Include="demos\operator\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.Debug.config">

@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 11
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo", "Narnoo\Narnoo.csproj", "{5B5322C7-1408-451F-A0CE-04ABA1B36059}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Example", "Narnoo.Example\Narnoo.Example.csproj", "{EDEE4A5D-39B0-40A4-A186-C0403533A2BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{3899FE25-F881-4902-AC82-6BDA7AA85126}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Newtonsoft.Json.dll = lib\Newtonsoft.Json.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -31,15 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DistributorMediaNarnooRequest.cs" />
     <Compile Include="DistributorNarnooRequest.cs" />
     <Compile Include="DistributorOperatorMediaNarnooRequest.cs" />
+    <Compile Include="NarnooError.cs" />
     <Compile Include="NarnooRequest.cs" />
+    <Compile Include="InvalidNarnooRequestException.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameter.cs" />

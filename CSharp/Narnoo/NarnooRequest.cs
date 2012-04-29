@@ -5,6 +5,8 @@ using System.Net;
 using System.IO;
 using System.Web;
 using System.Xml;
+using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace Narnoo
 {
@@ -15,6 +17,13 @@ namespace Narnoo
         string secretkey;
         string response_type = "json";
         bool requiredSSL = false;
+
+   
+
+        protected T Deserialize<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json);
+        }
 
         public void SetAuth(string appkey,string secretkey)
         {
@@ -60,7 +69,7 @@ namespace Narnoo
                    // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
                     if (content.StartsWith("{\"Error\":{\"ErrorCode\":\""))
                     {
-                        
+                        throw this.Deserialize<InvalidNarnooRequestException>(content);
                     }
                 }
                 else
