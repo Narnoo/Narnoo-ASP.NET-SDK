@@ -3,37 +3,35 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class downloadBrochure : DistributorPageBase
+    public partial class downloadImage : DistributorPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = false;
-          
+this.lblMessage.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string brochure_id = this.txtBrochure_id.Text;
+            string image_id = this.txtImage_id.Text;
 
             try
             {
                 var request = new DistributorMediaNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadBrochure(brochure_id);
+                var item = request.DownloadImage(image_id);
 
                 if (item == null)
                 {
                     this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Brochure cannot found";
+                    this.lblMessage.Text = "Image cannot found";
                 }
                 else
                 {
-                    
-                    this.lblDownload_brochure_to_pdf_path.Text =  item.download_brochure_to_pdf_path;
+
+                    this.lblDownload_image_link.Text = item.download_image_link;
 
                 }
 

@@ -91,23 +91,6 @@ namespace Narnoo
 
         }
 
-        public DownloadBrochure DownloadBrochure(string brochure_id)
-        {
-
-            var content = this.GetResponse(this.remote_url, "downloadBrochure", new RequestParameter("brochure__id", brochure_id));
-
-
-            var list = this.Deserialize<DownloadBrochuresResponse>(content);
-
-             if (list != null && list.download_brochure.Count > 0)
-             {
-                 return list.download_brochure[0].download_brochure_details;
-             }
-             else
-             {
-                 return null;
-             }
-
-        }
+      
     }
 }
