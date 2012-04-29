@@ -47,7 +47,10 @@
     <Compile Include="NarnooErrorResponse.cs" />
     <Compile Include="NarnooRequest.cs" />
     <Compile Include="InvalidNarnooRequestException.cs" />
+    <Compile Include="Operator.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />
+    <Compile Include="OperatorResponse.cs" />
+    <Compile Include="OperatorsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameter.cs" />
   </ItemGroup>

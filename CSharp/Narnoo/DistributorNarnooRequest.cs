@@ -14,5 +14,34 @@ namespace Narnoo
 
             return content == "true";
         }
+
+        public bool DeleteOperator(string operatorId)
+        {
+            var content = this.GetResponse(this.interaction_url, "deleteOperator", new RequestParameter("operator_id", operatorId));
+
+            return content == "true";
+        }
+
+        public IEnumerable<Operator> ListOperators()
+        {
+            var content = this.GetResponse(this.interaction_url, "listOperators");
+
+            content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
+
+            var list = this.Deserialize<OperatorsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorsResponse();
+            }
+
+
+            foreach (var i in list.operators)
+            {
+                yield return i.Operator;
+            }
+
+        }
     }
 }
