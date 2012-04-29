@@ -8,6 +8,7 @@ namespace Narnoo
     {
 
         private string interaction_url = "devapi.narnoo.com/xml.php";
+        private string remote_url = "devapi.narnoo.com/dist_xml.php"; 
         public bool AddOperator(string operatorId)
         {
             var content = this.GetResponse(this.interaction_url, "addOperator", new RequestParameter("operator_id", operatorId));
@@ -82,6 +83,25 @@ namespace Narnoo
              if (list != null && list.operator_detail.Count > 0)
              {
                  return list.operator_detail[0].Operator;
+             }
+             else
+             {
+                 return null;
+             }
+
+        }
+
+        public DownloadBrochure DownloadBrochure(string brochure_id)
+        {
+
+            var content = this.GetResponse(this.remote_url, "downloadBrochure", new RequestParameter("brochure__id", brochure_id));
+
+
+            var list = this.Deserialize<DownloadBrochuresResponse>(content);
+
+             if (list != null && list.download_brochure.Count > 0)
+             {
+                 return list.download_brochure[0].download_brochure_details;
              }
              else
              {

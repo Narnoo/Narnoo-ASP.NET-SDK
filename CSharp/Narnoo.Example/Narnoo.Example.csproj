@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
+    <Content Include="demos\distributor-media\downloadBrochure.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="demos\Demo.Master.designer.cs">
       <DependentUpon>Demo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\downloadBrochure.aspx.cs">
+      <DependentUpon>downloadBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\downloadBrochure.aspx.designer.cs">
+      <DependentUpon>downloadBrochure.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -131,7 +139,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="demos\distributor-media\" />
     <Folder Include="demos\distributor-operator-media\" />
     <Folder Include="demos\operator\" />
   </ItemGroup>

@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities.cs" />
     <Compile Include="DistributorMediaNarnooRequest.cs" />
     <Compile Include="DistributorNarnooRequest.cs" />
     <Compile Include="DistributorOperatorMediaNarnooRequest.cs" />
+    <Compile Include="DownloadBrochure.cs" />
+    <Compile Include="DownloadBrochureResponse.cs" />
+    <Compile Include="DownloadBrochuresResponse.cs" />
     <Compile Include="NarnooError.cs" />
     <Compile Include="NarnooErrorResponse.cs" />
     <Compile Include="NarnooRequest.cs" />
