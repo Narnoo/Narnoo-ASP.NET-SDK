@@ -44,9 +44,32 @@ namespace Narnoo
 
         }
 
-        public object SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code)
+        public IEnumerable<Operator> SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code)
         {
-            throw new NotImplementedException();
+            var content = this.GetResponse(this.interaction_url, "searchOperators",
+                new RequestParameter("country",country),
+                new RequestParameter("category",category),
+                new RequestParameter("subcategory",subcategory),
+                new RequestParameter("state",state),
+                new RequestParameter("suburb",suburb),
+                new RequestParameter("postal_code",postal_code)
+                );
+
+            content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
+
+            var list = this.Deserialize<SearchOperatorsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new SearchOperatorsResponse();
+            }
+
+
+            foreach (var i in list.search_operators)
+            {
+                yield return i.Operator;
+            }
         }
     }
 }

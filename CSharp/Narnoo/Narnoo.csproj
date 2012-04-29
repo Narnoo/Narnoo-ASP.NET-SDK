@@ -53,6 +53,7 @@
     <Compile Include="OperatorsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameter.cs" />
+    <Compile Include="SearchOperatorsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

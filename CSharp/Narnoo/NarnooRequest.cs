@@ -55,7 +55,10 @@ namespace Narnoo
 
                 foreach (var o in options)
                 {
-                    data.Add(HttpUtility.UrlEncode(o.Name) + "=" + HttpUtility.UrlEncode(o.Value));
+                    if (string.IsNullOrEmpty(o.Value) == false)
+                    {
+                        data.Add(HttpUtility.UrlEncode(o.Name) + "=" + HttpUtility.UrlEncode(o.Value));
+                    }
                 }
             }
 
