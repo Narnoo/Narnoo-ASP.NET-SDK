@@ -180,5 +180,24 @@ namespace Narnoo
                 yield return i.image;
             }
         }
+
+        public IEnumerable<SingleBrochure> GetSingleBrochure(string brochure_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getSingleBrochure", new RequestParameter("brochure__id", brochure_id));
+
+            var list = this.Deserialize<DistributorSingleBrochuresResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorSingleBrochuresResponse();
+            }
+
+
+            foreach (var i in list.distributor_brochure)
+            {
+                yield return i.brochure;
+            }
+        }
     }
 }

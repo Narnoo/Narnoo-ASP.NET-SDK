@@ -56,6 +56,8 @@
     <Compile Include="DistributorChannelsResponse.cs" />
     <Compile Include="DistributorChannelVideosResponse.cs" />
     <Compile Include="DistributorImagesResponse.cs" />
+    <Compile Include="DistributorSingleBrochureResponse.cs" />
+    <Compile Include="DistributorSinglebrochuresResponse.cs" />
     <Compile Include="DownloadVideo.cs" />
     <Compile Include="DownloadVideoResponse.cs" />
     <Compile Include="DownloadVideosResponse.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="DownloadImagesResponse.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageResponse.cs" />
+    <Compile Include="SingleBrochure.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="DistributorMediaNarnooRequest.cs" />
     <Compile Include="DistributorNarnooRequest.cs" />
