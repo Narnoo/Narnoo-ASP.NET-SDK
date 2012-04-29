@@ -8,9 +8,10 @@ namespace Narnoo
     {
         public DistributorVideosResponse()
         {
-            this.distributor_video_details = new List<DistributorVideoResponse>();
+            this.distributor_videos = new List<DistributorVideoResponse>();
         }
-        public List<DistributorVideoResponse> distributor_video_details
+
+        public List<DistributorVideoResponse> distributor_videos
         {
             get;
             set;

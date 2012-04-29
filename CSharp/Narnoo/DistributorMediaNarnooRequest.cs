@@ -204,6 +204,25 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.remote_url, "getVideoDetails", new RequestParameter("video__id", videoId));
 
+            var list = this.Deserialize<DistributorVideoDetailsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorVideoDetailsResponse();
+            }
+
+
+            foreach (var i in list.distributor_video_details)
+            {
+                yield return i.distributor_video;
+            }
+        }
+
+        public IEnumerable<Video> GetVideos()
+        {
+            var content = this.GetResponse(this.remote_url, "getVideos");
+
             var list = this.Deserialize<DistributorVideosResponse>(content);
 
 
@@ -213,7 +232,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.distributor_video_details)
+            foreach (var i in list.distributor_videos)
             {
                 yield return i.distributor_video;
             }

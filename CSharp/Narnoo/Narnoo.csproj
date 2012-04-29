@@ -59,6 +59,7 @@
     <Compile Include="DistributorSingleBrochureResponse.cs" />
     <Compile Include="DistributorSinglebrochuresResponse.cs" />
     <Compile Include="DistributorVideoResponse.cs" />
+    <Compile Include="DistributorVideoDetailsResponse.cs" />
     <Compile Include="DistributorVideosResponse.cs" />
     <Compile Include="DownloadVideo.cs" />
     <Compile Include="DownloadVideoResponse.cs" />
