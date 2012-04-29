@@ -199,5 +199,24 @@ namespace Narnoo
                 yield return i.brochure;
             }
         }
+
+        public IEnumerable<Video> GetVideoDetails(string videoId)
+        {
+            var content = this.GetResponse(this.remote_url, "getVideoDetails", new RequestParameter("video__id", videoId));
+
+            var list = this.Deserialize<DistributorVideosResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorVideosResponse();
+            }
+
+
+            foreach (var i in list.distributor_video_details)
+            {
+                yield return i.distributor_video;
+            }
+        }
     }
 }

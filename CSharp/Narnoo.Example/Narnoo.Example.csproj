@@ -61,6 +61,7 @@
     <Content Include="demos\distributor-media\getChannelVideos.aspx" />
     <Content Include="demos\distributor-media\getImages.aspx" />
     <Content Include="demos\distributor-media\getSingleBrochure.aspx" />
+    <Content Include="demos\distributor-media\getVideoDetails.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -169,6 +170,12 @@
     </Compile>
     <Compile Include="demos\distributor-media\getSingleBrochure.aspx.designer.cs">
       <DependentUpon>getSingleBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\getVideoDetails.aspx.cs">
+      <DependentUpon>getVideoDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\getVideoDetails.aspx.designer.cs">
+      <DependentUpon>getVideoDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
