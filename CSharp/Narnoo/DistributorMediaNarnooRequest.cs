@@ -46,5 +46,22 @@ namespace Narnoo
                 return null;
             }
         }
+
+        public DownloadVideo DownloadVideo(string videoId)
+        {
+            var content = this.GetResponse(this.remote_url, "downloadVideo", new RequestParameter("video__id", videoId));
+
+
+            var list = this.Deserialize<DownloadVideosResponse>(content);
+
+            if (list != null && list.download_video.Count > 0)
+            {
+                return list.download_video[0].download_video_details;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

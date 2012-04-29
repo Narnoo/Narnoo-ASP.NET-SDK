@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DownloadVideo.cs" />
+    <Compile Include="DownloadVideoResponse.cs" />
+    <Compile Include="DownloadVideosResponse.cs" />
     <Compile Include="DownloadImage.cs" />
     <Compile Include="DownloadImageResponse.cs" />
     <Compile Include="DownloadImagesResponse.cs" />

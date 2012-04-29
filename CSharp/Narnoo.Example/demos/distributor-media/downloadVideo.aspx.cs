@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class downloadImage : DistributorPageBase
+    public partial class downloadVideo : DistributorPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,23 +15,24 @@ namespace Narnoo.Example.demos.distributor_media
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string image_id = this.txtImage_id.Text;
+            string videoId = this.txtVideoId.Text;
 
             try
             {
                 var request = new DistributorMediaNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadImage(image_id);
+                var item = request.DownloadVideo(videoId);
 
                 if (item == null)
                 {
                     this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Image cannot found";
+                    this.lblMessage.Text = "Video cannot found";
                 }
                 else
                 {
-
-                    this.lblDownload_image_link.Text = item.download_image_link;
+                    this.detail.Visible = true;
+                    this.lblDownload_video_stream_path.Text = item.download_video_stream_path;
+                    this.lblOriginal_video_path.Text = item.original_video_path;
 
                 }
 
