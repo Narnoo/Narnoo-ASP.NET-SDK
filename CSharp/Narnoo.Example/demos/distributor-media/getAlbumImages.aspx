@@ -9,7 +9,7 @@
     <p>
         Distributors use the Get Album Images function to retrieve their list of images
         within an album.</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     string album_name = this.txtAlbum_name.Text;
 
     try

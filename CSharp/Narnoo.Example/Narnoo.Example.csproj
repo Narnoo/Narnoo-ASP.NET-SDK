@@ -58,6 +58,7 @@
     <Content Include="demos\distributor-media\getAlbums.aspx" />
     <Content Include="demos\distributor-media\getBrochures.aspx" />
     <Content Include="demos\distributor-media\getChannelList.aspx" />
+    <Content Include="demos\distributor-media\getChannelVideos.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="demos\distributor-media\getChannelList.aspx.designer.cs">
       <DependentUpon>getChannelList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\getChannelVideos.aspx.cs">
+      <DependentUpon>getChannelVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\getChannelVideos.aspx.designer.cs">
+      <DependentUpon>getChannelVideos.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

@@ -8,7 +8,7 @@
         Get Distributor's album names - Get Albums</h2>
     <p>
         Distributors use the Get Albums function to retrieve their list of album names.</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     try
     {
         var request = new DistributorMediaNarnooRequest();

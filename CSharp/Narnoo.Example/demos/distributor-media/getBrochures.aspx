@@ -8,7 +8,7 @@
         Distributor's get brochures</h2>
     <p>
         Distributors use this get brochures function to retrieve their brochure information.</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     try
     {
         var request = new DistributorMediaNarnooRequest();

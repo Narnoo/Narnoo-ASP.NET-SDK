@@ -140,5 +140,26 @@ namespace Narnoo
                 yield return i.channel;
             }
         }
+
+
+
+        public IEnumerable<ChannelVideo> GetChannelVideos(string channel)
+        {
+            var content = this.GetResponse(this.remote_url, "getChannelVideos", new RequestParameter("channel", channel));
+
+            var list = this.Deserialize<DistributorChannelVideosResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorChannelVideosResponse();
+            }
+
+
+            foreach (var i in list.distributor_channel_videos)
+            {
+                yield return i.channel_video_details;
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
         Distributor's get channel list</h2>
     <p>
         Distributors use this getChannelList function to retrieve their video channel names.</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     try
     {
         var request = new DistributorMediaNarnooRequest();

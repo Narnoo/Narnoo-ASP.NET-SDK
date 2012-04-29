@@ -9,7 +9,7 @@
     <p>
         Distributors use this downloadVideo function to download the HD video file. *only
         available to approved Distributors</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     string videoId = this.txtVideoId.Text;
 
     try

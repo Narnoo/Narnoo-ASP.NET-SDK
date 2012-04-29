@@ -9,7 +9,7 @@
     <p>
         Distributors use this downloadImage function to download the highest resolution
         image file. *only available to approved Distributors</p>
-    <pre class="code" lang="php">
+    <pre class="code" lang="csharp">
     string image_id = this.txtImage_id.Text;
 
     try
