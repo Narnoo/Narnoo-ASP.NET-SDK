@@ -18,23 +18,30 @@ namespace Narnoo
         string response_type = "json";
         bool requiredSSL = false;
 
-   
+
 
         protected T Deserialize<T>(string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
         }
 
-        public void SetAuth(string appkey,string secretkey)
+        public void SetAuth(string appkey, string secretkey)
         {
             this.appkey = appkey;
             this.secretkey = secretkey;
         }
 
-        public string GetResponse(string remote_url, string method,params RequestParameter[] options)
+        public string GetResponse(string remote_url, string method, params RequestParameter[] options)
         {
 
             var url = (this.requiredSSL ? "https://" : "http://") + remote_url;
+
+            var data = new List<string>();
+            data.Add("app_key=" + this.appkey);
+            data.Add("secret_key="+this.secretkey);
+            data.Add("response_type="+this.response_type);
+            data.Add("action="+method);
+
 
             Encoding encoding = Encoding.Default;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -44,21 +51,22 @@ namespace Narnoo
 
             if (options != null && options.Length > 0)
             {
-                var data = new List<string>();
+
 
                 foreach (var o in options)
                 {
                     data.Add(HttpUtility.UrlEncode(o.Name) + "=" + HttpUtility.UrlEncode(o.Value));
                 }
-
-                byte[] buffer = encoding.GetBytes(string.Join("&", data.ToArray()));
-                request.ContentLength = buffer.Length;
-                request.GetRequestStream().Write(buffer, 0, buffer.Length);
             }
-            
-      
-     
-     
+
+            byte[] buffer = encoding.GetBytes(string.Join("&", data.ToArray()));
+            request.ContentLength = buffer.Length;
+            request.GetRequestStream().Write(buffer, 0, buffer.Length);
+
+
+
+
+
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
             {
@@ -66,10 +74,13 @@ namespace Narnoo
 
                 if (response_type == "json")
                 {
-                   // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
-                    if (content.StartsWith("{\"Error\":{\"ErrorCode\":\""))
+                    // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
+                    if (content.StartsWith("{\"Error\":"))
                     {
-                        throw this.Deserialize<InvalidNarnooRequestException>(content);
+                        var error = this.Deserialize<NarnooErrorResponse>(content);
+
+                        throw new InvalidNarnooRequestException(error.Error.ErrorCode,error.Error.ErrorMessage);
+
                     }
                 }
                 else

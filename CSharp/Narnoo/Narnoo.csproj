@@ -44,6 +44,7 @@
     <Compile Include="DistributorNarnooRequest.cs" />
     <Compile Include="DistributorOperatorMediaNarnooRequest.cs" />
     <Compile Include="NarnooError.cs" />
+    <Compile Include="NarnooErrorResponse.cs" />
     <Compile Include="NarnooRequest.cs" />
     <Compile Include="InvalidNarnooRequestException.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />
