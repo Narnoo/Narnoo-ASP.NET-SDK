@@ -70,6 +70,7 @@
     <Compile Include="Image.cs" />
     <Compile Include="ImageResponse.cs" />
     <Compile Include="OperatorAlbumImagesResponse.cs" />
+    <Compile Include="OperatorAlbumsResponse.cs" />
     <Compile Include="SearchMedia.cs" />
     <Compile Include="SearchMediaBrochure.cs" />
     <Compile Include="SearchMediaImage.cs" />
