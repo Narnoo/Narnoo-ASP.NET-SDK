@@ -66,7 +66,7 @@ namespace Narnoo
 
         public IEnumerable<AlbumImage> GetAlbumImages(string operator_id, string album_name)
         {
-            var content = this.GetResponse(this.remote_url, "getAlbumImages", new RequestParameter("operator_id",operator_id), new RequestParameter("album__name", album_name));
+            var content = this.GetResponse(this.remote_url, "getAlbumImages", new RequestParameter("operator_id", operator_id), new RequestParameter("album__name", album_name));
 
             var list = this.Deserialize<OperatorAlbumImagesResponse>(content);
 
@@ -85,7 +85,7 @@ namespace Narnoo
 
         public IEnumerable<Album> GetAlbums(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getAlbums",new RequestParameter("operator_id",operator_id));
+            var content = this.GetResponse(this.remote_url, "getAlbums", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorAlbumsResponse>(content);
 
@@ -159,9 +159,9 @@ namespace Narnoo
             }
         }
 
-        public ProductTextWords GetProductTextWords(string operator_id,string product_title)
+        public ProductTextWords GetProductTextWords(string operator_id, string product_title)
         {
-            var content = this.GetResponse(this.remote_url, "getProductTextWords", new RequestParameter("operator_id", operator_id),new RequestParameter("product_title",product_title));
+            var content = this.GetResponse(this.remote_url, "getProductTextWords", new RequestParameter("operator_id", operator_id), new RequestParameter("product_title", product_title));
 
             var list = this.Deserialize<OperatorProductTextWordsListResponse>(content);
 
@@ -173,6 +173,107 @@ namespace Narnoo
             else
             {
                 return null;
+            }
+
+        }
+
+        public SingleBrochure GetSingleBrochure(string operator_id, string brochure_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getSingleBrochure", new RequestParameter("operator_id", operator_id),new RequestParameter("brochure__id", brochure_id));
+
+            var list = this.Deserialize<OperatorSingleBrochuresResponse>(content);
+
+
+            if (list != null && list.operator_brochures.Count > 0)
+            {
+                return list.operator_brochures[0].brochure;
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+        public IEnumerable<Video> GetVideoDetails(string operator_id, string video_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getVideoDetails", new RequestParameter("operator_id", operator_id), new RequestParameter("video__id", video_id));
+
+            var list = this.Deserialize<OperatorVideoDetailsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorVideoDetailsResponse();
+            }
+
+
+            foreach (var i in list.operator_videos)
+            {
+                yield return i.operator_video;
+            }
+        }
+
+        public IEnumerable<Video> GetVideos(string operator_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getVideos", new RequestParameter("operator_id", operator_id));
+
+            var list = this.Deserialize<OperatorVideosResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorVideosResponse();
+            }
+
+
+            foreach (var i in list.operator_videos)
+            {
+                yield return i.operator_video;
+            }
+        }
+
+        public IEnumerable<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
+        {
+            var content = this.GetResponse(this.remote_url, "searchMedia",
+                new RequestParameter("media_type", media_type),
+                new RequestParameter("category", category),
+                new RequestParameter("subcategory", subcategory),
+                new RequestParameter("suburb", suburb),
+                new RequestParameter("location", location),
+                new RequestParameter("latitude", latitude),
+                new RequestParameter("longitude", longitude),
+                new RequestParameter("keywords", keywords),
+                new RequestParameter("page_no", page_no.ToString()));
+
+            var list = this.Deserialize<SearchMediaListResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new SearchMediaListResponse();
+            }
+
+
+            foreach (var i in list.search_media)
+            {
+                switch (media_type)
+                {
+                    case "image":
+                        yield return i.search_media_image;
+                        break;
+                    case "brochure":
+                        yield return i.search_media_brochure;
+                        break;
+                    case "video":
+                        yield return i.search_media_video;
+                        break;
+
+                    default:
+                        yield return null;
+                        break;
+                }
             }
 
         }

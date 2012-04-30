@@ -4,22 +4,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Narnoo.Example.demos.distributor_media
+namespace Narnoo.Example.demos.distributor_operator_media
 {
     public partial class searchMedia : DistributorPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-this.lblMessage.Visible = false;
+            this.lblMessage.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var media_type = this.ddlMedia_Type.SelectedValue;
             var category = this.txtCategory.Text;
-            var subcategory= this.txtSubcategory.Text;
+            var subcategory = this.txtSubcategory.Text;
             var suburb = this.txtsuburb.Text;
-                var location = this.txtlocation.Text;
+            var location = this.txtlocation.Text;
             var latitude = this.txtlatitude.Text;
             var longitude = this.txtlongitude.Text;
             var keywords = this.txtkeywords.Text;
@@ -27,9 +27,17 @@ this.lblMessage.Visible = false;
 
             try
             {
-                var request = new DistributorOperatorMediaNarnooRequest();
+                var request = new DistributorMediaNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
-                var list = request.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords,page_no);
+                var list = request.SearchMedia(media_type, 
+                    category, 
+                    subcategory, 
+                    suburb, 
+                    location, 
+                    latitude, 
+                    longitude, 
+                    keywords, 
+                    page_no);
 
                 switch (media_type)
                 {
@@ -45,7 +53,7 @@ this.lblMessage.Visible = false;
                         this.rptVideos.DataSource = list;
                         this.rptVideos.DataBind();
                         break;
-                    default :
+                    default:
                         break;
                 }
 
@@ -54,7 +62,8 @@ this.lblMessage.Visible = false;
             catch (InvalidNarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode 
+                    + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
             }
         }
     }

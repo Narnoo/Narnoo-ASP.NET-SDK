@@ -1,19 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
-    CodeBehind="searchMedia.aspx.cs" Inherits="Narnoo.Example.demos.distributor_media.searchMedia" %>
+    CodeBehind="searchMedia.aspx.cs" Inherits="Narnoo.Example.demos.distributor_operator_media.searchMedia" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Distributor's search their media</h2>
+        Distributor's search their Operator's media</h2>
     <p>
-        Distributors use this function to search their media. *min 1 criteria needed</p>
+        Distributors use this function to search their Operator's media. *min 1 criteria
+        needed</p>
     <pre class="code" lang="csharp">
 try
 {
     var request = new DistributorMediaNarnooRequest();
     request.SetAuth(this.appkey, this.secretkey);
-    var list = request.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords,page_no);
+    var list = request.SearchMedia(media_type, 
+        category, 
+        subcategory, 
+        suburb, 
+        location, 
+        latitude, 
+        longitude, 
+        keywords, 
+        page_no);
 
     switch (media_type)
     {
@@ -29,7 +38,7 @@ try
             this.rptVideos.DataSource = list;
             this.rptVideos.DataBind();
             break;
-        default :
+        default:
             break;
     }
 
@@ -38,9 +47,10 @@ try
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode 
+        + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
 }
-    </pre>
+	</pre>
     <div id="demo-frame">
         <label for="media_type">
             media_type</label>
@@ -165,7 +175,5 @@ catch (InvalidNarnooRequestException ex)
             <FooterTemplate>
                 </ul></FooterTemplate>
         </asp:Repeater>
-     
-        <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
-    </div>
+        <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label></div>
 </asp:Content>
