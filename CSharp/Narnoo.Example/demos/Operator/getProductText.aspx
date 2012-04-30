@@ -1,19 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
-    CodeBehind="getAlbums.aspx.cs" Inherits="Narnoo.Example.demos.distributor_operator_media.getAlbums" %>
+    CodeBehind="getProductText.aspx.cs" Inherits="Narnoo.Example.demos.Operator.getProductText" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Distributor's get album names</h2>
+        Get Operator's Text Titles - getProductText</h2>
     <p>
-        Distributors use this function to retrieve Operator's album names</p>
+        Operators' use the Get Prodcut Text function to retrieve their own Text description
+        titles.</p>
     <pre class="code" lang="csharp">
 try
 {
-    var request = new DistributorOperatorMediaNarnooRequest();
+    var request = new OperatorNarnooRequest();
     request.SetAuth(this.appkey, this.secretkey);
-    var list = request.GetAlbums(operator_id);
+    var list = request.GetProductText();
 
     this.rptList.DataSource = list;
     this.rptList.DataBind();
@@ -25,22 +26,16 @@ catch (InvalidNarnooRequestException ex)
     this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode
         + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
 }
-	
+    
 	</pre>
     <div id="demo-frame">
-        <label for="operator_id">
-            Operator id</label>
-        <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
-        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
             </HeaderTemplate>
             <ItemTemplate>
-                <li>album_id:
-                    <%# Eval("album_id")%>
-                    album_name:
-                    <%# Eval("album_name")%></li>
+                <dl>
+                    <dt>product_id</dt><dd><%# Eval("product_id")%></dd><dt>product_title</dt><dd><%# Eval("product_title")%></dd></dl>
             </ItemTemplate>
             <FooterTemplate>
                 </ul>

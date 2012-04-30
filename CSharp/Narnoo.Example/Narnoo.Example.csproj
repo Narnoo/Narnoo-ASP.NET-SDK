@@ -82,6 +82,18 @@
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
+    <Content Include="demos\Operator\downloadBrochure.aspx" />
+    <Content Include="demos\Operator\downloadImage.aspx" />
+    <Content Include="demos\Operator\downloadVideo.aspx" />
+    <Content Include="demos\Operator\getAlbumImages.aspx" />
+    <Content Include="demos\Operator\getAlbums.aspx" />
+    <Content Include="demos\Operator\getBrochures.aspx" />
+    <Content Include="demos\Operator\getImages.aspx" />
+    <Content Include="demos\Operator\getProductText.aspx" />
+    <Content Include="demos\Operator\getProductTextWords.aspx" />
+    <Content Include="demos\Operator\getSingleBrochure.aspx" />
+    <Content Include="demos\Operator\getVideoDetails.aspx" />
+    <Content Include="demos\Operator\getVideos.aspx" />
     <Content Include="icons\icon-128.png" />
     <Content Include="icons\icon-16.png" />
     <Content Include="icons\icon-24.png" />
@@ -109,6 +121,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demos\OperatorPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="demos\Demo.Master.cs">
       <DependentUpon>Demo.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -336,11 +351,93 @@
     <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
       <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="demos\Operator\downloadBrochure.aspx.cs">
+      <DependentUpon>downloadBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\downloadBrochure.aspx.designer.cs">
+      <DependentUpon>downloadBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\downloadImage.aspx.cs">
+      <DependentUpon>downloadImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\downloadImage.aspx.designer.cs">
+      <DependentUpon>downloadImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\downloadVideo.aspx.cs">
+      <DependentUpon>downloadVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\downloadVideo.aspx.designer.cs">
+      <DependentUpon>downloadVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getAlbumImages.aspx.cs">
+      <DependentUpon>getAlbumImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getAlbumImages.aspx.designer.cs">
+      <DependentUpon>getAlbumImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getAlbums.aspx.cs">
+      <DependentUpon>getAlbums.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getAlbums.aspx.designer.cs">
+      <DependentUpon>getAlbums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getBrochures.aspx.cs">
+      <DependentUpon>getBrochures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getBrochures.aspx.designer.cs">
+      <DependentUpon>getBrochures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getImages.aspx.cs">
+      <DependentUpon>getImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getImages.aspx.designer.cs">
+      <DependentUpon>getImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getProductText.aspx.cs">
+      <DependentUpon>getProductText.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getProductText.aspx.designer.cs">
+      <DependentUpon>getProductText.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getProductTextWords.aspx.cs">
+      <DependentUpon>getProductTextWords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getProductTextWords.aspx.designer.cs">
+      <DependentUpon>getProductTextWords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getSingleBrochure.aspx.cs">
+      <DependentUpon>getSingleBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getSingleBrochure.aspx.designer.cs">
+      <DependentUpon>getSingleBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getVideoDetails.aspx.cs">
+      <DependentUpon>getVideoDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getVideoDetails.aspx.designer.cs">
+      <DependentUpon>getVideoDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getVideos.aspx.cs">
+      <DependentUpon>getVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getVideos.aspx.designer.cs">
+      <DependentUpon>getVideos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="demos\operator\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

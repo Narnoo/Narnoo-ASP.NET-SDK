@@ -8,7 +8,7 @@ namespace Narnoo
     {
 
         private string interaction_url = "devapi.narnoo.com/xml.php";
-        private string remote_url = "devapi.narnoo.com/dist_xml.php"; 
+       // private string remote_url = "devapi.narnoo.com/dist_xml.php"; 
         public bool AddOperator(string operatorId)
         {
             var content = this.GetResponse(this.interaction_url, "addOperator", new RequestParameter("operator_id", operatorId));

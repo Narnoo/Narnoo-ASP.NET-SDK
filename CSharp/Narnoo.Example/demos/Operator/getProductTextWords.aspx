@@ -1,23 +1,44 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
-    CodeBehind="getProductTextWords.aspx.cs" Inherits="Narnoo.Example.demos.distributor_operator_media.getProductTextWords" %>
+    CodeBehind="getProductTextWords.aspx.cs" Inherits="Narnoo.Example.demos.Operator.getProductTextWords" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Distributor's get product text words</h2>
+        Get Operator's Text - getProductTextWords</h2>
     <p>
-        Distributors use this function to retrieve Operator's product information text (50/100/150)</p>
+        Operators' use the Get Product Text Words function to retrieve their own product
+        descriptions.</p>
     <pre class="code" lang="csharp">
-	$request = new DistributorOperatorMediaNarnooRequest ();
-	$request->setAuth ( app_key, secret_key );
-	$message = $request->getProductTextWords ( $operator_id, $product_title );
-    
+try
+{
+    var request = new OperatorNarnooRequest();
+    request.SetAuth(this.appkey, this.secretkey);
+    var item = request.GetProductTextWords(product_title);
+
+    if (item == null)
+    {
+        this.lblMessage.Visible = true;
+        this.lblMessage.Text = "ProductTextWords cannot found";
+    }
+    else
+    {
+        this.detail.Visible = true;
+        this.lblProduct_title.Text = item.product_title;
+        this.lblWord_50.Text = item.text.word_50;
+        this.lblWord_100.Text = item.text.word_100;
+        this.lblWord_150.Text = item.text.word_150;
+    }
+
+}
+catch (InvalidNarnooRequestException ex)
+{
+    this.lblMessage.Visible = true;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode
+        + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+}
 	</pre>
     <div id="demo-frame">
-        <label for="operator_id">
-            Operator id</label>
-        <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
         <label for="product_title">
             product_title</label>
         <asp:TextBox ID="txtProduct_title" runat="server" Text="Narnoo Platform"></asp:TextBox>
