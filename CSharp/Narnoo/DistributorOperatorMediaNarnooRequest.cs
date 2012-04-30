@@ -120,5 +120,24 @@ namespace Narnoo
                 yield return i.brochure;
             }
         }
+
+        public IEnumerable<Image> GetImages(string operator_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getImages", new RequestParameter("operator_id", operator_id));
+
+            var list = this.Deserialize<OperatorImagesResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorImagesResponse();
+            }
+
+
+            foreach (var i in list.operator_images)
+            {
+                yield return i.image;
+            }
+        }
     }
 }
