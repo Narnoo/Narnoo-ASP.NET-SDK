@@ -43,6 +43,7 @@
     <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
     <Compile Include="AlbumImageResponse.cs" />
+    <Compile Include="OperatorBrochuresResponse.cs" />
     <Compile Include="DistributorAlbumImagesResponse.cs" />
     <Compile Include="AlbumResponse.cs" />
     <Compile Include="Brochure.cs" />

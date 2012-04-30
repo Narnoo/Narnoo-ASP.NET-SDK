@@ -101,5 +101,24 @@ namespace Narnoo
                 yield return i.album;
             }
         }
+
+        public IEnumerable<Brochure> GetBrochures(string operator_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getBrochures", new RequestParameter("operator_id", operator_id));
+
+            var list = this.Deserialize<OperatorBrochuresResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorBrochuresResponse();
+            }
+
+
+            foreach (var i in list.operator_brochures)
+            {
+                yield return i.brochure;
+            }
+        }
     }
 }
