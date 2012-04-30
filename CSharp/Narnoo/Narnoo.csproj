@@ -73,6 +73,12 @@
     <Compile Include="ImageResponse.cs" />
     <Compile Include="OperatorAlbumImagesResponse.cs" />
     <Compile Include="OperatorAlbumsResponse.cs" />
+    <Compile Include="OperatorProductsResponse.cs" />
+    <Compile Include="OperatorProductTextWordsListResponse.cs" />
+    <Compile Include="OperatorProductTextWordsResponse.cs" />
+    <Compile Include="OperatorProudctResponse.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductTextWords.cs" />
     <Compile Include="SearchMedia.cs" />
     <Compile Include="SearchMediaBrochure.cs" />
     <Compile Include="SearchMediaImage.cs" />

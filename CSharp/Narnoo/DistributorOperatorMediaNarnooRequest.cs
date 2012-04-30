@@ -139,5 +139,42 @@ namespace Narnoo
                 yield return i.image;
             }
         }
+
+        public IEnumerable<Product> GetProductText(string operator_id)
+        {
+            var content = this.GetResponse(this.remote_url, "getProductText", new RequestParameter("operator_id", operator_id));
+
+            var list = this.Deserialize<OperatorProductsResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorProductsResponse();
+            }
+
+
+            foreach (var i in list.operator_products)
+            {
+                yield return i.operator_product;
+            }
+        }
+
+        public ProductTextWords GetProductTextWords(string operator_id,string product_title)
+        {
+            var content = this.GetResponse(this.remote_url, "getProductTextWords", new RequestParameter("operator_id", operator_id),new RequestParameter("product_title",product_title));
+
+            var list = this.Deserialize<OperatorProductTextWordsListResponse>(content);
+
+
+            if (list != null && list.operator_products.Count > 0)
+            {
+                return list.operator_products[0].product_description;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
     }
 }

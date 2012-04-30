@@ -71,6 +71,8 @@
     <Content Include="demos\distributor-operator-media\getAlbums.aspx" />
     <Content Include="demos\distributor-operator-media\getBrochures.aspx" />
     <Content Include="demos\distributor-operator-media\getImages.aspx" />
+    <Content Include="demos\distributor-operator-media\getProductText.aspx" />
+    <Content Include="demos\distributor-operator-media\getProductTextWords.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -245,9 +247,24 @@
     </Compile>
     <Compile Include="demos\distributor-operator-media\getImages.aspx.cs">
       <DependentUpon>getImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="demos\distributor-operator-media\getImages.aspx.designer.cs">
       <DependentUpon>getImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getProductText.aspx.cs">
+      <DependentUpon>getProductText.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getProductText.aspx.designer.cs">
+      <DependentUpon>getProductText.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getProductTextWords.aspx.cs">
+      <DependentUpon>getProductTextWords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getProductTextWords.aspx.designer.cs">
+      <DependentUpon>getProductTextWords.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
