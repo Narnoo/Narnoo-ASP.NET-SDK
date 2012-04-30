@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class AlbumImagesResponse
+    public class DistributorAlbumImagesResponse
     {
-        public AlbumImagesResponse()
+        public DistributorAlbumImagesResponse()
         {
             this.distributor_albums_images = new List<AlbumImageResponse>();
         }

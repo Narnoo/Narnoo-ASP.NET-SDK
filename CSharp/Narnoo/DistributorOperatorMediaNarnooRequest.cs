@@ -63,5 +63,24 @@ namespace Narnoo
             }
         }
 
+
+        public IEnumerable<AlbumImage> GetAlbumImages(string operator_id, string album_name)
+        {
+            var content = this.GetResponse(this.remote_url, "getAlbumImages", new RequestParameter("operator_id",operator_id), new RequestParameter("album__name", album_name));
+
+            var list = this.Deserialize<OperatorAlbumImagesResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new OperatorAlbumImagesResponse();
+            }
+
+
+            foreach (var i in list.operator_albums_images)
+            {
+                yield return i.album_image;
+            }
+        }
     }
 }

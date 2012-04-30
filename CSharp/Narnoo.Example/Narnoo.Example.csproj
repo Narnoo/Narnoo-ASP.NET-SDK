@@ -67,6 +67,7 @@
     <Content Include="demos\distributor-operator-media\downloadBrochure.aspx" />
     <Content Include="demos\distributor-operator-media\downloadImage.aspx" />
     <Content Include="demos\distributor-operator-media\downloadVideo.aspx" />
+    <Content Include="demos\distributor-operator-media\getAlbumImages.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="demos\distributor-operator-media\downloadVideo.aspx.designer.cs">
       <DependentUpon>downloadVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getAlbumImages.aspx.cs">
+      <DependentUpon>getAlbumImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-operator-media\getAlbumImages.aspx.designer.cs">
+      <DependentUpon>getAlbumImages.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

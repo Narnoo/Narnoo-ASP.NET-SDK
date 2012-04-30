@@ -68,12 +68,12 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.remote_url, "getAlbumImages", new RequestParameter("album__name",album_name));
 
-            var list = this.Deserialize<AlbumImagesResponse>(content);
+            var list = this.Deserialize<DistributorAlbumImagesResponse>(content);
 
 
             if (list == null)
             {
-                list = new AlbumImagesResponse();
+                list = new DistributorAlbumImagesResponse();
             }
 
 

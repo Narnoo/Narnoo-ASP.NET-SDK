@@ -43,7 +43,7 @@
     <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
     <Compile Include="AlbumImageResponse.cs" />
-    <Compile Include="AlbumImagesResponse.cs" />
+    <Compile Include="DistributorAlbumImagesResponse.cs" />
     <Compile Include="AlbumResponse.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="BrochureResponse.cs" />
@@ -69,6 +69,7 @@
     <Compile Include="DownloadImagesResponse.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageResponse.cs" />
+    <Compile Include="OperatorAlbumImagesResponse.cs" />
     <Compile Include="SearchMedia.cs" />
     <Compile Include="SearchMediaBrochure.cs" />
     <Compile Include="SearchMediaImage.cs" />
