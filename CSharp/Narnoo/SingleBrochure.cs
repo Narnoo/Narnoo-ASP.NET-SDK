@@ -9,7 +9,7 @@ namespace Narnoo
         public SingleBrochure()
         {
             this.standard_pages = new standard_pages();
-            this.zoom_page = new zoom_page();
+            this.zoom_page = new zoom_pages();
         }
         public string brochure_id { get; set; }
         public string entry_date { get; set; }
@@ -33,7 +33,7 @@ namespace Narnoo
         public string validity_date { get; set; }
         public string brochure_caption { get; set; }
         public standard_pages standard_pages { get; set; }
-        public zoom_page zoom_page { get; set; }
+        public zoom_pages zoom_page { get; set; }
 
 
     }
@@ -73,7 +73,7 @@ namespace Narnoo
         }
     }
 
-    public class zoom_page
+    public class zoom_pages
     {
         public string zoom_0
         {

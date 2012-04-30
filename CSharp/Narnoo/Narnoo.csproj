@@ -69,6 +69,12 @@
     <Compile Include="DownloadImagesResponse.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageResponse.cs" />
+    <Compile Include="SearchMedia.cs" />
+    <Compile Include="SearchMediaBrochure.cs" />
+    <Compile Include="SearchMediaImage.cs" />
+    <Compile Include="SearchMediaListResponse.cs" />
+    <Compile Include="SearchMediaResponse.cs" />
+    <Compile Include="SearchMediaVideo.cs" />
     <Compile Include="SingleBrochure.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="DistributorMediaNarnooRequest.cs" />

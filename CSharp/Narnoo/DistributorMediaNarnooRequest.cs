@@ -237,5 +237,49 @@ namespace Narnoo
                 yield return i.distributor_video;
             }
         }
+
+        public IEnumerable<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
+        {
+            var content = this.GetResponse(this.interaction_url, "searchMedia",
+                new RequestParameter("media_type",media_type),
+                new RequestParameter("category",category),
+                new RequestParameter("subcategory",subcategory),
+                new RequestParameter("suburb",suburb),
+                new RequestParameter("location",location),
+                new RequestParameter("latitude",latitude),
+                new RequestParameter("longitude",longitude),
+                new RequestParameter("keywords",keywords),
+                new RequestParameter("page_no",page_no.ToString()));
+
+            var list = this.Deserialize<SearchMediaListResponse>(content);
+
+
+            if (list == null)
+            {
+                list = new SearchMediaListResponse();
+            }
+
+
+            foreach (var i in list.search_media)
+            {
+                switch (media_type)
+                {
+                    case "image":
+                        yield return i.search_media_image;
+                        break;
+                    case "brochure":
+                        yield return i.search_media_brochure;
+                        break;
+                    case "video":
+                        yield return i.search_media_video;
+                        break;
+
+                    default:
+                        yield return null;
+                        break;
+                }
+            }
+
+        }
     }
 }
