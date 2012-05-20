@@ -18,6 +18,65 @@ namespace Narnoo
         string response_type = "json";
         bool requiredSSL = false;
 
+        bool _sandbox = true;
+        public bool sandbox
+        {
+            get
+            {
+                return this._sandbox;
+            }
+            set
+            {
+                this._sandbox = value;
+            }
+        }
+
+        string api_dist_xml = "devapi.narnoo.com/dist_xml.php";
+        string api_live_dist_xml = "api.narnoo.com/dist_xml.php";
+
+        string api_xml = "devapi.narnoo.com/xml.php";
+        string api_live_xml = "api.narnoo.com/xml.php";
+
+        string api_op_xml = "devapi.narnoo.com/op_xml.php";
+        string api_live_op_xml = "api.narnoo.com/op_xml.php";
+
+
+        protected string getDistXmlApi()
+        {
+            if (this.sandbox == true)
+            {
+                return this.api_dist_xml;
+            }
+            else
+            {
+                return this.api_live_dist_xml;
+            }
+        }
+
+        protected string getXmlApi()
+        {
+            if (this.sandbox == true)
+            {
+                return this.api_xml;
+            }
+            else
+            {
+                return this.api_live_xml;
+            }
+        }
+
+        protected string getOpXmlApi()
+        {
+            if (this.sandbox == true)
+            {
+                return this.api_op_xml;
+            }
+            else
+            {
+                return this.api_live_op_xml;
+            }
+        }
+
 
 
         protected T Deserialize<T>(string json)
@@ -38,9 +97,9 @@ namespace Narnoo
 
             var data = new List<string>();
             data.Add("app_key=" + this.appkey);
-            data.Add("secret_key="+this.secretkey);
-            data.Add("response_type="+this.response_type);
-            data.Add("action="+method);
+            data.Add("secret_key=" + this.secretkey);
+            data.Add("response_type=" + this.response_type);
+            data.Add("action=" + method);
 
 
             Encoding encoding = Encoding.Default;
@@ -78,11 +137,11 @@ namespace Narnoo
                 if (response_type == "json")
                 {
                     // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
-                    if (content.StartsWith("{\"Error\":"))
+                    if (content.StartsWith("{\"error\":",StringComparison.InvariantCultureIgnoreCase))
                     {
                         var error = this.Deserialize<NarnooErrorResponse>(content);
 
-                        throw new InvalidNarnooRequestException(error.Error.ErrorCode,error.Error.ErrorMessage);
+                        throw new InvalidNarnooRequestException(error.error.errorCode, error.error.errorMessage);
 
                     }
                 }

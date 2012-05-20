@@ -6,13 +6,13 @@ namespace Narnoo
 {
     public class NarnooError
     {
-        public string ErrorCode
+        public string errorCode
         {
             get;
             set;
         }
 
-        public string ErrorMessage
+        public string errorMessage
         {
             get;
             set;

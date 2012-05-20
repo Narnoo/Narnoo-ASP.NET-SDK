@@ -37,6 +37,7 @@ namespace Narnoo.Example.demos.distributor_operator_media
                     this.txtEntry_date.Text = item.entry_date;
                     this.txtPage_order_xml_config.Text = item.page_order_xml_config;
                     this.txtPreview_image_path.Text = item.preview_image_path;
+                    this.lblFormat.Text = item.format;
                     this.txtStandard_pages_page_0.Text = item.standard_pages.page_0;
                     this.txtStandard_pages_page_1.Text = item.standard_pages.page_1;
                     this.txtStandard_pages_page_2.Text = item.standard_pages.page_2;
@@ -60,8 +61,8 @@ namespace Narnoo.Example.demos.distributor_operator_media
             catch (InvalidNarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode
-                    + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode
+                    + "</br> ErrorMessage:" + ex.Error.errorMessage;
             }
         }
     }

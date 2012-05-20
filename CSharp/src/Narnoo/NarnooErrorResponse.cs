@@ -6,7 +6,7 @@ namespace Narnoo
 {
     public class NarnooErrorResponse
     {
-        public NarnooError Error
+        public NarnooError error
         {
             get;
             set;

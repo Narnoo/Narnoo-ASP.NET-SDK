@@ -44,6 +44,8 @@
     <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
     <Compile Include="AlbumImageResponse.cs" />
+    <Compile Include="NarnooSuccess.cs" />
+    <Compile Include="NarnooSuccessResponse.cs" />
     <Compile Include="OperatorSingleBrochureResponse.cs" />
     <Compile Include="OperatorSingleBrochuresResponse.cs" />
     <Compile Include="OperatorImagesResponse.cs" />

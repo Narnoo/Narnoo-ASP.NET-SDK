@@ -51,8 +51,8 @@ try
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode
-        + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode
+        + "</br> ErrorMessage:" + ex.Error.errorMessage;
 }
 	</pre>
     <div id="demo-frame">
@@ -78,6 +78,8 @@ catch (InvalidNarnooRequestException ex)
                 <asp:Label ID="txtvalidity_date" runat="server"></asp:Label></li>
             <li>brochure_caption :
                 <asp:Label ID="txtbrochure_caption" runat="server"></asp:Label></li>
+            <li>format :
+                <asp:Label ID="lblFormat" runat="server"></asp:Label></li>
             <li>standard_pages :
                 <ul>
                     <li>page_0:

@@ -16,6 +16,7 @@ namespace Narnoo.Example.demos.distributor_operator_media
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var media_type = this.ddlMedia_Type.SelectedValue;
+         //   var media_id = this.txtm
             var category = this.txtCategory.Text;
             var subcategory = this.txtSubcategory.Text;
             var suburb = this.txtsuburb.Text;
@@ -29,6 +30,7 @@ namespace Narnoo.Example.demos.distributor_operator_media
             {
                 var request = new DistributorMediaNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
+
                 var list = request.SearchMedia(media_type, 
                     category, 
                     subcategory, 
@@ -62,8 +64,8 @@ namespace Narnoo.Example.demos.distributor_operator_media
             catch (InvalidNarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode 
-                    + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode 
+                    + "</br> ErrorMessage:" + ex.Error.errorMessage;
             }
         }
     }

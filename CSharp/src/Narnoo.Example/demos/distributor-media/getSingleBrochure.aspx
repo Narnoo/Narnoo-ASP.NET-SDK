@@ -24,7 +24,7 @@
     catch (InvalidNarnooRequestException ex)
     {
         this.lblMessage.Visible = true;
-        this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+        this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
     }
     
 	</pre>
@@ -46,6 +46,7 @@
                 <dt>file_path_to_pdf</dt><dd>' . uncdata ( $brochure->file_path_to_pdf )")%></dd>
                 <dt>validity_date</dt><dd><%# Eval("validity_date")%></dd>
                 <dt>brochure_caption</dt><dd><%# Eval("brochure_caption")%></dd>
+                <dt>format</dt><dd><%# Eval("format") %></dd>
                 <dt>standard_pages</dt><dd>
                     <ul>
                         <li>page_0:

@@ -30,6 +30,7 @@ namespace Narnoo
             }
         }
 
+        public string format { get; set; }
         public string validity_date { get; set; }
         public string brochure_caption { get; set; }
         public standard_pages standard_pages { get; set; }

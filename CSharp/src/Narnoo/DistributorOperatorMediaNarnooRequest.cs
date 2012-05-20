@@ -7,12 +7,11 @@ namespace Narnoo
     public class DistributorOperatorMediaNarnooRequest : NarnooRequest
     {
 
-        string remote_url = "devapi.narnoo.com/xml.php"; // Distributor -> Operator
         public DownloadBrochure DownloadBrochure(string operator_id, string brochure_id)
         {
-            var content = this.GetResponse(this.remote_url, "downloadBrochure",
+            var content = this.GetResponse(this.getXmlApi(), "downloadBrochure",
                 new RequestParameter("operator_id", operator_id),
-                new RequestParameter("brochure__id", brochure_id));
+                new RequestParameter("brochure_id", brochure_id));
 
 
             var list = this.Deserialize<DownloadBrochuresResponse>(content);
@@ -29,7 +28,7 @@ namespace Narnoo
 
         public DownloadImage DownloadImage(string operator_id, string image_id)
         {
-            var content = this.GetResponse(this.remote_url, "downloadImage", new RequestParameter("operator_id", operator_id), new RequestParameter("media_id", image_id));
+            var content = this.GetResponse(this.getXmlApi(), "downloadImage", new RequestParameter("operator_id", operator_id), new RequestParameter("media_id", image_id));
 
 
             var list = this.Deserialize<DownloadImagesResponse>(content);
@@ -46,9 +45,9 @@ namespace Narnoo
 
         public DownloadVideo DownloadVideo(string operator_id, string vedio_id)
         {
-            var content = this.GetResponse(this.remote_url, "downloadVideo",
+            var content = this.GetResponse(this.getXmlApi(), "downloadVideo",
                new RequestParameter("operator_id", operator_id),
-               new RequestParameter("video__id", vedio_id));
+               new RequestParameter("video_id", vedio_id));
 
 
             var list = this.Deserialize<DownloadVideosResponse>(content);
@@ -66,7 +65,7 @@ namespace Narnoo
 
         public IEnumerable<AlbumImage> GetAlbumImages(string operator_id, string album_name)
         {
-            var content = this.GetResponse(this.remote_url, "getAlbumImages", new RequestParameter("operator_id", operator_id), new RequestParameter("album__name", album_name));
+            var content = this.GetResponse(this.getXmlApi(), "getAlbumImages", new RequestParameter("operator_id", operator_id), new RequestParameter("album", album_name));
 
             var list = this.Deserialize<OperatorAlbumImagesResponse>(content);
 
@@ -85,7 +84,7 @@ namespace Narnoo
 
         public IEnumerable<Album> GetAlbums(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getAlbums", new RequestParameter("operator_id", operator_id));
+            var content = this.GetResponse(this.getXmlApi(), "getAlbums", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorAlbumsResponse>(content);
 
@@ -104,7 +103,7 @@ namespace Narnoo
 
         public IEnumerable<Brochure> GetBrochures(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getBrochures", new RequestParameter("operator_id", operator_id));
+            var content = this.GetResponse(this.getXmlApi(), "getBrochures", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorBrochuresResponse>(content);
 
@@ -123,7 +122,7 @@ namespace Narnoo
 
         public IEnumerable<Image> GetImages(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getImages", new RequestParameter("operator_id", operator_id));
+            var content = this.GetResponse(this.getXmlApi(), "getImages", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorImagesResponse>(content);
 
@@ -142,7 +141,7 @@ namespace Narnoo
 
         public IEnumerable<Product> GetProductText(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getProductText", new RequestParameter("operator_id", operator_id));
+            var content = this.GetResponse(this.getXmlApi(), "getProductText", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorProductsResponse>(content);
 
@@ -161,7 +160,7 @@ namespace Narnoo
 
         public ProductTextWords GetProductTextWords(string operator_id, string product_title)
         {
-            var content = this.GetResponse(this.remote_url, "getProductTextWords", new RequestParameter("operator_id", operator_id), new RequestParameter("product_title", product_title));
+            var content = this.GetResponse(this.getXmlApi(), "getProductTextWords", new RequestParameter("operator_id", operator_id), new RequestParameter("product_title", product_title));
 
             var list = this.Deserialize<OperatorProductTextWordsListResponse>(content);
 
@@ -179,7 +178,7 @@ namespace Narnoo
 
         public SingleBrochure GetSingleBrochure(string operator_id, string brochure_id)
         {
-            var content = this.GetResponse(this.remote_url, "getSingleBrochure", new RequestParameter("operator_id", operator_id),new RequestParameter("brochure__id", brochure_id));
+            var content = this.GetResponse(this.getXmlApi(), "getSingleBrochure", new RequestParameter("operator_id", operator_id),new RequestParameter("brochure_id", brochure_id));
 
             var list = this.Deserialize<OperatorSingleBrochuresResponse>(content);
 
@@ -198,7 +197,7 @@ namespace Narnoo
 
         public IEnumerable<Video> GetVideoDetails(string operator_id, string video_id)
         {
-            var content = this.GetResponse(this.remote_url, "getVideoDetails", new RequestParameter("operator_id", operator_id), new RequestParameter("video__id", video_id));
+            var content = this.GetResponse(this.getXmlApi(), "getVideoDetails", new RequestParameter("operator_id", operator_id), new RequestParameter("video_id", video_id));
 
             var list = this.Deserialize<OperatorVideoDetailsResponse>(content);
 
@@ -217,7 +216,7 @@ namespace Narnoo
 
         public IEnumerable<Video> GetVideos(string operator_id)
         {
-            var content = this.GetResponse(this.remote_url, "getVideos", new RequestParameter("operator_id", operator_id));
+            var content = this.GetResponse(this.getXmlApi(), "getVideos", new RequestParameter("operator_id", operator_id));
 
             var list = this.Deserialize<OperatorVideosResponse>(content);
 
@@ -236,7 +235,7 @@ namespace Narnoo
 
         public IEnumerable<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
         {
-            var content = this.GetResponse(this.remote_url, "searchMedia",
+            var content = this.GetResponse(this.getXmlApi(), "searchMedia",
                 new RequestParameter("media_type", media_type),
                 new RequestParameter("category", category),
                 new RequestParameter("subcategory", subcategory),

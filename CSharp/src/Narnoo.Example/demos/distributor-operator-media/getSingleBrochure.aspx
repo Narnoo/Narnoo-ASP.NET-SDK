@@ -26,6 +26,7 @@ try
         this.txtBrochureId.Text = item.brochure_id;
         this.txtbrochure_caption.Text = item.brochure_caption;
         this.txtEntry_date.Text = item.entry_date;
+        this.lblFormat.Text = item.format;
         this.txtPage_order_xml_config.Text = item.page_order_xml_config;
         this.txtPreview_image_path.Text = item.preview_image_path;
         this.txtStandard_pages_page_0.Text = item.standard_pages.page_0;
@@ -51,8 +52,8 @@ try
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode 
-        + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode 
+        + "</br> ErrorMessage:" + ex.Error.errorMessage;
 }
     
 	</pre>
@@ -80,6 +81,8 @@ catch (InvalidNarnooRequestException ex)
                 <asp:Label ID="txtvalidity_date" runat="server"></asp:Label></li>
             <li>brochure_caption :
                 <asp:Label ID="txtbrochure_caption" runat="server"></asp:Label></li>
+            <li>format :
+                <asp:Label ID="lblFormat" runat="server"></asp:Label></li>
             <li>standard_pages :
                 <ul>
                     <li>page_0:

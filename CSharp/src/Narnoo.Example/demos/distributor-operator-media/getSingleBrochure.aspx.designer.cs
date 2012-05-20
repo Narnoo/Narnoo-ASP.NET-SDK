@@ -121,6 +121,15 @@ namespace Narnoo.Example.demos.distributor_operator_media {
         protected global::System.Web.UI.WebControls.Label txtbrochure_caption;
         
         /// <summary>
+        /// lblFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormat;
+        
+        /// <summary>
         /// txtStandard_pages_page_0 control.
         /// </summary>
         /// <remarks>

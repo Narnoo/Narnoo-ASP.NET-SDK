@@ -30,8 +30,8 @@ namespace Narnoo.Example.demos.distributor_operator_media
             catch (InvalidNarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode
-                    + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode
+                    + "</br> ErrorMessage:" + ex.Error.errorMessage;
             }
         }
     }

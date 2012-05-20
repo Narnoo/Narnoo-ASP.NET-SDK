@@ -15,6 +15,8 @@ namespace Narnoo.Example.demos.distributor
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            this.lblMessage.Visible = true;
+
             string operatorId = this.txtOperatorId.Text;
 
             try
@@ -23,6 +25,8 @@ namespace Narnoo.Example.demos.distributor
                 var request = new DistributorNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
                 var result = request.DeleteOperator(operatorId);
+
+                     
                 if (result)
                 {
                     this.lblMessage.Text = "Success";
@@ -34,7 +38,7 @@ namespace Narnoo.Example.demos.distributor
             }
             catch (InvalidNarnooRequestException ex)
             {
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
             }
         }
     }

@@ -12,20 +12,20 @@ namespace Narnoo
         {
             this.Error = new NarnooError
             {
-                ErrorCode = errorCode,
-                ErrorMessage = errorMessage
+                errorCode = errorCode,
+                errorMessage = errorMessage
             };
         }
         public InvalidNarnooRequestException(string message) : base(message) {
             this.Error = new NarnooError
             {
-                ErrorMessage = message
+                errorMessage = message
             };
         }
         public InvalidNarnooRequestException(string message, Exception inner) : base(message, inner) {
             this.Error = new NarnooError
             {
-                ErrorMessage = message
+                errorMessage = message
             };
         }
         protected InvalidNarnooRequestException(

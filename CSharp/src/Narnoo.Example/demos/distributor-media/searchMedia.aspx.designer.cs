@@ -22,6 +22,15 @@ namespace Narnoo.Example.demos.distributor_media {
         protected global::System.Web.UI.WebControls.DropDownList ddlMedia_Type;
         
         /// <summary>
+        /// txtMediaId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMediaId;
+        
+        /// <summary>
         /// txtCategory control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,24 @@ namespace Narnoo.Example.demos.distributor_media {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtlongitude;
+        
+        /// <summary>
+        /// txtradius control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtradius;
+        
+        /// <summary>
+        /// rblprivilege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblprivilege;
         
         /// <summary>
         /// txtkeywords control.

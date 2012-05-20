@@ -2,6 +2,21 @@
     CodeBehind="searchMedia.aspx.cs" Inherits="Narnoo.Example.demos.distributor_media.searchMedia" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $('input[data-item=media_id]').blur(function () {
+                var id = $.trim($(this).val());
+                if (id == '') {
+                    $('input[type=text]').not($(this)).removeAttr('disabled');
+                    $('input[type=radio]').removeAttr('disabled');
+                } else {
+                    $('input[type=text]').not($(this)).attr('disabled', true).val('');
+                    $('input[type=radio]').attr('disabled', true).removeAttr('checked');
+                }
+            });
+        });
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
@@ -9,11 +24,19 @@
     <p>
         Distributors use this function to search their media. *min 1 criteria needed</p>
     <pre class="code" lang="csharp">
-try
+ try
 {
     var request = new DistributorMediaNarnooRequest();
     request.SetAuth(this.appkey, this.secretkey);
-    var list = request.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords,page_no);
+    IEnumerable<SearchMedia> list = null;
+    if (string.IsNullOrEmpty(media_id))
+    {
+        list = request.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius, privilege, keywords, page_no);
+    }
+    else
+    {
+        list = request.SearchMedia(media_type, media_id);
+    }
 
     switch (media_type)
     {
@@ -29,7 +52,7 @@ try
             this.rptVideos.DataSource = list;
             this.rptVideos.DataBind();
             break;
-        default :
+        default:
             break;
     }
 
@@ -38,7 +61,8 @@ try
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = "ErrorCode:" + ex.Error.ErrorCode + "</br> ErrorMessage:" + ex.Error.ErrorMessage;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + 
+    "</br> ErrorMessage:" + ex.Error.errorMessage;
 }
     </pre>
     <div id="demo-frame">
@@ -49,6 +73,10 @@ catch (InvalidNarnooRequestException ex)
             <asp:ListItem Value="brochure" Text="brochure"></asp:ListItem>
             <asp:ListItem Value="video" Text="video"></asp:ListItem>
         </asp:DropDownList>
+        <br />
+        <label for="media_id">
+            media_id</label>
+        <asp:TextBox ID="txtMediaId" runat="server" ></asp:TextBox>
         <br />
         <label for="category">
             category</label>
@@ -74,6 +102,16 @@ catch (InvalidNarnooRequestException ex)
             longitude</label>
         <asp:TextBox ID="txtlongitude" runat="server"></asp:TextBox>
         <br />
+        <label for="radius">
+            radius</label>
+        <asp:TextBox ID="txtradius" runat="server"></asp:TextBox>
+        <br />
+        <label for="">
+            <asp:RadioButtonList ID="rblprivilege" runat="server">
+                <asp:ListItem Value="public">public</asp:ListItem>
+                <asp:ListItem Value="private">private</asp:ListItem>
+            </asp:RadioButtonList>
+        </label>
         <label for="keywords">
             keywords</label>
         <asp:TextBox ID="txtkeywords" runat="server" Text="Narnoo"></asp:TextBox>
@@ -165,7 +203,6 @@ catch (InvalidNarnooRequestException ex)
             <FooterTemplate>
                 </ul></FooterTemplate>
         </asp:Repeater>
-     
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>

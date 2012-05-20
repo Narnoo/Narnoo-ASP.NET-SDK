@@ -51,6 +51,9 @@
   <ItemGroup>
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
+    <Content Include="demos\distributor-media\deleteBrochure.aspx" />
+    <Content Include="demos\distributor-media\deleteImage.aspx" />
+    <Content Include="demos\distributor-media\deleteVideo.aspx" />
     <Content Include="demos\distributor-media\downloadBrochure.aspx" />
     <Content Include="demos\distributor-media\downloadImage.aspx" />
     <Content Include="demos\distributor-media\downloadVideo.aspx" />
@@ -82,6 +85,9 @@
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
+    <Content Include="demos\Operator\deleteBrochure.aspx" />
+    <Content Include="demos\Operator\deleteImage.aspx" />
+    <Content Include="demos\Operator\deleteVideo.aspx" />
     <Content Include="demos\Operator\downloadBrochure.aspx" />
     <Content Include="demos\Operator\downloadImage.aspx" />
     <Content Include="demos\Operator\downloadVideo.aspx" />
@@ -121,6 +127,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demos\distributor-media\deleteBrochure.aspx.cs">
+      <DependentUpon>deleteBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\deleteBrochure.aspx.designer.cs">
+      <DependentUpon>deleteBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\deleteImage.aspx.cs">
+      <DependentUpon>deleteImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\deleteImage.aspx.designer.cs">
+      <DependentUpon>deleteImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\deleteVideo.aspx.cs">
+      <DependentUpon>deleteVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\deleteVideo.aspx.designer.cs">
+      <DependentUpon>deleteVideo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demos\OperatorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -350,6 +377,27 @@
     </Compile>
     <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
       <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\deleteBrochure.aspx.cs">
+      <DependentUpon>deleteBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\deleteBrochure.aspx.designer.cs">
+      <DependentUpon>deleteBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\deleteImage.aspx.cs">
+      <DependentUpon>deleteImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\deleteImage.aspx.designer.cs">
+      <DependentUpon>deleteImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\deleteVideo.aspx.cs">
+      <DependentUpon>deleteVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\deleteVideo.aspx.designer.cs">
+      <DependentUpon>deleteVideo.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\Operator\downloadBrochure.aspx.cs">
       <DependentUpon>downloadBrochure.aspx</DependentUpon>
