@@ -64,7 +64,7 @@ namespace Narnoo
 
         public IEnumerable<AlbumImage> GetAlbumImages(string album_name)
         {
-            var content = this.GetResponse(this.getDistXmlApi(), "getAlbumImages", new RequestParameter("album", album_name));
+            var content = this.GetResponse(this.getDistXmlApi(), "getAlbumImages", new RequestParameter("album_name", album_name));
 
             var list = this.Deserialize<DistributorAlbumImagesResponse>(content);
 
