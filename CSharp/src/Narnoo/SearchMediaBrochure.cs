@@ -36,7 +36,7 @@ namespace Narnoo
             }
         }
 
-        public standard_pages standard_pages
+        public List<string> standard_pages
         {
             get;
             set;

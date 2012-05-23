@@ -22,6 +22,7 @@ namespace Narnoo.Example.demos.distributor_operator_media
             {
                 var request = new DistributorOperatorMediaNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
+
                 var item = request.GetSingleBrochure(operator_id, brochure_id);
 
                 if (item == null)
@@ -36,25 +37,22 @@ namespace Narnoo.Example.demos.distributor_operator_media
                     this.txtbrochure_caption.Text = item.brochure_caption;
                     this.txtEntry_date.Text = item.entry_date;
                     this.txtPage_order_xml_config.Text = item.page_order_xml_config;
-                    this.txtPreview_image_path.Text = item.preview_image_path;
+                    this.txtPreview_image_path.Text = Utilities.DecodeCData(item.preview_image_path);
                     this.lblFormat.Text = item.format;
-                    this.txtStandard_pages_page_0.Text = item.standard_pages.page_0;
-                    this.txtStandard_pages_page_1.Text = item.standard_pages.page_1;
-                    this.txtStandard_pages_page_2.Text = item.standard_pages.page_2;
-                    this.txtStandard_pages_page_3.Text = item.standard_pages.page_3;
-                    this.txtStandard_pages_page_4.Text = item.standard_pages.page_4;
-                    this.txtStandard_pages_page_5.Text = item.standard_pages.page_5;
+          
 
                     this.txtThumb_image_path.Text = item.thumb_image_path;
                     this.txtvalidity_date.Text = item.validity_date;
-                    this.txtZoom_pages_zoom_0.Text = item.zoom_page.zoom_0;
-                    this.txtZoom_pages_zoom_1.Text = item.zoom_page.zoom_1;
-                    this.txtZoom_pages_zoom_2.Text = item.zoom_page.zoom_2;
-                    this.txtZoom_pages_zoom_3.Text = item.zoom_page.zoom_3;
-                    this.txtZoom_pages_zoom_4.Text = item.zoom_page.zoom_4;
-                    this.txtZoom_pages_zoom_5.Text = item.zoom_page.zoom_5;
 
+               
+                    if (item.pages.Count > 0)
+                    {
+                        rptStandardPages.DataSource = item.pages[0].standard_pages;
+                        rptStandardPages.DataBind();
 
+                        rptZoomPages.DataSource = item.pages[0].zoom_page;
+                        rptZoomPages.DataBind();
+                    }
                 }
 
             }

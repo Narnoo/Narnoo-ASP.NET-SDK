@@ -85,34 +85,24 @@ catch (InvalidNarnooRequestException ex)
                 <asp:Label ID="lblFormat" runat="server"></asp:Label></li>
             <li>standard_pages :
                 <ul>
-                    <li>page_0:
-                        <asp:Label ID="txtStandard_pages_page_0" runat="server"></asp:Label></li>
-                    <li>page_1:
-                        <asp:Label ID="txtStandard_pages_page_1" runat="server"></asp:Label></li>
-                    <li>page_2:
-                        <asp:Label ID="txtStandard_pages_page_2" runat="server"></asp:Label></li>
-                    <li>page_3:
-                        <asp:Label ID="txtStandard_pages_page_3" runat="server"></asp:Label></li>
-                    <li>page_4:
-                        <asp:Label ID="txtStandard_pages_page_4" runat="server"></asp:Label></li>
-                    <li>page_5:
-                        <asp:Label ID="txtStandard_pages_page_5" runat="server"></asp:Label></li>
+                    <asp:Repeater ID="rptStandardPages" runat="server">
+                        <ItemTemplate>
+                            <li>
+                                <%# Container.DataItem %>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </li>
             <li>zoom_page :
-                <ul>
-                    <li>zoom_0:
-                        <asp:Label ID="txtZoom_pages_zoom_0" runat="server"></asp:Label></li>
-                    <li>zoom_1:
-                        <asp:Label ID="txtZoom_pages_zoom_1" runat="server"></asp:Label></li>
-                    <li>zoom_2:
-                        <asp:Label ID="txtZoom_pages_zoom_2" runat="server"></asp:Label></li>
-                    <li>zoom_3:
-                        <asp:Label ID="txtZoom_pages_zoom_3" runat="server"></asp:Label></li>
-                    <li>zoom_4:
-                        <asp:Label ID="txtZoom_pages_zoom_4" runat="server"></asp:Label></li>
-                    <li>zoom_5:
-                        <asp:Label ID="txtZoom_pages_zoom_5" runat="server"></asp:Label></li>
+                 <ul>
+                    <asp:Repeater ID="rptZoomPages" runat="server">
+                        <ItemTemplate>
+                            <li>
+                                <%# Container.DataItem %>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </li>
         </ul>

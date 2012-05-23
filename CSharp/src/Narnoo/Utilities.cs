@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Narnoo
 {
-    internal class Utilities
+    public class Utilities
     {
         public static string DecodeCData(string cdata)
         {

@@ -10,10 +10,13 @@ namespace Narnoo
         {
             this.operator_brochures = new List<OperatorSingleBrochureResponse>();
         }
+
+
         public List<OperatorSingleBrochureResponse> operator_brochures
         {
             get;
             set;
         }
+    
     }
 }

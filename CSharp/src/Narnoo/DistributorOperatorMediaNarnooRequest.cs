@@ -180,19 +180,17 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.getXmlApi(), "getSingleBrochure", new RequestParameter("operator_id", operator_id),new RequestParameter("brochure_id", brochure_id));
 
-            var list = this.Deserialize<OperatorSingleBrochuresResponse>(content);
+            var list = this.Deserialize<List<OperatorSingleBrochuresResponse>>(content);
 
 
-            if (list != null && list.operator_brochures.Count > 0)
+            if (list != null && list.Count > 0)
             {
-                return list.operator_brochures[0].brochure;
+                return list[0].operator_brochures[0].brochure;
             }
             else
             {
                 return null;
             }
-
-
         }
 
         public IEnumerable<Video> GetVideoDetails(string operator_id, string video_id)

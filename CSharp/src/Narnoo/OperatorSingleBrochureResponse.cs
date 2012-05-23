@@ -6,6 +6,7 @@ namespace Narnoo
 {
     public class OperatorSingleBrochureResponse
     {
+
         public SingleBrochure brochure
         {
             get;

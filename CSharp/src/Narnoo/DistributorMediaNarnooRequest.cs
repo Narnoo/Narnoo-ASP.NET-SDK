@@ -179,22 +179,20 @@ namespace Narnoo
             }
         }
 
-        public IEnumerable<SingleBrochure> GetSingleBrochure(string brochure_id)
+        public SingleBrochure GetSingleBrochure(string brochure_id)
         {
             var content = this.GetResponse(this.getDistXmlApi(), "getSingleBrochure", new RequestParameter("brochure_id", brochure_id));
 
             var list = this.Deserialize<DistributorSingleBrochuresResponse>(content);
 
 
-            if (list == null)
+            if (list != null && list.distributor_brochure.Count > 0)
             {
-                list = new DistributorSingleBrochuresResponse();
+                return list.distributor_brochure[0].brochure;
             }
-
-
-            foreach (var i in list.distributor_brochure)
+            else
             {
-                yield return i.brochure;
+                return null;
             }
         }
 

@@ -10,22 +10,48 @@
         Distributors use this getSingleBrochure function to retrieve a single brochure's
         detailed information.</p>
     <pre class="code" lang="csharp">
-    try
-    {
-        var request = new DistributorMediaNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var list = request.GetSingleBrochure(brochure_id);
-
-        this.rptList.DataSource = list;
-        this.rptList.DataBind();
+try
+{
+    var request = new DistributorMediaNarnooRequest();
+    request.SetAuth(this.appkey, this.secretkey);
+    var item = request.GetSingleBrochure(brochure_id);
 
 
-    }
-    catch (InvalidNarnooRequestException ex)
+
+    if (item == null)
     {
         this.lblMessage.Visible = true;
-        this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+        this.lblMessage.Text = "Brochure cannot found";
     }
+    else
+    {
+        this.brochure_id.Text = item.brochure_id;
+        this.brochure_caption.Text = item.brochure_caption;
+        this.entry_date.Text = item.entry_date;
+        this.page_order_xml_config.Text = item.page_order_xml_config;
+        this.preview_image_path.Text = item.preview_image_path;
+        this.format.Text = item.format;
+
+
+        this.thumb_image_pat.Text = item.thumb_image_path;
+        this.validity_date.Text = item.validity_date;
+
+
+        rptStandardPages.DataSource = item.standard_pages;
+        rptStandardPages.DataBind();
+
+        rptZoomPages.DataSource = item.zoom_page;
+        rptZoomPages.DataBind();
+
+    }
+
+
+}
+catch (InvalidNarnooRequestException ex)
+{
+    this.lblMessage.Visible = true;
+    this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+}
     
 	</pre>
     <div id="demo-frame">
@@ -33,58 +59,41 @@
             brochure id</label>
         <asp:TextBox ID="txtBrochure_id" runat="server" Text="170"></asp:TextBox>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
-        <asp:Repeater ID="rptList" runat="server">
-            <HeaderTemplate>
-                <dl>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <dt>brochure_id</dt><dd><%# Eval("brochure_id")%></dd>
-                <dt>entry_date</dt><dd><%# Eval("entry_date")%></dd>
-                <dt>thumb_image_path</dt><dd><%# Eval("thumb_image_path")%></dd>
-                <dt>preview_image_path</dt><dd><%# Eval("preview_image_path")%></dd>
-                <dt>page_order_xml_config</dt><dd><%# Eval("page_order_xml_config")%></dd>
-                <dt>file_path_to_pdf</dt><dd>' . uncdata ( $brochure->file_path_to_pdf )")%></dd>
-                <dt>validity_date</dt><dd><%# Eval("validity_date")%></dd>
-                <dt>brochure_caption</dt><dd><%# Eval("brochure_caption")%></dd>
-                <dt>format</dt><dd><%# Eval("format") %></dd>
-                <dt>standard_pages</dt><dd>
-                    <ul>
-                        <li>page_0:
-                            <%# Eval("standard_pages.page_0")%></li>
-                        <li>page_1:
-                            <%# Eval("standard_pages.page_1")%></li>
-                        <li>page_2:
-                            <%# Eval("standard_pages.page_2")%></li>
-                        <li>page_3:
-                            <%# Eval("standard_pages.page_3")%></li>
-                        <li>page_4:
-                            <%# Eval("standard_pages.page_4")%></li>
-                        <li>page_5:
-                            <%# Eval("standard_pages.page_5")%></li>
-                    </ul>
-                </dd>
-                <dt>zoom_page </dt>
-                <dd>
-                    <ul>
-                        <li>zoom_0:
-                            <%# Eval("zoom_page.zoom_0")%></li>
-                        <li>zoom_1:
-                            <%# Eval("zoom_page.zoom_1")%></li>
-                        <li>zoom_2:
-                            <%# Eval("zoom_page.zoom_2")%></li>
-                        <li>zoom_3:
-                            <%# Eval("zoom_page.zoom_3")%></li>
-                        <li>zoom_4:
-                            <%# Eval("zoom_page.zoom_4")%></li>
-                        <li>zoom_5:
-                            <%# Eval("zoom_page.zoom_5")%></li>
-                    </ul>
-                </dd>
-            </ItemTemplate>
-            <FooterTemplate>
-                </dl>
-            </FooterTemplate>
-        </asp:Repeater>
+        <dl>
+            <dt>brochure_id</dt><dd><asp:Label ID="brochure_id" runat="server"></asp:Label></dd>
+            <dt>entry_date</dt><dd><asp:Label ID="entry_date" runat="server"></asp:Label></dd>
+            <dt>thumb_image_path</dt><dd><asp:Label ID="thumb_image_pat" h runat="server"></asp:Label></dd>
+            <dt>preview_image_path</dt><dd><asp:Label ID="preview_image_path" runat="server"></asp:Label></dd>
+            <dt>page_order_xml_config</dt><dd><asp:Label ID="page_order_xml_config" runat="server"></asp:Label></dd>
+            <dt>file_path_to_pdf</dt><dd>
+                <asp:Label ID="file_path_to_pdf" runat="server"></asp:Label></dd>
+            <dt>validity_date</dt><dd><asp:Label ID="validity_date" runat="server"></asp:Label></dd>
+            <dt>brochure_caption</dt><dd><asp:Label ID="brochure_caption" runat="server"></asp:Label></dd>
+            <dt>format</dt><dd><asp:Label ID="format" runat="server"></asp:Label></dd>
+            <dt>standard_pages</dt><dd>
+                <ul>
+                    <asp:Repeater ID="rptStandardPages" runat="server">
+                        <ItemTemplate>
+                            <li>
+                                <%# Container.DataItem %>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </dd>
+            <dt>zoom_page </dt>
+            <dd>
+                <ul>
+                    <asp:Repeater ID="rptZoomPages" runat="server">
+                        <ItemTemplate>
+                            <li>
+                                <%# Container.DataItem %>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </dd>
+        </dl>
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
     <br />
