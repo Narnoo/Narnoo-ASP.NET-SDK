@@ -9,25 +9,21 @@
     <p>
         Distributors use this get brochures function to retrieve their brochure information.</p>
     <pre class="code" lang="csharp">
-    try
-    {
-        var request = new DistributorMediaNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var list = request.GetBrochures();
-
-        this.rptList.DataSource = list;
-        this.rptList.DataBind();
-
-
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Visible = true;
-        this.ShowMessage(ex.Message);
-    }
-	
+try
+{
+    var list = this.NarnooRequest.GetBrochures();
+    this.lblTotal.Text = list.TotalPages.ToString();
+    this.rptList.DataSource = list;
+    this.rptList.DataBind();
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
     </pre>
     <div id="demo-frame">
+        total pages:
+        <asp:Label ID="lblTotal" runat="server"></asp:Label>
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
@@ -35,7 +31,6 @@
             <ItemTemplate>
                 <li>
                     <ul>
-                        ';
                         <li>brochure_id :
                             <%# Eval("brochure_id")%></li>
                         <li>entry_date :<%# Eval("entry_date")%></li>

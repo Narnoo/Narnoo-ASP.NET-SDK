@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class getVideoDetails : DistributorPageBase
+    public partial class getVideoDetails : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,18 +29,22 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetVideoDetails(videoId);
+                var item = this.NarnooRequest.GetVideoDetails(videoId);
+                
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
 
-                this.rptList.DataSource = list;
-                this.rptList.DataBind();
-
-
+                this.lblVideo_id.Text = item.video_id;
+                this.lblEntry_date.Text = item.entry_date;
+                this.lblVideo_caption.Text = item.video_caption;
+                this.lblVideo_language.Text = item.video_language;
+                this.lblVideo_pause_image_path.Text = item.video_pause_image_path;
+                this.lblVideo_preview_path.Text = item.video_preview_path;
+                this.lblVideo_stream_path.Text = item.video_stream_path;
+                this.lblVideo_thumb_image_path.Text = item.video_thumb_image_path;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

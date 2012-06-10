@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class DistributorBrochuresResponse
+    public class DistributorBrochuresResponse:NarnooCollectionResponse
     {
         public DistributorBrochuresResponse()
         {
-            this.distributor_brochures = new List<BrochureResponse>();
+            this.distributor_brochures = new List<Brochure>();
         }
-        public List<BrochureResponse> distributor_brochures
+        public List<Brochure> distributor_brochures
         {
             get;
             set;

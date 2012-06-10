@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class DistributorVideosResponse
+    public class DistributorVideosResponse:NarnooCollectionResponse
     {
         public DistributorVideosResponse()
         {
-            this.distributor_videos = new List<DistributorVideoResponse>();
+            this.distributor_videos = new List<Video>();
         }
 
-        public List<DistributorVideoResponse> distributor_videos
+        public List<Video> distributor_videos
         {
             get;
             set;

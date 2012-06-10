@@ -6,25 +6,20 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class getVideos : DistributorPageBase
+    public partial class getVideos : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
            
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetVideos();
-
+                var list = this.NarnooRequest.GetVideos();
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
-
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

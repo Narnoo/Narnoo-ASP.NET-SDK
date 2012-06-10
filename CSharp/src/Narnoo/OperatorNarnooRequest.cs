@@ -132,10 +132,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.distributor_channel_list)
-            {
-                yield return i.channel;
-            }
+            return null;
         }
 
 
@@ -153,10 +150,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.distributor_channel_videos)
-            {
-                yield return i.channel_video_details;
-            }
+            return null;
         }
 
         public IEnumerable<Image> GetImages()
