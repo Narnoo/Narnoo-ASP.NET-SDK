@@ -44,8 +44,11 @@
     <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
     <Compile Include="AlbumImageResponse.cs" />
+    <Compile Include="NarnooCollection.cs" />
+    <Compile Include="NarnooCollectionResponse.cs" />
     <Compile Include="NarnooSuccess.cs" />
     <Compile Include="NarnooSuccessResponse.cs" />
+    <Compile Include="OperatorResponse.cs" />
     <Compile Include="OperatorSingleBrochureResponse.cs" />
     <Compile Include="OperatorSingleBrochuresResponse.cs" />
     <Compile Include="OperatorImagesResponse.cs" />
@@ -109,7 +112,6 @@
     <Compile Include="Operator.cs" />
     <Compile Include="OperatorDetailResponse.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />
-    <Compile Include="OperatorResponse.cs" />
     <Compile Include="OperatorsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameter.cs" />

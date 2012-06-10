@@ -9,21 +9,21 @@
     <p>
         Distributors use this function to list the details of Operator on their access list</p>
     <pre class="code" lang="csharp">	
-    try
-    {
-        var request = new DistributorNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var list = request.ListOperators();
-        this.rptList.DataSource = list;
-        this.rptList.DataBind();
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Text = ex.Message;
-    }
-    
+try
+{
+    var list = this.NarnooRequest.ListOperators();
+    this.lblTotal.Text = list.TotalPages.ToString();
+    this.rptList.DataSource = list;
+    this.rptList.DataBind();
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
 	</pre>
     <div id="demo-frame">
+        total pages:
+        <asp:Label ID="lblTotal" runat="server"></asp:Label>
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
@@ -79,6 +79,6 @@
 				echo '</ul></li>';
 			}
 			
---%>
+        --%>
     </div>
 </asp:Content>

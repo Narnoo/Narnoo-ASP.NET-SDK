@@ -36,7 +36,7 @@ namespace Narnoo.Example.demos.distributor_media
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
     }

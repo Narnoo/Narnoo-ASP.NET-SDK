@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor
 {
-    public partial class deleteOperator : DistributorPageBase
+    public partial class deleteOperator : DistributorNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected override Label MessageBox
@@ -23,23 +23,17 @@ namespace Narnoo.Example.demos.distributor
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = true;
 
             string operatorId = this.txtOperatorId.Text;
 
             try
             {
-
-                var request = new DistributorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                request.Sandbox = this.Sandbox;
-                request.DeleteOperator(operatorId);
-                this.lblMessage.Text = "Success";
-
+                this.NarnooRequest.DeleteOperator(operatorId);
+                this.ShowMessage("done.");
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
     }

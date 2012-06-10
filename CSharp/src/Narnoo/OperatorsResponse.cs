@@ -4,14 +4,16 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class OperatorsResponse
+    public class OperatorsResponse : NarnooCollectionResponse
     {
         public OperatorsResponse()
         {
-            this.operators = new List<OperatorResponse>();
+            this.operators = new List<Operator>();
         }
 
-        public List<OperatorResponse> operators
+ 
+
+        public List<Operator> operators
         {
             get;
             set;

@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor
 {
-    public partial class listOperators : DistributorPageBase
+    public partial class listOperators : DistributorNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -14,20 +14,14 @@ namespace Narnoo.Example.demos.distributor
 
             try
             {
-
-                var request = new DistributorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.ListOperators();
-
-
+                var list = this.NarnooRequest.ListOperators();
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
 

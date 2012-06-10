@@ -4,9 +4,14 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class SearchOperatorsResponse
+    public class SearchOperatorsResponse : NarnooCollectionResponse
     {
-        public List<OperatorResponse> search_operators
+        public SearchOperatorsResponse()
+        {
+            this.search_operators = new List<Operator>();
+        }
+
+        public List<Operator> search_operators
         {
             get;
             set;

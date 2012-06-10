@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor
 {
-    public partial class searchOperators : DistributorPageBase
+    public partial class searchOperators : DistributorNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,16 +32,16 @@ namespace Narnoo.Example.demos.distributor
 
             try
             {
-                var request = new DistributorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.SearchOperators(country, category, subcategory, state, suburb, postal_code);
+                var list = this.NarnooRequest.SearchOperators(country, category, subcategory, state, suburb, postal_code);
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
     }

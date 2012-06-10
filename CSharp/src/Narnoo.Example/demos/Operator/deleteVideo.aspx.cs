@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.Operator
 {
-    public partial class deleteVideo : OperatorPageBase
+    public partial class deleteVideo : OperatorNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace Narnoo.Example.demos.Operator
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
     }

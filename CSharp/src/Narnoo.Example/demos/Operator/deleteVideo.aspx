@@ -16,7 +16,7 @@ try
 }
 catch (InvalidNarnooRequestException ex)
 {
-    this.lblMessage.Text = ex.Message; 
+    this.ShowMessage(ex.Message); 
     
 }
 	</pre>

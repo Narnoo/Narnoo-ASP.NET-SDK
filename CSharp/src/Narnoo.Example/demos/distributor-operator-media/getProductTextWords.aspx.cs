@@ -50,7 +50,7 @@ namespace Narnoo.Example.demos.distributor_operator_media
             catch (NarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = ex.Message;
+                this.ShowMessage(ex.Message);
             }
         }
 

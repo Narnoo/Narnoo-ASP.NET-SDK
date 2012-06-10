@@ -9,27 +9,15 @@
     <p>
         Distributors use this function to remove Operator's from their access list</p>
     <pre class="code" lang="csharp">
-	string operatorId = this.txtOperatorId.Text;
-
-    try
-    {
-
-        var request = new DistributorNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var result = request.DeleteOperator(operatorId);
-        if (result)
-        {
-            this.lblMessage.Text = "Success";
-        }
-        else
-        {
-            this.lblMessage.Text = "Failed";
-        }
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Text = ex.Message;
-    }
+try
+{
+    this.NarnooRequest.DeleteOperator(operatorId);
+    this.ShowMessage("done.");
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
 	</pre>
     <div id="demo-frame">
        <div id="demoForm" runat="server">

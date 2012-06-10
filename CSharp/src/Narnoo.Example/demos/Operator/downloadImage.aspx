@@ -31,7 +31,7 @@ try
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = ex.Message;
+    this.ShowMessage(ex.Message);
     
 }
 	</pre>

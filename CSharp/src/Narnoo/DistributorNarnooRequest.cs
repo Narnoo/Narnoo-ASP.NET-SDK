@@ -44,11 +44,9 @@ namespace Narnoo
             }
         }
 
-        public IEnumerable<Operator> ListOperators()
+        public NarnooCollection<Operator> ListOperators()
         {
             var content = this.GetResponse(this.getXmlApi(), "listOperators");
-
-            content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
 
             var list = this.Deserialize<OperatorsResponse>(content);
 
@@ -58,15 +56,14 @@ namespace Narnoo
                 list = new OperatorsResponse();
             }
 
-
-            foreach (var i in list.operators)
-            {
-                yield return i.Operator;
-            }
-
+            return new NarnooCollection<Operator>(list.total_pages, list.operators);
         }
 
-        public IEnumerable<Operator> SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code)
+        public NarnooCollection<Operator> SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code)
+        {
+            return this.SearchOperators(country, category, subcategory, state, suburb, postal_code, 1);
+        }
+        public NarnooCollection<Operator> SearchOperators(string country, string category, string subcategory, string state, string suburb, string postal_code,int page_no)
         {
             var content = this.GetResponse(this.getXmlApi(), "searchOperators",
                 new RequestParameter("country", country),
@@ -74,11 +71,11 @@ namespace Narnoo
                 new RequestParameter("subcategory", subcategory),
                 new RequestParameter("state", state),
                 new RequestParameter("suburb", suburb),
-                new RequestParameter("postal_code", postal_code)
+                new RequestParameter("postal_code", postal_code),
+                new RequestParameter("page_no",page_no.ToString())
                 );
 
-            content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
-
+           
             var list = this.Deserialize<SearchOperatorsResponse>(content);
 
 
@@ -87,28 +84,22 @@ namespace Narnoo
                 list = new SearchOperatorsResponse();
             }
 
-
-            foreach (var i in list.search_operators)
-            {
-                yield return i.Operator;
-            }
+            return new NarnooCollection<Operator>(list.total_pages, list.search_operators);
         }
 
         public Operator SingleOperatorDetail(string operatorId)
         {
             var content = this.GetResponse(this.getXmlApi(), "singleOperatorDetail", new RequestParameter("operator_id", operatorId));
-            content = content.Replace("{\"operator\":{\"", "{\"Operator\":{\"");
+          
 
-            var list = this.Deserialize<OperatorDetailResponse>(content);
+            var item = this.Deserialize<Operator>(content);
 
-            if (list != null && list.operator_detail.Count > 0)
+            if (item == null)
             {
-                return list.operator_detail[0].Operator;
+                throw new NarnooRequestException("Opertor can not be found.");
             }
-            else
-            {
-                return null;
-            }
+
+            return item;
 
         }
 

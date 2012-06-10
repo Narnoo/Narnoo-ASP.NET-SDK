@@ -9,43 +9,28 @@
     <p>
         Distributors use this function to get a single Operators' details</p>
     <pre class="code" lang="csharp">
-    string operatorId = this.txtOperatorId.Text;
+try
+{
+    var item = this.NarnooRequest.SingleOperatorDetail(operatorId);
 
-    try
-    {
-        var request = new DistributorNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var item = request.SingleOperatorDetail(operatorId);
+    this.detailView.Visible = true;
 
-        if (item == null)
-        {
-            this.lblMessage.Visible = true;
-            this.lblMessage.Text = "Operator cannot found";
-        }
-        else
-        {
-            this.detailView.Visible = true;
-            this.lblCategory.Text = item.category;
-            this.lblCountryName.Text = item.country_name;
-            this.lblKeywords.Text = item.keywords;
-            this.lblLatitude.Text = item.latitude;
-            this.lblLongitude.Text = item.longitude;
-            this.lblOperatorBusinessname.Text = item.operator_businessname;
-            this.lblOperatorId.Text = item.operator_id;
-            this.lblPostcode.Text = item.postcode;
-            this.lblState.Text = item.state;
-            this.lblSubCategory.Text = item.sub_category;
-            this.lblSuburb.Text = item.suburb;
-                    
-        }
-               
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Visible = true;
-        this.lblMessage.Text = ex.Message;
-    }
-    
+    this.lblCategory.Text = item.category;
+    this.lblCountryName.Text = item.country_name;
+    this.lblKeywords.Text = item.keywords;
+    this.lblLatitude.Text = item.latitude;
+    this.lblLongitude.Text = item.longitude;
+    this.lblOperatorBusinessname.Text = item.operator_businessname;
+    this.lblOperatorId.Text = item.operator_id;
+    this.lblPostcode.Text = item.postcode;
+    this.lblState.Text = item.state;
+    this.lblSubCategory.Text = item.sub_category;
+    this.lblSuburb.Text = item.suburb;
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
 	</pre>
     <div id="demo-frame">
         <label for="operator">
@@ -87,6 +72,7 @@
             <dd>
                 <asp:Literal ID="lblKeywords" runat="server"></asp:Literal></dd>
         </dl>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>
