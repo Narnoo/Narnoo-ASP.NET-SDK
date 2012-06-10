@@ -11,17 +11,12 @@
     <pre class="code" lang="csharp">
 try
 {
-    this.lblMessage.Visible = true;
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    this.lblMessage.Text = request.deleteBrochure(brochure_id);
-
+    this.NarnooRequest.deleteBrochure(brochure_id);
+    this.ShowMessage("done.");
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
-    this.ShowMessage(ex.Message); 
-        
+    this.ShowMessage(ex.Message);
 }
 	</pre>
     <div id="demo-frame">

@@ -11,36 +11,23 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var item = request.DownloadImage(image_id);
+    var item = this.NarnooRequest.DownloadImage(image_id);
 
-    if (item == null)
-    {
-        this.lblMessage.Visible = true;
-        this.lblMessage.Text = "Image cannot found";
-    }
-    else
-    {
-
-        this.lblDownload_image_link.Text = item.download_image_link;
-
-    }
-
+    this.lblDownload_image_link.Visible = true;
+    this.lblDownload_image_link.Text = item.download_image_link;
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
     this.ShowMessage(ex.Message);
-    
 }
-	</pre>
+</pre>
     <div id="demo-frame">
         <label for="image_id">
             image_id</label>
         <asp:TextBox ID="txtImage_id" runat="server" Text="295"></asp:TextBox>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         <asp:Label ID="lblDownload_image_link" runat="server"></asp:Label>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>

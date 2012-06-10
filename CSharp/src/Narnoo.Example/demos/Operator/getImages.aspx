@@ -11,23 +11,21 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var list = request.GetImages();
+    var list = this.NarnooRequest.GetImages();
+
+    this.lblTotal.Text = list.TotalPages.ToString();
 
     this.rptList.DataSource = list;
     this.rptList.DataBind();
-
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
     this.ShowMessage(ex.Message);
-        
 }
-	
 	</pre>
     <div id="demo-frame">
+        total pages:
+        <asp:Label ID="lblTotal" runat="server"></asp:Label>
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>

@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.Operator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            this.lblDownload_brochure_to_pdf_path.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,26 +27,13 @@ namespace Narnoo.Example.demos.Operator
 
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadBrochure(brochure_id);
+                var item = this.NarnooRequest.DownloadBrochure(brochure_id);
 
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Brochure cannot found";
-                }
-                else
-                {
-
-                    this.lblDownload_brochure_to_pdf_path.Text = item.download_brochure_to_pdf_path;
-
-                }
-
+                this.lblDownload_brochure_to_pdf_path.Visible = true;
+                this.lblDownload_brochure_to_pdf_path.Text = item.download_brochure_to_pdf_path;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

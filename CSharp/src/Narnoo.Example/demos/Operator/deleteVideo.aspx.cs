@@ -23,14 +23,12 @@ namespace Narnoo.Example.demos.Operator
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = true;
             string video_id = this.txtVideo_id.Text;
 
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                this.lblMessage.Text = request.deleteVideo(video_id).ToString();
+                this.NarnooRequest.deleteVideo(video_id);
+                this.ShowMessage("done.");
             }
             catch (NarnooRequestException ex)
             {

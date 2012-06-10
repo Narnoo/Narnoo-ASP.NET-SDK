@@ -31,13 +31,13 @@ namespace Narnoo.Example.demos.Operator {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// detail control.
+        /// resultPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resultPanel;
         
         /// <summary>
         /// txtBrochureId control.
@@ -121,112 +121,22 @@ namespace Narnoo.Example.demos.Operator {
         protected global::System.Web.UI.WebControls.Label lblFormat;
         
         /// <summary>
-        /// txtStandard_pages_page_0 control.
+        /// rptStandardPages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_0;
+        protected global::System.Web.UI.WebControls.Repeater rptStandardPages;
         
         /// <summary>
-        /// txtStandard_pages_page_1 control.
+        /// rptZoomPages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_1;
-        
-        /// <summary>
-        /// txtStandard_pages_page_2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_2;
-        
-        /// <summary>
-        /// txtStandard_pages_page_3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_3;
-        
-        /// <summary>
-        /// txtStandard_pages_page_4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_4;
-        
-        /// <summary>
-        /// txtStandard_pages_page_5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStandard_pages_page_5;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_0;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_1;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_2;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_3;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_4;
-        
-        /// <summary>
-        /// txtZoom_pages_zoom_5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtZoom_pages_zoom_5;
+        protected global::System.Web.UI.WebControls.Repeater rptZoomPages;
         
         /// <summary>
         /// lblMessage control.

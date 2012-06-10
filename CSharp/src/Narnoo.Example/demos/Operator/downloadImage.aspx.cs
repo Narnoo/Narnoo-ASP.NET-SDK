@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.Operator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            this.lblDownload_image_link.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,26 +27,13 @@ namespace Narnoo.Example.demos.Operator
 
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadImage(image_id);
+                var item = this.NarnooRequest.DownloadImage(image_id);
 
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Image cannot found";
-                }
-                else
-                {
-
-                    this.lblDownload_image_link.Text = item.download_image_link;
-
-                }
-
+                this.lblDownload_image_link.Visible = true;
+                this.lblDownload_image_link.Text = item.download_image_link;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
 

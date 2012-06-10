@@ -13,18 +13,15 @@ namespace Narnoo.Example.demos.Operator
 
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetAlbums();
+                var list = this.NarnooRequest.GetAlbums();
 
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message); 
-                    
             }
 
         }

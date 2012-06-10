@@ -28,17 +28,22 @@ namespace Narnoo.Example.demos.Operator
 
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetVideoDetails( video_id);
+                var item = this.NarnooRequest.GetVideoDetails(video_id);
 
-                this.rptList.DataSource = list;
-                this.rptList.DataBind();
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
 
+                this.lblEntry_date.Text = item.entry_date;
+                this.lblVideo_caption.Text = item.video_caption;
+                this.lblVideo_id.Text = item.video_id;
+                this.lblVideo_language.Text = item.video_language;
+                this.lblVideo_pause_image_path.Text = item.video_pause_image_path;
+                this.lblVideo_preview_path.Text = item.video_preview_path;
+                this.lblVideo_stream_path.Text = item.video_stream_path;
+                this.lblVideo_thumb_image_path.Text = item.video_thumb_image_path;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

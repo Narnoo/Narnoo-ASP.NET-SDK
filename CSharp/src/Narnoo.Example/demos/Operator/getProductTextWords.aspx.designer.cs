@@ -31,13 +31,13 @@ namespace Narnoo.Example.demos.Operator {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// detail control.
+        /// resultPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resultPanel;
         
         /// <summary>
         /// lblProduct_title control.

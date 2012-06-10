@@ -10,7 +10,7 @@ namespace Narnoo.Example.demos.Operator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected override Label MessageBox
@@ -27,17 +27,18 @@ namespace Narnoo.Example.demos.Operator
             var album_name = this.txtAlbum_name.Text;
             try
             {
-                var request = new OperatorNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetAlbumImages(album_name);
+                var list = this.NarnooRequest.GetAlbumImages(album_name);
+
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
+
+                this.lblTotal.Text = list.TotalPages.ToString();
 
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

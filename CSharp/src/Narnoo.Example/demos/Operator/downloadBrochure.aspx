@@ -12,28 +12,14 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var item = request.DownloadBrochure(brochure_id);
+    var item = this.NarnooRequest.DownloadBrochure(brochure_id);
 
-    if (item == null)
-    {
-        this.lblMessage.Visible = true;
-        this.lblMessage.Text = "Brochure cannot found";
-    }
-    else
-    {
-
-        this.lblDownload_brochure_to_pdf_path.Text = item.download_brochure_to_pdf_path;
-
-    }
-
+    this.lblDownload_brochure_to_pdf_path.Visible = true;
+    this.lblDownload_brochure_to_pdf_path.Text = item.download_brochure_to_pdf_path;
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
-    this.ShowMessage(ex.Message); 
-        
+    this.ShowMessage(ex.Message);
 }
 	</pre>
     <div id="demo-frame">
@@ -42,5 +28,6 @@ catch (InvalidNarnooRequestException ex)
         <asp:TextBox ID="txtBrochure_id" runat="server" Text="310"></asp:TextBox>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         <asp:Label ID="lblDownload_brochure_to_pdf_path" runat="server"></asp:Label>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
 </asp:Content>

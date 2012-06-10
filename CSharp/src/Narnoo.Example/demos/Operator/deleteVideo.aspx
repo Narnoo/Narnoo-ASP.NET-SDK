@@ -9,15 +9,12 @@
     <pre class="code" lang="csharp">
 try
 {
-    this.lblMessage.Visible = true;
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    this.lblMessage.Text = request.deleteVideo(video_id);
+    this.NarnooRequest.deleteVideo(video_id);
+    this.ShowMessage("done.");
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.ShowMessage(ex.Message); 
-    
+    this.ShowMessage(ex.Message);
 }
 	</pre>
     <div id="demo-frame">

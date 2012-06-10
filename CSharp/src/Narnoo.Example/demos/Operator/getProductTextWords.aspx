@@ -12,30 +12,17 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var item = request.GetProductTextWords(product_title);
+    var item = this.NarnooRequest.GetProductTextWords(product_title);
 
-    if (item == null)
-    {
-        this.lblMessage.Visible = true;
-        this.lblMessage.Text = "ProductTextWords cannot found";
-    }
-    else
-    {
-        this.detail.Visible = true;
-        this.lblProduct_title.Text = item.product_title;
-        this.lblWord_50.Text = item.text.word_50;
-        this.lblWord_100.Text = item.text.word_100;
-        this.lblWord_150.Text = item.text.word_150;
-    }
-
+    this.resultPanel.Visible = true;
+    this.lblProduct_title.Text = item.product_title;
+    this.lblWord_50.Text = item.text.word_50;
+    this.lblWord_100.Text = item.text.word_100;
+    this.lblWord_150.Text = item.text.word_150;
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
     this.ShowMessage(ex.Message);
-        
 }
 	</pre>
     <div id="demo-frame">
@@ -43,7 +30,7 @@ catch (InvalidNarnooRequestException ex)
             product_title</label>
         <asp:TextBox ID="txtProduct_title" runat="server" Text="Narnoo Platform"></asp:TextBox>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
-        <dl id="detail" runat="server" visible="false">
+        <dl id="resultPanel" runat="server" visible="false">
             <dt>product_title</dt><dd><asp:Literal ID="lblProduct_title" runat="server"></asp:Literal>
             </dd>
             <dt></dt>
@@ -59,6 +46,7 @@ catch (InvalidNarnooRequestException ex)
                 </ul>
             </dd>
         </dl>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>

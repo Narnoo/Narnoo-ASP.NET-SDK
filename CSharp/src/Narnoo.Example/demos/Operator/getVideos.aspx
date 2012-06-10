@@ -1,31 +1,30 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true" CodeBehind="getVideos.aspx.cs" Inherits="Narnoo.Example.demos.Operator.getVideos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
+    CodeBehind="getVideos.aspx.cs" Inherits="Narnoo.Example.demos.Operator.getVideos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>Get Operator's Videos - getVideos</h2>
-<p>Operators' use the Get Videos function to retrieve their own videos.</p>
-<pre class="code" lang="csharp">
+    <h2>
+        Get Operator's Videos - getVideos</h2>
+    <p>
+        Operators' use the Get Videos function to retrieve their own videos.</p>
+    <pre class="code" lang="csharp">
 try
 {
-    var request = new OperatorNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var list = request.GetVideos();
+    var list = this.NarnooRequest.GetVideos();
 
+    this.lblTotal.Text = list.TotalPages.ToString();
     this.rptList.DataSource = list;
     this.rptList.DataBind();
-
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
     this.ShowMessage(ex.Message);
-        
 }
 	</pre>
-
-	<div id="demo-frame">
-
+    <div id="demo-frame">
+        total pages:
+        <asp:Label ID="lblTotal" runat="server"></asp:Label>
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
