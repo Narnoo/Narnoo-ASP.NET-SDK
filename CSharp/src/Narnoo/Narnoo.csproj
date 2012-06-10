@@ -94,6 +94,7 @@
     <Compile Include="SearchMediaBrochure.cs" />
     <Compile Include="SearchMediaImage.cs" />
     <Compile Include="SearchMediaListResponse.cs" />
+    <Compile Include="SearchMediaParser.cs" />
     <Compile Include="SearchMediaResponse.cs" />
     <Compile Include="SearchMediaVideo.cs" />
     <Compile Include="SingleBrochure.cs" />

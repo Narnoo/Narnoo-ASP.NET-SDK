@@ -34,22 +34,24 @@ namespace Narnoo.Example.demos.distributor_media
             var radius = this.txtradius.Text;
             var privilege = this.rblprivilege.SelectedValue;
             var keywords = this.txtkeywords.Text;
-            var page_no = 1;
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                IEnumerable<SearchMedia> list = null;
+                NarnooCollection<SearchMedia> list = null;
+
                 if (string.IsNullOrEmpty(media_id))
                 {
-
-                    list = request.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius,privilege, keywords, page_no);
+                    list = this.NarnooRequest.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius,privilege, keywords);
                 }
                 else
                 {
-                    list = request.SearchMedia(media_type, media_id);
+                    list = this.NarnooRequest.SearchMedia(media_type, media_id);
                 }
+
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
+
+                this.lblTotal.Text = list.TotalPages.ToString();
 
                 switch (media_type)
                 {
@@ -68,12 +70,9 @@ namespace Narnoo.Example.demos.distributor_media
                     default:
                         break;
                 }
-
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }
