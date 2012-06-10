@@ -8,9 +8,9 @@ namespace Narnoo
     {
         public OperatorProductTextWordsListResponse()
         {
-            this.operator_products = new List<OperatorProductTextWordsResponse>();
+            this.operator_products = new List<ProductTextWords>();
         }
-        public List<OperatorProductTextWordsResponse> operator_products
+        public List<ProductTextWords> operator_products
         {
             get;set;
         }

@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_operator_media
 {
-    public partial class searchMedia : DistributorPageBase
+    public partial class searchMedia : DistributorOperatorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected override Label MessageBox
@@ -24,7 +24,6 @@ namespace Narnoo.Example.demos.distributor_operator_media
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var media_type = this.ddlMedia_Type.SelectedValue;
-         //   var media_id = this.txtm
             var category = this.txtCategory.Text;
             var subcategory = this.txtSubcategory.Text;
             var suburb = this.txtsuburb.Text;
@@ -32,23 +31,15 @@ namespace Narnoo.Example.demos.distributor_operator_media
             var latitude = this.txtlatitude.Text;
             var longitude = this.txtlongitude.Text;
             var keywords = this.txtkeywords.Text;
-            var page_no = 1;
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
+                var list = this.NarnooRequest.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords);
 
-                var list = request.SearchMedia(media_type, 
-                    category, 
-                    subcategory, 
-                    suburb, 
-                    location, 
-                    latitude, 
-                    longitude, 
-                    keywords, 
-                    page_no);
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
 
+                this.lblTotal.Text = list.TotalPages.ToString();
                 switch (media_type)
                 {
                     case "image":
@@ -66,14 +57,10 @@ namespace Narnoo.Example.demos.distributor_operator_media
                     default:
                         break;
                 }
-
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
-                this.ShowMessage(ex.Message); 
-                    
+                this.ShowMessage(ex.Message);
             }
         }
     }

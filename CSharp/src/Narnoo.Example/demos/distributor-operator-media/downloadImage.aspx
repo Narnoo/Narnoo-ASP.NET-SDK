@@ -9,30 +9,16 @@
     <p>
         Distributors use this function to download an Operator's high resolution image</p>
     <pre class="code" lang="csharp">
-    try
-    {
-        var request = new DistributorOperatorMediaNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var item = request.DownloadImage(operator_id, image_id);
-
-        if (item == null)
-        {
-            this.lblMessage.Visible = true;
-            this.lblMessage.Text = "Image cannot found";
-        }
-        else
-        {
-
-            this.lblDownload_image_link.Text = item.download_image_link;
-
-        }
-
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Visible = true;
-        this.ShowMessage(ex.Message);
-            }
+try
+{
+    var item = this.NarnooRequest.DownloadImage(operator_id, image_id);
+    this.lblDownload_image_link.Visible = true;
+    this.lblDownload_image_link.Text = item.download_image_link;
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
 	</pre>
     <div id="demo-frame">
         <form method="post">
@@ -44,6 +30,7 @@
         <asp:TextBox ID="txtImage_id" runat="server" Text="295"></asp:TextBox>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         <asp:Label ID="lblDownload_image_link" runat="server"></asp:Label>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>

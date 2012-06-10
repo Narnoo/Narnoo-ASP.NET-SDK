@@ -14,15 +14,15 @@ namespace Narnoo
                 new RequestParameter("brochure_id", brochure_id));
 
 
-            var list = this.Deserialize<DownloadBrochuresResponse>(content);
+            var item = this.Deserialize<DownloadBrochure>(content);
 
-            if (list != null && list.download_brochure.Count > 0)
+            if (item == null)
             {
-                return list.download_brochure[0].download_brochure_details;
+                throw new NarnooRequestException("Brochure can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
@@ -31,15 +31,15 @@ namespace Narnoo
             var content = this.GetResponse(this.getXmlApi(), "downloadImage", new RequestParameter("operator_id", operator_id), new RequestParameter("media_id", image_id));
 
 
-            var list = this.Deserialize<DownloadImagesResponse>(content);
+            var item = this.Deserialize<DownloadImage>(content);
 
-            if (list != null && list.download_image.Count > 0)
+            if (item == null)
             {
-                return list.download_image[0].download_image_details;
+                throw new NarnooRequestException("Image can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
@@ -50,22 +50,25 @@ namespace Narnoo
                new RequestParameter("video_id", vedio_id));
 
 
-            var list = this.Deserialize<DownloadVideosResponse>(content);
+            var item = this.Deserialize<DownloadVideo>(content);
 
-            if (list != null && list.download_video.Count > 0)
+            if (item == null)
             {
-                return list.download_video[0].download_video_details;
+                throw new NarnooRequestException("Video can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
-
-        public IEnumerable<AlbumImage> GetAlbumImages(string operator_id, string album_name)
+        public NarnooCollection<AlbumImage> GetAlbumImages(string operator_id, string album_name)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getAlbumImages", new RequestParameter("operator_id", operator_id), new RequestParameter("album_name", album_name));
+            return this.GetAlbumImages(operator_id, album_name, 1);
+        }
+        public NarnooCollection<AlbumImage> GetAlbumImages(string operator_id, string album_name, int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getAlbumImages", new RequestParameter("operator_id", operator_id), new RequestParameter("album_name", album_name), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorAlbumImagesResponse>(content);
 
@@ -75,16 +78,18 @@ namespace Narnoo
                 list = new OperatorAlbumImagesResponse();
             }
 
-
-            foreach (var i in list.operator_albums_images)
-            {
-                yield return i.album_image;
-            }
+            return new NarnooCollection<AlbumImage>(list.total_pages, list.operator_albums_images);
         }
 
-        public IEnumerable<Album> GetAlbums(string operator_id)
+
+        public NarnooCollection<Album> GetAlbums(string operator_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getAlbums", new RequestParameter("operator_id", operator_id));
+            return this.GetAlbums(operator_id, 1);
+        }
+
+        public NarnooCollection<Album> GetAlbums(string operator_id, int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getAlbums", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorAlbumsResponse>(content);
 
@@ -94,16 +99,15 @@ namespace Narnoo
                 list = new OperatorAlbumsResponse();
             }
 
-
-            foreach (var i in list.operator_albums)
-            {
-                yield return i.album;
-            }
+            return new NarnooCollection<Album>(list.total_pages, list.operator_albums);
         }
-
-        public IEnumerable<Brochure> GetBrochures(string operator_id)
+        public NarnooCollection<Brochure> GetBrochures(string operator_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getBrochures", new RequestParameter("operator_id", operator_id));
+            return this.GetBrochures(operator_id, 1);
+        }
+        public NarnooCollection<Brochure> GetBrochures(string operator_id, int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getBrochures", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorBrochuresResponse>(content);
 
@@ -113,16 +117,15 @@ namespace Narnoo
                 list = new OperatorBrochuresResponse();
             }
 
-
-            foreach (var i in list.operator_brochures)
-            {
-                yield return i.brochure;
-            }
+            return new NarnooCollection<Brochure>(list.total_pages, list.operator_brochures);
         }
-
-        public IEnumerable<Image> GetImages(string operator_id)
+        public NarnooCollection<Image> GetImages(string operator_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getImages", new RequestParameter("operator_id", operator_id));
+            return this.GetImages(operator_id, 1);
+        }
+        public NarnooCollection<Image> GetImages(string operator_id, int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getImages", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorImagesResponse>(content);
 
@@ -132,16 +135,15 @@ namespace Narnoo
                 list = new OperatorImagesResponse();
             }
 
-
-            foreach (var i in list.operator_images)
-            {
-                yield return i.image;
-            }
+            return new NarnooCollection<Image>(list.total_pages, list.operator_images);
         }
-
-        public IEnumerable<Product> GetProductText(string operator_id)
+        public NarnooCollection<Product> GetProductText(string operator_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getProductText", new RequestParameter("operator_id", operator_id));
+            return this.GetProductText(operator_id, 1);
+        }
+        public NarnooCollection<Product> GetProductText(string operator_id, int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getProductText", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorProductsResponse>(content);
 
@@ -151,11 +153,7 @@ namespace Narnoo
                 list = new OperatorProductsResponse();
             }
 
-
-            foreach (var i in list.operator_products)
-            {
-                yield return i.operator_product;
-            }
+            return new NarnooCollection<Product>(list.total_pages, list.operator_products);
         }
 
         public ProductTextWords GetProductTextWords(string operator_id, string product_title)
@@ -167,54 +165,55 @@ namespace Narnoo
 
             if (list != null && list.operator_products.Count > 0)
             {
-                return list.operator_products[0].product_description;
+                return list.operator_products[0];
             }
             else
             {
-                return null;
+                throw new NarnooRequestException("ProductTextWords can NOT be found.");
             }
 
         }
 
         public SingleBrochure GetSingleBrochure(string operator_id, string brochure_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getSingleBrochure", new RequestParameter("operator_id", operator_id),new RequestParameter("brochure_id", brochure_id));
+            var content = this.GetResponse(this.getXmlApi(), "getSingleBrochure", new RequestParameter("operator_id", operator_id), new RequestParameter("brochure_id", brochure_id));
 
-            var list = this.Deserialize<List<OperatorSingleBrochuresResponse>>(content);
+            var item = this.Deserialize<SingleBrochure>(content);
 
 
-            if (list != null && list.Count > 0)
+            if (item == null)
             {
-                return list[0].operator_brochures[0].brochure;
+                throw new NarnooRequestException("Brochure can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
-        public IEnumerable<Video> GetVideoDetails(string operator_id, string video_id)
+        public Video GetVideoDetails(string operator_id, string video_id)
         {
             var content = this.GetResponse(this.getXmlApi(), "getVideoDetails", new RequestParameter("operator_id", operator_id), new RequestParameter("video_id", video_id));
 
-            var list = this.Deserialize<OperatorVideoDetailsResponse>(content);
+            var item = this.Deserialize<Video>(content);
 
-
-            if (list == null)
+            if (item == null)
             {
-                list = new OperatorVideoDetailsResponse();
+                throw new NarnooRequestException("Video can NOT be found.");
             }
-
-
-            foreach (var i in list.operator_videos)
+            else
             {
-                yield return i.operator_video;
+                return item;
             }
         }
 
-        public IEnumerable<Video> GetVideos(string operator_id)
+        public NarnooCollection<Video> GetVideos(string operator_id)
         {
-            var content = this.GetResponse(this.getXmlApi(), "getVideos", new RequestParameter("operator_id", operator_id));
+            return this.GetVideos(operator_id, 1);
+        }
+        public NarnooCollection<Video> GetVideos(string operator_id,int page_no)
+        {
+            var content = this.GetResponse(this.getXmlApi(), "getVideos", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 
             var list = this.Deserialize<OperatorVideosResponse>(content);
 
@@ -225,10 +224,12 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.operator_videos)
-            {
-                yield return i.operator_video;
-            }
+            return new NarnooCollection<Video>(list.total_pages, list.operator_videos);
+        }
+
+        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords)
+        {
+            return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords, 1);
         }
 
         public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)

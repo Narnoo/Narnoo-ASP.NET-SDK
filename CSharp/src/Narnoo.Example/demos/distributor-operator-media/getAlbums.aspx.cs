@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_operator_media
 {
-    public partial class getAlbums : DistributorPageBase
+    public partial class getAlbums : DistributorOperatorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,17 +27,18 @@ namespace Narnoo.Example.demos.distributor_operator_media
 
             try
             {
-                var request = new DistributorOperatorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetAlbums(operator_id);
+                var list = this.NarnooRequest.GetAlbums(operator_id);
 
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
+
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
 
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

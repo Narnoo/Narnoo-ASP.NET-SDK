@@ -6,10 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_operator_media
 {
-    public partial class downloadImage : DistributorPageBase
+    public partial class downloadImage : DistributorOperatorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.lblDownload_image_link.Visible = false;
 
         }
 
@@ -27,26 +28,12 @@ namespace Narnoo.Example.demos.distributor_operator_media
 
             try
             {
-                var request = new DistributorOperatorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadImage(operator_id, image_id);
-
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Image cannot found";
-                }
-                else
-                {
-
-                    this.lblDownload_image_link.Text = item.download_image_link;
-
-                }
-
+                var item = this.NarnooRequest.DownloadImage(operator_id, image_id);
+                this.lblDownload_image_link.Visible = true;
+                this.lblDownload_image_link.Text = item.download_image_link;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

@@ -9,31 +9,20 @@
     <p>
         Distributors use this function to download an Operator's HD video file</p>
     <pre class="code" lang="csharp">
-    try
-    {
-        var request = new DistributorOperatorMediaNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var item = request.DownloadVideo(operator_id, vedio_id);
 
-        if (item == null)
-        {
-            this.lblMessage.Visible = true;
-            this.lblMessage.Text = "Video cannot found";
-        }
-        else
-        {
+try
+{
+    var item = this.NarnooRequest.DownloadVideo(operator_id, vedio_id);
 
-            this.lblDownload_video_stream_path.Text = item.download_video_stream_path;
-            this.lblOriginal_video_path.Text = item.original_video_path;
-
-        }
-
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Visible = true;
-        this.ShowMessage(ex.Message);
-    }
+    this.lblDownload_video_stream_path.Visible = true;
+    this.lblOriginal_video_path.Visible = true;
+    this.lblDownload_video_stream_path.Text = item.download_video_stream_path;
+    this.lblOriginal_video_path.Text = item.original_video_path;
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
 	</pre>
     <div id="demo-frame">
         <label for="operator_id">

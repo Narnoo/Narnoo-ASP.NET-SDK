@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class OperatorImagesResponse
+    public class OperatorImagesResponse:NarnooCollectionResponse
     {
         public OperatorImagesResponse()
         {
-            this.operator_images = new List<ImageResponse>();
+            this.operator_images = new List<Image>();
         }
 
-        public List<ImageResponse> operator_images
+        public List<Image> operator_images
         {
             get;
             set;

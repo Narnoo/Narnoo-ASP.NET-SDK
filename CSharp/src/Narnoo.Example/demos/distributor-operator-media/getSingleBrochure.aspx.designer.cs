@@ -13,6 +13,15 @@ namespace Narnoo.Example.demos.distributor_operator_media {
     public partial class getSingleBrochure {
         
         /// <summary>
+        /// searchPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchPanel;
+        
+        /// <summary>
         /// txtOperator_id control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace Narnoo.Example.demos.distributor_operator_media {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// detail control.
+        /// resultPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resultPanel;
         
         /// <summary>
         /// txtBrochureId control.

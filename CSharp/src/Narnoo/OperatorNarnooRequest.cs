@@ -73,11 +73,7 @@ namespace Narnoo
                 list = new OperatorAlbumImagesResponse();
             }
 
-
-            foreach (var i in list.operator_albums_images)
-            {
-                yield return i.album_image;
-            }
+            return new NarnooCollection<AlbumImage>(list.total_pages, list.operator_albums_images);
 
         }
 
@@ -94,10 +90,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.operator_albums)
-            {
-                yield return i.album;
-            }
+            return new NarnooCollection<Album>(list.total_pages, list.operator_albums);
         }
 
         public IEnumerable<Brochure> GetBrochures()
@@ -113,10 +106,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.operator_brochures)
-            {
-                yield return i.brochure;
-            }
+            return new NarnooCollection<Brochure>(list.total_pages, list.operator_brochures);
         }
 
         public IEnumerable<Channel> GetChannelList()
@@ -166,10 +156,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.operator_images)
-            {
-                yield return i.image;
-            }
+            return new NarnooCollection<Image>(list.total_pages, list.operator_images);
         }
 
         public SingleBrochure GetSingleBrochure(string brochure_id)
@@ -204,11 +191,7 @@ namespace Narnoo
                 list = new OperatorVideoDetailsResponse();
             }
 
-
-            foreach (var i in list.operator_videos)
-            {
-                yield return i.operator_video;
-            }
+            return new NarnooCollection<Video>(list.total_pages, list.operator_videos);
         }
 
         public IEnumerable<Video> GetVideos()
@@ -224,10 +207,7 @@ namespace Narnoo
             }
 
 
-            foreach (var i in list.operator_videos)
-            {
-                yield return i.operator_video;
-            }
+            return new NarnooCollection<Video>(list.total_pages, list.operator_videos);
         }
 
         public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
@@ -261,11 +241,7 @@ namespace Narnoo
                 list = new OperatorProductsResponse();
             }
 
-
-            foreach (var i in list.operator_products)
-            {
-                yield return i.operator_product;
-            }
+            return new NarnooCollection<Product>(list.total_pages, list.operator_products);
         }
 
         public ProductTextWords GetProductTextWords(string product_title)
@@ -277,7 +253,7 @@ namespace Narnoo
 
             if (list != null && list.operator_products.Count > 0)
             {
-                return list.operator_products[0].product_description;
+                return list.operator_products[0];
             }
             else
             {

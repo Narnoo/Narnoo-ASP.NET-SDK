@@ -154,6 +154,9 @@
     <Compile Include="demos\DistributorNarnooRequestPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="demos\DistributorOperatorMediaNarnooRequestPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="demos\OperatorNarnooRequestPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

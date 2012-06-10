@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_operator_media
 {
-    public partial class getProductTextWords : DistributorPageBase
+    public partial class getProductTextWords : DistributorOperatorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected override Label MessageBox
@@ -28,28 +28,18 @@ namespace Narnoo.Example.demos.distributor_operator_media
 
             try
             {
-                var request = new DistributorOperatorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.GetProductTextWords(operator_id, product_title);
+                var item = this.NarnooRequest.GetProductTextWords(operator_id, product_title);
 
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "ProductTextWords cannot found";
-                }
-                else
-                {
-                    this.detail.Visible = true;
-                    this.lblProduct_title.Text = item.product_title;
-                    this.lblWord_50.Text = item.text.word_50;
-                    this.lblWord_100.Text = item.text.word_100;
-                    this.lblWord_150.Text = item.text.word_150;
-                }
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
 
+                this.lblProduct_title.Text = item.product_title;
+                this.lblWord_50.Text = item.text.word_50;
+                this.lblWord_100.Text = item.text.word_100;
+                this.lblWord_150.Text = item.text.word_150;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

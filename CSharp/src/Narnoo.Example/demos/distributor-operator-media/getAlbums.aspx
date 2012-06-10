@@ -11,27 +11,32 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new DistributorOperatorMediaNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var list = request.GetAlbums(operator_id);
+    var list = this.NarnooRequest.GetAlbums(operator_id);
 
+    this.searchPanel.Visible = false;
+    this.resultPanel.Visible = true;
+
+    this.lblTotal.Text = list.TotalPages.ToString();
     this.rptList.DataSource = list;
     this.rptList.DataBind();
 
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
     this.ShowMessage(ex.Message);
-        
 }
-	
 	</pre>
     <div id="demo-frame">
-        <label for="operator_id">
-            Operator id</label>
-        <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
-        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
+        <div id="searchPanel" runat="server">
+            <label for="operator_id">
+                Operator id</label>
+            <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
+        </div>
+        <div id="resultPanel" runat="server" visible="false">
+            total pages:
+            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+        </div>
         <asp:Repeater ID="rptList" runat="server">
             <HeaderTemplate>
                 <ul>
@@ -46,6 +51,8 @@ catch (InvalidNarnooRequestException ex)
                 </ul>
             </FooterTemplate>
         </asp:Repeater>
-        <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
+    </div>
+    <br />
+    <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
 </asp:Content>

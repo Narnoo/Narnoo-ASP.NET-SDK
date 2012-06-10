@@ -26,7 +26,7 @@
     <pre class="code" lang="csharp">
 try
 {
-    NarnooCollection<searchmedia> list = null;
+    NarnooCollection&lt;searchmedia&gt; list = null;
 
     if (string.IsNullOrEmpty(media_id))
     {

@@ -11,101 +11,89 @@
     <pre class="code" lang="csharp">
 try
 {
-    var request = new DistributorOperatorMediaNarnooRequest();
-    request.SetAuth(this.appkey, this.secretkey);
-    var item = request.GetSingleBrochure(operator_id, brochure_id);
+    var item = this.NarnooRequest.GetSingleBrochure(operator_id, brochure_id);
 
-    if (item == null)
+    this.searchPanel.Visible = false;
+    this.resultPanel.Visible = true;
+
+    this.txtBrochureId.Text = item.brochure_id;
+    this.txtbrochure_caption.Text = item.brochure_caption;
+    this.txtEntry_date.Text = item.entry_date;
+    this.txtPage_order_xml_config.Text = item.page_order_xml_config;
+    this.txtPreview_image_path.Text = Utilities.DecodeCData(item.preview_image_path);
+    this.lblFormat.Text = item.format;
+
+    this.txtThumb_image_path.Text = item.thumb_image_path;
+    this.txtvalidity_date.Text = item.validity_date;
+
+    if (item.pages.Count > 0)
     {
-        this.lblMessage.Visible = true;
-        this.lblMessage.Text = "Brochure cannot found";
+        rptStandardPages.DataSource = item.pages[0].standard_pages;
+        rptStandardPages.DataBind();
+
+        rptZoomPages.DataSource = item.pages[0].zoom_page;
+        rptZoomPages.DataBind();
     }
-    else
-    {
-        this.detail.Visible = true;
-        this.txtBrochureId.Text = item.brochure_id;
-        this.txtbrochure_caption.Text = item.brochure_caption;
-        this.txtEntry_date.Text = item.entry_date;
-        this.lblFormat.Text = item.format;
-        this.txtPage_order_xml_config.Text = item.page_order_xml_config;
-        this.txtPreview_image_path.Text = item.preview_image_path;
-        this.txtStandard_pages_page_0.Text = item.standard_pages.page_0;
-        this.txtStandard_pages_page_1.Text = item.standard_pages.page_1;
-        this.txtStandard_pages_page_2.Text = item.standard_pages.page_2;
-        this.txtStandard_pages_page_3.Text = item.standard_pages.page_3;
-        this.txtStandard_pages_page_4.Text = item.standard_pages.page_4;
-        this.txtStandard_pages_page_5.Text = item.standard_pages.page_5;
-
-        this.txtThumb_image_path.Text = item.thumb_image_path;
-        this.txtvalidity_date.Text = item.validity_date;
-        this.txtZoom_pages_zoom_0.Text = item.zoom_page.zoom_0;
-        this.txtZoom_pages_zoom_1.Text = item.zoom_page.zoom_1;
-        this.txtZoom_pages_zoom_2.Text = item.zoom_page.zoom_2;
-        this.txtZoom_pages_zoom_3.Text = item.zoom_page.zoom_3;
-        this.txtZoom_pages_zoom_4.Text = item.zoom_page.zoom_4;
-        this.txtZoom_pages_zoom_5.Text = item.zoom_page.zoom_5;
-                    
-
-    }
-
 }
-catch (InvalidNarnooRequestException ex)
+catch (NarnooRequestException ex)
 {
-    this.lblMessage.Visible = true;
-    this.ShowMessage(ex.Message); 
-        
+    this.ShowMessage(ex.Message);
 }
-    
 	</pre>
     <div id="demo-frame">
-        <label for="operator_id">
-            Operator id</label>
-        <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
-        <label for="brochure_id">
-            brochure id</label>
-        <asp:TextBox ID="txtBrochure_id" runat="server" Text="310"></asp:TextBox>
-        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
-        <ul id="detail" runat="server" visible="false">
-            <li>brochure_id :
-                <asp:Label ID="txtBrochureId" runat="server"></asp:Label></li>
-            <li>entry_date :<asp:Label ID="txtEntry_date" runat="server"></asp:Label></li>
-            <li>thumb_image_path :
-                <asp:Label ID="txtThumb_image_path" runat="server"></asp:Label></li>
-            <li>preview_image_path :
-                <asp:Label ID="txtPreview_image_path" runat="server"></asp:Label></li>
-            <li>page_order_xml_config :
-                <asp:Label ID="txtPage_order_xml_config" runat="server"></asp:Label></li>
-            <li>file_path_to_pdf :
-                <asp:Label ID="file_path_to_pdf" runat="server"></asp:Label></li>
-            <li>validity_date :
-                <asp:Label ID="txtvalidity_date" runat="server"></asp:Label></li>
-            <li>brochure_caption :
-                <asp:Label ID="txtbrochure_caption" runat="server"></asp:Label></li>
-            <li>format :
-                <asp:Label ID="lblFormat" runat="server"></asp:Label></li>
-            <li>standard_pages :
-                <ul>
-                    <asp:Repeater ID="rptStandardPages" runat="server">
-                        <ItemTemplate>
-                            <li>
-                                <%# Container.DataItem %>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </ul>
-            </li>
-            <li>zoom_page :
-                 <ul>
-                    <asp:Repeater ID="rptZoomPages" runat="server">
-                        <ItemTemplate>
-                            <li>
-                                <%# Container.DataItem %>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </ul>
-            </li>
-        </ul>
+        <div id="searchPanel" runat="server">
+            <label for="operator_id">
+                Operator id</label>
+            <asp:TextBox ID="txtOperator_id" runat="server" Text="39"></asp:TextBox>
+            <label for="brochure_id">
+                brochure id</label>
+            <asp:TextBox ID="txtBrochure_id" runat="server" Text="310"></asp:TextBox>
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
+        </div>
+        <div id="resultPanel" runat="server" visible="false">
+            <ul>
+                <li>brochure_id :
+                    <asp:Label ID="txtBrochureId" runat="server"></asp:Label></li>
+                <li>entry_date :<asp:Label ID="txtEntry_date" runat="server"></asp:Label></li>
+                <li>thumb_image_path :
+                    <asp:Label ID="txtThumb_image_path" runat="server"></asp:Label></li>
+                <li>preview_image_path :
+                    <asp:Label ID="txtPreview_image_path" runat="server"></asp:Label></li>
+                <li>page_order_xml_config :
+                    <asp:Label ID="txtPage_order_xml_config" runat="server"></asp:Label></li>
+                <li>file_path_to_pdf :
+                    <asp:Label ID="file_path_to_pdf" runat="server"></asp:Label></li>
+                <li>validity_date :
+                    <asp:Label ID="txtvalidity_date" runat="server"></asp:Label></li>
+                <li>brochure_caption :
+                    <asp:Label ID="txtbrochure_caption" runat="server"></asp:Label></li>
+                <li>format :
+                    <asp:Label ID="lblFormat" runat="server"></asp:Label></li>
+                <li>standard_pages :
+                    <ul>
+                        <asp:Repeater ID="rptStandardPages" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <%# Container.DataItem %>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </li>
+                <li>zoom_page :
+                    <ul>
+                        <asp:Repeater ID="rptZoomPages" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <%# Container.DataItem %>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
     </div>
     <br />
