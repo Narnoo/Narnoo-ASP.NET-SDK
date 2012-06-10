@@ -19,7 +19,7 @@
     }
     catch (InvalidNarnooRequestException ex)
     {
-        this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+        this.lblMessage.Text = ex.Message;
     }
     
 	</pre>

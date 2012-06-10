@@ -105,7 +105,7 @@
     <Compile Include="NarnooError.cs" />
     <Compile Include="NarnooErrorResponse.cs" />
     <Compile Include="NarnooRequest.cs" />
-    <Compile Include="InvalidNarnooRequestException.cs" />
+    <Compile Include="NarnooRequestException.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="OperatorDetailResponse.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />

@@ -148,6 +148,12 @@
     <Compile Include="demos\distributor-media\deleteVideo.aspx.designer.cs">
       <DependentUpon>deleteVideo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="demos\DistributorMediaNarnooRequestPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\DistributorNarnooRequestPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="demos\OperatorPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -482,6 +488,9 @@
     </Compile>
     <Compile Include="demos\Operator\getVideos.aspx.designer.cs">
       <DependentUpon>getVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

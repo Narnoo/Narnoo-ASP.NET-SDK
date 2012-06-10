@@ -10,8 +10,17 @@ namespace Narnoo.Example.demos.distributor_media
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = false;
+            
         }
+
+        protected override Label MessageBox
+        {
+            get
+            {
+                return this.lblMessage;
+            }
+        }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
@@ -29,10 +38,10 @@ namespace Narnoo.Example.demos.distributor_media
 
 
             }
-            catch (InvalidNarnooRequestException ex)
+            catch (NarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+                this.lblMessage.Text = ex.Message;
             }
         }
     }

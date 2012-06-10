@@ -19,7 +19,7 @@ namespace Narnoo
         bool requiredSSL = false;
 
         bool _sandbox = true;
-        public bool sandbox
+        public bool Sandbox
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Narnoo
 
         protected string getDistXmlApi()
         {
-            if (this.sandbox == true)
+            if (this.Sandbox == true)
             {
                 return this.api_dist_xml;
             }
@@ -55,7 +55,7 @@ namespace Narnoo
 
         protected string getXmlApi()
         {
-            if (this.sandbox == true)
+            if (this.Sandbox == true)
             {
                 return this.api_xml;
             }
@@ -67,7 +67,7 @@ namespace Narnoo
 
         protected string getOpXmlApi()
         {
-            if (this.sandbox == true)
+            if (this.Sandbox == true)
             {
                 return this.api_op_xml;
             }
@@ -137,28 +137,28 @@ namespace Narnoo
                 if (response_type == "json")
                 {
                     // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
-                    if (content.StartsWith("{\"error\":",StringComparison.InvariantCultureIgnoreCase))
+                    if (content.StartsWith("{\"error\":", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var error = this.Deserialize<NarnooErrorResponse>(content);
 
-                        throw new InvalidNarnooRequestException(error.error.errorCode, error.error.errorMessage);
+                        throw new NarnooRequestException("[" + error.error.errorCode + "]" + error.error.errorMessage);
 
                     }
                 }
                 else
                 {
-                    // <?xml version="1.0" encoding="UTF-8"?><Error>
-                    //<ErrorCode>Error 202</ErrorCode>
-                    //<ErrorMessage>Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!.</ErrorMessage>
-                    //</Error>
+                    // <?xml version="1.0" encoding="UTF-8"?><error>
+                    //<errorCode>Error 202</errorCode>
+                    //<errorMessage>Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!.</errorMessage>
+                    //</error>
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(content);
 
-                    if (doc.FirstChild.Name == "Error")
+                    if (doc.FirstChild.Name == "error")
                     {
                         var errorCode = doc.FirstChild.FirstChild.Value;
                         var errorMessage = doc.FirstChild.LastChild.Value;
-                        throw new InvalidNarnooRequestException(errorCode, errorMessage);
+                        throw new NarnooRequestException("[" + errorCode + "]" + errorMessage);
                     }
 
                 }

@@ -12,6 +12,15 @@ namespace Narnoo.Example.demos.distributor_operator_media
         {
 
         }
+
+        protected override Label MessageBox
+        {
+            get
+            {
+                return this.lblMessage;
+            }
+        }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var operator_id = this.txtOperator_id.Text;
@@ -28,10 +37,10 @@ namespace Narnoo.Example.demos.distributor_operator_media
                 this.rptList.DataBind();
 
             }
-            catch (InvalidNarnooRequestException ex)
+            catch (NarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+                this.lblMessage.Text = ex.Message;
             }
         }
 

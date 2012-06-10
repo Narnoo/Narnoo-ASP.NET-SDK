@@ -61,7 +61,7 @@
 catch (InvalidNarnooRequestException ex)
 {
     this.lblMessage.Visible = true;
-    this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + 
+    this.lblMessage.Text = ex.Message; + 
     "</br> ErrorMessage:" + ex.Error.errorMessage;
 }
     </pre>

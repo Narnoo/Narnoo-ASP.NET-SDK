@@ -20,11 +20,19 @@ namespace Narnoo.Example.demos.Operator
                 this.rptList.DataBind();
 
             }
-            catch (InvalidNarnooRequestException ex)
+            catch (NarnooRequestException ex)
             {
                 this.lblMessage.Visible = true;
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode
-                    + "</br> ErrorMessage:" + ex.Error.errorMessage;
+                this.lblMessage.Text = ex.Message;
+                    
+            }
+        }
+
+        protected override Label MessageBox
+        {
+            get
+            {
+                return this.lblMessage;
             }
         }
     }

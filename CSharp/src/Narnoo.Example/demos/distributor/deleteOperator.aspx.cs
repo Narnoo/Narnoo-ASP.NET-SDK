@@ -10,7 +10,15 @@ namespace Narnoo.Example.demos.distributor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = false;
+            
+        }
+
+        protected override Label MessageBox
+        {
+            get
+            {
+                return this.lblMessage;
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -24,21 +32,14 @@ namespace Narnoo.Example.demos.distributor
 
                 var request = new DistributorNarnooRequest();
                 request.SetAuth(this.appkey, this.secretkey);
-                var result = request.DeleteOperator(operatorId);
+                request.Sandbox = this.Sandbox;
+                request.DeleteOperator(operatorId);
+                this.lblMessage.Text = "Success";
 
-                     
-                if (result)
-                {
-                    this.lblMessage.Text = "Success";
-                }
-                else
-                {
-                    this.lblMessage.Text = "Failed";
-                }
             }
-            catch (InvalidNarnooRequestException ex)
+            catch (NarnooRequestException ex)
             {
-                this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
+                this.lblMessage.Text = ex.Message;
             }
         }
     }

@@ -9,28 +9,16 @@
     <p>
         Distributors use this function to add Operator's to their access list</p>
     <pre class="code" lang="csharp">
-    string operatorId = this.txtOperatorId.Text;
 
-    try
-    {
-
-        var request = new DistributorNarnooRequest();
-        request.SetAuth(this.appkey, this.secretkey);
-        var result = request.AddOperator(operatorId);
-        if (result)
-        {
-            this.lblMessage.Text = "Success";
-        }
-        else
-        {
-            this.lblMessage.Text = "Failed";
-        }
-    }
-    catch (InvalidNarnooRequestException ex)
-    {
-        this.lblMessage.Text = "ErrorCode:" + ex.Error.errorCode + "</br> ErrorMessage:" + ex.Error.errorMessage;
-    }
-	
+try
+{
+    this.NarnooRequest.AddOperator(operatorId);
+    this.lblMessage.Text = "Success";
+}
+catch (NarnooRequestException ex)
+{
+    this.ShowMessage(ex.Message);
+}
     </pre>
     <div id="demo-frame">
         <div id="demoForm" runat="server">
