@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class deleteImage : DistributorPageBase
+    public partial class deleteImage : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,19 +23,15 @@ namespace Narnoo.Example.demos.distributor_media
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = true;
             string image_id = this.txtImage_id.Text;
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                this.lblMessage.Text = request.deleteImage(image_id).ToString();
-
+                this.NarnooRequest.DeleteImage(image_id);
+                this.ShowMessage("done.");
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

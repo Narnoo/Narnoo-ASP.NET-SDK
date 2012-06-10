@@ -1,281 +1,267 @@
-﻿
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Narnoo.com - Tourism Media Networking Platform</title>
-<link href="css/public-style.css" rel="stylesheet" type="text/css" />
-<link href="css/demo.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-.normal {
-	height: 100%;
-	width: auto;
-}
-
-.normal div,.normal iframe {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-}
-
-.normal iframe {
-	display: block;
-	width: 100%;
-	border: 0;
-}
-</style>
-
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-
-        $('.demos-nav dt').click(function (e) {
-            $(this).toggleClass('collapse');
-
-            if ($(this).is('.collapse')) {
-                $(this).nextUntil('dt').hide();
-            } else {
-                $(this).nextUntil('dt').show();
-            }
-        });
-
-
-        $('dd a').click(function (e) {
-            e.preventDefault();
-            $('#code-container').attr('src', $(this).attr('href') + '?r=' + Math.random())
-        });
-
-        function setHeight() {
-            $('iframe').height($('.normal').height());
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Narnoo.com - Tourism Media Networking Platform</title>
+    <link href="css/public-style.css" rel="stylesheet" type="text/css" />
+    <link href="css/demo.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .normal
+        {
+            height: 100%;
+            width: auto;
         }
+        
+        .normal div, .normal iframe
+        {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .normal iframe
+        {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
 
-        if ($.browser.msie) {
-            $(window).resize(function () {
-                setHeight();
+            $('.demos-nav dt').click(function (e) {
+                $(this).toggleClass('collapse');
+
+                if ($(this).is('.collapse')) {
+                    $(this).nextUntil('dt').hide();
+                } else {
+                    $(this).nextUntil('dt').show();
+                }
             });
 
-            setHeight();
-        }
-    });
-</script>
 
+            $('dd a').click(function (e) {
+                e.preventDefault();
+                $('#code-container').attr('src', $(this).attr('href') + '?r=' + Math.random())
+            });
+
+            function setHeight() {
+                $('iframe').height($('.normal').height());
+            }
+
+            if ($.browser.msie) {
+                $(window).resize(function () {
+                    setHeight();
+                });
+
+                setHeight();
+            }
+        });
+    </script>
 </head>
 <body marginwidth="0" marginheight="0">
-
-	<!-- Header Nav Contents --><!-- Header Contents -->
-  <div id="headerBox">
-		<div id="headerContainer">
-			<table height="80" width="950">
-				<tbody>
-					<tr>
-						<td width="576" height="80"><a href="index.aspx"><img
-								src="images/logo-header.jpg" width="220" height="61"
-								alt="Narnoo.com Logo"></a></td>
-						<td width="220">&nbsp;</td>
-						<td width="138" align="right"><a
-							href="http://helpdesk.narnoo.com/" target="_blank"><img
-								src="images/index_help.gif" width="131" height="61"
-								alt="Help Desk"></a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-
-
-
-	<!-- Main Contents -->
-	<div id="contentBox">
-		<div id="contentContainer">
-			<table width="950" class="layout-grid" style="height: 100%;"
-				border="0" cellspacing="0" cellpadding="0">
-				<tbody>
-
-					<tr>
-						<td class="left-nav">
-							<dl class="demos-nav">
-								<dt>Distributor->Operator</dt>
-								<dd>
-									<a href="demos/distributor/addOperator.aspx">addOperator</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor/deleteOperator.aspx">deleteOperator</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor/listOperators.aspx">listOperators</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor/singleOperatorDetail.aspx">singleOperatorDetail</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor/searchOperators.aspx">searchOperators</a>
-								</dd>
-								<dt>Distributor’s Own Media</dt>
-								<dd>
-									<a href="demos/distributor-media/getImages.aspx">getImages</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getAlbums.aspx">getAlbums</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getAlbumImages.aspx">getAlbumImages</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getVideos.aspx">getVideos</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getVideoDetails.aspx">getVideoDetails</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getBrochures.aspx">getBrochures</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getSingleBrochure.aspx">getSingleBrochure</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-media/getChannelList.aspx">getChannelList</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-media/getChannelVideos.aspx">getChannelVideos</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-media/searchMedia.aspx">searchMedia</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-media/downloadImage.aspx">downloadImage</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-media/downloadVideo.aspx">downloadVideo</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-media/downloadBrochure.aspx">downloadBrochure</a>
-								</dd>
-
-
-								<dt>Distributors->Operator Media</dt>
-								<dd>
-									<a href="demos/distributor-operator-media/getImages.aspx">getImages</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getAlbums.aspx">getAlbums</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getAlbumImages.aspx">getAlbumImages</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getVideos.aspx">getVideos</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getVideoDetails.aspx">getVideoDetails</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getBrochures.aspx">getBrochures</a>
-								</dd>
-								<dd>
-									<a
-										href="demos/distributor-operator-media/getSingleBrochure.aspx">getSingleBrochure</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/getProductText.aspx">getProductText</a>
-								</dd>
-								<dd>
-									<a
-										href="demos/distributor-operator-media/getProductTextWords.aspx">getProductTextWords</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-operator-media/downloadImage.aspx">downloadImage</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/downloadVideo.aspx">downloadVideo</a>
-								</dd>
-
-								<dd>
-									<a href="demos/distributor-operator-media/downloadBrochure.aspx">downloadBrochure</a>
-								</dd>
-								<dd>
-									<a href="demos/distributor-operator-media/searchMedia.aspx">searchMedia</a>
-								</dd>
-
-								<dt>Operator</dt>
-								<dd>
-									<a href="demos/operator/getImages.aspx">getImages</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getAlbums.aspx">getAlbums</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getAlbumImages.aspx">getAlbumImages</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getVideos.aspx">getVideos</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getVideoDetails.aspx">getVideoDetails</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getBrochures.aspx">getBrochures</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getSingleBrochure.aspx">getSingleBrochure</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getProductText.aspx">getProductText</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/getProductTextWords.aspx">getProductTextWords</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/downloadImage.aspx">downloadImage</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/downloadVideo.aspx">downloadVideo</a>
-								</dd>
-								<dd>
-									<a href="demos/operator/downloadBrochure.aspx">downloadBrochure</a>
-								</dd>
-
-							</dl>
-						</td>
-						<td class="normal"><iframe id="code-container" src=""
-								marginheight="0" marginwidth="0" frameborder="0"></iframe></td>
-
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-
-	<!-- Footer Contents -->
-	<div id="footerBox">
-		<div id="footerContainer">
-			<table width="950">
-				<div id="title" style="margin-top: 15px">Narnoo Icons</div>
-				<div style="margin-top: 15px">
-					<img src="icons/icon-128.png" width="124" height="124" alt="icon"><img
-						src="icons/icon-96.png" width="96" height="96" alt="icon"><img
-							src="icons/icon-72.png" width="72" height="72" alt="icon"><img
-								src="icons/icon-64.png" width="64" height="64" alt="icon"><img
-									src="icons/icon-48.png" width="48" height="48" alt="icon"><img
-										src="icons/icon-32.png" width="32" height="32" alt="icon"><img
-											src="icons/icon-24.png" width="24" height="24" alt="icon"><img
-												src="icons/icon-16.png" width="16" height="16" alt="icon">
-				
-				</div>
-			</table>
-		</div>
-	</div>
-
-
+    <!-- Header Nav Contents -->
+    <!-- Header Contents -->
+    <div id="headerBox">
+        <div id="headerContainer">
+            <table height="80" width="950">
+                <tbody>
+                    <tr>
+                        <td width="576" height="80">
+                            <a href="index.aspx">
+                                <img src="images/logo-header.jpg" width="220" height="61" alt="Narnoo.com Logo"></a>
+                        </td>
+                        <td width="220">
+                            &nbsp;
+                        </td>
+                        <td width="138" align="right">
+                            <a href="http://helpdesk.narnoo.com/" target="_blank">
+                                <img src="images/index_help.gif" width="131" height="61" alt="Help Desk"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Main Contents -->
+    <div id="contentBox">
+        <div id="contentContainer">
+            <table width="950" class="layout-grid" style="height: 100%;" border="0" cellspacing="0"
+                cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td class="left-nav">
+                            <dl class="demos-nav">
+                                <dt>Distributor->Operator</dt>
+                                <dd>
+                                    <a href="demos/distributor/addOperator.aspx">addOperator</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor/deleteOperator.aspx">deleteOperator</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor/listOperators.aspx">listOperators</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor/singleOperatorDetail.aspx">singleOperatorDetail</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor/searchOperators.aspx">searchOperators</a>
+                                </dd>
+                                <dt>Distributor’s Own Media</dt>
+                                <dd>
+                                    <a href="demos/distributor-media/getImages.aspx">getImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getAlbums.aspx">getAlbums</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getAlbumImages.aspx">getAlbumImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getVideos.aspx">getVideos</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getVideoDetails.aspx">getVideoDetails</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getBrochures.aspx">getBrochures</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getSingleBrochure.aspx">getSingleBrochure</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getChannelList.aspx">getChannelList</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/getChannelVideos.aspx">getChannelVideos</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/searchMedia.aspx">searchMedia</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/downloadImage.aspx">downloadImage</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/downloadVideo.aspx">downloadVideo</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/downloadBrochure.aspx">downloadBrochure</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/deleteImage.aspx">deleteImage</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/deleteVideo.aspx">deleteVideo</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-media/deleteBrochure.aspx">deleteBrochure</a>
+                                </dd>
+                                <dt>Distributors->Operator Media</dt>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getImages.aspx">getImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getAlbums.aspx">getAlbums</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getAlbumImages.aspx">getAlbumImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getVideos.aspx">getVideos</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getVideoDetails.aspx">getVideoDetails</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getBrochures.aspx">getBrochures</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getSingleBrochure.aspx">getSingleBrochure</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getProductText.aspx">getProductText</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/getProductTextWords.aspx">getProductTextWords</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/downloadImage.aspx">downloadImage</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/downloadVideo.aspx">downloadVideo</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/downloadBrochure.aspx">downloadBrochure</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/distributor-operator-media/searchMedia.aspx">searchMedia</a>
+                                </dd>
+                                <dt>Operator</dt>
+                                <dd>
+                                    <a href="demos/operator/getImages.aspx">getImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getAlbums.aspx">getAlbums</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getAlbumImages.aspx">getAlbumImages</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getVideos.aspx">getVideos</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getVideoDetails.aspx">getVideoDetails</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getBrochures.aspx">getBrochures</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getSingleBrochure.aspx">getSingleBrochure</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getProductText.aspx">getProductText</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/getProductTextWords.aspx">getProductTextWords</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/downloadImage.aspx">downloadImage</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/downloadVideo.aspx">downloadVideo</a>
+                                </dd>
+                                <dd>
+                                    <a href="demos/operator/downloadBrochure.aspx">downloadBrochure</a>
+                                </dd>
+                            </dl>
+                        </td>
+                        <td class="normal">
+                            <iframe id="code-container" src="" marginheight="0" marginwidth="0" frameborder="0">
+                            </iframe>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Footer Contents -->
+    <div id="footerBox">
+        <div id="footerContainer">
+            <table width="950">
+                <div id="title" style="margin-top: 15px">
+                    Narnoo Icons</div>
+                <div style="margin-top: 15px">
+                    <img src="icons/icon-128.png" width="124" height="124" alt="icon"><img src="icons/icon-96.png"
+                        width="96" height="96" alt="icon"><img src="icons/icon-72.png" width="72" height="72"
+                            alt="icon"><img src="icons/icon-64.png" width="64" height="64" alt="icon"><img src="icons/icon-48.png"
+                                width="48" height="48" alt="icon"><img src="icons/icon-32.png" width="32" height="32"
+                                    alt="icon"><img src="icons/icon-24.png" width="24" height="24" alt="icon"><img src="icons/icon-16.png"
+                                        width="16" height="16" alt="icon">
+                </div>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
-
-
-
-

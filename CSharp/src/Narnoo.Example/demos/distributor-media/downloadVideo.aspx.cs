@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class downloadVideo : DistributorPageBase
+    public partial class downloadVideo : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            this.detail.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,27 +27,15 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadVideo(videoId);
+                var item = this.NarnooRequest.DownloadVideo(videoId);
 
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Video cannot found";
-                }
-                else
-                {
-                    this.detail.Visible = true;
-                    this.lblDownload_video_stream_path.Text = item.download_video_stream_path;
-                    this.lblOriginal_video_path.Text = item.original_video_path;
+                this.detail.Visible = true;
 
-                }
-
+                this.lblDownload_video_stream_path.Text = item.download_video_stream_path;
+                this.lblOriginal_video_path.Text = item.original_video_path;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

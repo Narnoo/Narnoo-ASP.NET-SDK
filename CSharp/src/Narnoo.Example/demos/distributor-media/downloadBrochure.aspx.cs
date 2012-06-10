@@ -7,10 +7,11 @@ using System.Xml;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class downloadBrochure : DistributorPageBase
+    public partial class downloadBrochure : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.lblDownload_brochure_to_pdf_path.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,26 +28,11 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadBrochure(brochure_id);
-
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Brochure cannot found";
-                }
-                else
-                {
-                    
-                    this.lblDownload_brochure_to_pdf_path.Text =  item.download_brochure_to_pdf_path;
-
-                }
-
+                var item = this.NarnooRequest.DownloadBrochure(brochure_id);
+                this.lblDownload_brochure_to_pdf_path.Text = item.download_brochure_to_pdf_path;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

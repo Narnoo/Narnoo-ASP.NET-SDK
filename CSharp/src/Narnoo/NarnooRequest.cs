@@ -101,7 +101,6 @@ namespace Narnoo
             data.Add("response_type=" + this.response_type);
             data.Add("action=" + method);
 
-
             Encoding encoding = Encoding.Default;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "post";
@@ -110,8 +109,6 @@ namespace Narnoo
 
             if (options != null && options.Length > 0)
             {
-
-
                 foreach (var o in options)
                 {
                     if (string.IsNullOrEmpty(o.Value) == false)
@@ -126,17 +123,15 @@ namespace Narnoo
             request.GetRequestStream().Write(buffer, 0, buffer.Length);
 
 
-
-
-
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
             using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
             {
                 var content = reader.ReadToEnd();
 
                 if (response_type == "json")
                 {
-                    // {"Error":{"ErrorCode":"Error 202","ErrorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
+                    // {"error":{"errorCode":"Error 202","errorMessage":"Sorry, Authentication Failed, May be Response Type Invalid OR Action Invalid !!!."}}
                     if (content.StartsWith("{\"error\":", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var error = this.Deserialize<NarnooErrorResponse>(content);
@@ -163,6 +158,7 @@ namespace Narnoo
 
                 }
 
+                
                 return content;
             }
         }

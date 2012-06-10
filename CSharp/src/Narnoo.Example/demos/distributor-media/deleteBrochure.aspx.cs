@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class deleteBrochure : DistributorPageBase
+    public partial class deleteBrochure : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,15 +24,13 @@ namespace Narnoo.Example.demos.distributor_media
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            this.lblMessage.Visible = true;
+  
             string brochure_id = this.txtBrochure_id.Text;
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                this.lblMessage.Text = request.deleteBrochure(brochure_id).ToString();
-
+                this.NarnooRequest.DeleteBrochure(brochure_id);
+                this.ShowMessage("done.");
             }
             catch (NarnooRequestException ex)
             {

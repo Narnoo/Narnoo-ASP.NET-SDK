@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class getAlbumImages : DistributorPageBase
+    public partial class getAlbumImages : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            this.resultPanel.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,18 +27,15 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var list = request.GetAlbumImages(album_name);
-
+                var list = this.NarnooRequest.GetAlbumImages(album_name);
+                this.searchPanel.Visible = false;
+                this.resultPanel.Visible = true;
+                this.lblTotal.Text = list.TotalPages.ToString();
                 this.rptList.DataSource = list;
                 this.rptList.DataBind();
-
-
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

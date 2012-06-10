@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Example.demos.distributor_media
 {
-    public partial class downloadImage : DistributorPageBase
+    public partial class downloadImage : DistributorMediaNarnooRequestPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            this.lblDownload_image_link.Visible = false;
         }
 
         protected override Label MessageBox
@@ -27,26 +27,11 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                var request = new DistributorMediaNarnooRequest();
-                request.SetAuth(this.appkey, this.secretkey);
-                var item = request.DownloadImage(image_id);
-
-                if (item == null)
-                {
-                    this.lblMessage.Visible = true;
-                    this.lblMessage.Text = "Image cannot found";
-                }
-                else
-                {
-
-                    this.lblDownload_image_link.Text = item.download_image_link;
-
-                }
-
+                var item = this.NarnooRequest.DownloadImage(image_id);
+                this.lblDownload_image_link.Text = item.download_image_link;
             }
             catch (NarnooRequestException ex)
             {
-                this.lblMessage.Visible = true;
                 this.ShowMessage(ex.Message);
             }
         }

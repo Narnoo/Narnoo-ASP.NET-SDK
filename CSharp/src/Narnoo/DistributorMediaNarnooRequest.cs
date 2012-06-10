@@ -13,35 +13,31 @@ namespace Narnoo
             var content = this.GetResponse(this.getDistXmlApi(), "downloadBrochure", new RequestParameter("brochure_id", brochure_id));
 
 
-            var list = this.Deserialize<DownloadBrochuresResponse>(content);
+            var item = this.Deserialize<DownloadBrochure>(content);
 
-            if (list != null && list.download_brochure.Count > 0)
+            if (item == null)
             {
-                return list.download_brochure[0].download_brochure_details;
+                throw new NarnooRequestException("Brochure can NOT be found.");
             }
-            else
-            {
-                return null;
-            }
+
+            return item;
 
         }
 
         public DownloadImage DownloadImage(string image_id)
         {
 
-
             var content = this.GetResponse(this.getDistXmlApi(), "downloadImage", new RequestParameter("media_id", image_id));
 
+            var item = this.Deserialize<DownloadImage>(content);
 
-            var list = this.Deserialize<DownloadImagesResponse>(content);
-
-            if (list != null && list.download_image.Count > 0)
+            if (item == null)
             {
-                return list.download_image[0].download_image_details;
+                throw new NarnooRequestException("Image can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
@@ -49,20 +45,19 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.getDistXmlApi(), "downloadVideo", new RequestParameter("video_id", videoId));
 
+            var item = this.Deserialize<DownloadVideo>(content);
 
-            var list = this.Deserialize<DownloadVideosResponse>(content);
-
-            if (list != null && list.download_video.Count > 0)
+            if (item == null)
             {
-                return list.download_video[0].download_video_details;
+                throw new NarnooRequestException("Video can NOT be found.");
             }
             else
             {
-                return null;
+                return item;
             }
         }
 
-        public IEnumerable<AlbumImage> GetAlbumImages(string album_name)
+        public NarnooCollection<AlbumImage> GetAlbumImages(string album_name)
         {
             var content = this.GetResponse(this.getDistXmlApi(), "getAlbumImages", new RequestParameter("album_name", album_name));
 
@@ -74,11 +69,7 @@ namespace Narnoo
                 list = new DistributorAlbumImagesResponse();
             }
 
-
-            foreach (var i in list.distributor_albums_images)
-            {
-                yield return i.album_image;
-            }
+            return new NarnooCollection<AlbumImage>(list.total_pages, list.distributor_albums_images);
 
         }
 
@@ -369,7 +360,7 @@ namespace Narnoo
 
 
 
-        public bool deleteImage(string image_id)
+        public bool DeleteImage(string image_id)
         {
 
             var content = this.GetResponse(this.getDistXmlApi(), "deleteImage", new RequestParameter("image_id", image_id));
@@ -387,7 +378,7 @@ namespace Narnoo
             }
         }
 
-        public bool deleteBrochure(string brochure_id)
+        public bool DeleteBrochure(string brochure_id)
         {
             var content = this.GetResponse(this.getDistXmlApi(), "deleteBrochure", new RequestParameter("brochure_id", brochure_id));
             try
@@ -403,7 +394,7 @@ namespace Narnoo
             }
         }
 
-        public bool deleteVideo(string video_id)
+        public bool DeleteVideo(string video_id)
         {
             var content = this.GetResponse(this.getDistXmlApi(), "deleteVideo", new RequestParameter("video_id", video_id));
             try

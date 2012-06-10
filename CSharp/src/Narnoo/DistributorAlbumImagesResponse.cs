@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class DistributorAlbumImagesResponse
+    public class DistributorAlbumImagesResponse:NarnooCollectionResponse
     {
         public DistributorAlbumImagesResponse()
         {
-            this.distributor_albums_images = new List<AlbumImageResponse>();
+            this.distributor_albums_images = new List<AlbumImage>();
         }
-        public List<AlbumImageResponse> distributor_albums_images
+        public List<AlbumImage> distributor_albums_images
         {
             get;
             set;
