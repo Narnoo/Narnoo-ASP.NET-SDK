@@ -98,7 +98,7 @@
     <Compile Include="SearchMediaResponse.cs" />
     <Compile Include="SearchMediaVideo.cs" />
     <Compile Include="SingleBrochure.cs" />
-    <Compile Include="SingleBrochurePage.cs" />
+    <Compile Include="SingleBrochurePages.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="DistributorMediaNarnooRequest.cs" />
     <Compile Include="DistributorNarnooRequest.cs" />

@@ -271,18 +271,16 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.getOpXmlApi(), "getProductTextWords", new RequestParameter("product_title", product_title));
 
-            var list = this.Deserialize<OperatorProductTextWordsListResponse>(content);
+            var item = this.Deserialize<ProductTextWords>(content);
 
-
-            if (list != null && list.operator_products.Count > 0)
+            if (item == null)
             {
-                return list.operator_products[0];
+                throw new NarnooRequestException("Brochure can NOT be found.");
             }
             else
             {
-                throw new NarnooRequestException("ProductTextWords can NOT be found.");
+                return item;
             }
-
         }
 
         public bool deleteBrochure(string brochure_id)

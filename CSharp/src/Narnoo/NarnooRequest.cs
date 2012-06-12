@@ -81,7 +81,14 @@ namespace Narnoo
 
         protected T Deserialize<T>(string json)
         {
-            return JsonConvert.DeserializeObject<T>(json);
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception)
+            {
+                throw new InvalidCastException(string.Format("[{0}] can NOT be converted into {1}", json, typeof(T)));
+            }
         }
 
         public void SetAuth(string appkey, string secretkey)

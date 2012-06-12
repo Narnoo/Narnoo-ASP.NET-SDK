@@ -8,7 +8,7 @@ namespace Narnoo
     {
         public SingleBrochure()
         {
-            this.pages = new List<SingleBrochurePage>();
+            this.pages = new SingleBrochurePages();
         }
         public string brochure_id { get; set; }
         public string entry_date { get; set; }
@@ -33,7 +33,7 @@ namespace Narnoo
         public string validity_date { get; set; }
         public string brochure_caption { get; set; }
 
-        public List<SingleBrochurePage> pages { get; set; }
+        public SingleBrochurePages pages { get; set; }
        
     }
 }

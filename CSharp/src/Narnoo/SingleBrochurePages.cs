@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class SingleBrochurePage
+    public class SingleBrochurePages
     {
-        public SingleBrochurePage()
+        public SingleBrochurePages()
         {
             this.standard_pages = new List<string>();
             this.zoom_page = new List<string>();

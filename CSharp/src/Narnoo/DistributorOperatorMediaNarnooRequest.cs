@@ -160,16 +160,16 @@ namespace Narnoo
         {
             var content = this.GetResponse(this.getXmlApi(), "getProductTextWords", new RequestParameter("operator_id", operator_id), new RequestParameter("product_title", product_title));
 
-            var list = this.Deserialize<OperatorProductTextWordsListResponse>(content);
+            var item = this.Deserialize<ProductTextWords>(content);
 
 
-            if (list != null && list.operator_products.Count > 0)
+            if (item == null)
             {
-                return list.operator_products[0];
+                throw new NarnooRequestException("ProductTextWords can NOT be found.");
             }
             else
             {
-                throw new NarnooRequestException("ProductTextWords can NOT be found.");
+                return item;
             }
 
         }
@@ -211,7 +211,7 @@ namespace Narnoo
         {
             return this.GetVideos(operator_id, 1);
         }
-        public NarnooCollection<Video> GetVideos(string operator_id,int page_no)
+        public NarnooCollection<Video> GetVideos(string operator_id, int page_no)
         {
             var content = this.GetResponse(this.getXmlApi(), "getVideos", new RequestParameter("operator_id", operator_id), new RequestParameter("page_no", page_no.ToString()));
 

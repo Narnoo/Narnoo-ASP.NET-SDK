@@ -23,12 +23,13 @@ try
     this.txtThumb_image_path.Text = item.thumb_image_path;
     this.txtvalidity_date.Text = item.validity_date;
 
-    if (item.pages.Count > 0)
+    if (item.pages != null)
     {
-        this.rptStandardPages.DataSource = item.pages[0].standard_pages;
-        this.rptStandardPages.DataBind();
-        this.rptZoomPages.DataSource = item.pages[0].zoom_page;
-        this.rptZoomPages.DataBind();
+        rptStandardPages.DataSource = item.pages.standard_pages;
+        rptStandardPages.DataBind();
+
+        rptZoomPages.DataSource = item.pages.zoom_page;
+        rptZoomPages.DataBind();
     }
 }
 catch (NarnooRequestException ex)

@@ -25,12 +25,12 @@ try
     this.format.Text = item.format;
     this.thumb_image_pat.Text = item.thumb_image_path;
     this.validity_date.Text = item.validity_date;
-    if (item.pages.Count > 0)
+    if (item.pages != null)
     {
-        rptStandardPages.DataSource = item.pages[0].standard_pages;
+        rptStandardPages.DataSource = item.pages.standard_pages;
         rptStandardPages.DataBind();
 
-        rptZoomPages.DataSource = item.pages[0].zoom_page;
+        rptZoomPages.DataSource = item.pages.zoom_page;
         rptZoomPages.DataBind();
     }
 }
