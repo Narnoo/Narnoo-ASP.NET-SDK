@@ -11,7 +11,13 @@ namespace Narnoo.Example.demos
 
 
 
-        protected bool Sandbox = false;
+        protected bool Sandbox
+        {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["sandbox"] == "true";
+            }
+        }
 
 
         protected override void OnLoad(EventArgs e)
