@@ -355,5 +355,24 @@ namespace Narnoo
             return new NarnooCollection<Distributor>(list.total_pages, list.distributors);
         } 
         #endregion
+
+        #region createAlbum
+        public bool createAlbum(string album_name)
+        {
+            var content = this.GetResponse(this.getOpXmlApi(), "createAlbum", new RequestParameter("album_name", album_name));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+
+                return success != null;
+
+            }
+            catch
+            {
+                return false;
+            }
+        } 
+        #endregion
     }
 }
