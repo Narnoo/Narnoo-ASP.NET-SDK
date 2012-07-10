@@ -6,7 +6,7 @@ namespace Narnoo
 {
     public class Video
     {
-           public string video_id { get; set; }
+        public string video_id { get; set; }
 
         public string entry_date { get; set; }
 
@@ -33,6 +33,6 @@ namespace Narnoo
 
         public string video_language { get; set; }
 
-        
+
     }
 }

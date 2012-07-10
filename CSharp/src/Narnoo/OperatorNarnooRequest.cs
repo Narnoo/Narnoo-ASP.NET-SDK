@@ -316,7 +316,6 @@ namespace Narnoo
             }
         }
 
-
         public bool deleteVideo(string video_id)
         {
             var content = this.GetResponse(this.getOpXmlApi(), "deleteVideo", new RequestParameter("video_id", video_id));
@@ -333,5 +332,28 @@ namespace Narnoo
                 return false;
             }
         }
+
+
+        #region getDistributors
+
+        public NarnooCollection<Distributor> getDistributors()
+        {
+            return this.getDistributors(1);
+        }
+
+        public NarnooCollection<Distributor> getDistributors(int page_no)
+        {
+            var content = this.GetResponse(this.getOpXmlApi(), "getDistributors", new RequestParameter("page_no", page_no.ToString()));
+            var list = this.Deserialize<DistributorCollectionRespone>(content);
+
+
+            if (list == null)
+            {
+                list = new DistributorCollectionRespone();
+            }
+
+            return new NarnooCollection<Distributor>(list.total_pages, list.distributors);
+        } 
+        #endregion
     }
 }

@@ -85,6 +85,7 @@
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
+    <Content Include="demos\Operator\getDistributors.aspx" />
     <Content Include="demos\Operator\deleteBrochure.aspx" />
     <Content Include="demos\Operator\deleteImage.aspx" />
     <Content Include="demos\Operator\deleteVideo.aspx" />
@@ -390,6 +391,13 @@
     <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
       <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="demos\Operator\getDistributors.aspx.cs">
+      <DependentUpon>getDistributors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getDistributors.aspx.designer.cs">
+      <DependentUpon>getDistributors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demos\Operator\deleteBrochure.aspx.cs">
       <DependentUpon>deleteBrochure.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -533,7 +541,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>14751</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:61155/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

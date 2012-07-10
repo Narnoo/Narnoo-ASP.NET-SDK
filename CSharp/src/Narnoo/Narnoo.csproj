@@ -43,50 +43,38 @@
   <ItemGroup>
     <Compile Include="Album.cs" />
     <Compile Include="AlbumImage.cs" />
-    <Compile Include="AlbumImageResponse.cs" />
+    <Compile Include="Distributor.cs" />
+    <Compile Include="DistributorCollectionRespone.cs" />
+    <Compile Include="DownloadVideoResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DownloadVideosResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NarnooCollection.cs" />
     <Compile Include="NarnooCollectionResponse.cs" />
     <Compile Include="NarnooSuccess.cs" />
     <Compile Include="NarnooSuccessResponse.cs" />
-    <Compile Include="OperatorResponse.cs" />
-    <Compile Include="OperatorSingleBrochureResponse.cs" />
-    <Compile Include="OperatorSingleBrochuresResponse.cs" />
     <Compile Include="OperatorImagesResponse.cs" />
     <Compile Include="OperatorBrochuresResponse.cs" />
     <Compile Include="DistributorAlbumImagesResponse.cs" />
-    <Compile Include="AlbumResponse.cs" />
     <Compile Include="Brochure.cs" />
-    <Compile Include="BrochureResponse.cs" />
     <Compile Include="Channel.cs" />
-    <Compile Include="ChannelResponse.cs" />
     <Compile Include="ChannelVideo.cs" />
-    <Compile Include="ChannelVideoResponse.cs" />
     <Compile Include="DistributorAlbumsResponse.cs" />
     <Compile Include="DistributorBrochuresResponse.cs" />
     <Compile Include="DistributorChannelsResponse.cs" />
     <Compile Include="DistributorChannelVideosResponse.cs" />
     <Compile Include="DistributorImagesResponse.cs" />
     <Compile Include="DistributorSingleBrochureResponse.cs" />
-    <Compile Include="DistributorSinglebrochuresResponse.cs" />
-    <Compile Include="DistributorVideoResponse.cs" />
-    <Compile Include="DistributorVideoDetailsResponse.cs" />
     <Compile Include="DistributorVideosResponse.cs" />
     <Compile Include="DownloadVideo.cs" />
-    <Compile Include="DownloadVideoResponse.cs" />
-    <Compile Include="DownloadVideosResponse.cs" />
     <Compile Include="DownloadImage.cs" />
-    <Compile Include="DownloadImageResponse.cs" />
-    <Compile Include="DownloadImagesResponse.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageResponse.cs" />
     <Compile Include="OperatorAlbumImagesResponse.cs" />
     <Compile Include="OperatorAlbumsResponse.cs" />
     <Compile Include="OperatorProductsResponse.cs" />
-    <Compile Include="OperatorProductTextWordsListResponse.cs" />
-    <Compile Include="OperatorProductTextWordsResponse.cs" />
-    <Compile Include="OperatorProudctResponse.cs" />
-    <Compile Include="OperatorVideoDetailsResponse.cs" />
-    <Compile Include="OperatorVideoResponse.cs" />
     <Compile Include="OperatorVideosResponse.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductTextWords.cs" />
@@ -95,7 +83,6 @@
     <Compile Include="SearchMediaImage.cs" />
     <Compile Include="SearchMediaListResponse.cs" />
     <Compile Include="SearchMediaParser.cs" />
-    <Compile Include="SearchMediaResponse.cs" />
     <Compile Include="SearchMediaVideo.cs" />
     <Compile Include="SingleBrochure.cs" />
     <Compile Include="SingleBrochurePages.cs" />
@@ -104,14 +91,11 @@
     <Compile Include="DistributorNarnooRequest.cs" />
     <Compile Include="DistributorOperatorMediaNarnooRequest.cs" />
     <Compile Include="DownloadBrochure.cs" />
-    <Compile Include="DownloadBrochureResponse.cs" />
-    <Compile Include="DownloadBrochuresResponse.cs" />
     <Compile Include="NarnooError.cs" />
     <Compile Include="NarnooErrorResponse.cs" />
     <Compile Include="NarnooRequest.cs" />
     <Compile Include="NarnooRequestException.cs" />
     <Compile Include="Operator.cs" />
-    <Compile Include="OperatorDetailResponse.cs" />
     <Compile Include="OperatorNarnooRequest.cs" />
     <Compile Include="OperatorsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
