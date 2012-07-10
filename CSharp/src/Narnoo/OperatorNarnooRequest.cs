@@ -374,5 +374,24 @@ namespace Narnoo
             }
         } 
         #endregion
+
+        #region getDetails
+
+        public Operator getDetails()
+        {
+            var content = this.GetResponse(this.getOpXmlApi(), "getDetails");
+
+            var item = this.Deserialize<Operator>(content);
+
+            if (item == null)
+            {
+                throw new NarnooRequestException("Operator can NOT be found.");
+            }
+            else
+            {
+                return item;
+            }
+        } 
+        #endregion
     }
 }

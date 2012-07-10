@@ -16,6 +16,12 @@ namespace Narnoo
 
         public string sub_category { get; set; }
 
+        public string operator_url { get; set; }
+
+        public string operator_username { get; set; }
+
+        public string operator_contactname { get; set; }
+
         public string operator_businessname { get; set; }
 
         public string country_name { get; set; }
@@ -32,5 +38,8 @@ namespace Narnoo
 
         public string keywords { get; set; }
 
+        public string email { get; set; }
+
+        public string phone { get; set; }
     }
 }

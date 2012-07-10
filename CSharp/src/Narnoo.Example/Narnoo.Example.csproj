@@ -86,6 +86,7 @@
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
+    <Content Include="demos\Operator\getDetails.aspx" />
     <Content Include="demos\Operator\createAlbum.aspx" />
     <Content Include="demos\Operator\getDistributors.aspx" />
     <Content Include="demos\Operator\deleteBrochure.aspx" />
@@ -399,6 +400,13 @@
     </Compile>
     <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
       <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\getDetails.aspx.cs">
+      <DependentUpon>getDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\getDetails.aspx.designer.cs">
+      <DependentUpon>getDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\Operator\createAlbum.aspx.cs">
       <DependentUpon>createAlbum.aspx</DependentUpon>
