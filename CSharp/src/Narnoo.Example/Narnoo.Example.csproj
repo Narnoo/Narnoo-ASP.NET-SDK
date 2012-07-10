@@ -82,6 +82,7 @@
     <Content Include="demos\distributor-operator-media\getVideos.aspx" />
     <Content Include="demos\distributor-operator-media\searchMedia.aspx" />
     <Content Include="demos\distributor\addOperator.aspx" />
+    <Content Include="demos\distributor\getDetails.aspx" />
     <Content Include="demos\distributor\deleteOperator.aspx" />
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="demos\DistributorOperatorMediaNarnooRequestPage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\getDetails.aspx.cs">
+      <DependentUpon>getDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor\getDetails.aspx.designer.cs">
+      <DependentUpon>getDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\OperatorNarnooRequestPage.cs">
       <SubType>ASPXCodeBehind</SubType>

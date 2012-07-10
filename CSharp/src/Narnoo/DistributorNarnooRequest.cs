@@ -103,6 +103,25 @@ namespace Narnoo
 
         }
 
+        #region getDetails
+
+        public DistributorInfo getDetails()
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "getDetails");
+
+            var item = this.Deserialize<DistributorInfo>(content);
+
+            if (item == null)
+            {
+                throw new NarnooRequestException("Distributor can NOT be found.");
+            }
+            else
+            {
+                return item;
+            }
+        }
+        #endregion
+
 
     }
 }

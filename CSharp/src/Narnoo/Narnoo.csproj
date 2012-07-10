@@ -45,6 +45,7 @@
     <Compile Include="AlbumImage.cs" />
     <Compile Include="Distributor.cs" />
     <Compile Include="DistributorCollectionRespone.cs" />
+    <Compile Include="DistributorInfo.cs" />
     <Compile Include="DownloadVideoResponse.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="ImageResponse.cs" />
     <Compile Include="OperatorAlbumImagesResponse.cs" />
     <Compile Include="OperatorAlbumsResponse.cs" />
+    <Compile Include="OperatorInfo.cs" />
     <Compile Include="OperatorProductsResponse.cs" />
     <Compile Include="OperatorVideosResponse.cs" />
     <Compile Include="Product.cs" />

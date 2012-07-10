@@ -377,11 +377,11 @@ namespace Narnoo
 
         #region getDetails
 
-        public Operator getDetails()
+        public OperatorInfo getDetails()
         {
             var content = this.GetResponse(this.getOpXmlApi(), "getDetails");
 
-            var item = this.Deserialize<Operator>(content);
+            var item = this.Deserialize<OperatorInfo>(content);
 
             if (item == null)
             {
