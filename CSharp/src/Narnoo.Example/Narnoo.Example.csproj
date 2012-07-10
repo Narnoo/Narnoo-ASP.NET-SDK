@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
+    <Content Include="demos\distributor-media\createAlbum.aspx" />
     <Content Include="demos\distributor-media\deleteBrochure.aspx" />
     <Content Include="demos\distributor-media\deleteImage.aspx" />
     <Content Include="demos\distributor-media\deleteVideo.aspx" />
@@ -129,6 +130,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demos\distributor-media\createAlbum.aspx.cs">
+      <DependentUpon>createAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\createAlbum.aspx.designer.cs">
+      <DependentUpon>createAlbum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demos\distributor-media\deleteBrochure.aspx.cs">
       <DependentUpon>deleteBrochure.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

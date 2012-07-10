@@ -351,5 +351,24 @@ namespace Narnoo
 
         }
 
+        #region createAlbum
+        public bool createAlbum(string album_name)
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "createAlbum", new RequestParameter("album_name", album_name));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+
+                return success != null;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
     }
 }

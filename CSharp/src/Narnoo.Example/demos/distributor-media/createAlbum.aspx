@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demos/Demo.Master" AutoEventWireup="true"
-    CodeBehind="createAlbum.aspx.cs" Inherits="Narnoo.Example.demos.Operator.createAlbum" %>
+    CodeBehind="createAlbum.aspx.cs" Inherits="Narnoo.Example.demos.distributor_media.createAlbum" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Create Operator's Albums - createAlbum</h2>
+        Create Distributor's Albums - createAlbum</h2>
     <p>
-        Operators' use the createAlbum function to add their own album.</p>
+        This function is used to create a new image album for a distributor.
+    </p>
     <pre class="code" lang="csharp">
 try
 {
@@ -18,7 +19,7 @@ catch (NarnooRequestException ex)
 {
     this.ShowMessage(ex.Message);
 }
-	</pre>
+</pre>
     <div id="demo-frame">
         <label for="txtAlbumName">
             Album Name</label>
