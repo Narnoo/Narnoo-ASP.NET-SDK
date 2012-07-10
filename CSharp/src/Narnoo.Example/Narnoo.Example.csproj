@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
+    <Content Include="demos\distributor-media\addToAlbum.aspx" />
     <Content Include="demos\distributor-media\createAlbum.aspx" />
     <Content Include="demos\distributor-media\deleteBrochure.aspx" />
     <Content Include="demos\distributor-media\deleteImage.aspx" />
@@ -67,6 +68,7 @@
     <Content Include="demos\distributor-media\getSingleBrochure.aspx" />
     <Content Include="demos\distributor-media\getVideoDetails.aspx" />
     <Content Include="demos\distributor-media\getVideos.aspx" />
+    <Content Include="demos\distributor-media\removeFromAlbum.aspx" />
     <Content Include="demos\distributor-media\searchMedia.aspx" />
     <Content Include="demos\distributor-operator-media\downloadBrochure.aspx" />
     <Content Include="demos\distributor-operator-media\downloadImage.aspx" />
@@ -87,6 +89,8 @@
     <Content Include="demos\distributor\listOperators.aspx" />
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
+    <Content Include="demos\Operator\addToAlbum.aspx" />
+    <Content Include="demos\Operator\removeFromAlbum.aspx" />
     <Content Include="demos\Operator\getDetails.aspx" />
     <Content Include="demos\Operator\createAlbum.aspx" />
     <Content Include="demos\Operator\getDistributors.aspx" />
@@ -132,6 +136,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="demos\distributor-media\addToAlbum.aspx.cs">
+      <DependentUpon>addToAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\addToAlbum.aspx.designer.cs">
+      <DependentUpon>addToAlbum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demos\distributor-media\createAlbum.aspx.cs">
       <DependentUpon>createAlbum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +170,13 @@
     </Compile>
     <Compile Include="demos\distributor-media\deleteVideo.aspx.designer.cs">
       <DependentUpon>deleteVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\removeFromAlbum.aspx.cs">
+      <DependentUpon>removeFromAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\removeFromAlbum.aspx.designer.cs">
+      <DependentUpon>removeFromAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\DistributorMediaNarnooRequestPage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +426,20 @@
     </Compile>
     <Compile Include="demos\distributor\singleOperatorDetail.aspx.designer.cs">
       <DependentUpon>singleOperatorDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\addToAlbum.aspx.cs">
+      <DependentUpon>addToAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\addToAlbum.aspx.designer.cs">
+      <DependentUpon>addToAlbum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\removeFromAlbum.aspx.cs">
+      <DependentUpon>removeFromAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\removeFromAlbum.aspx.designer.cs">
+      <DependentUpon>removeFromAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\Operator\getDetails.aspx.cs">
       <DependentUpon>getDetails.aspx</DependentUpon>

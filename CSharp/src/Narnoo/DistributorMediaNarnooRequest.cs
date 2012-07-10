@@ -370,5 +370,37 @@ namespace Narnoo
         }
         #endregion
 
+        #region addToAlbum
+        public void addToAlbum(string image_id, string album_id)
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "addToAlbum", new RequestParameter("media_id", image_id), new RequestParameter("album_id", album_id));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+        #endregion
+
+        #region removeFromAlbum
+        public void removeFromAlbum(string image_id, string album_id)
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "removeFromAlbum", new RequestParameter("media_id", image_id), new RequestParameter("album_id", album_id));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+        #endregion
+
     }
 }
