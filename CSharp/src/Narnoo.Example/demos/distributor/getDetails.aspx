@@ -22,7 +22,9 @@ try
     this.lblurl.Text = item.url;
     this.lblemail.Text = item.email;
     this.lblpostcode.Text = item.postcode;
-    this.lblimage_limit.Text = item.image_limit;
+    this.lbltotal_brochures.Text = item.total_brochures.ToString();
+    this.lbltotal_images.Text = item.total_images.ToString();
+    this.lbltotal_videos.Text = item.total_videos.ToString();
 }
 catch (NarnooRequestException ex)
 {
@@ -61,9 +63,15 @@ catch (NarnooRequestException ex)
             <dt>postcode</dt>
             <dd>
                 <asp:Literal ID="lblpostcode" runat="server"></asp:Literal></dd>
-            <dt>image_limit</dt>
+            <dt>Total Images</dt>
             <dd>
-                <asp:Literal ID="lblimage_limit" runat="server"></asp:Literal></dd>
+                <asp:Literal ID="lbltotal_images" runat="server"></asp:Literal></dd>
+            <dt>Total Brochures</dt>
+            <dd>
+                <asp:Literal ID="lbltotal_brochures" runat="server"></asp:Literal></dd>
+            <dt>Total Videos</dt>
+            <dd>
+                <asp:Literal ID="lbltotal_videos" runat="server"></asp:Literal></dd>
         </dl>
         <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>

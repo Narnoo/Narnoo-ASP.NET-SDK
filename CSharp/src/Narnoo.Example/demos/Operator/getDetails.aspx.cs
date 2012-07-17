@@ -24,6 +24,10 @@ namespace Narnoo.Example.demos.Operator
                 this.lblphone.Text = item.phone;
                 this.lblemail.Text = item.email;
                 this.lblpostcode.Text = item.postcode;
+                this.lbltotal_images.Text = item.total_images.ToString();
+                this.lbltotal_brochures.Text = item.total_brochures.ToString();
+                this.lbltotal_products.Text = item.total_products.ToString();
+                this.lbltotal_videos.Text = item.total_videos.ToString();
             }
             catch (NarnooRequestException ex)
             {

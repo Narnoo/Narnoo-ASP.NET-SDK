@@ -23,7 +23,9 @@ namespace Narnoo.Example.demos.distributor
                 this.lblurl.Text = item.url;
                 this.lblemail.Text = item.email;
                 this.lblpostcode.Text = item.postcode;
-                this.lblimage_limit.Text = item.image_limit;
+                this.lbltotal_brochures.Text = item.total_brochures.ToString();
+                this.lbltotal_images.Text = item.total_images.ToString();
+                this.lbltotal_videos.Text = item.total_videos.ToString();
             }
             catch (NarnooRequestException ex)
             {

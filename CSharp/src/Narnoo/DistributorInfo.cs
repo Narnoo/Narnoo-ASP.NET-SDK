@@ -6,7 +6,7 @@ namespace Narnoo
 {
     public class DistributorInfo
     {
-        public string image_limit { get; set; }
+        //public string image_limit { get; set; }
 
         public string postcode { get; set; }
 
@@ -27,5 +27,10 @@ namespace Narnoo
         public string distributor_businessname { get; set; }
 
         public string distributor_id { get; set; }
+
+        public int total_images { get; set; }
+        public int total_brochures { get; set; }
+        public int total_videos { get; set; }
+      
     }
 }

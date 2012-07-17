@@ -103,13 +103,31 @@ namespace Narnoo.Example.demos.distributor {
         protected global::System.Web.UI.WebControls.Literal lblpostcode;
         
         /// <summary>
-        /// lblimage_limit control.
+        /// lbltotal_images control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblimage_limit;
+        protected global::System.Web.UI.WebControls.Literal lbltotal_images;
+        
+        /// <summary>
+        /// lbltotal_brochures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lbltotal_brochures;
+        
+        /// <summary>
+        /// lbltotal_videos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lbltotal_videos;
         
         /// <summary>
         /// lblMessage control.

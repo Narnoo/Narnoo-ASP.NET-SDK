@@ -112,6 +112,42 @@ namespace Narnoo.Example.demos.Operator {
         protected global::System.Web.UI.WebControls.Label lblpostcode;
         
         /// <summary>
+        /// lbltotal_images control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltotal_images;
+        
+        /// <summary>
+        /// lbltotal_brochures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltotal_brochures;
+        
+        /// <summary>
+        /// lbltotal_videos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltotal_videos;
+        
+        /// <summary>
+        /// lbltotal_products control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltotal_products;
+        
+        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>

@@ -23,6 +23,10 @@ try
     this.lblphone.Text = item.phone;
     this.lblemail.Text = item.email;
     this.lblpostcode.Text = item.postcode;
+    this.lbltotal_images.Text = item.total_images.ToString();
+    this.lbltotal_brochures.Text = item.total_brochures.ToString();
+    this.lbltotal_products.Text = item.total_products.ToString();
+    this.lbltotal_videos.Text = item.total_videos.ToString();
 }
 catch (NarnooRequestException ex)
 {
@@ -64,6 +68,18 @@ catch (NarnooRequestException ex)
             <dt>postcode</dt>
             <dd>
                 <asp:Label ID="lblpostcode" runat="server"></asp:Label></dd>
+            <dt>Total Images</dt>
+            <dd>
+                <asp:Label ID="lbltotal_images" runat="server"></asp:Label></dd>
+            <dt>Total Brochures</dt>
+            <dd>
+                <asp:Label ID="lbltotal_brochures" runat="server"></asp:Label></dd>
+            <dt>Total Videos</dt>
+            <dd>
+                <asp:Label ID="lbltotal_videos" runat="server"></asp:Label></dd>
+            <dt>Total Products</dt>
+            <dd>
+                <asp:Label ID="lbltotal_products" runat="server"></asp:Label></dd>
         </dl>
         <br />
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>

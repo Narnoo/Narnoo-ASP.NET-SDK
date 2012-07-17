@@ -27,5 +27,10 @@ namespace Narnoo
         public string email { get; set; }
 
         public string postcode { get; set; }
+
+        public int total_images { get; set; }
+        public int total_brochures { get; set; }
+        public int total_videos { get; set; }
+        public int total_products { get; set; }
     }
 }
