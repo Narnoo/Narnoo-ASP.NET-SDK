@@ -275,7 +275,7 @@ namespace Narnoo
 
         public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords)
         {
-            return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius,privilege, keywords, 1);
+            return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius, privilege, keywords, 1);
         }
         public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords, int page_no)
         {
@@ -296,7 +296,7 @@ namespace Narnoo
 
         }
 
-      
+
 
 
 
@@ -402,5 +402,55 @@ namespace Narnoo
         }
         #endregion
 
+        #region createChannel
+        public void createChannel(string channel_name)
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "createChannel", new RequestParameter("channel", channel_name));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        } 
+        #endregion
+
+        #region addToChannel
+        public void addToChannel(string video_id, string channel_id)
+        {
+
+            var content = this.GetResponse(this.getDistXmlApi(), "addToChannel", new RequestParameter("video_id", video_id), new RequestParameter("channel_id", channel_id));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+
+        } 
+        #endregion
+
+        #region removeFromChannel
+        public void removeFromChannel(string video_id, string channel_id)
+        {
+
+            var content = this.GetResponse(this.getDistXmlApi(), "removeFromChannel", new RequestParameter("video_id", video_id), new RequestParameter("channel_id", channel_id));
+
+            try
+            {
+                var success = this.Deserialize<NarnooSuccessResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        } 
+        #endregion
     }
 }

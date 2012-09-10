@@ -52,6 +52,9 @@
     <Content Include="css\demo.css" />
     <Content Include="css\public-style.css" />
     <Content Include="demos\distributor-media\addToAlbum.aspx" />
+    <Content Include="demos\distributor-media\addToChannel.aspx" />
+    <Content Include="demos\distributor-media\removeFromChannel.aspx" />
+    <Content Include="demos\distributor-media\createChannel.aspx" />
     <Content Include="demos\distributor-media\createAlbum.aspx" />
     <Content Include="demos\distributor-media\deleteBrochure.aspx" />
     <Content Include="demos\distributor-media\deleteImage.aspx" />
@@ -142,6 +145,27 @@
     </Compile>
     <Compile Include="demos\distributor-media\addToAlbum.aspx.designer.cs">
       <DependentUpon>addToAlbum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\addToChannel.aspx.cs">
+      <DependentUpon>addToChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\addToChannel.aspx.designer.cs">
+      <DependentUpon>addToChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\removeFromChannel.aspx.cs">
+      <DependentUpon>removeFromChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\removeFromChannel.aspx.designer.cs">
+      <DependentUpon>removeFromChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\createChannel.aspx.cs">
+      <DependentUpon>createChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\createChannel.aspx.designer.cs">
+      <DependentUpon>createChannel.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\distributor-media\createAlbum.aspx.cs">
       <DependentUpon>createAlbum.aspx</DependentUpon>
