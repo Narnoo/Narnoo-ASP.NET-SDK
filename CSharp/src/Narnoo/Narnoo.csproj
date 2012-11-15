@@ -86,6 +86,7 @@
     <Compile Include="SearchMediaListResponse.cs" />
     <Compile Include="SearchMediaParser.cs" />
     <Compile Include="SearchMediaVideo.cs" />
+    <Compile Include="SendResponse.cs" />
     <Compile Include="SingleBrochure.cs" />
     <Compile Include="SingleBrochurePages.cs" />
     <Compile Include="Utilities.cs" />

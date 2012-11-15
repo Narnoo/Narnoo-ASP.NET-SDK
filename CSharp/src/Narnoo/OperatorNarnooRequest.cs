@@ -425,5 +425,58 @@ namespace Narnoo
             }
         }
         #endregion
+
+        ///<summary>
+        ///This function allows the operator to create a download link for the high resolution version of an image.
+        ///</summary>
+        public SendResponse sendImage(string image_id)
+        {
+
+            var content = this.GetResponse(this.getOpXmlApi(), "sendImage", new RequestParameter("media_id", image_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+
+        /// <summary>
+        /// This function allows the operator to create a download link for the high resolution version of a video.
+        /// </summary>
+        public SendResponse sendVideo(string video_id)
+        {
+            var content = this.GetResponse(this.getOpXmlApi(), "sendVideo", new RequestParameter("video_id", video_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+
+        /// <summary>
+        /// This function allows the operator to create a download link for an brochure.
+        /// </summary>
+        public SendResponse sendBrochure(string brochure_id)
+        {
+
+            var content = this.GetResponse(this.getOpXmlApi(), "sendBrochure", new RequestParameter("brochure_id", brochure_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
     }
 }

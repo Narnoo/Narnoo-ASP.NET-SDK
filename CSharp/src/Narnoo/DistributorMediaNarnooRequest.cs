@@ -415,7 +415,7 @@ namespace Narnoo
             {
                 throw new Exception(content);
             }
-        } 
+        }
         #endregion
 
         #region addToChannel
@@ -433,7 +433,7 @@ namespace Narnoo
                 throw new Exception(content);
             }
 
-        } 
+        }
         #endregion
 
         #region removeFromChannel
@@ -450,7 +450,61 @@ namespace Narnoo
             {
                 throw new Exception(content);
             }
-        } 
+        }
         #endregion
+
+
+        ///<summary>
+        ///This function allows the distributor to create a download link for the high resolution version of an image.
+        ///</summary>
+        public SendResponse sendImage(string image_id)
+        {
+
+            var content = this.GetResponse(this.getDistXmlApi(), "sendImage", new RequestParameter("media_id", image_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+
+        /// <summary>
+        /// This function allows the distributor to create a download link for the high resolution version of a video.
+        /// </summary>
+        public SendResponse sendVideo(string video_id)
+        {
+            var content = this.GetResponse(this.getDistXmlApi(), "sendVideo", new RequestParameter("video_id", video_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
+
+        /// <summary>
+        /// This function allows the distributor to create a download link for an brochure.
+        /// </summary>
+        public SendResponse sendBrochure(string brochure_id)
+        {
+
+            var content = this.GetResponse(this.getDistXmlApi(), "sendBrochure", new RequestParameter("brochure_id", brochure_id));
+
+            try
+            {
+                return this.Deserialize<SendResponse>(content);
+            }
+            catch
+            {
+                throw new Exception(content);
+            }
+        }
     }
 }

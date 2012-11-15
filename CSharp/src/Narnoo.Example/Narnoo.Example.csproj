@@ -53,6 +53,9 @@
     <Content Include="css\public-style.css" />
     <Content Include="demos\distributor-media\addToAlbum.aspx" />
     <Content Include="demos\distributor-media\addToChannel.aspx" />
+    <Content Include="demos\distributor-media\sendBrochure.aspx" />
+    <Content Include="demos\distributor-media\sendVideo.aspx" />
+    <Content Include="demos\distributor-media\sendImage.aspx" />
     <Content Include="demos\distributor-media\removeFromChannel.aspx" />
     <Content Include="demos\distributor-media\createChannel.aspx" />
     <Content Include="demos\distributor-media\createAlbum.aspx" />
@@ -93,6 +96,8 @@
     <Content Include="demos\distributor\searchOperators.aspx" />
     <Content Include="demos\distributor\singleOperatorDetail.aspx" />
     <Content Include="demos\Operator\addToAlbum.aspx" />
+    <Content Include="demos\Operator\sendBrochure.aspx" />
+    <Content Include="demos\Operator\sendImage.aspx" />
     <Content Include="demos\Operator\removeFromAlbum.aspx" />
     <Content Include="demos\Operator\getDetails.aspx" />
     <Content Include="demos\Operator\createAlbum.aspx" />
@@ -112,6 +117,7 @@
     <Content Include="demos\Operator\getSingleBrochure.aspx" />
     <Content Include="demos\Operator\getVideoDetails.aspx" />
     <Content Include="demos\Operator\getVideos.aspx" />
+    <Content Include="demos\Operator\sendVideo.aspx" />
     <Content Include="icons\icon-128.png" />
     <Content Include="icons\icon-16.png" />
     <Content Include="icons\icon-24.png" />
@@ -152,6 +158,27 @@
     </Compile>
     <Compile Include="demos\distributor-media\addToChannel.aspx.designer.cs">
       <DependentUpon>addToChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendBrochure.aspx.cs">
+      <DependentUpon>sendBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendBrochure.aspx.designer.cs">
+      <DependentUpon>sendBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendVideo.aspx.cs">
+      <DependentUpon>sendVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendVideo.aspx.designer.cs">
+      <DependentUpon>sendVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendImage.aspx.cs">
+      <DependentUpon>sendImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\distributor-media\sendImage.aspx.designer.cs">
+      <DependentUpon>sendImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\distributor-media\removeFromChannel.aspx.cs">
       <DependentUpon>removeFromChannel.aspx</DependentUpon>
@@ -458,6 +485,20 @@
     <Compile Include="demos\Operator\addToAlbum.aspx.designer.cs">
       <DependentUpon>addToAlbum.aspx</DependentUpon>
     </Compile>
+    <Compile Include="demos\Operator\sendBrochure.aspx.cs">
+      <DependentUpon>sendBrochure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\sendBrochure.aspx.designer.cs">
+      <DependentUpon>sendBrochure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\sendImage.aspx.cs">
+      <DependentUpon>sendImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\sendImage.aspx.designer.cs">
+      <DependentUpon>sendImage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="demos\Operator\removeFromAlbum.aspx.cs">
       <DependentUpon>removeFromAlbum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -590,6 +631,13 @@
     </Compile>
     <Compile Include="demos\Operator\getVideos.aspx.designer.cs">
       <DependentUpon>getVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="demos\Operator\sendVideo.aspx.cs">
+      <DependentUpon>sendVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demos\Operator\sendVideo.aspx.designer.cs">
+      <DependentUpon>sendVideo.aspx</DependentUpon>
     </Compile>
     <Compile Include="demos\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
