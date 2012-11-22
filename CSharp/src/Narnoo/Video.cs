@@ -29,6 +29,32 @@ namespace Narnoo
             }
         }
 
+        string _video_webm_path;
+        public string video_webm_path
+        {
+            get
+            {
+                return this._video_webm_path;
+            }
+            set
+            {
+                this._video_webm_path = Utilities.DecodeCData(value);
+            }
+        }
+
+        string _video_hqstream_path;
+        public string video_hqstream_path
+        {
+            get
+            {
+                return this._video_hqstream_path;
+            }
+            set
+            {
+                this._video_hqstream_path = Utilities.DecodeCData(value);
+            }
+        }
+
         public string video_caption { get; set; }
 
         public string video_language { get; set; }

@@ -94,6 +94,15 @@ namespace Narnoo.Example.demos.distributor_media {
         protected global::System.Web.UI.WebControls.Label lblVideo_preview_path;
         
         /// <summary>
+        /// lblVideo_webm_path control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVideo_webm_path;
+        
+        /// <summary>
         /// lblVideo_stream_path control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace Narnoo.Example.demos.distributor_media {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVideo_stream_path;
+        
+        /// <summary>
+        /// lblVideo_hqstream_path control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVideo_hqstream_path;
         
         /// <summary>
         /// lblVideo_caption control.

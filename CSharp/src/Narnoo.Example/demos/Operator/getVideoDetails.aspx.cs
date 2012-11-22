@@ -39,7 +39,9 @@ namespace Narnoo.Example.demos.Operator
                 this.lblVideo_language.Text = item.video_language;
                 this.lblVideo_pause_image_path.Text = item.video_pause_image_path;
                 this.lblVideo_preview_path.Text = item.video_preview_path;
+                this.lblVideo_webm_path.Text = item.video_webm_path;
                 this.lblVideo_stream_path.Text = item.video_stream_path;
+                this.lblVideo_hqstream_path.Text = item.video_hqstream_path;
                 this.lblVideo_thumb_image_path.Text = item.video_thumb_image_path;
             }
             catch (NarnooRequestException ex)

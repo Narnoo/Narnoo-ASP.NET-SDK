@@ -52,8 +52,12 @@ catch (NarnooRequestException ex)
                         <%# Eval("video_pause_image_path")%></li>
                     <li>video_preview_path :
                         <%# Eval("video_preview_path")%></li>
+                    <li>video_webm_path :
+                        <%# Eval("video_webm_path")%></li>
                     <li>video_stream_path :
                         <%# Eval("video_stream_path")%></li>
+                    <li>video_hqstream_path :
+                        <%# Eval("video_hqstream_path")%></li>
                     <li>video_caption :
                         <%# Eval("video_caption")%></li>
                     <li>video_language :

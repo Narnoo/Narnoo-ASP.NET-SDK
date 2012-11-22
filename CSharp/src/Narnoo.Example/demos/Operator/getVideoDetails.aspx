@@ -22,7 +22,9 @@ try
     this.lblVideo_language.Text = item.video_language;
     this.lblVideo_pause_image_path.Text = item.video_pause_image_path;
     this.lblVideo_preview_path.Text = item.video_preview_path;
+    this.lblVideo_webm_path.Text = item.video_webm_path;
     this.lblVideo_stream_path.Text = item.video_stream_path;
+    this.lblVideo_hqstream_path.Text = item.video_hqstream_path;
     this.lblVideo_thumb_image_path.Text = item.video_thumb_image_path;
 }
 catch (NarnooRequestException ex)
@@ -33,7 +35,6 @@ catch (NarnooRequestException ex)
     <br />
     <div id="demo-frame">
         <div id="searchPanel" runat="server">
-           
             <label for="">
                 video id</label>
             <asp:TextBox ID="txtVideo_id" runat="server" Text="413"></asp:TextBox>
@@ -51,8 +52,12 @@ catch (NarnooRequestException ex)
                     <asp:Label ID="lblVideo_pause_image_path" runat="server"></asp:Label></li>
                 <li>video_preview_path :
                     <asp:Label ID="lblVideo_preview_path" runat="server"></asp:Label></li>
+                <li>video_webm_path :
+                    <asp:Label ID="lblVideo_webm_path" runat="server"></asp:Label></li>
                 <li>video_stream_path :
                     <asp:Label ID="lblVideo_stream_path" runat="server"></asp:Label></li>
+                <li>video_hqstream_path :
+                    <asp:Label ID="lblVideo_hqstream_path" runat="server"></asp:Label></li>
                 <li>video_caption :
                     <asp:Label ID="lblVideo_caption" runat="server"></asp:Label></li>
                 <li>video_language :
