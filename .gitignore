@@ -8,3 +8,6 @@
 obj/
 *.php
 *.gpState
+/Umbraco/packages
+bin/
+/Umbraco/Umbraco/

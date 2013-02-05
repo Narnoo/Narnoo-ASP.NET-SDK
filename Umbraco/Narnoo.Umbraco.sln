@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Umbraco(1)", "http://localhost:29190", "{B51996CD-9230-4212-A6DE-EC780027BB62}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = ""
+		Debug.AspNetCompiler.VirtualPath = "/Umbraco"
+		Debug.AspNetCompiler.PhysicalPath = "Umbraco\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Umbraco\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Umbraco"
+		Release.AspNetCompiler.PhysicalPath = "Umbraco\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Umbraco\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Umbraco\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Umbraco", "Narnoo.Umbraco\Narnoo.Umbraco.csproj", "{58DBDA7F-0A94-494F-8AE3-BA4CD3CC075D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Umbraco.Distributors", "Narnoo.Umbraco.Distributors\Narnoo.Umbraco.Distributors.csproj", "{831E4E57-641D-498B-9B71-DDCB6466E7C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Umbraco.Operators", "Narnoo.Umbraco.Operators\Narnoo.Umbraco.Operators.csproj", "{81A205AA-2CE6-4F8D-BA76-5F52227FAA80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0E6DE881-10EF-4E1D-9A46-662510129DAA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B51996CD-9230-4212-A6DE-EC780027BB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51996CD-9230-4212-A6DE-EC780027BB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51996CD-9230-4212-A6DE-EC780027BB62}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51996CD-9230-4212-A6DE-EC780027BB62}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{58DBDA7F-0A94-494F-8AE3-BA4CD3CC075D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58DBDA7F-0A94-494F-8AE3-BA4CD3CC075D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58DBDA7F-0A94-494F-8AE3-BA4CD3CC075D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58DBDA7F-0A94-494F-8AE3-BA4CD3CC075D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831E4E57-641D-498B-9B71-DDCB6466E7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831E4E57-641D-498B-9B71-DDCB6466E7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831E4E57-641D-498B-9B71-DDCB6466E7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831E4E57-641D-498B-9B71-DDCB6466E7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A205AA-2CE6-4F8D-BA76-5F52227FAA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A205AA-2CE6-4F8D-BA76-5F52227FAA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A205AA-2CE6-4F8D-BA76-5F52227FAA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A205AA-2CE6-4F8D-BA76-5F52227FAA80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
