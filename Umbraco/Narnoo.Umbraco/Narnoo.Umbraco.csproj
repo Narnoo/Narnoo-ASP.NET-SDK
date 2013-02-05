@@ -27,7 +27,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Umbraco\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -235,12 +235,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDefinition.cs" />
-    <Compile Include="ApplicationTree.cs" />
+    <Compile Include="Narnoo\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="Masterpages\default.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Narnoo\Settings.aspx" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Masterpages\umbracoDialog.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Masterpages\umbracoPage.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -255,7 +270,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>15530</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:29967/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -268,6 +283,11 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Umbraco\bin\ /y
+
+xcopy $(ProjectDir)Narnoo\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\ /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

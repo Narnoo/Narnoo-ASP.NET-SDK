@@ -6,9 +6,9 @@ using umbraco.businesslogic;
 using umbraco.cms.presentation.Trees;
 using umbraco.interfaces;
 
-namespace Narnoo.Umbraco
+namespace Narnoo.Umbraco.Operators
 {
-    [Tree("narnoo", "narnoodist", "Narnoo")]
+    [Tree("narnoo", "narnoo.operators", "Narnoo")]
     public class ApplicationTree : BaseTree
     {
         public ApplicationTree(string application)
