@@ -13,6 +13,15 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
     public partial class Brochures {
         
         /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::umbraco.uicontrols.UmbracoPanel Panel2;
+        
+        /// <summary>
         /// dashBoardContent control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder dashBoardContent;
+        
+        /// <summary>
+        /// dashboardTabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::umbraco.uicontrols.TabView dashboardTabs;
     }
 }

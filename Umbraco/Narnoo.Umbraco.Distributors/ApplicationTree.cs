@@ -28,6 +28,8 @@ namespace Narnoo.Umbraco.Distributors
 
             rootNode.NodeID = "init";
 
+           // rootNode.Text = "Distributor";
+
         }
 
         public override void Render(ref XmlTree tree)
@@ -152,7 +154,7 @@ namespace Narnoo.Umbraco.Distributors
 
             Javascript.Append(@"
                             function openSettings() {
-                                parent.right.document.location.href = 'narnoo/Settings.aspx';
+                                parent.right.document.location.href = 'narnoo/distributors/Settings.aspx';
                             }
             			");
         }

@@ -234,21 +234,18 @@
     <Content Include="icons\icons-narnoo-16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiSettings.cs" />
     <Compile Include="ApplicationDefinition.cs" />
-    <Compile Include="Narnoo\Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Narnoo\Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApis\ApiMethod.cs" />
+    <Compile Include="WebApis\distributors\operators.ashx.cs">
+      <DependentUpon>operators.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpages\default.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Narnoo\Settings.aspx" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +253,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpages\umbracoPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebApis\distributors\operators.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebApis\operators\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Narnoo\narnoo.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

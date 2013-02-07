@@ -204,7 +204,9 @@
     <Content Include="Narnoo\Distributors\Operators.aspx" />
     <Content Include="Narnoo\Distributors\SearchMedia.aspx" />
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
+    <Content Include="Narnoo\Distributors\Settings.aspx" />
     <Content Include="Narnoo\Distributors\Videos.aspx" />
+    <Content Include="Narnoo\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +267,13 @@
     <Compile Include="Narnoo\Distributors\SearchOperatorMedia.aspx.designer.cs">
       <DependentUpon>SearchOperatorMedia.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,7 +283,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSharp\src\Narnoo\Narnoo.csproj">
+      <Project>{5b5322c7-1408-451f-a0ce-04aba1b36059}</Project>
+      <Name>Narnoo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Narnoo.Umbraco\Narnoo.Umbraco.csproj">
+      <Project>{58dbda7f-0a94-494f-8ae3-ba4cd3cc075d}</Project>
+      <Name>Narnoo.Umbraco</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Masterpages\default.Master" />
@@ -315,6 +333,8 @@
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Umbraco\bin\ /y
+xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
+xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
