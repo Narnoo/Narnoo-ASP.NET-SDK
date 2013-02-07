@@ -40,13 +40,13 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummaryDetails;
         
         /// <summary>
-        /// paneAppkey control.
+        /// settingsConatiner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.Pane paneAppkey;
+        protected global::umbraco.uicontrols.Pane settingsConatiner;
         
         /// <summary>
         /// propAppkey control.
@@ -76,15 +76,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valAppkey;
         
         /// <summary>
-        /// paneSecretkey control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane paneSecretkey;
-        
-        /// <summary>
         /// propSecretkey control.
         /// </summary>
         /// <remarks>
@@ -112,22 +103,22 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valSecretkey;
         
         /// <summary>
-        /// panelDetail control.
+        /// panelInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelDetail;
+        protected global::System.Web.UI.WebControls.Panel panelInfo;
         
         /// <summary>
-        /// pane1 control.
+        /// infoContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane1;
+        protected global::umbraco.uicontrols.Pane infoContainer;
         
         /// <summary>
         /// PropertyPanel1 control.
@@ -148,15 +139,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblId;
         
         /// <summary>
-        /// pane2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane2;
-        
-        /// <summary>
         /// PropertyPanel2 control.
         /// </summary>
         /// <remarks>
@@ -173,15 +155,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblEmail;
-        
-        /// <summary>
-        /// pane3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane3;
         
         /// <summary>
         /// PropertyPanel3 control.
@@ -202,15 +175,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblBusinessName;
         
         /// <summary>
-        /// pane4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane4;
-        
-        /// <summary>
         /// PropertyPanel4 control.
         /// </summary>
         /// <remarks>
@@ -227,15 +191,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblContactName;
-        
-        /// <summary>
-        /// pane5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane5;
         
         /// <summary>
         /// PropertyPanel5 control.
@@ -256,15 +211,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblCountry;
         
         /// <summary>
-        /// pane6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane6;
-        
-        /// <summary>
         /// PropertyPanel6 control.
         /// </summary>
         /// <remarks>
@@ -281,15 +227,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblPostCode;
-        
-        /// <summary>
-        /// pane7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane7;
         
         /// <summary>
         /// PropertyPanel7 control.
@@ -310,15 +247,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblSuburb;
         
         /// <summary>
-        /// pane8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane8;
-        
-        /// <summary>
         /// PropertyPanel8 control.
         /// </summary>
         /// <remarks>
@@ -335,15 +263,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblState;
-        
-        /// <summary>
-        /// pane9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane9;
         
         /// <summary>
         /// PropertyPanel9 control.
@@ -364,15 +283,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblPhone;
         
         /// <summary>
-        /// pane10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane10;
-        
-        /// <summary>
         /// PropertyPanel10 control.
         /// </summary>
         /// <remarks>
@@ -389,15 +299,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblURL;
-        
-        /// <summary>
-        /// pane11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane11;
         
         /// <summary>
         /// PropertyPanel11 control.
@@ -418,15 +319,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Literal lblTotalImages;
         
         /// <summary>
-        /// pane12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane12;
-        
-        /// <summary>
         /// PropertyPanel12 control.
         /// </summary>
         /// <remarks>
@@ -443,15 +335,6 @@ namespace Narnoo.Umbraco.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblTotalBrochures;
-        
-        /// <summary>
-        /// pane13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::umbraco.uicontrols.Pane pane13;
         
         /// <summary>
         /// PropertyPanel13 control.

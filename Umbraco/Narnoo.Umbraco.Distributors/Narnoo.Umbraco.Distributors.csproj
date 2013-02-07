@@ -206,7 +206,6 @@
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Settings.aspx" />
     <Content Include="Narnoo\Distributors\Videos.aspx" />
-    <Content Include="Narnoo\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

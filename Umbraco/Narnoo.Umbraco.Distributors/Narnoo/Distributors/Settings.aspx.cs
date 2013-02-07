@@ -22,15 +22,15 @@ namespace Narnoo.Umbraco.Narnoo.Distributors
 
             #region Details Tab
 
-            dataTab = TabViewDetails.NewTabPage("Settings");
+            dataTab = TabViewDetails.NewTabPage("API Settings");
             dataTab.Controls.Add(panelSettings);
 
             //Create a save button for the details tab.
             SetSaveButtonProperties("btnSaveSettings");
 
 
-            dataTab = TabViewDetails.NewTabPage("Details");
-            dataTab.Controls.Add(panelDetail);
+            dataTab = TabViewDetails.NewTabPage("Distributor Details");
+            dataTab.Controls.Add(panelInfo);
 
             #endregion
 
@@ -61,7 +61,10 @@ namespace Narnoo.Umbraco.Narnoo.Distributors
                 this.txtAppkey.Text = settings.Appkey;
                 this.txtSecretkey.Text = settings.Secretkey;
 
-                LoadInfo(settings);
+                if (LoadInfo(settings) == false)
+                {
+                    this.panelInfo.Visible = false;
+                }
 
             }
         }
@@ -75,13 +78,15 @@ namespace Narnoo.Umbraco.Narnoo.Distributors
                     var settings = new ApiSettings();
                     settings.Appkey = this.txtAppkey.Text;
                     settings.Secretkey = this.txtSecretkey.Text;
-                    settings.Save();
-
-                    LoadInfo(settings);
 
 
-                    this.ClientTools
-                        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
+                    if (LoadInfo(settings))
+                    {
+                        settings.Save();
+
+                        this.ClientTools
+                            .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
+                    }
                 }
             }
             catch (Exception)
@@ -90,7 +95,7 @@ namespace Narnoo.Umbraco.Narnoo.Distributors
             }
         }
 
-        private void LoadInfo(ApiSettings settings)
+        private bool LoadInfo(ApiSettings settings)
         {
             try
             {
@@ -114,10 +119,13 @@ namespace Narnoo.Umbraco.Narnoo.Distributors
                 this.lblTotalImages.Text = info.total_images.ToString();
                 this.lblTotalBrochures.Text = info.total_brochures.ToString();
                 this.lblTotalVideos.Text = info.total_videos.ToString();
+                this.panelInfo.Visible = true;
+                return true;
             }
             catch (Exception ex)
             {
                 this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                return false;
             }
         }
 
