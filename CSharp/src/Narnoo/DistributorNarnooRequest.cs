@@ -43,10 +43,10 @@ namespace Narnoo
                 return false;
             }
         }
-
-        public NarnooCollection<Operator> ListOperators()
+  
+        public NarnooCollection<Operator> ListOperators(int page_no =1 )
         {
-            var content = this.GetResponse(this.getXmlApi(), "listOperators");
+            var content = this.GetResponse(this.getXmlApi(), "listOperators", new RequestParameter ("page_no",page_no.ToString()));
 
             var list = this.Deserialize<OperatorsResponse>(content);
 

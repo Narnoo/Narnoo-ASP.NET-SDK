@@ -93,6 +93,10 @@
     <Reference Include="MySql.Data">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Our.Umbraco.uGoLive">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\Our.Umbraco.uGoLive.dll</HintPath>
     </Reference>
@@ -238,12 +242,16 @@
     <Compile Include="Narnoo\Distributors\Images.aspx.designer.cs">
       <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\NarnooRequest.cs" />
     <Compile Include="Narnoo\Distributors\OperatorMedia.aspx.cs">
       <DependentUpon>OperatorMedia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Distributors\OperatorMedia.aspx.designer.cs">
       <DependentUpon>OperatorMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\operators.ashx.cs">
+      <DependentUpon>operators.ashx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\Operators.aspx.cs">
       <DependentUpon>Operators.aspx</DependentUpon>
@@ -297,6 +305,7 @@
     <Content Include="Masterpages\default.Master" />
     <Content Include="Masterpages\umbracoDialog.Master" />
     <Content Include="Masterpages\umbracoPage.Master" />
+    <Content Include="Narnoo\Distributors\operators.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -317,7 +326,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>9411</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:32426/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -334,7 +343,8 @@
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
-xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
+xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
+xcopy $(ProjectDir)Narnoo\Distributors\*.ashx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
