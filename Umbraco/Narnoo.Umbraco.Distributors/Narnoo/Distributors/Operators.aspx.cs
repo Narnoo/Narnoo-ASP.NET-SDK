@@ -32,7 +32,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnMedia.ID = "btnMedia";
             btnMedia.Click += new ImageClickEventHandler(btnMedia_Click);
             btnMedia.AlternateText = "Media";
-            btnMedia.ImageUrl = GlobalSettings.Path + "/images/editor/media.gif";
+            btnMedia.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_media.png";
             btnMedia.ValidationGroup = "";
         }
 
@@ -72,7 +72,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnImport.ID = "btnImport";
             btnImport.Click += new ImageClickEventHandler(btnImport_Click);
             btnImport.AlternateText = "Import";
-            btnImport.ImageUrl = GlobalSettings.Path + "/images/publish.gif";
+            btnImport.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_import.png";
             btnImport.ValidationGroup = "";
         }
 
@@ -112,7 +112,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDelete.ID = "btnDelete";
             btnDelete.Click += new ImageClickEventHandler(btnDelete_Click);
             btnDelete.AlternateText = "Delete";
-            btnDelete.ImageUrl = GlobalSettings.Path + "/images/delete_button.png";
+            btnDelete.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_operator.png";
             btnDelete.ValidationGroup = "";
         }
 

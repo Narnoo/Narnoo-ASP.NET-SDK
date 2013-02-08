@@ -30,4 +30,17 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            //activeTab, [tabviewid, tabid, tabid]
+            //setActiveTab('body_TabViewDetails', 'body_TabViewDetails_tab01', body_TabViewDetails_tabs)
+
+            Umbraco.Controls.TabView.onActiveTabChange(function (activeTab, options) {
+                console.log(activeTab);
+                console.log(options);
+            });
+        });
+
+
+    </script>
 </asp:Content>

@@ -203,6 +203,9 @@
     <Content Include="Narnoo\Distributors\Albums.aspx" />
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
     <Content Include="Narnoo\Distributors\Channels.aspx" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_operator.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_import.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_media.png" />
     <Content Include="Narnoo\Distributors\Images.aspx" />
     <Content Include="Narnoo\Distributors\OperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Operators.aspx" />
@@ -312,6 +315,8 @@
     <Content Include="Masterpages\default.Master" />
     <Content Include="Masterpages\umbracoDialog.Master" />
     <Content Include="Masterpages\umbracoPage.Master" />
+    <Content Include="Narnoo\Distributors\icons\icons.psd" />
+    <Content Include="Narnoo\Distributors\icons\icons_media.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -350,7 +355,9 @@
 xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
-xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
+xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
+
+xcopy $(ProjectDir)Narnoo\Distributors\icons\*.png $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

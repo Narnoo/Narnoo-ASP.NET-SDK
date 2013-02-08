@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using umbraco;
 using umbraco.businesslogic;
 using umbraco.cms.presentation.Trees;
 using umbraco.interfaces;
@@ -56,35 +57,35 @@ namespace Narnoo.Umbraco.Distributors
             var operatorMedia = XmlTreeNode.Create(this);
             operatorMedia.NodeID = "operatorMedia";
             operatorMedia.Text = "Operator Media";
-            operatorMedia.Icon = "docPic.gif";
+            operatorMedia.Icon = "node_icons_media.png";
             operatorMedia.Action = "javascript:openOperatorMedia()";
             tree.Add(operatorMedia);
 
             var albums = XmlTreeNode.Create(this);
             albums.NodeID = "albums";
             albums.Text = "Albums";
-            albums.Icon = "mediaPhoto.gif";
+            albums.Icon = "node_icons_album.png";
             albums.Action = "javascript:openAlbums()";
             tree.Add(albums);
 
             var images = XmlTreeNode.Create(this);
             images.NodeID = "Images";
             images.Text = "Images";
-            images.Icon = "mediaPhoto.gif";
+            images.Icon = "node_icons_images.png";
             images.Action = "javascript:openImages()";
             tree.Add(images);
 
             var brochures = XmlTreeNode.Create(this);
             brochures.NodeID = "Brochures";
             brochures.Text = "Brochures";
-            brochures.Icon = "mediaPhoto.gif";
+            brochures.Icon = "node_icons_brochures.png";
             brochures.Action = "javascript:openBrochures()";
             tree.Add(brochures);
 
             var channels = XmlTreeNode.Create(this);
             channels.NodeID = "Channels";
             channels.Text = "Channels";
-            channels.Icon = "mediaFile.gif";
+            channels.Icon = "node_icons_channel.png";
             channels.Action = "javascript:openChannels()";
             tree.Add(channels);
 
@@ -112,7 +113,7 @@ namespace Narnoo.Umbraco.Distributors
             var settings = XmlTreeNode.Create(this);
             settings.NodeID = "Settings";
             settings.Text = "Settings";
-            settings.Icon = "settingDatatype.gif";
+            settings.Icon = "node_icons_settings.png";
             settings.Action = "javascript:openSettings()";
             tree.Add(settings);
         }
