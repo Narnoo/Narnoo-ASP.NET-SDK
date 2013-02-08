@@ -10,60 +10,69 @@
 namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
     
     
-    public partial class OperatorMedia {
+    public partial class Pager {
         
         /// <summary>
-        /// TabViewDetails control.
+        /// totalRecords control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.TabView TabViewDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalRecords;
         
         /// <summary>
-        /// tabAlbums control.
+        /// lnkFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabAlbums;
+        protected global::System.Web.UI.WebControls.LinkButton lnkFirst;
         
         /// <summary>
-        /// tabImages control.
+        /// lnkPrev control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabImages;
+        protected global::System.Web.UI.WebControls.LinkButton lnkPrev;
         
         /// <summary>
-        /// tabBrochures control.
+        /// txtCurrent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabBrochures;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrent;
         
         /// <summary>
-        /// tabVideos control.
+        /// totalPages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabVideos;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalPages;
         
         /// <summary>
-        /// tabText control.
+        /// lnkNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabText;
+        protected global::System.Web.UI.WebControls.LinkButton lnkNext;
+        
+        /// <summary>
+        /// lnkLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkLast;
     }
 }

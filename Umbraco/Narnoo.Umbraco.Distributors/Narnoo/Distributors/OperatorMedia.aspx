@@ -1,16 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoPage.Master" AutoEventWireup="true" CodeBehind="OperatorMedia.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.OperatorMedia" %>
 
-<%@ Register TagPrefix="cc1" Namespace="umbraco.uicontrols" Assembly="controls" %><asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
+<%@ Register TagPrefix="UmbracoControls" Namespace="umbraco.uicontrols" Assembly="controls" %>
+<%@ Register TagPrefix="UmbracoControls" Namespace="umbraco.controls" Assembly="umbraco" %>
+
+<%@ Register Src="Pager.ascx" TagName="Pager" TagPrefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <cc1:UmbracoPanel id="Panel2" runat="server" Height="224px" Width="412px" hasMenu="false">
-				<div style="padding: 2px 15px 0px 15px">
-				<asp:PlaceHolder id="dashBoardContent" Runat="server"></asp:PlaceHolder>
-				</div>
-			</cc1:UmbracoPanel>
-			<cc1:TabView id="dashboardTabs" Width="400px" Visible="false" runat="server" />
+
+    <UmbracoControls:TabView ID="TabViewDetails" runat="server" Width="552px" Height="692px" />
+
+    <asp:Panel ID="tabAlbums" runat="server">
+    </asp:Panel>
+    <asp:Panel ID="tabImages" runat="server">
+    </asp:Panel>
+
+    <asp:Panel ID="tabBrochures" runat="server">
+    </asp:Panel>
+
+    <asp:Panel ID="tabVideos" runat="server">
+    </asp:Panel>
+
+    <asp:Panel ID="tabText" runat="server">
+    </asp:Panel>
+
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

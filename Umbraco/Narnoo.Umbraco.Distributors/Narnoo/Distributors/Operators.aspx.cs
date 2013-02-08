@@ -4,18 +4,165 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using umbraco;
+using umbraco.uicontrols;
 
 namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 {
-    public partial class Operators : System.Web.UI.Page
+    public partial class Operators : DistributorPage
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            this.Pager1.PageIndexChanged += Pager1_PageIndexChanged;
+
+            dataTab = TabViewDetails.NewTabPage("Operators");
+            dataTab.Controls.Add(this.tabOperators);
+            InitBtnMedia();
+            InitBtnImport();
+            InitBtnDelete();
+        }
+
+        public TabPage dataTab;
+        #region InitBtnMedia
+        void InitBtnMedia()
+        {
+            //Create a save button from the current datatab.
+            btnMedia = dataTab.Menu.NewImageButton();
+            btnMedia.ID = "btnMedia";
+            btnMedia.Click += new ImageClickEventHandler(btnMedia_Click);
+            btnMedia.AlternateText = "Media";
+            btnMedia.ImageUrl = GlobalSettings.Path + "/images/editor/media.gif";
+            btnMedia.ValidationGroup = "";
+        }
+
+        public ImageButton btnMedia;
+        protected void btnMedia_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                if (Page.IsValid)
+                {
+                    //var settings = new ApiSettings();
+                    //settings.Appkey = this.txtAppkey.Text;
+                    //settings.Secretkey = this.txtSecretkey.Text;
+
+
+                    //if (LoadInfo(settings))
+                    //{
+                    //    settings.Save();
+
+                    //    this.ClientTools
+                    //        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
+                    //}
+                }
+            }
+            catch (Exception)
+            {
+                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", "faild to save settings.");
+            }
+        } 
+        #endregion
+
+        #region InitBtnImport
+        void InitBtnImport()
+        {
+            //Create a save button from the current datatab.
+            btnImport = dataTab.Menu.NewImageButton();
+            btnImport.ID = "btnImport";
+            btnImport.Click += new ImageClickEventHandler(btnImport_Click);
+            btnImport.AlternateText = "Import";
+            btnImport.ImageUrl = GlobalSettings.Path + "/images/publish.gif";
+            btnImport.ValidationGroup = "";
+        }
+
+        public ImageButton btnImport;
+        protected void btnImport_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                if (Page.IsValid)
+                {
+                    //var settings = new ApiSettings();
+                    //settings.Appkey = this.txtAppkey.Text;
+                    //settings.Secretkey = this.txtSecretkey.Text;
+
+
+                    //if (LoadInfo(settings))
+                    //{
+                    //    settings.Save();
+
+                    //    this.ClientTools
+                    //        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
+                    //}
+                }
+            }
+            catch (Exception)
+            {
+                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", "faild to save settings.");
+            }
+        }
+        #endregion
+
+        #region InitBtnDelete
+        void InitBtnDelete()
+        {
+            //Create a save button from the current datatab.
+            btnDelete = dataTab.Menu.NewImageButton();
+            btnDelete.ID = "btnDelete";
+            btnDelete.Click += new ImageClickEventHandler(btnDelete_Click);
+            btnDelete.AlternateText = "Delete";
+            btnDelete.ImageUrl = GlobalSettings.Path + "/images/delete_button.png";
+            btnDelete.ValidationGroup = "";
+        }
+
+        public ImageButton btnDelete;
+        protected void btnDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                if (Page.IsValid)
+                {
+                    //var settings = new ApiSettings();
+                    //settings.Appkey = this.txtAppkey.Text;
+                    //settings.Secretkey = this.txtSecretkey.Text;
+
+
+                    //if (LoadInfo(settings))
+                    //{
+                    //    settings.Save();
+
+                    //    this.ClientTools
+                    //        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
+                    //}
+                }
+            }
+            catch (Exception)
+            {
+                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", "faild to save settings.");
+            }
+        }
+        #endregion
+
+        void Pager1_PageIndexChanged(int newPageIndex)
+        {
+            this.DataBind(newPageIndex);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.IsPostBack == false)
             {
-                this.Panel2.Text = "Operators";
+                this.DataBind(1);
             }
+        }
 
+        void DataBind(int page_no)
+        {
+            var data = this.NarnooRequest.ListOperators(page_no);
+            this.rptItems.DataSource = data;
+            this.rptItems.DataBind();
+            this.Pager1.DataBind(page_no, data.TotalPages, data.Count);
         }
     }
 }

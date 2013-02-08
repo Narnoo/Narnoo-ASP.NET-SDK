@@ -13,12 +13,39 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
     public partial class Operators {
         
         /// <summary>
-        /// Panel2 control.
+        /// TabViewDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.UmbracoPanel Panel2;
+        protected global::umbraco.uicontrols.TabView TabViewDetails;
+        
+        /// <summary>
+        /// tabOperators control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel tabOperators;
+        
+        /// <summary>
+        /// Pager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager Pager1;
+        
+        /// <summary>
+        /// rptItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptItems;
     }
 }

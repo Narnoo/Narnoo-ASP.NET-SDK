@@ -206,6 +206,7 @@
     <Content Include="Narnoo\Distributors\Images.aspx" />
     <Content Include="Narnoo\Distributors\OperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Operators.aspx" />
+    <Content Include="Narnoo\Distributors\Pager.ascx" />
     <Content Include="Narnoo\Distributors\SearchMedia.aspx" />
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Settings.aspx" />
@@ -235,6 +236,9 @@
     <Compile Include="Narnoo\Distributors\Channels.aspx.designer.cs">
       <DependentUpon>Channels.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\DistributorPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Narnoo\Distributors\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,7 +246,6 @@
     <Compile Include="Narnoo\Distributors\Images.aspx.designer.cs">
       <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Narnoo\Distributors\NarnooRequest.cs" />
     <Compile Include="Narnoo\Distributors\OperatorMedia.aspx.cs">
       <DependentUpon>OperatorMedia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,15 +253,19 @@
     <Compile Include="Narnoo\Distributors\OperatorMedia.aspx.designer.cs">
       <DependentUpon>OperatorMedia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Narnoo\Distributors\operators.ashx.cs">
-      <DependentUpon>operators.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Narnoo\Distributors\Operators.aspx.cs">
       <DependentUpon>Operators.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Distributors\Operators.aspx.designer.cs">
       <DependentUpon>Operators.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\Pager.ascx.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\Pager.ascx.designer.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\SearchMedia.aspx.cs">
       <DependentUpon>SearchMedia.aspx</DependentUpon>
@@ -305,7 +312,6 @@
     <Content Include="Masterpages\default.Master" />
     <Content Include="Masterpages\umbracoDialog.Master" />
     <Content Include="Masterpages\umbracoPage.Master" />
-    <Content Include="Narnoo\Distributors\operators.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -344,7 +350,7 @@
 xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
-xcopy $(ProjectDir)Narnoo\Distributors\*.ashx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
+xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
