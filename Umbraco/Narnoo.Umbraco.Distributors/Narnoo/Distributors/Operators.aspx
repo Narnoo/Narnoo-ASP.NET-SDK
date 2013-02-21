@@ -8,13 +8,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .check-column {
-            padding: 9px 0 22px;
-            width: 2.2em;
-            vertical-align: top;
-        }
-    </style>
+    <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
@@ -23,7 +17,7 @@
     <asp:Panel ID="tabOperators" runat="server">
         <uc1:Pager ID="Pager1" runat="server" />
         <div style="padding-top: 10px; padding-bottom: 10px;">
-            <table id="grid">
+            <table id="grid" class="narnoo-table">
                 <thead>
                     <tr>
                         <th class="check-column">
@@ -48,7 +42,7 @@
                         <ItemTemplate>
                             <tr>
                                 <td class="check-column">
-                                    <input type="checkbox" /></td>
+                                    <input type="checkbox" name="selected" value="<%# Eval("operator_id") %>" /></td>
                                 <td><%# Eval("operator_businessname") %></td>
                                 <td><%# Eval("operator_id") %></td>
                                 <td><%# Eval("category") %></td>
@@ -63,9 +57,9 @@
                             </tr>
                         </ItemTemplate>
                         <AlternatingItemTemplate>
-                            <tr>
-                                <td class="check-column odd">
-                                    <input type="checkbox" /></td>
+                            <tr class="odd">
+                                <td class="check-column">
+                                    <input type="checkbox"  name="selected" value="<%# Eval("operator_id") %>" /></td>
                                 <td><%# Eval("operator_businessname") %></td>
                                 <td><%# Eval("operator_id") %></td>
                                 <td><%# Eval("category") %></td>
@@ -92,9 +86,42 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
     <script type="text/javascript">
+        $(function () {
+            $('.narnoo-table .check-column:first input').click(function () {
+                if ($(this).is(':checked')) {
+                    $('.narnoo-table tbody .check-column input').attr('checked', true);
+                } else {
+                    $('.narnoo-table tbody .check-column input').removeAttr('checked');
+                }
+            });
 
-      
+            function getSelected() {
+                return $('.narnoo-table input[name="selected"]:checked');
+            }
 
+            $('#btnDelete').click(function (e) {
+                var selected = getSelected();
+                if (selected.size() == 0) {
+                    e.preventDefault();
+                    alert('please select some operators first!');
+                    return false;
+                }
+            });
+
+            $('#btnMedia').click(function (e) {
+                e.preventDefault();
+                var selected = getSelected();
+                if (selected.size() != 1) {
+                    alert('please select one operator!');
+                } else {
+                    parent.openOperatorMedia(selected.val());
+                    parent.jQuery('#JTree .clicked').removeClass('clicked');
+                    parent.jQuery('#operatorMedia a').addClass('clicked');
+                }
+
+                return false;
+            });
+        });
 
     </script>
 </asp:Content>

@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Pager.ascx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager" %>
 <div id="pager">
-    <span id="totalRecords" runat="server"></span>
+    <span id="totalRecords" runat="server" class="displaying-num"></span>
     <span class="pagination-links">
         <asp:LinkButton ID="lnkFirst" runat="server" Text="«" OnCommand="lnkFirst_Command"></asp:LinkButton>
         <asp:LinkButton ID="lnkPrev" runat="server" Text="‹" OnCommand="lnkPrev_Command"></asp:LinkButton>

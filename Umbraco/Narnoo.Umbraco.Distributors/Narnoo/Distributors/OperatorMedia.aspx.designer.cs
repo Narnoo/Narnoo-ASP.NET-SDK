@@ -31,6 +31,15 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Panel tabAlbums;
         
         /// <summary>
+        /// lblOperatorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOperatorId;
+        
+        /// <summary>
         /// tabImages control.
         /// </summary>
         /// <remarks>

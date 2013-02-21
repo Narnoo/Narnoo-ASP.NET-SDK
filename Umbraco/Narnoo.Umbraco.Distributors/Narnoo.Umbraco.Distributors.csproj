@@ -207,6 +207,7 @@
     <Content Include="Narnoo\Distributors\icons\icons_import.png" />
     <Content Include="Narnoo\Distributors\icons\icons_media.png" />
     <Content Include="Narnoo\Distributors\Images.aspx" />
+    <Content Include="Narnoo\Distributors\narnoo.css" />
     <Content Include="Narnoo\Distributors\OperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Operators.aspx" />
     <Content Include="Narnoo\Distributors\Pager.ascx" />
@@ -356,6 +357,7 @@ xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
+xcopy $(ProjectDir)Narnoo\Distributors\*.css $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 
 xcopy $(ProjectDir)Narnoo\Distributors\icons\*.png $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y</PostBuildEvent>
   </PropertyGroup>

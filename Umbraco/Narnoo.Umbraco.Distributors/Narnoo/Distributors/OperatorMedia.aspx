@@ -14,6 +14,7 @@
     <UmbracoControls:TabView ID="TabViewDetails" runat="server" Width="552px" Height="692px" />
 
     <asp:Panel ID="tabAlbums" runat="server">
+        <asp:Label ID="lblOperatorId" runat="server"></asp:Label>
     </asp:Panel>
     <asp:Panel ID="tabImages" runat="server">
     </asp:Panel>

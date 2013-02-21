@@ -122,61 +122,65 @@ namespace Narnoo.Umbraco.Distributors
         {
             Javascript.Append(@"
                             function openOperators() {
-                                parent.right.document.location.href = 'narnoo/distributors/Operators.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Operators.aspx';
                             }
             			");
 
             Javascript.Append(@"
-                            function openOperatorMedia() {
-                                parent.right.document.location.href = 'narnoo/distributors/OperatorMedia.aspx';
+                            function openOperatorMedia(id) {
+                                var url = '/Umbraco/narnoo/distributors/OperatorMedia.aspx';
+                                if(id){
+                                    url = url +'?id='+id;
+                                }
+                                parent.right.document.location.href = url;
                             }
             			");
 
             Javascript.Append(@"
                             function openAlbums() {
-                                parent.right.document.location.href = 'narnoo/distributors/Albums.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Albums.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openImages() {
-                                parent.right.document.location.href = 'narnoo/distributors/Images.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Images.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openBrochures() {
-                                parent.right.document.location.href = 'narnoo/distributors/Brochures.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Brochures.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openChannels() {
-                                parent.right.document.location.href = 'narnoo/distributors/Channels.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Channels.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openVideos() {
-                                parent.right.document.location.href = 'narnoo/distributors/Videos.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Videos.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openSearchMedia() {
-                                parent.right.document.location.href = 'narnoo/distributors/SearchMedia.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/SearchMedia.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openSearchOperatorMedia() {
-                                parent.right.document.location.href = 'narnoo/distributors/SearchOperatorMedia.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/SearchOperatorMedia.aspx';
                             }
             			");
 
             Javascript.Append(@"
                             function openSettings() {
-                                parent.right.document.location.href = 'narnoo/distributors/Settings.aspx';
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Settings.aspx';
                             }
             			");
         }

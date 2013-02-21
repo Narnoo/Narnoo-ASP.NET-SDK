@@ -13,7 +13,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.lblOperatorId.Text = this.Request.QueryString["id"];
         }
 
         public TabPage dataTab;

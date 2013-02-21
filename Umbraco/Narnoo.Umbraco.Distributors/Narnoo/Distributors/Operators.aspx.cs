@@ -29,6 +29,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         {
             //Create a save button from the current datatab.
             btnMedia = dataTab.Menu.NewImageButton();
+            btnMedia.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             btnMedia.ID = "btnMedia";
             btnMedia.Click += new ImageClickEventHandler(btnMedia_Click);
             btnMedia.AlternateText = "Media";
@@ -43,18 +44,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             {
                 if (Page.IsValid)
                 {
-                    //var settings = new ApiSettings();
-                    //settings.Appkey = this.txtAppkey.Text;
-                    //settings.Secretkey = this.txtSecretkey.Text;
-
-
-                    //if (LoadInfo(settings))
-                    //{
-                    //    settings.Save();
-
-                    //    this.ClientTools
-                    //        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
-                    //}
+                    
                 }
             }
             catch (Exception)
@@ -109,6 +99,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         {
             //Create a save button from the current datatab.
             btnDelete = dataTab.Menu.NewImageButton();
+            btnDelete.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             btnDelete.ID = "btnDelete";
             btnDelete.Click += new ImageClickEventHandler(btnDelete_Click);
             btnDelete.AlternateText = "Delete";
@@ -123,26 +114,25 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             {
                 if (Page.IsValid)
                 {
-                    //var settings = new ApiSettings();
-                    //settings.Appkey = this.txtAppkey.Text;
-                    //settings.Secretkey = this.txtSecretkey.Text;
-
-
-                    //if (LoadInfo(settings))
-                    //{
-                    //    settings.Save();
-
-                    //    this.ClientTools
-                    //        .ShowSpeechBubble(BasePage.speechBubbleIcon.save, "Saved", "The settings has been saved succesfully");
-                    //}
+                    var selectedIds = this.GetSelectedIds();
+                    foreach (var id in selectedIds)
+                    {
+                        this.NarnooRequest.DeleteOperator(id);
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", "faild to save settings.");
+                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
             }
         }
         #endregion
+
+
+        string[] GetSelectedIds()
+        {
+            return this.Request.Form["selected"].Split(',');
+        }
 
         void Pager1_PageIndexChanged(int newPageIndex)
         {
