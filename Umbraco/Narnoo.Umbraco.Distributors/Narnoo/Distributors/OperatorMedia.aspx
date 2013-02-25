@@ -197,7 +197,7 @@
 
         <asp:Repeater ID="rptVideos" runat="server">
             <HeaderTemplate>
-                <table class="narnoo-table">
+                <table class="narnoo-table" id="tblVideos">
                     <thead>
                         <tr>
                             <th class="check-column">
@@ -211,7 +211,7 @@
                     <tbody id="Tbody3">
             </HeaderTemplate>
             <ItemTemplate>
-                <tr>
+                <tr data-itemid="<%# Eval("video_id") %>">
                     <th class="check-column">
                         <input type="checkbox" name="selected_video" value="<%# Eval("video_id") %>"></th>
                     <td class="column-thumbnail_image">
@@ -223,7 +223,7 @@
                 </tr>
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="odd">
+                <tr class="odd" data-itemid="<%# Eval("video_id") %>">
                     <th class="check-column">
                         <input type="checkbox" name="selected_video" value="<%# Eval("video_id") %>"></th>
                     <td class="column-thumbnail_image">
@@ -372,6 +372,22 @@
                     }
 
                 }
+            });
+
+            var addToChannelUrl = '/umbraco/narnoo/distributors/addToChannel.aspx?operator_id=<%=this.Request["id"] %>';
+            $('#body_btnAddToChannel').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_video"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some videos first.');
+                    return false;
+                }
+
+                UmbClientMgr.openModalWindow(addToChannelUrl + '&ids=' + ids.join(','), 'Add videos to channel', true, 800, 600);
+                return false;
             });
 
             Umbraco.Controls.TabView.onActiveTabChange(function (activeTab, options) {

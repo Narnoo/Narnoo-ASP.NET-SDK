@@ -5,8 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
     <span id="lblTitle" runat="server"></span>
 
     <asp:Repeater ID="rptItems" runat="server">
@@ -27,6 +25,9 @@
     </asp:Repeater>
 
     <span id="lblSuccess"></span>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+
 
     <script type="text/javascript">
         $(function () {
