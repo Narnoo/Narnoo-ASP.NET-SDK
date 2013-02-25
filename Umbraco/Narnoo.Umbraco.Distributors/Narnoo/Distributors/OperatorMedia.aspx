@@ -9,6 +9,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
@@ -147,7 +148,7 @@
                     <thead>
                         <tr>
                             <th class="check-column">
-                                <input  type="checkbox"></th>
+                                <input type="checkbox"></th>
                             <th>Thumbnail</th>
                             <th>Caption</th>
                             <th>Entry Date</th>
@@ -243,6 +244,24 @@
 
     <asp:Panel ID="tabText" runat="server">
         <uc1:Loading ID="loadingText" runat="server" LoadingText="text"></uc1:Loading>
+        <uc1:Pager ID="pagerText" runat="server" />
+
+        <asp:Repeater ID="rptText" runat="server">
+            <HeaderTemplate>
+                <div id="accordion" style="padding-top:45px;">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <h3 data-itemid="<%# Eval("product_id") %>"><%# Eval("product_title") %></h3>
+                <div>
+                    <uc1:Loading ID="loadingText" runat="server" LoadingText="text"></uc1:Loading>
+                </div>
+
+            </ItemTemplate>
+            <FooterTemplate>
+               
+            </FooterTemplate>
+        </asp:Repeater>
+
     </asp:Panel>
 
     <input type="hidden" id="status_body_TabViewDetails_tab01" value="0" runat="server" clientidmode="Static" />
@@ -277,7 +296,7 @@
                     alert('please select some images first.');
                     return false;
                 }
-                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_image&title=image'+ (ids.length>1?'(s)':'') +'&ids=' + ids.join(','), 'Download images from [' + encodeURI($.trim($('#body_toobarAlbums h4 span').text()))+']', true, 800, 600);
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_image&title=image' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images from [' + encodeURI($.trim($('#body_toobarAlbums h4 span').text())) + ']', true, 800, 600);
                 return false;
             });
 
@@ -308,7 +327,7 @@
                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_brochure&title=brochure' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
                 return false;
             });
-            
+
             $('#body_btnDownloadVideos').click(function (e) {
                 e.preventDefault();
                 var ids = [];
@@ -323,7 +342,37 @@
                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_video&title=video' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
                 return false;
             });
-            
+
+            var getProductTextsUrl = '/umbraco/narnoo/distributors/getProductTexts.ashx?operator_id=<%=this.Request["id"] %>';
+            $("#accordion").accordion({
+                active: false,
+                heightStyle: 'auto',
+                collapsible: true,
+                change: function (event, ui) {
+                    if (ui.newContent.find('.loading').size() > 0) {
+                        $.ajax({
+                            url: getProductTextsUrl + '&product_title=' + encodeURI(ui.newHeader.text()),
+                            // async: false,
+                            data: 'get',
+                            dataType: 'json',
+                            success: function (data) {
+                                var content = ui.newContent;
+                                content.find('.loading').remove();
+                                content.append('<p><strong>Product 50 words</strong><br></p>');
+                                content.append(data.word_50);
+                                content.append('<p><strong>Product 100 words</strong><br></p>');
+                                content.append(data.word_100);
+                                content.append('<p><strong>Product 150 words</strong><br></p>');
+                                content.append(data.word_150);
+                                content.css('height', 'auto');
+                            }
+                        }).done(function () {
+                            ui.newContent.find('.loading').remove();
+                        });
+                    }
+
+                }
+            });
 
             Umbraco.Controls.TabView.onActiveTabChange(function (activeTab, options) {
                 if ($('#status_' + options).val() == '0') {

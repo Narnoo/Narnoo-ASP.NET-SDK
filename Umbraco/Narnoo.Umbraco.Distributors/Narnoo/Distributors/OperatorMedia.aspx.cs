@@ -26,6 +26,15 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 this.pagerBrochures.Visible = false;
                 this.pagerImages.Visible = false;
                 this.pagerVideos.Visible = false;
+                this.pagerText.Visible = false;
+
+                if (string.IsNullOrWhiteSpace(this.OperatorId))
+                {
+                    this.loadingImages.Visible = false;
+                    this.loadingBrochures.Visible = false;
+                    this.loadingText.Visible = false;
+                    this.loadingVideos.Visible = false;
+                }
 
                 this.BindAlbums();
             }
@@ -82,11 +91,13 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
             dataTab = this.TabViewDetails.NewTabPage("Text");
             dataTab.Controls.Add(this.tabText);
+            this.pagerText.PageIndexChanged += pagerText_PageIndexChanged;
 
             this.btnReloadTabView.Click += ReloadTabView;
 
         }
 
+ 
 
 
         void ReloadTabView(object sender, EventArgs e)
@@ -107,7 +118,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     this.BindVideos(1);
                     break;
                 case "body_TabViewDetails_tab05"://text
-                    this.BindText();
+                    this.BindText(1);
                     break;
                 default:
                     break;
@@ -115,10 +126,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             }
         }
 
-        private void BindText()
-        {
-            //throw new NotImplementedException();
-        }
+    
 
         #region TabView 01:Albums
         private void BindAlbums()
@@ -289,6 +297,27 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         {
             this.BindVideos(newPageIndex);
         }
+        #endregion
+
+        #region TabView 05:Text
+        private void BindText(int pageIndex)
+        {
+            var text = this.NarnooOperatorMediaRequest.GetProductText(this.OperatorId, pageIndex);
+            this.rptText.Visible = true;
+            this.loadingText.Visible = false;
+            
+            this.rptText.DataSource = text;
+            this.rptText.DataBind();
+
+            this.pagerText.Visible = true;
+            this.pagerText.DataBind(pageIndex, text.TotalPages, text.Count);
+            
+        }
+        void pagerText_PageIndexChanged(int newPageIndex)
+        {
+            this.BindText(newPageIndex);
+        }
+
         #endregion
 
         void btnChangeAlbums_Click(object sender, EventArgs e)

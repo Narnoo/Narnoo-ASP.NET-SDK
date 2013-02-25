@@ -258,6 +258,7 @@
     <Compile Include="Narnoo\Distributors\Channels.aspx.designer.cs">
       <DependentUpon>Channels.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\DistributorHanlder.cs" />
     <Compile Include="Narnoo\Distributors\DistributorPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -267,6 +268,9 @@
     </Compile>
     <Compile Include="Narnoo\Distributors\DownloadFiles.aspx.designer.cs">
       <DependentUpon>DownloadFiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\getProductTexts.ashx.cs">
+      <DependentUpon>getProductTexts.ashx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
@@ -354,6 +358,7 @@
     <Content Include="Narnoo\Distributors\icons\icons.psd" />
     <Content Include="Narnoo\Distributors\icons\node_icons.psd" />
     <Content Include="Narnoo\Distributors\LinkBuilder.ashx" />
+    <Content Include="Narnoo\Distributors\getProductTexts.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

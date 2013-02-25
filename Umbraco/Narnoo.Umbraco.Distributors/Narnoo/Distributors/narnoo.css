@@ -149,3 +149,7 @@
 .tasks li {
      list-style-type:decimal;
 }
+
+#accordion {
+    padding-top: 45px;
+}

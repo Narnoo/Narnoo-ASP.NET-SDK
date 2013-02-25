@@ -220,6 +220,24 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Loading loadingText;
         
         /// <summary>
+        /// pagerText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerText;
+        
+        /// <summary>
+        /// rptText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptText;
+        
+        /// <summary>
         /// status_body_TabViewDetails_tab01 control.
         /// </summary>
         /// <remarks>
