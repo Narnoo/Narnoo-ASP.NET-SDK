@@ -89,7 +89,7 @@
                     <thead>
                         <tr>
                             <th class="check-column">
-                                <input id="Checkbox1" type="checkbox"></th>
+                                <input type="checkbox"></th>
                             <th>Thumbnail</th>
                             <th>Caption</th>
                             <th>Entry Date</th>
@@ -147,7 +147,7 @@
                     <thead>
                         <tr>
                             <th class="check-column">
-                                <input id="Checkbox3" type="checkbox"></th>
+                                <input  type="checkbox"></th>
                             <th>Thumbnail</th>
                             <th>Caption</th>
                             <th>Entry Date</th>
@@ -212,7 +212,7 @@
             <ItemTemplate>
                 <tr>
                     <th class="check-column">
-                        <input type="checkbox" name="selected_brochure" value="<%# Eval("video_id") %>"></th>
+                        <input type="checkbox" name="selected_video" value="<%# Eval("video_id") %>"></th>
                     <td class="column-thumbnail_image">
                         <img src="<%# Eval("video_thumb_image_path") %>">
                     </td>
@@ -224,7 +224,7 @@
             <AlternatingItemTemplate>
                 <tr class="odd">
                     <th class="check-column">
-                        <input type="checkbox" name="selected_brochure" value="<%# Eval("video_id") %>"></th>
+                        <input type="checkbox" name="selected_video" value="<%# Eval("video_id") %>"></th>
                     <td class="column-thumbnail_image">
                         <img src="<%# Eval("video_thumb_image_path") %>">
                     </td>
@@ -253,30 +253,79 @@
     <asp:Button ID="btnReloadTabView" runat="server" Text="" ClientIDMode="Static" Style="display: none;" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
-
     <script type="text/javascript">
         $(function () {
             $('.narnoo-table').each(function () {
                 $(this).find('.check-column:first input').click(function () {
                     if ($(this).is(':checked')) {
-                        $(this).parentsUntil('table').find('tbody .check-column input').attr('checked', true);
+                        $(this).parentsUntil('table').parent().find('tbody .check-column input').attr('checked', true);
                     } else {
-                        $(this).parentsUntil('table').find('tbody .check-column input').removeAttr('checked');
+                        $(this).parentsUntil('table').parent().find('tbody .check-column input').removeAttr('checked');
                     }
                 });
             });
 
-            $('#btnDownloadAlbumImage').click(function (e) {
+            var downloadUrl = '/umbraco/narnoo/distributors/downloadfiles.aspx?operator_id=<%=this.Request["id"] %>';
+
+            $('#body_btnDownloadAlbumImage').click(function (e) {
                 e.preventDefault();
-                UmbClientMgr.openModalWindow('downloadfile.aspx', 'some title', true, 800, 600);
+                var ids = [];
+                $('input[name="selected_album_image"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some images first.');
+                    return false;
+                }
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_image&title=image'+ (ids.length>1?'(s)':'') +'&ids=' + ids.join(','), 'Download images from [' + encodeURI($.trim($('#body_toobarAlbums h4 span').text()))+']', true, 800, 600);
+                return false;
             });
 
-            function getActiveTag() {
-                return $('#body_TabViewDetails_activetab').val();
-            }
+            $('#body_btnDownloadImages').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_image"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some images first.');
+                    return false;
+                }
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_image&title=image' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                return false;
+            });
+
+            $('#body_btnDownloadBrochures').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_brochure"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some brochures first.');
+                    return false;
+                }
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_brochure&title=brochure' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                return false;
+            });
+            
+            $('#body_btnDownloadVideos').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_video"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some videos first.');
+                    return false;
+                }
+
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_video&title=video' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                return false;
+            });
+            
 
             Umbraco.Controls.TabView.onActiveTabChange(function (activeTab, options) {
-                //debugger;
                 if ($('#status_' + options).val() == '0') {
                     $('#btnReloadTabView').trigger('click');
                 }

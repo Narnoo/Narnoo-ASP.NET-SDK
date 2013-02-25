@@ -145,3 +145,7 @@
     padding-top: 20px;
     padding-left: 48%;
 }
+
+.tasks li {
+     list-style-type:decimal;
+}

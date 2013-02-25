@@ -203,7 +203,7 @@
     <Content Include="Narnoo\Distributors\Albums.aspx" />
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
     <Content Include="Narnoo\Distributors\Channels.aspx" />
-    <Content Include="Narnoo\Distributors\DownloadFile.aspx" />
+    <Content Include="Narnoo\Distributors\DownloadFiles.aspx" />
     <Content Include="Narnoo\Distributors\icons\icons_add_to_channel.png" />
     <Content Include="Narnoo\Distributors\icons\icons_album.png" />
     <Content Include="Narnoo\Distributors\icons\icons_brochures.png" />
@@ -261,12 +261,12 @@
     <Compile Include="Narnoo\Distributors\DistributorPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Narnoo\Distributors\DownloadFile.aspx.cs">
-      <DependentUpon>DownloadFile.aspx</DependentUpon>
+    <Compile Include="Narnoo\Distributors\DownloadFiles.aspx.cs">
+      <DependentUpon>DownloadFiles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Narnoo\Distributors\DownloadFile.aspx.designer.cs">
-      <DependentUpon>DownloadFile.aspx</DependentUpon>
+    <Compile Include="Narnoo\Distributors\DownloadFiles.aspx.designer.cs">
+      <DependentUpon>DownloadFiles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
@@ -274,6 +274,9 @@
     </Compile>
     <Compile Include="Narnoo\Distributors\Images.aspx.designer.cs">
       <DependentUpon>Images.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\LinkBuilder.ashx.cs">
+      <DependentUpon>LinkBuilder.ashx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\Loading.ascx.cs">
       <DependentUpon>Loading.ascx</DependentUpon>
@@ -350,6 +353,7 @@
     <Content Include="Masterpages\umbracoPage.Master" />
     <Content Include="Narnoo\Distributors\icons\icons.psd" />
     <Content Include="Narnoo\Distributors\icons\node_icons.psd" />
+    <Content Include="Narnoo\Distributors\LinkBuilder.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -389,6 +393,7 @@ xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
+xcopy $(ProjectDir)Narnoo\Distributors\*.ashx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.css $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 
 xcopy $(ProjectDir)Narnoo\Distributors\icons\*.png $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y
