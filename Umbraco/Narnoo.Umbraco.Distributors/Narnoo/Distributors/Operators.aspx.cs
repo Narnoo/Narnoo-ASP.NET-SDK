@@ -134,11 +134,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             return this.Request.Form["selected"].Split(',');
         }
 
-        void Pager1_PageIndexChanged(int newPageIndex)
-        {
-            this.DataBind(newPageIndex);
-        }
-
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.IsPostBack == false)
@@ -154,5 +150,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             this.rptItems.DataBind();
             this.Pager1.DataBind(page_no, data.TotalPages, data.Count);
         }
+        void Pager1_PageIndexChanged(int newPageIndex)
+        {
+            this.DataBind(newPageIndex);
+        }
+
     }
 }

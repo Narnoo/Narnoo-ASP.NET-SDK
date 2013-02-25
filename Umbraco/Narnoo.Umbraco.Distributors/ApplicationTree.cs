@@ -9,7 +9,7 @@ using umbraco.interfaces;
 
 namespace Narnoo.Umbraco.Distributors
 {
-    [Tree("narnoo", "narnoo.distributors", "Narnoo",".sprTreeFolder", ".sprTreeFolder_o", "", false, true, 0)]
+    [Tree("narnoo", "narnoo.distributors", "Narnoo", ".sprTreeFolder", ".sprTreeFolder_o", "", false, true, 0)]
     public class ApplicationTree : BaseTree
     {
         public ApplicationTree(string application)
@@ -127,10 +127,12 @@ namespace Narnoo.Umbraco.Distributors
             			");
 
             Javascript.Append(@"
-                            function openOperatorMedia(id) {
+                            function openOperatorMedia() {
+                                id = $('#operatorMedia a').data('operatorid');
                                 var url = '/Umbraco/narnoo/distributors/OperatorMedia.aspx';
                                 if(id){
                                     url = url +'?id='+id;
+                                    $('#operatorMedia a').data('operatorid',null);
                                 }
                                 parent.right.document.location.href = url;
                             }

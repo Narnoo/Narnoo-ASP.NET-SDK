@@ -17,7 +17,7 @@
     <asp:Panel ID="tabOperators" runat="server">
         <uc1:Pager ID="Pager1" runat="server" />
         <div style="padding-top: 10px; padding-bottom: 10px;">
-            <table id="grid" class="narnoo-table">
+            <table class="narnoo-table">
                 <thead>
                     <tr>
                         <th class="check-column">
@@ -114,9 +114,10 @@
                 if (selected.size() != 1) {
                     alert('please select one operator!');
                 } else {
-                    parent.openOperatorMedia(selected.val());
-                    parent.jQuery('#JTree .clicked').removeClass('clicked');
-                    parent.jQuery('#operatorMedia a').addClass('clicked');
+                   // parent.openOperatorMedia(selected.val());
+                  //  parent.jQuery('#JTree .clicked').removeClass('clicked');
+                  //  parent.jQuery('#operatorMedia a').addClass('clicked');
+                    parent.jQuery('#operatorMedia a').data('operatorid', selected.val()).trigger('click');
                 }
 
                 return false;

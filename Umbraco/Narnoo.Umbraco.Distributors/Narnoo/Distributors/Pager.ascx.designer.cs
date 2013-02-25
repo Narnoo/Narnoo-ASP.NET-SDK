@@ -22,6 +22,15 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalRecords;
         
         /// <summary>
+        /// links control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl links;
+        
+        /// <summary>
         /// lnkFirst control.
         /// </summary>
         /// <remarks>

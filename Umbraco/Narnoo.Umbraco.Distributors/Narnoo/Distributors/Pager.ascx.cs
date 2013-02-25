@@ -11,13 +11,14 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.CurrentPageIndex = 1;
         }
 
-        public void DataBind(int currentPage, int totalPages, int totalRecords, int pageSize = 30)
+        public void DataBind(int currentPage, int totalPages, int currentRecordCount, int pageSize = 30)
         {
             this.totalPages.InnerText = totalPages.ToString();
-            this.totalRecords.InnerText = string.Format("{0} items",totalRecords.ToString());
+            this.totalRecords.InnerText = string.Format("{0} items",currentRecordCount.ToString());
+            this.CurrentPageIndex = currentPage;
             this.txtCurrent.Text = currentPage.ToString();
             this.txtCurrent.Attributes.Add("size", currentPage.ToString().Length.ToString());
             this.lnkFirst.CommandArgument = "1";
@@ -29,6 +30,17 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             this.lnkNext.Enabled = currentPage < totalPages;
             this.lnkNext.CommandArgument = (currentPage + 1).ToString();
 
+            if (totalPages < 2)
+            {
+                this.links.Visible = false;
+            }
+
+        }
+
+        public int CurrentPageIndex
+        {
+            get;
+            set;
         }
 
 

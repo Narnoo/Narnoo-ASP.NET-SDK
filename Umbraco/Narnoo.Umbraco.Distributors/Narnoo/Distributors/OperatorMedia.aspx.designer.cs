@@ -31,13 +31,67 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Panel tabAlbums;
         
         /// <summary>
-        /// lblOperatorId control.
+        /// toobarAlbums control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOperatorId;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl toobarAlbums;
+        
+        /// <summary>
+        /// lblCurrentAlbumName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblCurrentAlbumName;
+        
+        /// <summary>
+        /// ddlAlbumsPageIndex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAlbumsPageIndex;
+        
+        /// <summary>
+        /// ddlAlbums control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAlbums;
+        
+        /// <summary>
+        /// btnChangeAlbums control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeAlbums;
+        
+        /// <summary>
+        /// pagerAlbumImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerAlbumImages;
+        
+        /// <summary>
+        /// rptAlbumImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptAlbumImages;
         
         /// <summary>
         /// tabImages control.
@@ -49,6 +103,33 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Panel tabImages;
         
         /// <summary>
+        /// loadingImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Loading loadingImages;
+        
+        /// <summary>
+        /// pagerImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerImages;
+        
+        /// <summary>
+        /// rptImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptImages;
+        
+        /// <summary>
         /// tabBrochures control.
         /// </summary>
         /// <remarks>
@@ -56,6 +137,33 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel tabBrochures;
+        
+        /// <summary>
+        /// loadingBrochures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Loading loadingBrochures;
+        
+        /// <summary>
+        /// pagerBrochures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerBrochures;
+        
+        /// <summary>
+        /// rptBrochures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBrochures;
         
         /// <summary>
         /// tabVideos control.
@@ -67,6 +175,33 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.Panel tabVideos;
         
         /// <summary>
+        /// loadingVideos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Loading loadingVideos;
+        
+        /// <summary>
+        /// pagerVideos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerVideos;
+        
+        /// <summary>
+        /// rptVideos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptVideos;
+        
+        /// <summary>
         /// tabText control.
         /// </summary>
         /// <remarks>
@@ -74,5 +209,68 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel tabText;
+        
+        /// <summary>
+        /// loadingText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Loading loadingText;
+        
+        /// <summary>
+        /// status_body_TabViewDetails_tab01 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden status_body_TabViewDetails_tab01;
+        
+        /// <summary>
+        /// status_body_TabViewDetails_tab02 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden status_body_TabViewDetails_tab02;
+        
+        /// <summary>
+        /// status_body_TabViewDetails_tab03 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden status_body_TabViewDetails_tab03;
+        
+        /// <summary>
+        /// status_body_TabViewDetails_tab04 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden status_body_TabViewDetails_tab04;
+        
+        /// <summary>
+        /// status_body_TabViewDetails_tab05 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden status_body_TabViewDetails_tab05;
+        
+        /// <summary>
+        /// btnReloadTabView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReloadTabView;
     }
 }
