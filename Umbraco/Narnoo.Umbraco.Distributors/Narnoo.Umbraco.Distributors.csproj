@@ -200,6 +200,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Narnoo\Distributors\AddOperator.aspx" />
     <Content Include="Narnoo\Distributors\AddToChannel.aspx" />
     <Content Include="Narnoo\Distributors\Albums.aspx" />
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
@@ -238,6 +239,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationTree.cs" />
+    <Compile Include="Narnoo\Distributors\AddOperator.aspx.cs">
+      <DependentUpon>AddOperator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\AddOperator.aspx.designer.cs">
+      <DependentUpon>AddOperator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions.cs" />
     <Compile Include="Narnoo\Distributors\AddToChannel.aspx.cs">
       <DependentUpon>AddToChannel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -237,6 +237,7 @@
     <Compile Include="ApiSettings.cs" />
     <Compile Include="ApplicationDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UmbracoAction.cs" />
     <Compile Include="WebApis\ApiMethod.cs" />
     <Compile Include="WebApis\distributors\operators.ashx.cs">
       <DependentUpon>operators.ashx</DependentUpon>

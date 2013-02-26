@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using umbraco;
+using umbraco.cms.businesslogic.web;
 using umbraco.uicontrols;
 
 namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
@@ -57,6 +58,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         #region InitBtnImport
         void InitBtnImport()
         {
+         
             //Create a save button from the current datatab.
             btnImport = dataTab.Menu.NewImageButton();
             btnImport.ID = "btnImport";
@@ -97,14 +99,21 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         #region InitBtnDelete
         void InitBtnDelete()
         {
-            //Create a save button from the current datatab.
-            btnDelete = dataTab.Menu.NewImageButton();
-            btnDelete.ClientIDMode = System.Web.UI.ClientIDMode.Static;
-            btnDelete.ID = "btnDelete";
-            btnDelete.Click += new ImageClickEventHandler(btnDelete_Click);
-            btnDelete.AlternateText = "Delete";
-            btnDelete.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_operator.png";
-            btnDelete.ValidationGroup = "";
+            var currentUser = umbraco.BusinessLogic.User.GetCurrent();
+            //  var permissions = umbraco.BusinessLogic.User.GetCurrent().GetPermissions();
+            var permission = umbraco.BusinessLogic.UserType.GetUserType(currentUser.Id);
+
+            if (permission.DefaultPermissions.Contains(ActionDeleteOperator.Instance.Letter))
+            {
+                //Create a save button from the current datatab.
+                btnDelete = dataTab.Menu.NewImageButton();
+                btnDelete.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+                btnDelete.ID = "btnDelete";
+                btnDelete.Click += new ImageClickEventHandler(btnDelete_Click);
+                btnDelete.AlternateText = "Delete";
+                btnDelete.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_operator.png";
+                btnDelete.ValidationGroup = "";
+            }
         }
 
         public ImageButton btnDelete;
