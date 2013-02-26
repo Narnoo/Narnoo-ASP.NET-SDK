@@ -339,6 +339,10 @@
     <Compile Include="Narnoo\Distributors\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\TryAddToChannel.ashx.cs">
+      <DependentUpon>TryAddToChannel.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Narnoo\Distributors\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +371,7 @@
     <Content Include="Narnoo\Distributors\icons\node_icons.psd" />
     <Content Include="Narnoo\Distributors\LinkBuilder.ashx" />
     <Content Include="Narnoo\Distributors\getProductTexts.ashx" />
+    <Content Include="Narnoo\Distributors\TryAddToChannel.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

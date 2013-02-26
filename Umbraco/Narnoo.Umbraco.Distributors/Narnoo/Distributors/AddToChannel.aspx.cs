@@ -13,6 +13,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         {
             if (this.IsPostBack == false)
             {
+
+                this.rptItems.DataSource = this.SelectedIds;
+                this.rptItems.DataBind();
+
                 var channels = this.NarnooMediaRequest.GetChannelList();
 
                 BindChannels(channels);

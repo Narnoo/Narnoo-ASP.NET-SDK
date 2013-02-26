@@ -33,7 +33,7 @@ namespace Narnoo.Umbraco.Distributors
         {
             tree.Clear();
             var operators = XmlTreeNode.Create(this);
-            operators.NodeID = "Operators";
+            operators.NodeID = "operators";
             operators.Text = "Operators";
             operators.Icon = "member.gif";
             operators.Action = "javascript:openOperators()";
@@ -69,28 +69,28 @@ namespace Narnoo.Umbraco.Distributors
             tree.Add(albums);
 
             var images = XmlTreeNode.Create(this);
-            images.NodeID = "Images";
+            images.NodeID = "images";
             images.Text = "Images";
             images.Icon = "node_icons_images.png";
             images.Action = "javascript:openImages()";
             tree.Add(images);
 
             var brochures = XmlTreeNode.Create(this);
-            brochures.NodeID = "Brochures";
+            brochures.NodeID = "brochures";
             brochures.Text = "Brochures";
             brochures.Icon = "node_icons_brochures.png";
             brochures.Action = "javascript:openBrochures()";
             tree.Add(brochures);
 
             var channels = XmlTreeNode.Create(this);
-            channels.NodeID = "Channels";
+            channels.NodeID = "channels";
             channels.Text = "Channels";
             channels.Icon = "node_icons_channel.png";
             channels.Action = "javascript:openChannels()";
             tree.Add(channels);
 
             var videos = XmlTreeNode.Create(this);
-            videos.NodeID = "Videos";
+            videos.NodeID = "videos";
             videos.Text = "Videos";
             videos.Icon = "mediaMovie.gif";
             videos.Action = "javascript:openVideos()";
@@ -111,7 +111,7 @@ namespace Narnoo.Umbraco.Distributors
             tree.Add(searchOperatorMedia);
 
             var settings = XmlTreeNode.Create(this);
-            settings.NodeID = "Settings";
+            settings.NodeID = "settings";
             settings.Text = "Settings";
             settings.Icon = "node_icons_settings.png";
             settings.Action = "javascript:openSettings()";
@@ -158,7 +158,13 @@ namespace Narnoo.Umbraco.Distributors
 
             Javascript.Append(@"
                             function openChannels() {
-                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/Channels.aspx';
+                                id = $('#channels a').data('channelid');
+                                var url = '/Umbraco/narnoo/distributors/Channels.aspx';
+                                if(id){
+                                    url = url +'?id='+id;
+                                    $('#operatorMedia a').data('channelid',null);
+                                }
+                                parent.right.document.location.href = url;
                             }
             			");
 

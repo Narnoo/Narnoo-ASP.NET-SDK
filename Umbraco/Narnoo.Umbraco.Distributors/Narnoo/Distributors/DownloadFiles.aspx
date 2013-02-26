@@ -45,16 +45,19 @@
                                 $(item).find('span:last').show().find('a').attr('href', link);
                             },
                             error: function () {
-                                $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_failure.png");
+                                $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_failure.png").attr('data-status', 'failure');
                             }, complete: function () {
                                 window.setTimeout(function () {
-                                    var done = $('.tasks li img[data-status="success"]').size();
+                                  
+                                    var done = $('.tasks li[data-status]').size();
+                                    var success = $('.tasks li[data-status="success"]').size();
                                     var max = $('.tasks li').size();
-                                    var messsage = done + ' of ' + max + ' item(s) successful.';
+                                    var messsage = success + ' of ' + max + ' item(s) successful.';
 
                                     if (done < max) {
                                         $('#lblSuccess').show().html('<strong>Processing... ' + messsage + '</strong>')
                                     } else {
+                                        $('#btnView').show();
                                         $('#lblSuccess').show().html('<strong>Processing completed. ' + messsage + '</strong>')
                                     }
                                 }, 500);
