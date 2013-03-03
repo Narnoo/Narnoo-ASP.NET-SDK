@@ -20,13 +20,14 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         }
 
         public TabPage dataTab;
-               public ImageButton btnDownloadAlbums;
-               public ImageButton btnRemoveFromAlbum;
+        public ImageButton btnDownloadAlbums;
+        public ImageButton btnRemoveFromAlbum;
+        
         protected override void OnInit(EventArgs e)
         {
             dataTab = this.TabViewDetails.NewTabPage("Albums");
             dataTab.Controls.Add(this.tabAlbums);
-     
+
             //Create a save button from the current datatab.
             btnDownloadAlbums = dataTab.Menu.NewImageButton();
             btnDownloadAlbums.ID = "btnDownloadAlbumImage";
@@ -49,7 +50,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         void btnChangeAlbums_Click(object sender, EventArgs e)
         {
-            this.lblCurrentAlbumName.Text = this.ddlAlbums.SelectedValue;
+            this.lblCurrentAlbumName.Text = this.ddlAlbums.SelectedItem.Text;
             this.BindAlbumImages(1);
         }
 
@@ -78,7 +79,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         private NarnooCollection<Album> LoadAlbums(int pageIndex = 1)
         {
-            var albums = this.NarnooMediaRequest.GetAlbums();
+            var albums = this.NarnooMediaRequest.GetAlbums(pageIndex);
 
             this.ddlAlbumsPageIndex.Items.Clear();
             for (var i = 0; i < albums.TotalPages; i++)

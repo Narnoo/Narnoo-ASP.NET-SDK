@@ -1,16 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoDialog.Master" AutoEventWireup="true" CodeBehind="RemoveImageDialog.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.RemoveImageDialog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoDialog.Master" AutoEventWireup="true" CodeBehind="AddImagesDialog.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.AddImagesDialog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-      <link href="narnoo.css" rel="stylesheet" type="text/css" />
+       <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-      <h4>Confirm remove from album</h4>
+      <h4>Confirm add to album</h4>
     <p>
-        Please confirm removal of the following <%= this.SelectedIds.Length %> images(s) from <%= this.Request.QueryString["album_name"] %>
-
-      
-       
+        Please select album to add the following <%= this.SelectedIds.Length %> images(s) to:	
+        <asp:DropDownList ID="ddlAlbumsPager" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlAlbums" runat="server" ClientIDMode="Static"></asp:DropDownList>
         <asp:Repeater ID="rptItems" runat="server">
             <HeaderTemplate>
                 <ol class="tasks">
@@ -32,7 +31,7 @@
 
 
         <p class="submit">
-            <input type="button" id="btnConfirm" class="button-secondary" value="Confirm Removal">
+            <input type="button" id="btnConfirm" class="button-secondary" value="Confirm Add to Album">
             <input type="button" id="btnCancel" class="button-secondary" value="Cancel">
         </p>
 
@@ -42,9 +41,6 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
      <script type="text/javascript">
-
-         
-
          $(function () {
              $('.tasks li').each(function () {
                  var loadImage = function (item) {
@@ -76,18 +72,18 @@
                  return false;
              });
 
-             var processUrl = '/umbraco/narnoo/distributors/ProcessRemoveImage.ashx?album_id=<%= this.Request["album_id"]%>';
+             var processUrl = '/umbraco/narnoo/distributors/ProcessAddImage.ashx';
              $('#btnConfirm').click(function (e) {
                  e.preventDefault();
                  $('#btnCancel').hide();
                  $('#btnConfirm').hide();
 
-              
+                 var album_id = $('#ddlAlbums').val();
                  $('.tasks li').each(function () {
                      var task = function (item) {
                          return function () {
-                             var id = item.data("itemid");
-                             var url = processUrl + '&image_id=' + id;
+                             var image_id = item.data("itemid");
+                             var url = processUrl + '?album_id=' + album_id + '&image_id=' + image_id;
                              item.find('img:first').show();
                              item.find('img:last').hide();
                              $.ajax({
@@ -114,7 +110,7 @@
                                          } else {
                                              $('#btnView').show();
                                              $('#lblSuccess').show().html('<strong>Processing completed. ' + messsage + '</strong>')
-                                             parent.right.document.jQuery('#btnChangeAlbums').trigger('click');
+                                           
                                          }
                                      }, 500);
                                  }
@@ -128,8 +124,14 @@
 
              });
 
+             $('#btnView').click(function (e) {
+                 e.preventDefault();
+                 parent.jQuery('#channels a').data('channelid', $('#ddlChannels').val()).trigger('click');
+                 UmbClientMgr.closeModalWindow();
+                 return false;
+             });
          });
-        
-         
+
+
     </script>
 </asp:Content>

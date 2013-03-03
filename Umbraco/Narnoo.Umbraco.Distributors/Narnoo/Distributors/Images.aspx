@@ -36,7 +36,7 @@
                     <tbody>
             </HeaderTemplate>
             <ItemTemplate>
-                <tr>
+                <tr data-itemid="<%# Eval("image_id") %>">
                     <th class="check-column">
                         <input type="checkbox" name="selected_image" value="<%# Eval("image_id") %>"></th>
                     <td class="column-thumbnail_image">
@@ -50,9 +50,9 @@
             </ItemTemplate>
             <AlternatingItemTemplate>
 
-                <tr class="odd">
+                <tr class="odd" data-itemid="<%# Eval("image_id") %>">
                     <th class="check-column">
-                        <input type="checkbox" name="selected" value="<%# Eval("image_id") %>"></th>
+                        <input type="checkbox" name="selected_image" value="<%# Eval("image_id") %>"></th>
                     <td class="column-thumbnail_image">
                         <img src="<%# Eval("thumb_image_path") %>">
                     </td>
@@ -101,6 +101,39 @@
                     return false;
                 }
                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_image&title=image' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                return false;
+            });
+
+            var addImageDialogUrl = '/umbraco/narnoo/distributors/AddImagesDialog.aspx?';
+            $('#btnAddToAlbum').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_image"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some images first.');
+                    return false;
+                }
+       
+                UmbClientMgr.openModalWindow(addImageDialogUrl + 'ids=' + ids.join(','), 'Add images', true, 800, 600);
+                return false;
+            });
+
+            var deleteImagesDialogUrl = '/umbraco/narnoo/distributors/DeleteImagesDialog.aspx?';
+
+            $('#btnDeleteImage').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_image"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some images first.');
+                    return false;
+                }
+
+                UmbClientMgr.openModalWindow(deleteImagesDialogUrl + 'ids=' + ids.join(','), 'Delete images', true, 800, 600);
                 return false;
             });
         });

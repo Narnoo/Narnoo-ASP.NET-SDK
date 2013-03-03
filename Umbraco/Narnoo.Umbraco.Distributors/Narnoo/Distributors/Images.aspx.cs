@@ -21,7 +21,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         public TabPage dataTab;
         public ImageButton btnDownloadImage;
-
+        public ImageButton btnAddToAlbum;
+        public ImageButton btnDeleteImage;
         protected override void OnInit(EventArgs e)
         {
             dataTab = this.TabViewDetails.NewTabPage("Images");
@@ -34,6 +35,21 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDownloadImage.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             btnDownloadImage.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadImage.ValidationGroup = "";
+
+            btnAddToAlbum = dataTab.Menu.NewImageButton();
+            btnAddToAlbum.ID = "btnAddToAlbum";
+            btnAddToAlbum.AlternateText = "Download";
+            btnAddToAlbum.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnAddToAlbum.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_add_to_album.png";
+            btnAddToAlbum.ValidationGroup = "";
+
+
+            btnDeleteImage = dataTab.Menu.NewImageButton();
+            btnDeleteImage.ID = "btnDeleteImage";
+            btnDeleteImage.AlternateText = "Download";
+            btnDeleteImage.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnDeleteImage.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_image.png";
+            btnDeleteImage.ValidationGroup = "";
 
             this.pagerImages.PageIndexChanged += pagerImages_PageIndexChanged;
 

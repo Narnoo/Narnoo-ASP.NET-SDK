@@ -25,7 +25,7 @@
             </h4>
             <span>selected album:
                 <asp:DropDownList ID="ddlAlbumsPageIndex" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlAlbums" runat="server" DataValueField="album_id" DataTextField="album_name" ClientIDMode="Static"></asp:DropDownList><asp:Button ID="btnChangeAlbums" runat="server" Text="Go" />
+                <asp:DropDownList ID="ddlAlbums" runat="server" DataValueField="album_id" DataTextField="album_name" ClientIDMode="Static"></asp:DropDownList><asp:Button ID="btnChangeAlbums" runat="server" Text="Go" ClientIDMode="Static" />
             </span>
         </div>
 
@@ -48,8 +48,8 @@
                     <tbody>
             </HeaderTemplate>
             <ItemTemplate>
-                <tr>
-                    <td class="check-column" data-itemid="<%# Eval("image_id") %>">
+                <tr  data-itemid="<%# Eval("image_id") %>">
+                    <td class="check-column">
                         <input type="checkbox" name="selected_album_image" value="<%# Eval("image_id") %>" /></td>
                     <td>
                         <img src="<%# Eval("thumb_image_path") %>">

@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoDialog.Master" AutoEventWireup="true" CodeBehind="RemoveImageDialog.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.RemoveImageDialog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoDialog.Master" AutoEventWireup="true" CodeBehind="DeleteImagesDialog.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.DeleteImagesDialog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
       <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-      <h4>Confirm remove from album</h4>
+      <h4>Confirm deletion</h4>
     <p>
-        Please confirm removal of the following <%= this.SelectedIds.Length %> images(s) from <%= this.Request.QueryString["album_name"] %>
+        Please confirm deletion of the following <%= this.SelectedIds.Length %> images(s):
 
       
        
@@ -32,7 +32,7 @@
 
 
         <p class="submit">
-            <input type="button" id="btnConfirm" class="button-secondary" value="Confirm Removal">
+            <input type="button" id="btnConfirm" class="button-secondary" value="Confirm Deletion">
             <input type="button" id="btnCancel" class="button-secondary" value="Cancel">
         </p>
 
@@ -43,7 +43,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
      <script type="text/javascript">
 
-         
+
 
          $(function () {
              $('.tasks li').each(function () {
@@ -76,13 +76,13 @@
                  return false;
              });
 
-             var processUrl = '/umbraco/narnoo/distributors/ProcessRemoveImage.ashx?album_id=<%= this.Request["album_id"]%>';
+             var processUrl = '/umbraco/narnoo/distributors/ProcessDeleteImage.ashx?';
              $('#btnConfirm').click(function (e) {
                  e.preventDefault();
                  $('#btnCancel').hide();
                  $('#btnConfirm').hide();
 
-              
+
                  $('.tasks li').each(function () {
                      var task = function (item) {
                          return function () {
@@ -114,7 +114,7 @@
                                          } else {
                                              $('#btnView').show();
                                              $('#lblSuccess').show().html('<strong>Processing completed. ' + messsage + '</strong>')
-                                             parent.right.document.jQuery('#btnChangeAlbums').trigger('click');
+                                             parent.right.document.location.reload();
                                          }
                                      }, 500);
                                  }
@@ -129,7 +129,7 @@
              });
 
          });
-        
-         
+
+
     </script>
 </asp:Content>
