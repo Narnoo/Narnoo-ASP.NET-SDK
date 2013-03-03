@@ -13,30 +13,39 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
     public partial class Videos {
         
         /// <summary>
-        /// Panel2 control.
+        /// TabViewDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.UmbracoPanel Panel2;
+        protected global::umbraco.uicontrols.TabView TabViewDetails;
         
         /// <summary>
-        /// dashBoardContent control.
+        /// tabVideos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder dashBoardContent;
+        protected global::System.Web.UI.WebControls.Panel tabVideos;
         
         /// <summary>
-        /// dashboardTabs control.
+        /// pagerVideos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.TabView dashboardTabs;
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerVideos;
+        
+        /// <summary>
+        /// rptVideos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptVideos;
     }
 }

@@ -339,7 +339,7 @@
                     return false;
                 }
 
-                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_video&title=video' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_operator_video&title=video' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download videos', true, 800, 600);
                 return false;
             });
 

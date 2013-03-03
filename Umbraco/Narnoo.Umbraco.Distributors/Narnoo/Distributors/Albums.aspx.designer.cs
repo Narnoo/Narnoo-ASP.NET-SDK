@@ -13,30 +13,84 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
     public partial class Albums {
         
         /// <summary>
-        /// Panel2 control.
+        /// TabViewDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.UmbracoPanel Panel2;
+        protected global::umbraco.uicontrols.TabView TabViewDetails;
         
         /// <summary>
-        /// dashBoardContent control.
+        /// tabAlbums control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder dashBoardContent;
+        protected global::System.Web.UI.WebControls.Panel tabAlbums;
         
         /// <summary>
-        /// dashboardTabs control.
+        /// toobarAlbums control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::umbraco.uicontrols.TabView dashboardTabs;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl toobarAlbums;
+        
+        /// <summary>
+        /// lblCurrentAlbumName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblCurrentAlbumName;
+        
+        /// <summary>
+        /// ddlAlbumsPageIndex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAlbumsPageIndex;
+        
+        /// <summary>
+        /// ddlAlbums control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAlbums;
+        
+        /// <summary>
+        /// btnChangeAlbums control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeAlbums;
+        
+        /// <summary>
+        /// pagerAlbumImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Narnoo.Umbraco.Distributors.Narnoo.Distributors.Pager pagerAlbumImages;
+        
+        /// <summary>
+        /// rptAlbumImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptAlbumImages;
     }
 }
