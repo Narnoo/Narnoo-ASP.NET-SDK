@@ -25,7 +25,7 @@
             </h4>
             <span>selected album:
                 <asp:DropDownList ID="ddlAlbumsPageIndex" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlAlbums" runat="server" DataValueField="album_name" DataTextField="album_name" ClientIDMode="Static"></asp:DropDownList><asp:Button ID="btnChangeAlbums" runat="server" Text="Go" />
+                <asp:DropDownList ID="ddlAlbums" runat="server" DataValueField="album_id" DataTextField="album_name" ClientIDMode="Static"></asp:DropDownList><asp:Button ID="btnChangeAlbums" runat="server" Text="Go" />
             </span>
         </div>
 
@@ -49,7 +49,7 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <tr>
-                    <td class="check-column">
+                    <td class="check-column" data-itemid="<%# Eval("image_id") %>">
                         <input type="checkbox" name="selected_album_image" value="<%# Eval("image_id") %>" /></td>
                     <td>
                         <img src="<%# Eval("thumb_image_path") %>">
@@ -60,7 +60,7 @@
                 </tr>
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="odd">
+                <tr class="odd" data-itemid="<%# Eval("image_id") %>">
                     <td class="check-column">
                         <input type="checkbox" name="selected_album_image" value="<%# Eval("image_id") %>" /></td>
                     <td>
@@ -95,7 +95,7 @@
                 });
             });
 
-            var downloadUrl = '/umbraco/narnoo/distributors/downloadfiles.aspx?operator_id=<%=this.Request["id"] %>';
+            var downloadUrl = '/umbraco/narnoo/distributors/downloadfiles.aspx?';
 
              $('#btnDownloadAlbumImage').click(function (e) {
                  e.preventDefault();
@@ -108,6 +108,23 @@
                      return false;
                  }
                  UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_image&title=image' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images from [' + encodeURI($.trim($('#body_toobarAlbums h4 span').text())) + ']', true, 800, 600);
+                 return false;
+             });
+
+             var removeImageDialogUrl = '/umbraco/narnoo/distributors/RemoveImageDialog.aspx?';
+             $('#btnRemoveFromAlbum').click(function (e) {
+                 e.preventDefault();
+                 var ids = [];
+                 $('input[name="selected_album_image"]:checked').each(function () {
+                     ids.push($(this).val());
+                 });
+                 if (ids.length == 0) {
+                     alert('please select some images first.');
+                     return false;
+                 }
+                 var album_name = encodeURI($.trim($('#body_toobarAlbums h4 span').text()));
+                 var album_id = encodeURI($('#ddlAlbums').val());
+                 UmbClientMgr.openModalWindow(removeImageDialogUrl + 'album_name=' + album_name + '&album_id=' + album_id + '&ids=' + ids.join(','), 'Remove images from [' + album_name + ']', true, 800, 600);
                  return false;
              });
          });

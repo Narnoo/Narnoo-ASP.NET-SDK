@@ -21,6 +21,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         public TabPage dataTab;
                public ImageButton btnDownloadAlbums;
+               public ImageButton btnRemoveFromAlbum;
         protected override void OnInit(EventArgs e)
         {
             dataTab = this.TabViewDetails.NewTabPage("Albums");
@@ -33,6 +34,13 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDownloadAlbums.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             btnDownloadAlbums.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadAlbums.ValidationGroup = "";
+
+            btnRemoveFromAlbum = dataTab.Menu.NewImageButton();
+            btnRemoveFromAlbum.ID = "btnRemoveFromAlbum";
+            btnRemoveFromAlbum.AlternateText = "Remove";
+            btnRemoveFromAlbum.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnRemoveFromAlbum.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_remove_from_album.png";
+            btnRemoveFromAlbum.ValidationGroup = "";
 
             this.ddlAlbumsPageIndex.SelectedIndexChanged += ddlAlbumsPageIndex_SelectedIndexChanged;
             this.btnChangeAlbums.Click += btnChangeAlbums_Click;

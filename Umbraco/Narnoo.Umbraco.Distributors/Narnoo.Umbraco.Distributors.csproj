@@ -235,6 +235,7 @@
     <Content Include="Narnoo\Distributors\OperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Operators.aspx" />
     <Content Include="Narnoo\Distributors\Pager.ascx" />
+    <Content Include="Narnoo\Distributors\RemoveImageDialog.aspx" />
     <Content Include="Narnoo\Distributors\SearchMedia.aspx" />
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Settings.aspx" />
@@ -348,6 +349,16 @@
     <Compile Include="Narnoo\Distributors\ProcessAddOperators.ashx.cs">
       <DependentUpon>ProcessAddOperators.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\ProcessRemoveImage.ashx.cs">
+      <DependentUpon>ProcessRemoveImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\RemoveImageDialog.aspx.cs">
+      <DependentUpon>RemoveImageDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\RemoveImageDialog.aspx.designer.cs">
+      <DependentUpon>RemoveImageDialog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\SearchMedia.aspx.cs">
       <DependentUpon>SearchMedia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,6 +414,7 @@
     <Content Include="Narnoo\Distributors\getProductTexts.ashx" />
     <Content Include="Narnoo\Distributors\TryAddToChannel.ashx" />
     <Content Include="Narnoo\Distributors\ProcessAddOperators.ashx" />
+    <Content Include="Narnoo\Distributors\ProcessRemoveImage.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
