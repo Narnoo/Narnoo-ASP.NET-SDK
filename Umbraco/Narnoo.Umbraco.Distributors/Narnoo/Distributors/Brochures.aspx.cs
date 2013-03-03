@@ -21,18 +21,26 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         public TabPage dataTab;
         public ImageButton btnDownloadBrochures;
+        public ImageButton btnDeleteBrochures;
         protected override void OnInit(EventArgs e)
         {
             dataTab = this.TabViewDetails.NewTabPage("Brochures");
             dataTab.Controls.Add(this.tabBrochures);
 
-            //Create a save button from the current datatab.
+
             btnDownloadBrochures = dataTab.Menu.NewImageButton();
             btnDownloadBrochures.ID = "btnDownloadBrochures";
             btnDownloadBrochures.AlternateText = "Download";
             btnDownloadBrochures.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             btnDownloadBrochures.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadBrochures.ValidationGroup = "";
+
+            btnDeleteBrochures = dataTab.Menu.NewImageButton();
+            btnDeleteBrochures.ID = "btnDeleteBrochures";
+            btnDeleteBrochures.AlternateText = "Delete";
+            btnDeleteBrochures.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnDeleteBrochures.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_brochures.png";
+            btnDeleteBrochures.ValidationGroup = "";
 
 
             this.pagerBrochures.PageIndexChanged += pagerBrochures_PageIndexChanged;

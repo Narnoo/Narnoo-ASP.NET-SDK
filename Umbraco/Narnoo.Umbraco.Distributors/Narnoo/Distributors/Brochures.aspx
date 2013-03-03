@@ -35,7 +35,7 @@
                     <tbody>
             </HeaderTemplate>
             <ItemTemplate>
-                <tr>
+                <tr data-itemid="<%# Eval("brochure_id") %>">
                     <th class="check-column">
                         <input type="checkbox" name="selected_brochure" value="<%# Eval("brochure_id") %>"></th>
                     <td class="column-thumbnail_image">
@@ -47,7 +47,7 @@
                 </tr>
             </ItemTemplate>
             <AlternatingItemTemplate>
-                <tr class="odd">
+                <tr class="odd" data-itemid="<%# Eval("brochure_id") %>">
                     <th class="check-column">
                         <input type="checkbox" name="selected_brochure" value="<%# Eval("brochure_id") %>"></th>
                     <td class="column-thumbnail_image">
@@ -94,6 +94,22 @@
                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_brochure&title=brochure' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
                 return false;
             });
+
+            var deleteBrochuresDialogUrl = '/umbraco/narnoo/distributors/DeleteBrochuresDialog.aspx?';
+            $('#btnDeleteBrochures').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_brochure"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some brochures first.');
+                    return false;
+                }
+                UmbClientMgr.openModalWindow(deleteBrochuresDialogUrl + 'ids=' + ids.join(','), 'Delete brochures', true, 800, 600);
+                return false;
+            });
+            
         });
 
     </script>

@@ -22,6 +22,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         public TabPage dataTab;
         public ImageButton btnDownloadVideos;
         public ImageButton btnAddToChannel;
+        public ImageButton btnDeleteVideo;
         protected override void OnInit(EventArgs e)
         {
             dataTab = this.TabViewDetails.NewTabPage("Videos");
@@ -40,6 +41,13 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnAddToChannel.AlternateText = "AddToChannel";
             btnAddToChannel.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_add_to_channel.png";
             btnAddToChannel.ValidationGroup = "";
+
+            btnDeleteVideo = dataTab.Menu.NewImageButton();
+            btnDeleteVideo.ID = "btnDeleteVideo";
+            btnDeleteVideo.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnDeleteVideo.AlternateText = "Delete";
+            btnDeleteVideo.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_delete_video.png";
+            btnDeleteVideo.ValidationGroup = "";
 
             this.pagerVideos.PageIndexChanged += pagerVideos_PageIndexChanged;
         }

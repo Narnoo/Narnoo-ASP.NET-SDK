@@ -208,7 +208,9 @@
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
     <Content Include="Narnoo\Distributors\ChangeOperatorDialog.aspx" />
     <Content Include="Narnoo\Distributors\Channels.aspx" />
+    <Content Include="Narnoo\Distributors\DeleteBrochuresDialog.aspx" />
     <Content Include="Narnoo\Distributors\DeleteImagesDialog.aspx" />
+    <Content Include="Narnoo\Distributors\DeleteVideosDialog.aspx" />
     <Content Include="Narnoo\Distributors\DownloadFiles.aspx" />
     <Content Include="Narnoo\Distributors\icons\icons_add_operator.png" />
     <Content Include="Narnoo\Distributors\icons\icons_add_to_channel.png" />
@@ -303,12 +305,26 @@
     <Compile Include="Narnoo\Distributors\Channels.aspx.designer.cs">
       <DependentUpon>Channels.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\DeleteBrochuresDialog.aspx.cs">
+      <DependentUpon>DeleteBrochuresDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\DeleteBrochuresDialog.aspx.designer.cs">
+      <DependentUpon>DeleteBrochuresDialog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\DeleteImagesDialog.aspx.cs">
       <DependentUpon>DeleteImagesDialog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Distributors\DeleteImagesDialog.aspx.designer.cs">
       <DependentUpon>DeleteImagesDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\DeleteVideosDialog.aspx.cs">
+      <DependentUpon>DeleteVideosDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\DeleteVideosDialog.aspx.designer.cs">
+      <DependentUpon>DeleteVideosDialog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\DistributorHanlder.cs" />
     <Compile Include="Narnoo\Distributors\DistributorPage.cs">
@@ -368,8 +384,14 @@
     <Compile Include="Narnoo\Distributors\ProcessAddOperators.ashx.cs">
       <DependentUpon>ProcessAddOperators.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\ProcessDeleteBrochure.ashx.cs">
+      <DependentUpon>ProcessDeleteBrochure.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\ProcessDeleteImage.ashx.cs">
       <DependentUpon>ProcessDeleteImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\ProcessDeleteVideo.ashx.cs">
+      <DependentUpon>ProcessDeleteVideo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\ProcessRemoveImage.ashx.cs">
       <DependentUpon>ProcessRemoveImage.ashx</DependentUpon>
@@ -439,6 +461,8 @@
     <Content Include="Narnoo\Distributors\ProcessRemoveImage.ashx" />
     <Content Include="Narnoo\Distributors\ProcessAddImage.ashx" />
     <Content Include="Narnoo\Distributors\ProcessDeleteImage.ashx" />
+    <Content Include="Narnoo\Distributors\ProcessDeleteBrochure.ashx" />
+    <Content Include="Narnoo\Distributors\ProcessDeleteVideo.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -115,6 +115,24 @@
                 return false;
             });
 
+
+            var deleteVideosDialogUrl = '/umbraco/narnoo/distributors/DeleteVideosDialog.aspx?';
+
+            $('#btnDeleteVideo').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected_video"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some videos first.');
+                    return false;
+                }
+
+                UmbClientMgr.openModalWindow(deleteVideosDialogUrl + 'ids=' + ids.join(','), 'Delete videos', true, 800, 600);
+                return false;
+            });
+
         });
 
     </script>
