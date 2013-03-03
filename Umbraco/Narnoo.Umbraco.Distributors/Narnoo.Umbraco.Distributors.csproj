@@ -200,7 +200,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Narnoo\Distributors\AddOperator.aspx" />
+    <Content Include="Narnoo\Distributors\AddOperators.aspx" />
+    <Content Include="Narnoo\Distributors\AddOperatorsDialog.aspx" />
     <Content Include="Narnoo\Distributors\AddToChannel.aspx" />
     <Content Include="Narnoo\Distributors\Albums.aspx" />
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
@@ -239,14 +240,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationTree.cs" />
-    <Compile Include="Narnoo\Distributors\AddOperator.aspx.cs">
-      <DependentUpon>AddOperator.aspx</DependentUpon>
+    <Compile Include="Narnoo\Distributors\AddOperators.aspx.cs">
+      <DependentUpon>AddOperators.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Narnoo\Distributors\AddOperator.aspx.designer.cs">
-      <DependentUpon>AddOperator.aspx</DependentUpon>
+    <Compile Include="Narnoo\Distributors\AddOperators.aspx.designer.cs">
+      <DependentUpon>AddOperators.aspx</DependentUpon>
     </Compile>
     <Compile Include="Actions.cs" />
+    <Compile Include="Narnoo\Distributors\AddOperatorsDialog.aspx.cs">
+      <DependentUpon>AddOperatorsDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\AddOperatorsDialog.aspx.designer.cs">
+      <DependentUpon>AddOperatorsDialog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\AddToChannel.aspx.cs">
       <DependentUpon>AddToChannel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,6 +335,9 @@
     <Compile Include="Narnoo\Distributors\Pager.ascx.designer.cs">
       <DependentUpon>Pager.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\ProcessAddOperators.ashx.cs">
+      <DependentUpon>ProcessAddOperators.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\SearchMedia.aspx.cs">
       <DependentUpon>SearchMedia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +392,7 @@
     <Content Include="Narnoo\Distributors\LinkBuilder.ashx" />
     <Content Include="Narnoo\Distributors\getProductTexts.ashx" />
     <Content Include="Narnoo\Distributors\TryAddToChannel.ashx" />
+    <Content Include="Narnoo\Distributors\ProcessAddOperators.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

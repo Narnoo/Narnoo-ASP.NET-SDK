@@ -142,11 +142,6 @@ namespace Narnoo.Umbraco.Distributors
                             }
             			");
 
-            Javascript.Append(@"
-                            function addOperator() {
-                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/AddOperator.aspx';
-                            }
-            			");
 
             Javascript.Append(@"
                             function openOperatorMedia() {

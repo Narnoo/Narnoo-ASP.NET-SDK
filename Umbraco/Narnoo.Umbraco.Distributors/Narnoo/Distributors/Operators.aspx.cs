@@ -45,20 +45,20 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             {
                 if (Page.IsValid)
                 {
-                    
+
                 }
             }
             catch (Exception)
             {
                 this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", "faild to save settings.");
             }
-        } 
+        }
         #endregion
 
         #region InitBtnImport
         void InitBtnImport()
         {
-         
+
             //Create a save button from the current datatab.
             btnImport = dataTab.Menu.NewImageButton();
             btnImport.ID = "btnImport";
@@ -100,10 +100,17 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         void InitBtnDelete()
         {
             var currentUser = umbraco.BusinessLogic.User.GetCurrent();
-            //  var permissions = umbraco.BusinessLogic.User.GetCurrent().GetPermissions();
-            var permission = umbraco.BusinessLogic.UserType.GetUserType(currentUser.Id);
 
-            if (permission.DefaultPermissions.Contains(ActionDeleteOperator.Instance.Letter))
+            var isAuthorized = true;
+            if (currentUser.IsAdmin() == false && currentUser.IsRoot() == false)
+            {
+                var permission = umbraco.BusinessLogic.UserType.GetUserType(currentUser.Id);
+                isAuthorized = permission.DefaultPermissions.Contains(ActionDeleteOperator.Instance.Letter);
+            }
+            //  var permissions = umbraco.BusinessLogic.User.GetCurrent().GetPermissions();
+
+
+            if (isAuthorized)
             {
                 //Create a save button from the current datatab.
                 btnDelete = dataTab.Menu.NewImageButton();
@@ -128,6 +135,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     {
                         this.NarnooRequest.DeleteOperator(id);
                     }
+
+                    this.DataBind(1);
                 }
             }
             catch (Exception ex)
@@ -143,7 +152,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             return this.Request.Form["selected"].Split(',');
         }
 
-     
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.IsPostBack == false)

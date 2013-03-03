@@ -20,7 +20,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 this.rptImages.Visible = false;
                 this.rptBrochures.Visible = false;
                 this.rptVideos.Visible = false;
-                
+
 
                 this.pagerAlbumImages.Visible = false;
                 this.pagerBrochures.Visible = false;
@@ -97,7 +97,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         }
 
- 
+
 
 
         void ReloadTabView(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             }
         }
 
-    
+
 
         #region TabView 01:Albums
         private void BindAlbums()
@@ -138,7 +138,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             else
             {
                 this.toobarAlbums.Visible = true;
-        
+
                 try
                 {
                     var albums = this.LoadAlbums();
@@ -148,8 +148,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     this.rptAlbumImages.Visible = false;
                     this.BindAlbumImages(1);
                     this.pagerAlbumImages.Visible = true;
-                   
-                    
+
+
                 }
                 catch (Exception ex)
                 {
@@ -223,7 +223,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     this.pagerImages.DataBind(pageIndex, images.TotalPages, images.Count);
                     this.status_body_TabViewDetails_tab02.Value = "1";
                     this.pagerImages.Visible = true;
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -254,7 +254,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     this.pagerBrochures.DataBind(pageIndex, brochures.TotalPages, brochures.Count);
                     this.status_body_TabViewDetails_tab03.Value = "1";
                     this.pagerBrochures.Visible = true;
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -284,7 +284,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                     this.pagerVideos.DataBind(pageIndex, videos.TotalPages, videos.Count);
                     this.status_body_TabViewDetails_tab04.Value = "1";
                     this.pagerVideos.Visible = true;
-                  
+
                 }
                 catch (Exception ex)
                 {
@@ -302,16 +302,26 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
         #region TabView 05:Text
         private void BindText(int pageIndex)
         {
-            var text = this.NarnooOperatorMediaRequest.GetProductText(this.OperatorId, pageIndex);
-            this.rptText.Visible = true;
-            this.loadingText.Visible = false;
-            
-            this.rptText.DataSource = text;
-            this.rptText.DataBind();
+            if (string.IsNullOrWhiteSpace(this.OperatorId) == false)
+            {
+                try
+                {
+                    var text = this.NarnooOperatorMediaRequest.GetProductText(this.OperatorId, pageIndex);
+                    this.rptText.Visible = true;
+                    this.loadingText.Visible = false;
 
-            this.pagerText.Visible = true;
-            this.pagerText.DataBind(pageIndex, text.TotalPages, text.Count);
-            
+                    this.rptText.DataSource = text;
+                    this.rptText.DataBind();
+
+                    this.pagerText.Visible = true;
+                    this.pagerText.DataBind(pageIndex, text.TotalPages, text.Count);
+                }
+                catch (Exception ex)
+                {
+                    this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                }
+            }
+
         }
         void pagerText_PageIndexChanged(int newPageIndex)
         {

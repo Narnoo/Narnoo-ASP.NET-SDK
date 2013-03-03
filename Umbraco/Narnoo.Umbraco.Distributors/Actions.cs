@@ -12,8 +12,10 @@ namespace Narnoo.Umbraco.Distributors
             this.Alias = "AddOperator";
             this.CanBePermissionAssigned = true;
             this.Icon = ".sprNew";
-            this.JsFunctionName = "addOperator";
-            this.JsSource = string.Empty;
+            this.JsFunctionName = "addOperators();";
+            this.JsSource =@" function addOperators() {
+                                parent.right.document.location.href = '/Umbraco/narnoo/distributors/AddOperators.aspx';
+                            }";
             this.Letter = '1';
             this.ShowInNotifier = true;
         }
