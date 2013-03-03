@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <span id="lblTitle" runat="server"></span>
@@ -32,10 +33,7 @@
         $(function () {
             var taskUrl = '/umbraco/narnoo/distributors/ProcessAddOperators.ashx?';
 
-
-
             $('.tasks li').each(function () {
-
                 var task = function (item) {
                     return function () {
                         var id = item.data("itemid");
@@ -68,7 +66,6 @@
                                     }
                                 }, 500);
                             }
-
                         });
                     };
                 }($(this));

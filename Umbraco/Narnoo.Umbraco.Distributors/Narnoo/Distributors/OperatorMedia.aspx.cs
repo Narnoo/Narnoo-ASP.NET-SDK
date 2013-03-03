@@ -66,6 +66,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             dataTab = this.TabViewDetails.NewTabPage("Albums");
             dataTab.Controls.Add(this.tabAlbums);
             InitBtnDownloadAlbums();
+            AddChangeOperatorButton("btnChangeOperator1");
             this.ddlAlbumsPageIndex.SelectedIndexChanged += ddlAlbumsPageIndex_SelectedIndexChanged;
             this.btnChangeAlbums.Click += btnChangeAlbums_Click;
             this.pagerAlbumImages.PageIndexChanged += pagerAlbumImages_PageIndexChanged;
@@ -74,6 +75,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             dataTab = this.TabViewDetails.NewTabPage("Images");
             dataTab.Controls.Add(this.tabImages);
             InitBtnDownloadImages();
+            AddChangeOperatorButton("btnChangeOperator2");
             this.pagerImages.PageIndexChanged += pagerImages_PageIndexChanged;
 
 
@@ -86,11 +88,13 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             dataTab.Controls.Add(this.tabVideos);
             InitBtnDownloadVideos();
             InitBtnAddToChannel();
+            AddChangeOperatorButton("btnChangeOperator4");
             this.pagerVideos.PageIndexChanged += pagerVideos_PageIndexChanged;
 
 
             dataTab = this.TabViewDetails.NewTabPage("Text");
             dataTab.Controls.Add(this.tabText);
+            AddChangeOperatorButton("btnChangeOperator5");
             this.pagerText.PageIndexChanged += pagerText_PageIndexChanged;
 
             this.btnReloadTabView.Click += ReloadTabView;
@@ -216,7 +220,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 {
                     var images = this.NarnooOperatorMediaRequest.GetImages(this.OperatorId, pageIndex);
                     this.rptImages.Visible = true;
-                    this.loadingImages.Visible = false;
+
 
                     this.rptImages.DataSource = images;
                     this.rptImages.DataBind();
@@ -229,6 +233,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 {
                     this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
                     //this.ErrorMessages.AppendLine(ex.Message);
+                }
+                finally
+                {
+                    this.loadingImages.Visible = false;
                 }
             }
         }
@@ -248,7 +256,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 {
                     var brochures = this.NarnooOperatorMediaRequest.GetBrochures(this.OperatorId, pageIndex);
                     this.rptBrochures.Visible = true;
-                    this.loadingBrochures.Visible = false;
+
                     this.rptBrochures.DataSource = brochures;
                     this.rptBrochures.DataBind();
                     this.pagerBrochures.DataBind(pageIndex, brochures.TotalPages, brochures.Count);
@@ -259,6 +267,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 catch (Exception ex)
                 {
                     this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                }
+                finally
+                {
+                    this.loadingBrochures.Visible = false;
                 }
             }
         }
@@ -277,7 +289,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 try
                 {
                     var videos = this.NarnooOperatorMediaRequest.GetVideos(this.OperatorId, pageIndex);
-                    this.loadingVideos.Visible = false;
+
                     this.rptVideos.Visible = true;
                     this.rptVideos.DataSource = videos;
                     this.rptVideos.DataBind();
@@ -289,6 +301,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 catch (Exception ex)
                 {
                     this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                }
+                finally
+                {
+                    this.loadingVideos.Visible = false;
                 }
             }
         }
@@ -308,7 +324,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 {
                     var text = this.NarnooOperatorMediaRequest.GetProductText(this.OperatorId, pageIndex);
                     this.rptText.Visible = true;
-                    this.loadingText.Visible = false;
+
 
                     this.rptText.DataSource = text;
                     this.rptText.DataBind();
@@ -319,6 +335,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                 catch (Exception ex)
                 {
                     this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                }
+                finally
+                {
+                    this.loadingText.Visible = false;
                 }
             }
 
@@ -348,6 +368,18 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDownloadAlbums.AlternateText = "Download";
             btnDownloadAlbums.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadAlbums.ValidationGroup = "";
+
+        }
+
+        private void AddChangeOperatorButton(string id)
+        {
+            var btnChangeOperator = dataTab.Menu.NewImageButton();
+            btnChangeOperator.ID = id;
+            btnChangeOperator.Attributes.Add("data-action","change-operator");
+            btnChangeOperator.AltText = "Operator:" + this.OperatorId;
+            btnChangeOperator.ClientIDMode = System.Web.UI.ClientIDMode.Static;
+            btnChangeOperator.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_select_operator.png";
+            btnChangeOperator.ValidationGroup = "";
         }
         #endregion
 
@@ -362,6 +394,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDownloadImages.AlternateText = "Download";
             btnDownloadImages.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadImages.ValidationGroup = "";
+     
         }
 
 
@@ -403,6 +436,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnDownloadBrochures.AlternateText = "Download";
             btnDownloadBrochures.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_download.png";
             btnDownloadBrochures.ValidationGroup = "";
+
+            AddChangeOperatorButton("btnChangeOperator3");
         }
 
 
@@ -485,6 +520,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             btnAddToChannel.AlternateText = "Download";
             btnAddToChannel.ImageUrl = GlobalSettings.Path + "/narnoo/distributors/icons/icons_add_to_channel.png";
             btnAddToChannel.ValidationGroup = "";
+
+    
         }
 
 

@@ -395,6 +395,16 @@
                     $('#btnReloadTabView').trigger('click');
                 }
             });
+
+            var changeOperatorDialog = '/umbraco/narnoo/distributors/ChangeOperatorDialog.aspx?id=<%=this.Request["id"] %>';
+            $('input[data-action]').click(function (e) {
+                e.preventDefault();
+
+                UmbClientMgr.openModalWindow(changeOperatorDialog, 'Change operator', true, 300, 200);
+
+                return false;
+
+            });
         });
     </script>
 </asp:Content>

@@ -205,8 +205,10 @@
     <Content Include="Narnoo\Distributors\AddToChannel.aspx" />
     <Content Include="Narnoo\Distributors\Albums.aspx" />
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
+    <Content Include="Narnoo\Distributors\ChangeOperatorDialog.aspx" />
     <Content Include="Narnoo\Distributors\Channels.aspx" />
     <Content Include="Narnoo\Distributors\DownloadFiles.aspx" />
+    <Content Include="Narnoo\Distributors\icons\icons_add_operator.png" />
     <Content Include="Narnoo\Distributors\icons\icons_add_to_channel.png" />
     <Content Include="Narnoo\Distributors\icons\icons_album.png" />
     <Content Include="Narnoo\Distributors\icons\icons_brochures.png" />
@@ -219,6 +221,7 @@
     <Content Include="Narnoo\Distributors\icons\icons_process.gif" />
     <Content Include="Narnoo\Distributors\icons\icons_process_failure.png" />
     <Content Include="Narnoo\Distributors\icons\icons_process_success.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_select_operator.png" />
     <Content Include="Narnoo\Distributors\icons\icons_settings.png" />
     <Content Include="Narnoo\Distributors\icons\node_icons_album.png" />
     <Content Include="Narnoo\Distributors\icons\node_icons_brochures.png" />
@@ -275,6 +278,13 @@
     </Compile>
     <Compile Include="Narnoo\Distributors\Brochures.aspx.designer.cs">
       <DependentUpon>Brochures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\ChangeOperatorDialog.aspx.cs">
+      <DependentUpon>ChangeOperatorDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\ChangeOperatorDialog.aspx.designer.cs">
+      <DependentUpon>ChangeOperatorDialog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\Channels.aspx.cs">
       <DependentUpon>Channels.aspx</DependentUpon>
