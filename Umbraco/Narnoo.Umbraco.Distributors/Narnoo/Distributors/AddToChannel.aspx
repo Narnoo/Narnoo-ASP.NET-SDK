@@ -127,7 +127,10 @@
 
             $('#btnView').click(function (e) {
                 e.preventDefault();
-                parent.jQuery('#channels a').data('channelid', $('#ddlChannels').val()).trigger('click');
+
+                var channel_id = $('#ddlChannels').val();
+                var channel_name = $('#ddlChannels option:selected').text();
+                window.parent.jQuery('#channels a').data('channel-id', channel_id).data('channel-name', channel_name).trigger('click');
                 UmbClientMgr.closeModalWindow();
                 return false;
             });

@@ -239,6 +239,7 @@
     <Content Include="Narnoo\Distributors\OperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Operators.aspx" />
     <Content Include="Narnoo\Distributors\Pager.ascx" />
+    <Content Include="Narnoo\Distributors\RemoveFromChannel.aspx" />
     <Content Include="Narnoo\Distributors\RemoveImageDialog.aspx" />
     <Content Include="Narnoo\Distributors\SearchMedia.aspx" />
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
@@ -393,8 +394,18 @@
     <Compile Include="Narnoo\Distributors\ProcessDeleteVideo.ashx.cs">
       <DependentUpon>ProcessDeleteVideo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Distributors\ProcessRemoveFromChannle.ashx.cs">
+      <DependentUpon>ProcessRemoveFromChannle.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Distributors\ProcessRemoveImage.ashx.cs">
       <DependentUpon>ProcessRemoveImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\RemoveFromChannel.aspx.cs">
+      <DependentUpon>RemoveFromChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\RemoveFromChannel.aspx.designer.cs">
+      <DependentUpon>RemoveFromChannel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\RemoveImageDialog.aspx.cs">
       <DependentUpon>RemoveImageDialog.aspx</DependentUpon>
@@ -463,6 +474,7 @@
     <Content Include="Narnoo\Distributors\ProcessDeleteImage.ashx" />
     <Content Include="Narnoo\Distributors\ProcessDeleteBrochure.ashx" />
     <Content Include="Narnoo\Distributors\ProcessDeleteVideo.ashx" />
+    <Content Include="Narnoo\Distributors\ProcessRemoveFromChannle.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -175,12 +175,14 @@ namespace Narnoo.Umbraco.Distributors
 
             Javascript.Append(@"
                             function openChannels() {
-                                id = $('#channels a').data('channelid');
+                                id = $('#channels a').data('channel-id');
+                                name = $('#channels a').data('channel-name');
                                 var url = '/Umbraco/narnoo/distributors/Channels.aspx';
                                 if(id){
-                                    url = url +'?id='+id;
-                                    $('#operatorMedia a').data('channelid',null);
+                                    url = url +'?channel_id='+id+'&channel_name='+name ;
+                                    $('#channels a').data('channel-id',null).data('channel-name',null);
                                 }
+
                                 parent.right.document.location.href = url;
                             }
             			");
