@@ -58,5 +58,16 @@ namespace Narnoo
 
 
 
+
+
+        public string thumb_image_path
+        {
+            get { return this.media_id; }
+        }
+
+        public string caption
+        {
+            get { return this.media_caption; }
+        }
     }
 }

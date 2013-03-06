@@ -76,5 +76,20 @@ namespace Narnoo
 
 
 
+
+        public string media_id
+        {
+            get { return this.video_id; }
+        }
+
+        public string thumb_image_path
+        {
+            get { return video_thumb_image_path; }
+        }
+
+        public string caption
+        {
+            get { return video_caption; }
+        }
     }
 }

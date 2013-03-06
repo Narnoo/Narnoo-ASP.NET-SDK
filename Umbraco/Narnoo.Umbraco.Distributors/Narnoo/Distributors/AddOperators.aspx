@@ -14,11 +14,11 @@
     <UmbracoControls:TabView ID="TabViewDetails" runat="server" Width="552px" Height="692px" />
 
     <asp:Panel ID="tabOperators" runat="server">
-        <p class="narnoo-operators-add-operators-box">
+        <p>
             <label for="add_operators_list">Enter IDs of operators to add (separate each ID by a comma e.g. <code>12, 13</code>):</label>
             <asp:TextBox ID="txtAddOperatorIds" ClientIDMode="Static" runat="server"></asp:TextBox>
         </p>
-        <p class="narnoo-search-operators-box">
+        <p class="narnoo-box">
             <span>Or search for operators using the form below:</span><br>
             <label for="search_country">country:</label>
             <asp:TextBox ID="search_country" runat="server"></asp:TextBox><br>

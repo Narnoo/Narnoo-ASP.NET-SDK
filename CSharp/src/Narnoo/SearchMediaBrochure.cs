@@ -50,6 +50,16 @@ namespace Narnoo
 
 
 
+
+        public string media_id
+        {
+            get { return this.brochure_id; }
+        }
+
+        public string caption
+        {
+            get { return string.Empty; }
+        }
     }
 
     public class zoom_page

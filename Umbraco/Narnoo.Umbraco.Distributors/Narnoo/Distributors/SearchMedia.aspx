@@ -8,15 +8,111 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-        <link href="narnoo.css" rel="stylesheet" type="text/css" />
+    <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <UmbracoControls:UmbracoPanel ID="Panel2" runat="server" Height="224px" Width="412px" hasMenu="false">
-        <div style="padding: 2px 15px 0px 15px">
-            <asp:PlaceHolder ID="dashBoardContent" runat="server"></asp:PlaceHolder>
-        </div>
-    </UmbracoControls:UmbracoPanel>
-    <UmbracoControls:TabView ID="dashboardTabs" Width="400px" Visible="false" runat="server" />
+    <UmbracoControls:TabView ID="TabViewDetails" runat="server" Width="552px" Height="692px" />
+
+    <asp:Panel ID="tabSearch" runat="server">
+
+        <p class="narnoo-box">
+            <span>Search for media using the form below:</span><br>
+            <label for="search_media_type">media_type</label>
+            <asp:DropDownList ID="search_media_type" runat="server">
+                <asp:ListItem Value="image" Selected="selected" Text="image"></asp:ListItem>
+                <asp:ListItem Value="brochure" Text="brochure"></asp:ListItem>
+                <asp:ListItem Value="video" Text="video"></asp:ListItem>
+            </asp:DropDownList>
+            <br>
+            <label for="search_media_id">media_id:</label>
+            <asp:TextBox ID="search_media_id" runat="server"></asp:TextBox>
+            <br>
+            <label for="search_category">category:</label>
+            <asp:TextBox ID="search_category" runat="server"></asp:TextBox><br>
+            <label for="search_subcategory">subcategory:</label>
+            <asp:TextBox ID="search_subcategory" runat="server"></asp:TextBox>><br>
+            <label for="search_suburb">suburb:</label>
+            <asp:TextBox ID="search_suburb" runat="server"></asp:TextBox><br>
+            <label for="search_location">location:</label>
+            <asp:TextBox ID="search_location" runat="server"></asp:TextBox><br>
+            <label for="search_latitude">latitude:</label>
+            <asp:TextBox ID="search_latitude" runat="server"></asp:TextBox><br>
+            <label for="search_longitude">longitude:</label>
+            <asp:TextBox ID="search_longitude" runat="server"></asp:TextBox><br>
+            <label for="search_radius">radius:</label>
+            <asp:TextBox ID="search_radius" runat="server"></asp:TextBox><br>
+            <label for="search_privilege">privilege:</label>
+            <asp:RadioButtonList ID="search_privilege_public" runat="server" RepeatColumns="2">
+                <asp:ListItem Value="public" Text="public"></asp:ListItem>
+                <asp:ListItem Value="private" Text="private"></asp:ListItem>
+            </asp:RadioButtonList>
+            <label for="search_keywords">keywords:</label>
+            <asp:TextBox ID="search_keywords" runat="server"></asp:TextBox>
+
+            <asp:Button ID="btnSearch" runat="server" Text="search" />
+        </p>
+
+        <uc1:Pager ID="Pager1" runat="server" />
+
+        <asp:Repeater ID="rptMedia" runat="server">
+            <HeaderTemplate>
+                <table class="narnoo-table">
+                    <thead>
+                        <tr>
+                            <th class="check-column" style="">
+                                <input type="checkbox" /></th>
+                            <th>Thumbnail</th>
+                            <th>Owner</th>
+                            <th>Caption</th>
+                            <th>Entry Date</th>
+                            <th>Media ID</th>
+                            <th>Operator ID</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td class="check-column">
+                        <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
+                    </td>
+                    <td><%# Eval("thumb_image_path") %>
+                    </td>
+                    <td><%# Eval("owner") %></td>
+                    <td><%# Eval("caption") %></td>
+                    <td><%# Eval("entry_date") %></td>
+                    <td><%# Eval("media_id") %></td>
+                    <td><%# Eval("operator_id") %></td>
+                </tr>
+
+            </ItemTemplate>
+            <AlternatingItemTemplate>
+                <tr class="odd">
+                    <td class="check-column">
+                        <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
+                    </td>
+                    <td><%# Eval("thumb_image_path") %>
+                    </td>
+                    <td><%# Eval("owner") %></td>
+                    <td><%# Eval("caption") %></td>
+                    <td><%# Eval("entry_date") %></td>
+                    <td><%# Eval("media_id") %></td>
+                    <td><%# Eval("operator_id") %></td>
+                </tr>
+
+            </AlternatingItemTemplate>
+
+            <FooterTemplate>
+                </tbody>
+            </table>
+            </FooterTemplate>
+
+        </asp:Repeater>
+
+
+
+    </asp:Panel>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>
