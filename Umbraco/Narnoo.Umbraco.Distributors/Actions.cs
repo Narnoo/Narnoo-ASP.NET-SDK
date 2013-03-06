@@ -53,4 +53,31 @@ namespace Narnoo.Umbraco.Distributors
             }
         }
     }
+
+    public class ActionAddAlbum : UmbracoAction
+    {
+        public ActionAddAlbum()
+        {
+            this.Alias = "CreateAlbum";
+            this.CanBePermissionAssigned = true;
+            this.Icon = ".sprNew";
+            this.JsFunctionName = "createAlbum();";
+            this.JsSource = @" function createAlbum() {
+                                UmbClientMgr.openModalWindow('/Umbraco/narnoo/distributors/CreateAlbumDialog.aspx', 'Create album', true, 350, 200);
+                            }";
+            this.Letter = '3';
+            this.ShowInNotifier = true;
+        }
+
+        private static readonly ActionAddAlbum m_instance = new ActionAddAlbum();
+        public static ActionAddAlbum Instance
+        {
+            get
+            {
+                return ActionAddAlbum.m_instance;
+            }
+        }
+    }
+
+
 }

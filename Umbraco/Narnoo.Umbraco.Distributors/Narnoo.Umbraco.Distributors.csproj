@@ -208,6 +208,7 @@
     <Content Include="Narnoo\Distributors\Brochures.aspx" />
     <Content Include="Narnoo\Distributors\ChangeOperatorDialog.aspx" />
     <Content Include="Narnoo\Distributors\Channels.aspx" />
+    <Content Include="Narnoo\Distributors\CreateAlbumDialog.aspx" />
     <Content Include="Narnoo\Distributors\DeleteBrochuresDialog.aspx" />
     <Content Include="Narnoo\Distributors\DeleteImagesDialog.aspx" />
     <Content Include="Narnoo\Distributors\DeleteVideosDialog.aspx" />
@@ -305,6 +306,13 @@
     </Compile>
     <Compile Include="Narnoo\Distributors\Channels.aspx.designer.cs">
       <DependentUpon>Channels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\CreateAlbumDialog.aspx.cs">
+      <DependentUpon>CreateAlbumDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Distributors\CreateAlbumDialog.aspx.designer.cs">
+      <DependentUpon>CreateAlbumDialog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Distributors\DeleteBrochuresDialog.aspx.cs">
       <DependentUpon>DeleteBrochuresDialog.aspx</DependentUpon>

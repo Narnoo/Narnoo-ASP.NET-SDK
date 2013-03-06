@@ -123,7 +123,10 @@
 
                 var items = $('#txtAddOperatorIds').val().split(',');
                 for (i = 0; i < items.length; i++) {
-                    ids.push(items[i]);
+                    var item = $.trim(items[i]);
+                    if (item.length > 0) {
+                        ids.push(items[i]);
+                    }
                 }
 
                 if (ids.length == 0) {
@@ -131,7 +134,7 @@
                     return false;
                 }
 
-                UmbClientMgr.openModalWindow(dialogUrl + '&ids=' + ids.join(','), 'Add operators', true, 800, 600);
+                UmbClientMgr.openModalWindow(dialogUrl + '&ids=' + ids.join(','), 'Add operators', true, 600, 400);
                 return false;
 
             });

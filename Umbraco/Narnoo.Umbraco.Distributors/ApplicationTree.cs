@@ -47,19 +47,6 @@ namespace Narnoo.Umbraco.Distributors
             tree.Add(operators);
 
 
-            //XmlTreeNode xmlTreeNode = XmlTreeNode.Create(this);
-            //xmlTreeNode.Menu.Clear();
-            //xmlTreeNode.NodeID = task.Id.ToString();
-            //xmlTreeNode.Text = task.Node.Text;
-            //xmlTreeNode.Action = "javascript:openTranslationTask(" + task.Id.ToString() + ")";
-            //xmlTreeNode.Icon = ".sprTreeSettingLanguage";
-            //xmlTreeNode.OpenIcon = ".sprTreeSettingLanguage";
-            //this.OnBeforeNodeRender(ref tree, ref xmlTreeNode, System.EventArgs.Empty);
-            //if (xmlTreeNode != null)
-            //{
-            //    tree.Add(xmlTreeNode);
-            //    this.OnAfterNodeRender(ref tree, ref xmlTreeNode, System.EventArgs.Empty);
-            //}
 
             var operatorMedia = XmlTreeNode.Create(this);
             operatorMedia.NodeID = "operatorMedia";
@@ -75,6 +62,7 @@ namespace Narnoo.Umbraco.Distributors
             albums.Icon = "node_icons_album.png";
             albums.Action = "javascript:openAlbums()";
             albums.Menu.Clear();
+            albums.Menu.Add(ActionAddAlbum.Instance);
             tree.Add(albums);
 
             var images = XmlTreeNode.Create(this);
