@@ -80,4 +80,29 @@ namespace Narnoo.Umbraco.Distributors
     }
 
 
+    public class ActionAddChannel : UmbracoAction
+    {
+        public ActionAddChannel()
+        {
+            this.Alias = "CreateChannel";
+            this.CanBePermissionAssigned = true;
+            this.Icon = ".sprNew";
+            this.JsFunctionName = "createChannel();";
+            this.JsSource = @" function createChannel() {
+                                UmbClientMgr.openModalWindow('/Umbraco/narnoo/distributors/CreateChannelDialog.aspx', 'Create channel', true, 350, 200);
+                            }";
+            this.Letter = '4';
+            this.ShowInNotifier = true;
+        }
+
+        private static readonly ActionAddChannel m_instance = new ActionAddChannel();
+        public static ActionAddChannel Instance
+        {
+            get
+            {
+                return ActionAddChannel.m_instance;
+            }
+        }
+    }
+
 }

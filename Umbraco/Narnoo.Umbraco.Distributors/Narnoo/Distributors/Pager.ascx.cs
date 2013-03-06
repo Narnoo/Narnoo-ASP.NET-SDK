@@ -16,6 +16,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         public void DataBind(int currentPage, int totalPages, int currentRecordCount, int pageSize = 30)
         {
+            
+
             this.totalPages.InnerText = totalPages.ToString();
             this.totalRecords.InnerText = string.Format("{0} items", currentRecordCount.ToString());
             this.CurrentPageIndex = currentPage;
@@ -31,6 +33,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             this.lnkNext.CommandArgument = (currentPage + 1).ToString();
 
             this.links.Visible = totalPages > 1;
+
+            this.Visible = totalPages > 0;
 
         }
 

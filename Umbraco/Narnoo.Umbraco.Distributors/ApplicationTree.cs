@@ -87,6 +87,7 @@ namespace Narnoo.Umbraco.Distributors
             channels.Icon = "node_icons_channel.png";
             channels.Action = "javascript:openChannels()";
             channels.Menu.Clear();
+            channels.Menu.Add(ActionAddChannel.Instance);
             tree.Add(channels);
 
             var videos = XmlTreeNode.Create(this);

@@ -111,14 +111,15 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
                 this.rptVideos.Visible = true;
                 this.rptVideos.DataSource = videos;
-                this.rptVideos.DataBind();
+                this.rptVideos.DataBind();     
                 this.pagerVideos.DataBind(pageIndex, videos.TotalPages, videos.Count);
-                this.pagerVideos.Visible = true;
-
             }
             catch (Exception ex)
             {
                 this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                this.rptVideos.DataSource = Enumerable.Empty<ChannelVideo>();
+                this.rptVideos.DataBind();
+                this.pagerVideos.Visible = false;
             }
 
 

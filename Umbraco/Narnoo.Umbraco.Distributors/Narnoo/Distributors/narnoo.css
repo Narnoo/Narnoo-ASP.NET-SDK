@@ -15,6 +15,7 @@
     border-color: #DFDFDF;
     background-color: #F9F9F9;
     border-spacing: 0;
+    padding-top:10px;
 }
 
     .narnoo-table * {
@@ -73,7 +74,6 @@
     line-height: 30px;
     font-size: 12px;
     padding-top: 10px;
-    padding-bottom: 10px;
 }
 
     #pager a {
