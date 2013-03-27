@@ -18,7 +18,7 @@
         <p class="narnoo-box">
             <span>Search for media using the form below:</span><br>
             <label for="search_media_type">media_type</label>
-            <asp:DropDownList ID="search_media_type" runat="server">
+            <asp:DropDownList ID="search_media_type" runat="server" ClientIDMode="Static">
                 <asp:ListItem Value="image" Selected="True" Text="image"></asp:ListItem>
                 <asp:ListItem Value="brochure" Text="brochure"></asp:ListItem>
                 <asp:ListItem Value="video" Text="video"></asp:ListItem>
@@ -83,7 +83,8 @@
                     <td class="check-column">
                         <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
                     </td>
-                    <td><img src="<%# Eval("thumb_image_path") %>" />
+                    <td>
+                        <img src="<%# Eval("thumb_image_path") %>" />
                     </td>
                     <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
                     <td><%# Eval("caption") %></td>
@@ -98,7 +99,8 @@
                     <td class="check-column">
                         <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
                     </td>
-                    <td><img src="<%# Eval("thumb_image_path") %>" />
+                    <td>
+                        <img src="<%# Eval("thumb_image_path") %>" />
                     </td>
                     <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
                     <td><%# Eval("caption") %></td>
@@ -121,4 +123,40 @@
     </asp:Panel>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $('.narnoo-table').each(function () {
+                $(this).find('.check-column:first input').click(function () {
+                    if ($(this).is(':checked')) {
+                        $(this).parentsUntil('table').parent().find('tbody .check-column input').attr('checked', true);
+                    } else {
+                        $(this).parentsUntil('table').parent().find('tbody .check-column input').removeAttr('checked');
+                    }
+                });
+            });
+
+            var downloadUrl = '/umbraco/narnoo/distributors/downloadfiles.aspx?operator_id=<%=this.Request["id"] %>';
+
+
+             $('#btnDownload').click(function (e) {
+                 e.preventDefault();
+                 var ids = [];
+                 $('input[name="selected"]:checked').each(function () {
+                     ids.push($(this).val());
+                 });
+                 if (ids.length == 0) {
+                     alert('please select some ' + $('#search_media_type').val() + ' first.');
+                     return false;
+                 }
+
+
+                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_' + $('#search_media_type').val() + '&title=' + $('#search_media_type').val() + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
+                 return false;
+             });
+
+
+         });
+
+
+    </script>
 </asp:Content>
