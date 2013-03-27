@@ -13,7 +13,10 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (this.IsPostBack == false)
+            {
+                this.Pager1.Visible = false;
+            }
         }
 
         TabPage dataTab;
@@ -40,17 +43,46 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.BindMedia();
         }
 
         private void Pager1_PageIndexChanged(int newPageIndex)
         {
-            throw new NotImplementedException();
+            this.BindMedia(newPageIndex);
+        }
+
+        public bool IsImage
+        {
+            get
+            {
+
+                return this.search_media_type.SelectedValue == "image";
+            }
         }
 
         void BindMedia(int pageIndex = 1)
         {
-           
+            NarnooCollection<ISearchMedia> items=null;
+            if (string.IsNullOrWhiteSpace(search_media_id.Text))
+            {
+                items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue,
+                   this.search_category.Text,
+                   this.search_subcategory.Text,
+                   this.search_suburb.Text,
+                   this.search_location.Text,
+                   this.search_latitude.Text,
+                   this.search_longitude.Text,
+                   this.search_keywords.Text,
+                   pageIndex);
+            }
+            else
+            {
+                items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue, this.search_media_id.Text, pageIndex);
+            }
+
+            this.rptMedia.DataSource = items;
+            this.rptMedia.DataBind();
+            this.Pager1.DataBind(pageIndex, items.TotalPages, items.Count);
         }
     }
 }

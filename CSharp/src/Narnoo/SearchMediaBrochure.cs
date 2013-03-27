@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class SearchMediaBrochure : SearchMedia
+    public class SearchMediaBrochure : ISearchMedia
     {
+
+        public string operator_id { get; set; }
 
         public string brochure_id { get; set; }
         public string entry_date { get; set; }
@@ -56,9 +58,12 @@ namespace Narnoo
             get { return this.brochure_id; }
         }
 
+
+        public string brochure_caption { get; set; }
+
         public string caption
         {
-            get { return string.Empty; }
+            get { return this.brochure_caption; }
         }
     }
 

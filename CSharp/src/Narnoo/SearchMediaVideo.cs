@@ -4,9 +4,11 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class SearchMediaVideo : SearchMedia
+    public class SearchMediaVideo : ISearchMedia
     {
 
+
+        public string operator_id { get; set; }
         public string video_id { get; set; }
 
         public string entry_date { get; set; }

@@ -7,9 +7,9 @@ namespace Narnoo
 {
     public static class SearchMediaParser
     {
-       public static  NarnooCollection<SearchMedia> Parse(string media_type, string content)
+       public static  NarnooCollection<ISearchMedia> Parse(string media_type, string content)
         {
-            NarnooCollection<SearchMedia> result = new NarnooCollection<SearchMedia>("1", new List<SearchMedia>());
+            NarnooCollection<ISearchMedia> result = new NarnooCollection<ISearchMedia>("1", new List<ISearchMedia>());
 
             switch (media_type)
             {
@@ -18,13 +18,13 @@ namespace Narnoo
 
                     if (images != null)
                     {
-                        var items = new List<SearchMedia>();
+                        var items = new List<ISearchMedia>();
                         foreach (var i in images.search_media)
                         {
-                            items.Add((SearchMedia)i);
+                            items.Add((ISearchMedia)i);
                         }
 
-                        result = new NarnooCollection<SearchMedia>(images.total_pages, items);
+                        result = new NarnooCollection<ISearchMedia>(images.total_pages, items);
                     }
 
                     break;
@@ -33,13 +33,13 @@ namespace Narnoo
 
                     if (brochures != null)
                     {
-                        var items = new List<SearchMedia>();
+                        var items = new List<ISearchMedia>();
                         foreach (var i in brochures.search_media)
                         {
-                            items.Add((SearchMedia)i);
+                            items.Add((ISearchMedia)i);
                         }
 
-                        result = new NarnooCollection<SearchMedia>(brochures.total_pages, items);
+                        result = new NarnooCollection<ISearchMedia>(brochures.total_pages, items);
                     }
                     break;
                 case "video":
@@ -47,13 +47,13 @@ namespace Narnoo
 
                     if (videos != null)
                     {
-                        var items = new List<SearchMedia>();
+                        var items = new List<ISearchMedia>();
                         foreach (var i in videos.search_media)
                         {
-                            items.Add((SearchMedia)i);
+                            items.Add((ISearchMedia)i);
                         }
 
-                        result = new NarnooCollection<SearchMedia>(videos.total_pages, items);
+                        result = new NarnooCollection<ISearchMedia>(videos.total_pages, items);
                     }
                     break;
 

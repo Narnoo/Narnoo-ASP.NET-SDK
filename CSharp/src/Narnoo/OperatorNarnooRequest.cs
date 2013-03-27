@@ -229,7 +229,7 @@ namespace Narnoo
             return new NarnooCollection<Video>(list.total_pages, list.operator_videos);
         }
 
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
         {
             var content = this.GetResponse(this.getOpXmlApi(), "searchMedia",
                 new RequestParameter("media_type", media_type),

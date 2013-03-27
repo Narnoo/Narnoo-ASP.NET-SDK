@@ -214,12 +214,20 @@
     <Content Include="Narnoo\Distributors\DeleteImagesDialog.aspx" />
     <Content Include="Narnoo\Distributors\DeleteVideosDialog.aspx" />
     <Content Include="Narnoo\Distributors\DownloadFiles.aspx" />
+    <Content Include="Narnoo\Distributors\icons\add.png" />
+    <Content Include="Narnoo\Distributors\icons\delete.png" />
     <Content Include="Narnoo\Distributors\icons\icons_add_operator.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_add_to_album.png" />
     <Content Include="Narnoo\Distributors\icons\icons_add_to_channel.png" />
     <Content Include="Narnoo\Distributors\icons\icons_album.png" />
     <Content Include="Narnoo\Distributors\icons\icons_brochures.png" />
     <Content Include="Narnoo\Distributors\icons\icons_channel.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_album.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_brochures.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_channel.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_image.png" />
     <Content Include="Narnoo\Distributors\icons\icons_delete_operator.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_delete_video.png" />
     <Content Include="Narnoo\Distributors\icons\icons_download.png" />
     <Content Include="Narnoo\Distributors\icons\icons_images.png" />
     <Content Include="Narnoo\Distributors\icons\icons_import.png" />
@@ -227,6 +235,8 @@
     <Content Include="Narnoo\Distributors\icons\icons_process.gif" />
     <Content Include="Narnoo\Distributors\icons\icons_process_failure.png" />
     <Content Include="Narnoo\Distributors\icons\icons_process_success.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_remove_from_album.png" />
+    <Content Include="Narnoo\Distributors\icons\icons_remove_from_channel.png" />
     <Content Include="Narnoo\Distributors\icons\icons_select_operator.png" />
     <Content Include="Narnoo\Distributors\icons\icons_settings.png" />
     <Content Include="Narnoo\Distributors\icons\node_icons_album.png" />
@@ -479,7 +489,6 @@
     <Content Include="Masterpages\default.Master" />
     <Content Include="Masterpages\umbracoDialog.Master" />
     <Content Include="Masterpages\umbracoPage.Master" />
-    <Content Include="Narnoo\Distributors\icons\icons.psd" />
     <Content Include="Narnoo\Distributors\icons\node_icons.psd" />
     <Content Include="Narnoo\Distributors\LinkBuilder.ashx" />
     <Content Include="Narnoo\Distributors\getProductTexts.ashx" />

@@ -19,7 +19,7 @@
             <span>Search for media using the form below:</span><br>
             <label for="search_media_type">media_type</label>
             <asp:DropDownList ID="search_media_type" runat="server">
-                <asp:ListItem Value="image" Selected="selected" Text="image"></asp:ListItem>
+                <asp:ListItem Value="image" Selected="True" Text="image"></asp:ListItem>
                 <asp:ListItem Value="brochure" Text="brochure"></asp:ListItem>
                 <asp:ListItem Value="video" Text="video"></asp:ListItem>
             </asp:DropDownList>
@@ -30,7 +30,7 @@
             <label for="search_category">category:</label>
             <asp:TextBox ID="search_category" runat="server"></asp:TextBox><br>
             <label for="search_subcategory">subcategory:</label>
-            <asp:TextBox ID="search_subcategory" runat="server"></asp:TextBox>><br>
+            <asp:TextBox ID="search_subcategory" runat="server"></asp:TextBox><br>
             <label for="search_suburb">suburb:</label>
             <asp:TextBox ID="search_suburb" runat="server"></asp:TextBox><br>
             <label for="search_location">location:</label>
@@ -39,13 +39,14 @@
             <asp:TextBox ID="search_latitude" runat="server"></asp:TextBox><br>
             <label for="search_longitude">longitude:</label>
             <asp:TextBox ID="search_longitude" runat="server"></asp:TextBox><br>
-            <label for="search_radius">radius:</label>
-            <asp:TextBox ID="search_radius" runat="server"></asp:TextBox><br>
+            <%--        <label for="search_radius">radius:</label>
+         <asp:TextBox ID="search_radius" runat="server"></asp:TextBox><br>
             <label for="search_privilege">privilege:</label>
-            <asp:RadioButtonList ID="search_privilege_public" runat="server" RepeatColumns="2">
+            <asp:RadioButtonList ID="search_privilege_public" runat="server" RepeatLayout="Flow" CssClass="radio-list" RepeatColumns="2">
                 <asp:ListItem Value="public" Text="public"></asp:ListItem>
                 <asp:ListItem Value="private" Text="private"></asp:ListItem>
             </asp:RadioButtonList>
+            <br />--%>
             <label for="search_keywords">keywords:</label>
             <asp:TextBox ID="search_keywords" runat="server"></asp:TextBox>
 
@@ -53,6 +54,8 @@
         </p>
 
         <uc1:Pager ID="Pager1" runat="server" />
+
+
 
         <asp:Repeater ID="rptMedia" runat="server">
             <HeaderTemplate>
@@ -62,7 +65,10 @@
                             <th class="check-column" style="">
                                 <input type="checkbox" /></th>
                             <th>Thumbnail</th>
+                            <% if (this.IsImage)
+                               { %>
                             <th>Owner</th>
+                            <%} %>
                             <th>Caption</th>
                             <th>Entry Date</th>
                             <th>Media ID</th>
@@ -77,9 +83,9 @@
                     <td class="check-column">
                         <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
                     </td>
-                    <td><%# Eval("thumb_image_path") %>
+                    <td><img src="<%# Eval("thumb_image_path") %>" />
                     </td>
-                    <td><%# Eval("owner") %></td>
+                    <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
                     <td><%# Eval("caption") %></td>
                     <td><%# Eval("entry_date") %></td>
                     <td><%# Eval("media_id") %></td>
@@ -92,9 +98,9 @@
                     <td class="check-column">
                         <input type="checkbox" name="selected" value="<%# Eval("media_id") %>" />
                     </td>
-                    <td><%# Eval("thumb_image_path") %>
+                    <td><img src="<%# Eval("thumb_image_path") %>" />
                     </td>
-                    <td><%# Eval("owner") %></td>
+                    <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
                     <td><%# Eval("caption") %></td>
                     <td><%# Eval("entry_date") %></td>
                     <td><%# Eval("media_id") %></td>

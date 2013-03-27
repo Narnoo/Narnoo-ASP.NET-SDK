@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Narnoo
 {
-    public class SearchMediaImage : SearchMedia
+    public class SearchMediaImage : ISearchMedia
     {
 
         public string media_id { get; set; }
 
         public string entry_date { get; set; }
 
-
+        public string operator_id { get; set; }
 
         string _thumb_media_path;
         public string thumb_media_path
@@ -57,12 +57,9 @@ namespace Narnoo
         public string media_caption { get; set; }
 
 
-
-
-
         public string thumb_image_path
         {
-            get { return this.media_id; }
+            get { return this.thumb_media_path; }
         }
 
         public string caption

@@ -103,24 +103,6 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors {
         protected global::System.Web.UI.WebControls.TextBox search_longitude;
         
         /// <summary>
-        /// search_radius control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox search_radius;
-        
-        /// <summary>
-        /// search_privilege_public control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList search_privilege_public;
-        
-        /// <summary>
         /// search_keywords control.
         /// </summary>
         /// <remarks>

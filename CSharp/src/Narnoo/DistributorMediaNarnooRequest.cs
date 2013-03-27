@@ -231,12 +231,12 @@ namespace Narnoo
             return new NarnooCollection<Video>(list.total_pages, list.distributor_videos);
         }
 
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string media_id)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string media_id)
         {
             return this.SearchMedia(media_type, media_id, 1);
         }
 
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string media_id, int page_no)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string media_id, int page_no)
         {
             var content = this.GetResponse(this.getXmlApi(), "searchMedia",
                 new RequestParameter("media_type", media_type),
@@ -248,11 +248,11 @@ namespace Narnoo
         }
 
 
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords)
         {
             return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords, 1);
         }
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
         {
 
             var content = this.GetResponse(this.getXmlApi(), "searchMedia",
@@ -273,11 +273,11 @@ namespace Narnoo
         }
 
 
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords)
         {
             return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius, privilege, keywords, 1);
         }
-        public NarnooCollection<SearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords, int page_no)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords, int page_no)
         {
 
             var content = this.GetResponse(this.getXmlApi(), "searchMedia",
