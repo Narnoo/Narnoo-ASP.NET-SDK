@@ -248,31 +248,6 @@ namespace Narnoo
         }
 
 
-        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords)
-        {
-            return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords, 1);
-        }
-        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
-        {
-
-            var content = this.GetResponse(this.getXmlApi(), "searchMedia",
-                new RequestParameter("media_type", media_type),
-                new RequestParameter("category", category),
-                new RequestParameter("subcategory", subcategory),
-                new RequestParameter("suburb", suburb),
-                new RequestParameter("location", location),
-                new RequestParameter("latitude", latitude),
-                new RequestParameter("longitude", longitude),
-                new RequestParameter("keywords", keywords),
-                //new RequestParameter("radius", radius),
-                //new RequestParameter("privilege", privilege),
-                new RequestParameter("page_no", page_no.ToString()));
-
-            return SearchMediaParser.Parse(media_type, content);
-
-        }
-
-
         public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords)
         {
             return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, radius, privilege, keywords, 1);
@@ -280,7 +255,7 @@ namespace Narnoo
         public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string radius, string privilege, string keywords, int page_no)
         {
 
-            var content = this.GetResponse(this.getXmlApi(), "searchMedia",
+            var content = this.GetResponse(this.getDistXmlApi(), "searchMedia",
                 new RequestParameter("media_type", media_type),
                 new RequestParameter("category", category),
                 new RequestParameter("subcategory", subcategory),
@@ -288,16 +263,14 @@ namespace Narnoo
                 new RequestParameter("location", location),
                 new RequestParameter("latitude", latitude),
                 new RequestParameter("longitude", longitude),
-                new RequestParameter("keywords", keywords),
                 new RequestParameter("radius", radius),
                 new RequestParameter("privilege", privilege),
+                new RequestParameter("keywords", keywords),
                 new RequestParameter("page_no", page_no.ToString()));
+
             return SearchMediaParser.Parse(media_type, content);
 
         }
-
-
-
 
 
         public bool DeleteImage(string image_id)

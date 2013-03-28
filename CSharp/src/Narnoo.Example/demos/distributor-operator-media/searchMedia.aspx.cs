@@ -23,24 +23,28 @@ namespace Narnoo.Example.demos.distributor_operator_media
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var media_type = this.ddlMedia_Type.SelectedValue;
-            var category = this.txtCategory.Text;
-            var subcategory = this.txtSubcategory.Text;
-            var suburb = this.txtsuburb.Text;
-            var location = this.txtlocation.Text;
-            var latitude = this.txtlatitude.Text;
-            var longitude = this.txtlongitude.Text;
-            var keywords = this.txtkeywords.Text;
+       
 
             try
             {
-                var list = this.NarnooRequest.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords);
+                var list = this.NarnooRequest.SearchMedia(this.search_media_type.SelectedValue,
+                    this.search_business_name.Value,
+                    this.search_country.Value,
+                    this.search_state.Value,
+                    this.search_category.Value,
+                    this.search_subcategory.Value,
+                    this.search_suburb.Value,
+                    this.search_location.Value,
+                    this.search_postal_code.Value,
+                    this.search_latitude.Value,
+                    this.search_longitude.Value,
+                    this.search_keywords.Value);
 
                 this.searchPanel.Visible = false;
                 this.resultPanel.Visible = true;
 
                 this.lblTotal.Text = list.TotalPages.ToString();
-                switch (media_type)
+                switch (this.search_media_type.SelectedValue)
                 {
                     case "image":
                         this.rptImages.DataSource = list;

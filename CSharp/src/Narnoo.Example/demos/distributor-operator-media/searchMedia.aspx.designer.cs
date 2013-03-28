@@ -22,76 +22,112 @@ namespace Narnoo.Example.demos.distributor_operator_media {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchPanel;
         
         /// <summary>
-        /// ddlMedia_Type control.
+        /// search_media_type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMedia_Type;
+        protected global::System.Web.UI.WebControls.DropDownList search_media_type;
         
         /// <summary>
-        /// txtCategory control.
+        /// search_business_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategory;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_business_name;
         
         /// <summary>
-        /// txtSubcategory control.
+        /// search_country control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubcategory;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_country;
         
         /// <summary>
-        /// txtsuburb control.
+        /// search_state control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsuburb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_state;
         
         /// <summary>
-        /// txtlocation control.
+        /// search_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlocation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_category;
         
         /// <summary>
-        /// txtlatitude control.
+        /// search_subcategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlatitude;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_subcategory;
         
         /// <summary>
-        /// txtlongitude control.
+        /// search_suburb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlongitude;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_suburb;
         
         /// <summary>
-        /// txtkeywords control.
+        /// search_location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtkeywords;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_location;
+        
+        /// <summary>
+        /// search_postal_code control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_postal_code;
+        
+        /// <summary>
+        /// search_latitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_latitude;
+        
+        /// <summary>
+        /// search_longitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_longitude;
+        
+        /// <summary>
+        /// search_keywords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText search_keywords;
         
         /// <summary>
         /// btnSubmit control.

@@ -227,19 +227,46 @@ namespace Narnoo
             return new NarnooCollection<Video>(list.total_pages, list.operator_videos);
         }
 
-        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords)
+        
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type,
+            string business_name,
+            string country,
+            string state,
+            string category,
+            string subcategory,
+            string suburb,
+            string location,
+            string postal_code,
+            string latitude,
+            string longitude,
+            string keywords)
         {
-            return this.SearchMedia(media_type, category, subcategory, suburb, location, latitude, longitude, keywords, 1);
+            return this.SearchMedia(media_type, business_name, country, state, category, subcategory, suburb, location, postal_code, latitude, longitude, keywords, 1);
         }
 
-        public NarnooCollection<ISearchMedia> SearchMedia(string media_type, string category, string subcategory, string suburb, string location, string latitude, string longitude, string keywords, int page_no)
+        public NarnooCollection<ISearchMedia> SearchMedia(string media_type,
+            string business_name,
+            string country,
+            string state,
+            string category,
+            string subcategory,
+            string suburb,
+            string location,
+            string postal_code,
+            string latitude,
+            string longitude,
+            string keywords, int page_no)
         {
             var content = this.GetResponse(this.getXmlApi(), "searchMedia",
                 new RequestParameter("media_type", media_type),
+                new RequestParameter("business_name", business_name),
+                new RequestParameter("country", country),
+                new RequestParameter("state", state),
                 new RequestParameter("category", category),
                 new RequestParameter("subcategory", subcategory),
                 new RequestParameter("suburb", suburb),
                 new RequestParameter("location", location),
+                new RequestParameter("postal_code", postal_code),
                 new RequestParameter("latitude", latitude),
                 new RequestParameter("longitude", longitude),
                 new RequestParameter("keywords", keywords),

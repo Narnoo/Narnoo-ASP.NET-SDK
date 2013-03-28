@@ -13,9 +13,9 @@
         </HeaderTemplate>
 
         <ItemTemplate>
-            <li data-itemid="<%# Container.DataItem  %>">
+            <li data-itemid="<%# Eval("ItemId")  %>" data-operator-id="<%# Eval("OperatorId") %>">
                 <img src="/umbraco/narnoo/distributors/icons/icons_process.gif" />
-                <span>Item ID: <%# Container.DataItem %>...</span><span style="display: none;"><strong>Success!. <a href="#" target="_blank">Download</a></strong></span>
+                <span>Item ID: <%# Eval("ItemId")  %>...</span><span style="display: none;"><strong>Success!. <a href="#" target="_blank">Download</a></strong></span>
             </li>
         </ItemTemplate>
         <FooterTemplate>
@@ -31,24 +31,30 @@
 
     <script type="text/javascript">
         $(function () {
-            var linkBuilderUrl = '/umbraco/narnoo/distributors/linkbuilder.ashx?data=<%= this.Page.Request["data"] %>&operator_id=<%= this.Page.Request["operator_id"] %>';
+            var linkBuilderUrl = '/umbraco/narnoo/distributors/linkbuilder.ashx?data=<%= this.Page.Request["data"] %>';
             $('.tasks li').each(function () {
 
                 var download = function (item) {
                     return function () {
-                        var url = linkBuilderUrl + '&id=' + $(item).data('itemid');
+                        var url = linkBuilderUrl + '&id=' + $(item).data('itemid') + '&operator_id=' + $(item).data('operator-id');
                         $.ajax({
                             dataType: "json",
                             url: url,
                             success: function (link) {
-                                $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_success.png").attr('data-status', 'success');
-                                $(item).find('span:last').show().find('a').attr('href', link);
+                                if (typeof (link.Error) == 'undefined') {
+                                    $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_success.png").parent().attr('data-status', 'success');
+                                    $(item).find('span:last').show().find('a').attr('href', link);
+                                } else {
+                                    $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_failure.png").parent().attr('data-status', 'failure');
+                                    $(item).find('span:last').show().html('<strong>' + link.Error + '</strong>');
+                                }
                             },
-                            error: function () {
-                                $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_failure.png").attr('data-status', 'failure');
+                            error: function (err) {
+                                $(item).find('img').attr('src', "/umbraco/narnoo/distributors/icons/icons_process_failure.png").parent().attr('data-status', 'failure');
+                                $(item).find('span:last').show().html('<strong>' + err.responseText + '</strong>');
                             }, complete: function () {
                                 window.setTimeout(function () {
-                                  
+
                                     var done = $('.tasks li[data-status]').size();
                                     var success = $('.tasks li[data-status="success"]').size();
                                     var max = $('.tasks li').size();

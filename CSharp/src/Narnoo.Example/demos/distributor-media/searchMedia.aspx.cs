@@ -37,7 +37,7 @@ namespace Narnoo.Example.demos.distributor_media
 
             try
             {
-                NarnooCollection<SearchMedia> list = null;
+                NarnooCollection<ISearchMedia> list = null;
 
                 if (string.IsNullOrEmpty(media_id))
                 {

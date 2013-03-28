@@ -39,14 +39,14 @@
             <asp:TextBox ID="search_latitude" runat="server"></asp:TextBox><br>
             <label for="search_longitude">longitude:</label>
             <asp:TextBox ID="search_longitude" runat="server"></asp:TextBox><br>
-            <%--        <label for="search_radius">radius:</label>
-         <asp:TextBox ID="search_radius" runat="server"></asp:TextBox><br>
+            <label for="search_radius">radius:</label>
+            <asp:TextBox ID="search_radius" runat="server"></asp:TextBox><br>
             <label for="search_privilege">privilege:</label>
             <asp:RadioButtonList ID="search_privilege_public" runat="server" RepeatLayout="Flow" CssClass="radio-list" RepeatColumns="2">
                 <asp:ListItem Value="public" Text="public"></asp:ListItem>
                 <asp:ListItem Value="private" Text="private"></asp:ListItem>
             </asp:RadioButtonList>
-            <br />--%>
+            <br />
             <label for="search_keywords">keywords:</label>
             <asp:TextBox ID="search_keywords" runat="server"></asp:TextBox>
 
@@ -65,14 +65,10 @@
                             <th class="check-column" style="">
                                 <input type="checkbox" /></th>
                             <th>Thumbnail</th>
-                            <% if (this.IsImage)
-                               { %>
-                            <th>Owner</th>
-                            <%} %>
+
                             <th>Caption</th>
                             <th>Entry Date</th>
                             <th>Media ID</th>
-                            <th>Operator ID</th>
                         </tr>
 
                     </thead>
@@ -86,11 +82,10 @@
                     <td>
                         <img src="<%# Eval("thumb_image_path") %>" />
                     </td>
-                    <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
+
                     <td><%# Eval("caption") %></td>
                     <td><%# Eval("entry_date") %></td>
                     <td><%# Eval("media_id") %></td>
-                    <td><%# Eval("operator_id") %></td>
                 </tr>
 
             </ItemTemplate>
@@ -102,11 +97,9 @@
                     <td>
                         <img src="<%# Eval("thumb_image_path") %>" />
                     </td>
-                    <%# this.IsImage? "<td>"+Eval("media_owner_business_name")+"</td>":""  %>
                     <td><%# Eval("caption") %></td>
                     <td><%# Eval("entry_date") %></td>
                     <td><%# Eval("media_id") %></td>
-                    <td><%# Eval("operator_id") %></td>
                 </tr>
 
             </AlternatingItemTemplate>
@@ -138,24 +131,24 @@
             var downloadUrl = '/umbraco/narnoo/distributors/downloadfiles.aspx?operator_id=<%=this.Request["id"] %>';
 
 
-             $('#btnDownload').click(function (e) {
-                 e.preventDefault();
-                 var ids = [];
-                 $('input[name="selected"]:checked').each(function () {
-                     ids.push($(this).val());
-                 });
-                 if (ids.length == 0) {
-                     alert('please select some ' + $('#search_media_type').val() + ' first.');
-                     return false;
-                 }
+            $('#btnDownload').click(function (e) {
+                e.preventDefault();
+                var ids = [];
+                $('input[name="selected"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+                if (ids.length == 0) {
+                    alert('please select some ' + $('#search_media_type').val() + ' first.');
+                    return false;
+                }
 
 
-                 UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_' + $('#search_media_type').val() + '&title=' + $('#search_media_type').val() + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download images', true, 800, 600);
-                 return false;
-             });
+                UmbClientMgr.openModalWindow(downloadUrl + '&data=dist_<%= this.search_media_type.SelectedValue %>&title=<%= this.search_media_type.SelectedValue %>' + (ids.length > 1 ? '(s)' : '') + '&ids=' + ids.join(','), 'Download <%= this.search_media_type.SelectedValue %>(s)', true, 800, 600);
+                return false;
+            });
 
 
-         });
+        });
 
 
     </script>

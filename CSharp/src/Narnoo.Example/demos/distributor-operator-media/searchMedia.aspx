@@ -43,42 +43,35 @@ catch (NarnooRequestException ex)
 	</pre>
     <div id="demo-frame">
         <div id="searchPanel" runat="server">
-            <label for="media_type">
-                media_type</label>
-            <asp:DropDownList ID="ddlMedia_Type" runat="server">
-                <asp:ListItem Value="image" Text="image" Selected="True"></asp:ListItem>
+           <label for="search_media_type">media_type</label>
+            <asp:DropDownList ID="search_media_type" runat="server" ClientIDMode="Static">
+                <asp:ListItem Value="image" Selected="True" Text="image"></asp:ListItem>
                 <asp:ListItem Value="brochure" Text="brochure"></asp:ListItem>
                 <asp:ListItem Value="video" Text="video"></asp:ListItem>
             </asp:DropDownList>
-            <br />
-            <label for="category">
-                category</label>
-            <asp:TextBox ID="txtCategory" runat="server"></asp:TextBox>
-            <br />
-            <label for="subcategory">
-                subcategory</label>
-            <asp:TextBox ID="txtSubcategory" runat="server"></asp:TextBox>
-            <br />
-            <label for="suburb">
-                suburb</label>
-            <asp:TextBox ID="txtsuburb" runat="server"></asp:TextBox>
-            <br />
-            <label for="location">
-                location</label>
-            <asp:TextBox ID="txtlocation" runat="server"></asp:TextBox>
-            <br />
-            <label for="latitude">
-                latitude</label>
-            <asp:TextBox ID="txtlatitude" runat="server"></asp:TextBox>
-            <br />
-            <label for="longitude">
-                longitude</label>
-            <asp:TextBox ID="txtlongitude" runat="server"></asp:TextBox>
-            <br />
-            <label for="keywords">
-                keywords</label>
-            <asp:TextBox ID="txtkeywords" runat="server" Text="Narnoo"></asp:TextBox>
-            <br />
+            <br>
+            <label for="search_business_name">business_name:</label>
+            <input id="search_business_name" name="search_business_name" type="text" value="" runat="server"><br>
+            <label for="search_country">country:</label>
+            <input id="search_country" name="search_country" type="text" value="" runat="server"><br>
+            <label for="search_state">state:</label>
+            <input id="search_state" name="search_state" type="text" value="" runat="server"><br>
+            <label for="search_category">category:</label>
+            <input id="search_category" name="search_category" type="text" value="" runat="server" /><br>
+            <label for="search_subcategory">subcategory:</label>
+            <input id="search_subcategory" name="search_subcategory" type="text" value="" runat="server"><br>
+            <label for="search_suburb">suburb:</label>
+            <input id="search_suburb" name="search_suburb" type="text" value="" runat="server"><br>
+            <label for="search_location">location:</label>
+            <input id="search_location" name="search_location" type="text" value="" runat="server"><br>
+            <label for="search_postal_code">postal_code:</label>
+            <input id="search_postal_code" name="search_postal_code" type="text" value="" runat="server"><br>
+            <label for="search_latitude">latitude:</label>
+            <input id="search_latitude" name="search_latitude" type="text" value="" runat="server"><br>
+            <label for="search_longitude">longitude:</label>
+            <input id="search_longitude" name="search_longitude" type="text" value="" runat="server"><br>
+            <label for="search_keywords">keywords:</label>
+            <input id="search_keywords" name="search_keywords" type="text" value="" runat="server">
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="submit" />
         </div>
         <div id="resultPanel" runat="server" visible="false">

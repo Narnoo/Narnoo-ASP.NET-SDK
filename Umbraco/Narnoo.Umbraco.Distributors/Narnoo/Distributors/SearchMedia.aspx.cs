@@ -62,27 +62,39 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
         void BindMedia(int pageIndex = 1)
         {
-            NarnooCollection<ISearchMedia> items=null;
-            if (string.IsNullOrWhiteSpace(search_media_id.Text))
+            try
             {
-                items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue,
-                   this.search_category.Text,
-                   this.search_subcategory.Text,
-                   this.search_suburb.Text,
-                   this.search_location.Text,
-                   this.search_latitude.Text,
-                   this.search_longitude.Text,
-                   this.search_keywords.Text,
-                   pageIndex);
-            }
-            else
-            {
-                items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue, this.search_media_id.Text, pageIndex);
-            }
+                NarnooCollection<ISearchMedia> items = null;
+                if (string.IsNullOrWhiteSpace(search_media_id.Text))
+                {
+                    items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue,
+                       this.search_category.Text,
+                       this.search_subcategory.Text,
+                       this.search_suburb.Text,
+                       this.search_location.Text,
+                       this.search_latitude.Text,
+                       this.search_longitude.Text,
+                       this.search_radius.Text,
+                       this.search_privilege_public.SelectedValue,
+                       this.search_keywords.Text,
+                       pageIndex);
+                }
+                else
+                {
+                    items = this.NarnooMediaRequest.SearchMedia(this.search_media_type.SelectedValue, this.search_media_id.Text, pageIndex);
+                }
 
-            this.rptMedia.DataSource = items;
-            this.rptMedia.DataBind();
-            this.Pager1.DataBind(pageIndex, items.TotalPages, items.Count);
+                this.rptMedia.Visible = true;
+                this.rptMedia.DataSource = items;
+                this.rptMedia.DataBind();
+                this.Pager1.DataBind(pageIndex, items.TotalPages, items.Count);
+            }
+            catch (Exception ex)
+            {
+                this.ClientTools.ShowSpeechBubble(speechBubbleIcon.error, "Error", ex.Message);
+                this.rptMedia.Visible = false;
+                this.Pager1.Visible = false;
+            }
         }
     }
 }
