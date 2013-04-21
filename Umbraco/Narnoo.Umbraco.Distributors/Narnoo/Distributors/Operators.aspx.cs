@@ -104,8 +104,8 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             var isAuthorized = true;
             if (currentUser.IsAdmin() == false && currentUser.IsRoot() == false)
             {
-                var permission = umbraco.BusinessLogic.UserType.GetUserType(currentUser.Id);
-                isAuthorized = permission.DefaultPermissions.Contains(ActionDeleteOperator.Instance.Letter);
+                //var permission = umbraco.BusinessLogic.UserType.GetUserType(currentUser.Id);
+                //isAuthorized = permission.DefaultPermissions.Contains(ActionDeleteOperator.Instance.Letter);
             }
             //  var permissions = umbraco.BusinessLogic.User.GetCurrent().GetPermissions();
 

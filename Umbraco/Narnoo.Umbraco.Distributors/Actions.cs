@@ -10,7 +10,7 @@ namespace Narnoo.Umbraco.Distributors
         public ActionAddOperator()
         {
             this.Alias = "AddOperator";
-            this.CanBePermissionAssigned = true;
+            this.CanBePermissionAssigned = false;
             this.Icon = ".sprNew";
             this.JsFunctionName = "addOperators();";
             this.JsSource =@" function addOperators() {
@@ -36,7 +36,7 @@ namespace Narnoo.Umbraco.Distributors
         public ActionDeleteOperator()
         {
             this.Alias = "DeleteOperator";
-            this.CanBePermissionAssigned = true;
+            this.CanBePermissionAssigned = false;
             this.Icon = ".sprDelete";
             this.JsFunctionName = string.Empty;
             this.JsSource = string.Empty;
@@ -59,7 +59,7 @@ namespace Narnoo.Umbraco.Distributors
         public ActionAddAlbum()
         {
             this.Alias = "CreateAlbum";
-            this.CanBePermissionAssigned = true;
+            this.CanBePermissionAssigned = false;
             this.Icon = ".sprNew";
             this.JsFunctionName = "createAlbum();";
             this.JsSource = @" function createAlbum() {
@@ -85,7 +85,7 @@ namespace Narnoo.Umbraco.Distributors
         public ActionAddChannel()
         {
             this.Alias = "CreateChannel";
-            this.CanBePermissionAssigned = true;
+            this.CanBePermissionAssigned = false;
             this.Icon = ".sprNew";
             this.JsFunctionName = "createChannel();";
             this.JsSource = @" function createChannel() {
