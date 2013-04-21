@@ -6,8 +6,7 @@
 <%@ Register Src="Pager.ascx" TagName="Pager" TagPrefix="uc1" %>
 <%@ Register Src="Loading.ascx" TagName="Loading" TagPrefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="narnoo.css" rel="stylesheet" type="text/css" />

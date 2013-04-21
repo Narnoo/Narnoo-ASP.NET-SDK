@@ -1,4 +1,5 @@
-﻿using ServiceStack.Text;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
 
             var texts = this.NarnooOperatorMediaRequest.GetProductTextWords(operator_id, product_title);
 
-            context.Response.Write( JsonSerializer.SerializeToString(texts.text));
+            context.Response.Write(JsonConvert.SerializeObject(texts.text));
             context.Response.Flush();
             context.Response.End();
         }

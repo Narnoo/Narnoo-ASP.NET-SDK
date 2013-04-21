@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="../../Masterpages/umbracoDialog.Master" AutoEventWireup="true" CodeBehind="CreateAlbumDialog.aspx.cs" Inherits="Narnoo.Umbraco.Distributors.Narnoo.Distributors.CreateAlbumDialog" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>

@@ -4,8 +4,6 @@
 <%@ Register TagPrefix="UmbracoControls" Namespace="umbraco.controls" Assembly="umbraco" %>
 <%@ Register Src="Pager.ascx" TagName="Pager" TagPrefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="DocType" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <link href="narnoo.css" rel="stylesheet" type="text/css" />
 </asp:Content>

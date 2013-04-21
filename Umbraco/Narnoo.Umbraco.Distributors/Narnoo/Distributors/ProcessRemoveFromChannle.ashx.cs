@@ -1,4 +1,5 @@
-﻿using ServiceStack.Text;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
             }
             catch (Exception ex)
             {
-                context.Response.Write(JsonSerializer.SerializeToString(new { error = ex.Message }));
+                context.Response.Write(JsonConvert.SerializeObject(new { error = ex.Message }));
             }
 
             context.Response.Flush();

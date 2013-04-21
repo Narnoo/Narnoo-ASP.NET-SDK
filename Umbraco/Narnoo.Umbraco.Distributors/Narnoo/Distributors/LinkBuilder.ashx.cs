@@ -1,4 +1,5 @@
-﻿using ServiceStack.Text;
+﻿using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,11 +55,12 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Distributors
                         throw new NotSupportedException(data);
                 }
 
-                context.Response.Write(JsonSerializer.SerializeToString(link));
+                context.Response.Write(JsonConvert.SerializeObject(link));
             }
             catch (Exception ex)
             {
-                context.Response.Write(JsonSerializer.SerializeToString(new {Error=ex.Message}));
+
+                context.Response.Write(JsonConvert.SerializeObject(new { Error = ex.Message }));
             }
             context.Response.Flush();
             context.Response.End();
