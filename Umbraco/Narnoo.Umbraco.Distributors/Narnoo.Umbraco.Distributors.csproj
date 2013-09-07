@@ -257,6 +257,17 @@
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Settings.aspx" />
     <Content Include="Narnoo\Distributors\Videos.aspx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Title_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Video.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Operator_Brochure.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Operator_Single_Link_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Operator_Slider_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Operator_Title_Gallery.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narnoo_Operator_Video.ascx" />
+    <Content Include="Narnoo\Shortcodes\Narooo_Distributor_Brochure.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +483,81 @@
     <Compile Include="Narnoo\Distributors\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\Macros\NarnooAlign.cs" />
+    <Compile Include="Narnoo\Macros\NarnooAutoplay.cs" />
+    <Compile Include="Narnoo\Macros\NarnooImageMode.cs" />
+    <Compile Include="Narnoo\Macros\NarnooTextLength.cs" />
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Distributor_Single_Link_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Distributor_Single_Link_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Distributor_Slider_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Distributor_Slider_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx.cs">
+      <DependentUpon>Narnoo_Distributor_Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx.designer.cs">
+      <DependentUpon>Narnoo_Distributor_Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Title_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Distributor_Title_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Title_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Distributor_Title_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Video.ascx.cs">
+      <DependentUpon>Narnoo_Distributor_Video.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Video.ascx.designer.cs">
+      <DependentUpon>Narnoo_Distributor_Video.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Brochure.ascx.cs">
+      <DependentUpon>Narnoo_Operator_Brochure.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Brochure.ascx.designer.cs">
+      <DependentUpon>Narnoo_Operator_Brochure.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Single_Link_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Operator_Single_Link_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Single_Link_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Operator_Single_Link_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Slider_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Operator_Slider_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Slider_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Operator_Slider_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Title_Gallery.ascx.cs">
+      <DependentUpon>Narnoo_Operator_Title_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Title_Gallery.ascx.designer.cs">
+      <DependentUpon>Narnoo_Operator_Title_Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Video.ascx.cs">
+      <DependentUpon>Narnoo_Operator_Video.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Video.ascx.designer.cs">
+      <DependentUpon>Narnoo_Operator_Video.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narooo_Distributor_Brochure.ascx.cs">
+      <DependentUpon>Narooo_Distributor_Brochure.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\Narooo_Distributor_Brochure.ascx.designer.cs">
+      <DependentUpon>Narooo_Distributor_Brochure.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -507,6 +593,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
