@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Narnoo.Umbraco.Distributors.Narnoo.handlers
 {
     public abstract class HandlerBase : IHttpHandler
     {
+        protected JavaScriptSerializer serializer = new JavaScriptSerializer();
 
         public HandlerBase()
         {

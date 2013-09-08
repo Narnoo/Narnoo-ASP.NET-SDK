@@ -94,7 +94,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Shortcodes
                    + "      narnoo_video = { count: 0, widths: [], heights: [], flashvars: [] };"
                    + "      narnoo_video_url = '/umbraco/narnoo/scripts/';"
                 //        narnoo_video_file_url = 'D:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\wordpress\\wp-content\\plugins\\narnoo-distributor\\libs\\narnoo_video\\video.php';
-                   + "      narnoo_video_ajax_url = '/umbraco/narnoo/handlers/VideoHandler.ashx';"
+                   + "      narnoo_video_ajax_url = '/umbraco/narnoo/handlers/videohandler.ashx';"
                    + "}"
                    + "flashvars = {};  ";
             if (this.autoplay)
@@ -181,7 +181,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Shortcodes
         public override string RenderDesignContent()
         {
 
-            var content = "[narnoo_distributor_video ";
+            var content = "[narnoo_operator_video ";
 
             if (this.id.HasValue())
             {

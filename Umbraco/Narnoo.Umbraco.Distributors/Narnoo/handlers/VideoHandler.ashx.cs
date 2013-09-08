@@ -17,7 +17,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.handlers
 
         protected override void Process(HttpRequest request, HttpResponse response)
         {
-            var serializer = new JavaScriptSerializer();
+          
 
             var narnoo_video_shortcode_count = request.Form["narnoo_video_shortcode_count"];
             var id = request.Form["video_id"];
@@ -55,7 +55,7 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.handlers
             }
 
 
-            var pause_image_dir = request.MapPath("/umbarco/narnoo/temp/tmp_pause_img/");   // relative directory containing temporary pause images
+            var pause_image_dir = request.MapPath("/umbraco/narnoo/temp/tmp_pause_img/");   // relative directory containing temporary pause images
 
 
             if (Directory.Exists(pause_image_dir) == false)

@@ -213,6 +213,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Narnoo\css\images\loader.gif" />
+    <Content Include="Narnoo\css\images\zoom.png" />
+    <Content Include="Narnoo\css\Single_Link_Gallery.css" />
     <Content Include="Narnoo\Distributors\AddImagesDialog.aspx" />
     <Content Include="Narnoo\Distributors\AddOperators.aspx" />
     <Content Include="Narnoo\Distributors\AddOperatorsDialog.aspx" />
@@ -271,7 +274,14 @@
     <Content Include="Narnoo\Distributors\Settings.aspx" />
     <Content Include="Narnoo\Distributors\Videos.aspx" />
     <Content Include="Narnoo\scripts\expressInstall.swf" />
+    <Content Include="Narnoo\scripts\imagebox\imagebox.min.css" />
+    <Content Include="Narnoo\scripts\imagebox\imagebox.min.js" />
+    <Content Include="Narnoo\scripts\imagebox\images\ie-trans.png" />
+    <Content Include="Narnoo\scripts\imagebox\images\shadow-h.png" />
+    <Content Include="Narnoo\scripts\imagebox\images\shadow-v.png" />
+    <Content Include="Narnoo\scripts\imagebox\images\sprite.png" />
     <Content Include="Narnoo\scripts\narnoo_brochure.js" />
+    <Content Include="Narnoo\scripts\narnoo_slideshow.js" />
     <Content Include="Narnoo\scripts\narnoo_video.js" />
     <Content Include="Narnoo\scripts\player.swf" />
     <Content Include="Narnoo\scripts\swfobject.js" />
@@ -501,6 +511,9 @@
     <Compile Include="Narnoo\Distributors\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\handlers\GalleryHandler.ashx.cs">
+      <DependentUpon>GalleryHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\handlers\HandlerBase.cs" />
     <Compile Include="Narnoo\handlers\VideoHandler.ashx.cs">
       <DependentUpon>VideoHandler.ashx</DependentUpon>
@@ -618,6 +631,7 @@
     <Content Include="Narnoo\Distributors\ProcessDeleteVideo.ashx" />
     <Content Include="Narnoo\Distributors\ProcessRemoveFromChannle.ashx" />
     <Content Include="Narnoo\handlers\VideoHandler.ashx" />
+    <Content Include="Narnoo\handlers\GalleryHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -626,7 +640,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Narnoo\css\" />
     <Folder Include="Narnoo\images\" />
   </ItemGroup>
   <PropertyGroup>
@@ -674,7 +687,9 @@ xcopy $(ProjectDir)Narnoo\Shortcodes\*.ascx $(SolutionDir)Umbraco\usercontrols\ 
 xcopy $(ProjectDir)Narnoo\images\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\images\ /y
 xcopy $(ProjectDir)Narnoo\scripts\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\scripts\ /y
 xcopy $(ProjectDir)Narnoo\css\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\css\ /y
-xcopy $(ProjectDir)Narnoo\handlers\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\handlers\ /y</PostBuildEvent>
+xcopy $(ProjectDir)Narnoo\css\images\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\css\images\ /y
+xcopy $(ProjectDir)Narnoo\handlers\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\handlers\ /y
+xcopy $(ProjectDir)Narnoo\scripts\imagebox\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\scripts\imagebox\ /y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
