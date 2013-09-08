@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>UmbracoEx</id>
+    <version>0.0.1.2</version>
+    <title>UmbracoEx</title>
+    <authors>Dayi Chen</authors>
+    <owners>Dayi Chen</owners>
+    <projectUrl>https://github.com/cnlangzi/UmbracoEx</projectUrl>
+    <iconUrl>http://umbraco.com/media/357769/100px_transparent.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Umbraco developer utilities</description>
+    <releaseNotes />
+    <copyright>Dayi Chen</copyright>
+    <language />
+    <tags>Umbraco</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="EBA" version="0.2.4.8" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

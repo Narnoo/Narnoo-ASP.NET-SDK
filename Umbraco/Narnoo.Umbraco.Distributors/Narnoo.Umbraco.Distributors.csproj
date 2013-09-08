@@ -59,6 +59,9 @@
     <Reference Include="CookComputing.XmlRpcV2">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
+    <Reference Include="EBA">
+      <HintPath>..\packages\EBA.0.2.4.12\lib\net40\EBA.dll</HintPath>
+    </Reference>
     <Reference Include="Examine">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\Examine.dll</HintPath>
     </Reference>
@@ -113,8 +116,11 @@
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\System.Data.SqlServerCe.dll</HintPath>
@@ -123,6 +129,9 @@
       <Private>True</Private>
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -192,6 +201,10 @@
     <Reference Include="umbraco.XmlSerializers">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\umbraco.XmlSerializers.dll</HintPath>
     </Reference>
+    <Reference Include="UmbracoEx, Version=0.0.1.2428, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\UmbracoEx.0.0.1.2\lib\net40\UmbracoEx.dll</HintPath>
+    </Reference>
     <Reference Include="UmbracoExamine">
       <HintPath>..\packages\UmbracoCms.Core.6.0.0\lib\UmbracoExamine.dll</HintPath>
     </Reference>
@@ -257,6 +270,11 @@
     <Content Include="Narnoo\Distributors\SearchOperatorMedia.aspx" />
     <Content Include="Narnoo\Distributors\Settings.aspx" />
     <Content Include="Narnoo\Distributors\Videos.aspx" />
+    <Content Include="Narnoo\scripts\expressInstall.swf" />
+    <Content Include="Narnoo\scripts\narnoo_brochure.js" />
+    <Content Include="Narnoo\scripts\narnoo_video.js" />
+    <Content Include="Narnoo\scripts\player.swf" />
+    <Content Include="Narnoo\scripts\swfobject.js" />
     <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx" />
     <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx" />
     <Content Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx" />
@@ -483,24 +501,31 @@
     <Compile Include="Narnoo\Distributors\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Narnoo\handlers\HandlerBase.cs" />
+    <Compile Include="Narnoo\handlers\VideoHandler.ashx.cs">
+      <DependentUpon>VideoHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Narnoo\Macros\NarnooAlign.cs" />
     <Compile Include="Narnoo\Macros\NarnooAutoplay.cs" />
     <Compile Include="Narnoo\Macros\NarnooImageMode.cs" />
     <Compile Include="Narnoo\Macros\NarnooTextLength.cs" />
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx.cs">
       <DependentUpon>Narnoo_Distributor_Single_Link_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Single_Link_Gallery.ascx.designer.cs">
       <DependentUpon>Narnoo_Distributor_Single_Link_Gallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx.cs">
       <DependentUpon>Narnoo_Distributor_Slider_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Slider_Gallery.ascx.designer.cs">
       <DependentUpon>Narnoo_Distributor_Slider_Gallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx.cs">
       <DependentUpon>Narnoo_Distributor_Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Distributor_Text.ascx.designer.cs">
       <DependentUpon>Narnoo_Distributor_Text.ascx</DependentUpon>
@@ -528,18 +553,21 @@
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Single_Link_Gallery.ascx.cs">
       <DependentUpon>Narnoo_Operator_Single_Link_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Single_Link_Gallery.ascx.designer.cs">
       <DependentUpon>Narnoo_Operator_Single_Link_Gallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Slider_Gallery.ascx.cs">
       <DependentUpon>Narnoo_Operator_Slider_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Slider_Gallery.ascx.designer.cs">
       <DependentUpon>Narnoo_Operator_Slider_Gallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Title_Gallery.ascx.cs">
       <DependentUpon>Narnoo_Operator_Title_Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narnoo_Operator_Title_Gallery.ascx.designer.cs">
       <DependentUpon>Narnoo_Operator_Title_Gallery.ascx</DependentUpon>
@@ -557,6 +585,9 @@
     </Compile>
     <Compile Include="Narnoo\Shortcodes\Narooo_Distributor_Brochure.ascx.designer.cs">
       <DependentUpon>Narooo_Distributor_Brochure.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Narnoo\Shortcodes\ShortcodeBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -586,6 +617,7 @@
     <Content Include="Narnoo\Distributors\ProcessDeleteBrochure.ashx" />
     <Content Include="Narnoo\Distributors\ProcessDeleteVideo.ashx" />
     <Content Include="Narnoo\Distributors\ProcessRemoveFromChannle.ashx" />
+    <Content Include="Narnoo\handlers\VideoHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -593,7 +625,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Narnoo\css\" />
+    <Folder Include="Narnoo\images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -619,19 +654,29 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)Umbraco\bin\ /y
 xcopy $(TargetDir)Narnoo.dll $(SolutionDir)Umbraco\bin\ /y
+
 xcopy $(TargetDir)Newtonsoft.Json.dll $(SolutionDir)Umbraco\bin\ /y
+xcopy $(TargetDir)UmbracoEx.dll $(SolutionDir)Umbraco\bin\ /y
+
 xcopy $(ProjectDir)Narnoo\Distributors\*.aspx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.ascx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.ashx $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 xcopy $(ProjectDir)Narnoo\Distributors\*.css $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\ /y
 
 xcopy $(ProjectDir)Narnoo\Distributors\icons\*.png $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y
-xcopy $(ProjectDir)Narnoo\Distributors\icons\*.gif $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y</PostBuildEvent>
+xcopy $(ProjectDir)Narnoo\Distributors\icons\*.gif $(SolutionDir)Umbraco\Umbraco\Narnoo\Distributors\icons\ /y
+
+
+xcopy $(ProjectDir)Narnoo\Shortcodes\*.ascx $(SolutionDir)Umbraco\usercontrols\ /y
+xcopy $(ProjectDir)Narnoo\images\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\images\ /y
+xcopy $(ProjectDir)Narnoo\scripts\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\scripts\ /y
+xcopy $(ProjectDir)Narnoo\css\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\css\ /y
+xcopy $(ProjectDir)Narnoo\handlers\*.* $(SolutionDir)Umbraco\Umbraco\Narnoo\handlers\ /y</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

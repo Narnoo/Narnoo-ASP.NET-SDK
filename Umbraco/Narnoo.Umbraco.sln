@@ -27,13 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Umbraco", "Narnoo.Um
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo.Umbraco.Distributors", "Narnoo.Umbraco.Distributors\Narnoo.Umbraco.Distributors.csproj", "{831E4E57-641D-498B-9B71-DDCB6466E7C5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0E6DE881-10EF-4E1D-9A46-662510129DAA}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narnoo", "..\CSharp\src\Narnoo\Narnoo.csproj", "{5B5322C7-1408-451F-A0CE-04ABA1B36059}"
 EndProject
 Global

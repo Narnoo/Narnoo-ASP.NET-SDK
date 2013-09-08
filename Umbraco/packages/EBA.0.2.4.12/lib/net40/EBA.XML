@@ -1,0 +1,3706 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EBA</name>
+    </assembly>
+    <members>
+        <member name="T:EBA.Aspects.IInterceptor">
+            <summary>
+            拦截对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Aspects.IInterceptor.Intercept(EBA.Aspects.InterceptionContext)">
+            <summary>
+            拦截。
+            </summary>
+        </member>
+        <member name="T:EBA.Aspects.Interceptors">
+            <summary>
+            拦截辅助方法。
+            </summary>
+        </member>
+        <member name="M:EBA.Aspects.Interceptors.OnPreClassInvoke(EBA.Aspects.InterceptionContext)">
+            <summary>
+            执行所有注入构造函数中的拦截对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Aspects.Interceptors.OnPreMethodInvoke(EBA.Aspects.InterceptionContext)">
+            <summary>
+            执行所有注入到方法调用前的拦截对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Aspects.Interceptors.OnPostMethodInvoke(EBA.Aspects.InterceptionContext)">
+            <summary>
+            执行所有注入到方法调用后的拦截对象。
+            </summary>
+        </member>
+        <member name="T:EBA.Aspects.InterceptionContext">
+            <summary>
+            拦截上下文。
+            </summary>
+        </member>
+        <member name="P:EBA.Aspects.InterceptionContext.Type">
+            <summary>
+            被拦截的对象名称。
+            </summary>
+        </member>
+        <member name="P:EBA.Aspects.InterceptionContext.Method">
+            <summary>
+            被拦截的方法名称。
+            </summary>
+        </member>
+        <member name="P:EBA.Aspects.InterceptionContext.Parameters">
+            <summary>
+            被拦截方法的参数集合
+            </summary>
+        </member>
+        <member name="T:EBA.Aspects.IPostMethodInvoke">
+            <summary>
+            方法调用后的拦截对象。
+            </summary>
+        </member>
+        <member name="T:EBA.Aspects.IPreClassInvoke">
+            <summary>
+            构造函数拦截对象。
+            </summary>
+        </member>
+        <member name="T:EBA.Aspects.IPreMethodInvoke">
+            <summary>
+            方法调用前的拦截对象。
+            </summary>
+        </member>
+        <member name="T:EBA.Collections.IReadonlyList`1">
+            <summary>
+            只读数据集合
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:EBA.Collections.IReadonlyList`1.Item(System.Int32)">
+            <summary>
+            根据索引获取成员对象
+            </summary>
+            <param name="index">索引</param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Collections.IReadonlyList`1.Count">
+            <summary>
+            集合包含的对象的数量
+            </summary>
+        </member>
+        <member name="T:EBA.Data.ChangeSet`2">
+            <summary>
+            两组对象的差异集。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.ChangeSet`2.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.ChangeSet`2.ForEachDeleted(System.Action{`0})">
+            <summary>
+            循环处理被删除对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.ChangeSet`2.ForEachModified(System.Action{`0,`1})">
+            <summary>
+            循环处理被修改对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.ChangeSet`2.ForEachAdded(System.Action{`1})">
+            <summary>
+            循环处理新增对象。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.ChangeSet`2.Modified">
+            <summary>
+            被修改的对象集合。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.ChangeSet`2.Deleted">
+            <summary>
+            被删除的对象集合。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.ChangeSet`2.Added">
+            <summary>
+            新增的对象集合。
+            </summary>
+        </member>
+        <member name="T:EBA.Data.IRepository`1">
+            <summary>
+            对象仓库。
+            </summary>
+        </member>
+        <member name="T:EBA.Data.IQuery`1">
+            <summary>
+            可查询对象
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IQuery`1.WithWhere(System.String)">
+            <summary>
+            动态过滤
+            </summary>
+            <param name="predicate"></param>
+        </member>
+        <member name="P:EBA.Data.IQuery`1.AsQuerybale">
+            <summary>
+            查询接口
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.NewEntity">
+            <summary>
+            创建实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.Add(`0)">
+            <summary>
+            新增指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.Delete(`0)">
+            <summary>
+            删除指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.DeleteAll(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            删除所有指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.DeleteAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            批量删除所有匹配的对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.UpdateAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            批量更新所有匹配的对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IRepository`1.CreateTransient">
+            <summary>
+            创建临时数据仓库，将对象临时持久化在该对象声明周期内。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Data.EntityCollection`2">
+            <summary>
+            将<see cref="!:EntityCollection&lt;TEntity&gt;"/>包装为<see cref="T:System.Collections.Generic.ICollection`1"/>对象，解决数组的逆变和协变问题。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.#ctor(System.Data.Objects.DataClasses.EntityCollection{`0})">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.Add(`1)">
+            <summary>
+            新增指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.Clear">
+            <summary>
+            清空所有实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.Contains(`1)">
+            <summary>
+            是否包含指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.CopyTo(`1[],System.Int32)">
+            <summary>
+            拷贝指定实例到指定指定的数组。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.Remove(`1)">
+            <summary>
+            移除指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityCollection`2.GetEnumerator">
+            <summary>
+            返回集合迭代器。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.EntityCollection`2.Count">
+            <summary>
+            包含的实例数量。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.EntityCollection`2.IsReadOnly">
+            <summary>
+            集合是否只读。
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EntityKeyChangeContext">
+            <summary>
+            主键值修改上下文
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeContext.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeContext.DeleteKey``1(EBA.Data.IUnitOfWork,System.Object)">
+            <summary>
+            删除主键
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="key">主键值</param>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeContext.DeleteKeys``1(EBA.Data.IUnitOfWork,EBA.Data.IQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            删除主键值
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="query">对象查询器</param>
+            <param name="filter">主键值查询条件</param>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeContext.ChangeKey``1(EBA.Data.IUnitOfWork,EBA.Data.IQuery{``0},System.Object,System.Object)">
+            <summary>
+            修改主键值
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="query">对象查询器</param>
+            <param name="originalKey">旧主键值</param>
+            <param name="currentKey">新主键值</param>
+        </member>
+        <member name="P:EBA.Data.EntityKeyChangeContext.Container">
+            <summary>
+            默认<see cref="T:EBA.IoC.IContainer"/>
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EntityQuery`2">
+            <summary>
+            将<see cref="T:System.Data.Objects.ObjectSet`1"/>实例包装为<see cref="T:EBA.Data.IQuery`1"/>对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityQuery`2.#ctor(System.Data.Objects.ObjectSet{`0},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String[])">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityQuery`2.TryIncludes(System.Data.Objects.ObjectQuery{`0})">
+            <summary>
+            在查询中，将关联对象一并取出。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityQuery`2.WithWhere(System.String)">
+            <summary>
+            支持语法 Entity SQL Language http://msdn.microsoft.com/en-us/library/bb387105.aspx
+            </summary>
+            <param name="predicate"></param>
+        </member>
+        <member name="P:EBA.Data.EntityQuery`2.Table">
+            <summary>
+            原始数据集
+            </summary>
+        </member>
+        <member name="P:EBA.Data.EntityQuery`2.Includes">
+            <summary>
+            查询关联属性的表达式。
+            </summary>
+        </member>
+        <member name="P:EBA.Data.EntityQuery`2.AsQuerybale">
+            <summary>
+            可查询对象
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EntityRepository`2">
+            <summary>
+            将<see cref="T:System.Data.Objects.ObjectSet`1"/>实例包装为<see cref="T:EBA.Data.IRepository`1"/>对象。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.#ctor(System.Data.Objects.ObjectSet{`0},System.String[])">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.Add(`1)">
+            <summary>
+            新增指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.Delete(`1)">
+            <summary>
+            删除指定实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.DeleteAll(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            批量删除匹配的实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.DeleteAll(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            批量删除指定的实例。
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.NewEntity">
+            <summary>
+            创建一个实例。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityRepository`2.UpdateAll(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`1,System.Object}})">
+            <summary>
+            批量更新匹配的对象。
+            </summary>
+        </member>
+        <member name="T:EBA.Data.IUnitOfWork">
+            <summary>
+            领域事务
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IUnitOfWork.BeginTransaction">
+            <summary>
+            启动事务
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IUnitOfWork.CommitTransaction">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IUnitOfWork.RollbackTransaction">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IUnitOfWork.EndTransaction">
+            <summary>
+            清理事务
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IUnitOfWork.SubmitChanges">
+            <summary>
+            提交修改
+            </summary>
+        </member>
+        <member name="E:EBA.Data.IUnitOfWork.SubmittedChanges">
+            <summary>
+            更新成功事件
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EnumerableEx">
+            <summary>
+            可枚举集合工具集。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EnumerableEx.GetChangeSet``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean})">
+            <summary>
+            获取两个指定集合的差异集。
+            </summary>
+            <param name="originalValues">旧的数据集</param>
+            <param name="currentValues">新的数据集</param>
+        </member>
+        <member name="T:EBA.AppRuntime">
+            <summary>
+            运行环境信息。
+            </summary>
+        </member>
+        <member name="M:EBA.AppRuntime.OpenConfiguration(System.String)">
+            <summary>
+            打开指定路径的配置信息。
+            </summary>
+        </member>
+        <member name="P:EBA.AppRuntime.IsWebApplication">
+            <summary>
+            是不是Web程序。
+            </summary>
+        </member>
+        <member name="P:EBA.AppRuntime.ApplicationPath">
+            <summary>
+            程序所在根路径。
+            </summary>
+        </member>
+        <member name="P:EBA.AppRuntime.AssemblyPath">
+            <summary>
+            程序运行文件路径。
+            </summary>
+        </member>
+        <member name="T:EBA.Data.IEntityKeyChangeTracker">
+            <summary>
+            实例主键变更跟踪器
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EntityKeyChangeTracker`1">
+            <summary>
+            实例主键变更跟踪器
+            </summary>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeTracker`1.OnEntityKeyDeleting(EBA.Data.IUnitOfWork,System.Object)">
+            <summary>
+            删除主键值
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="key">主键值</param>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeTracker`1.OnEntityKeysDeleting(EBA.Data.IUnitOfWork,EBA.Data.IQuery{`0},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            删除主键值
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="query">对象查询器</param>
+            <param name="filter">主键值查询条件</param>
+        </member>
+        <member name="M:EBA.Data.EntityKeyChangeTracker`1.OnEntityKeyChanging(EBA.Data.IUnitOfWork,EBA.Data.IQuery{`0},System.Object,System.Object)">
+            <summary>
+            修改主键值
+            </summary>
+            <param name="context">事务上下文</param>
+            <param name="query">对象查询器</param>
+            <param name="originalKey">旧主键值</param>
+            <param name="currentKey">新主键值</param>
+        </member>
+        <member name="E:EBA.Data.EntityKeyChangeTracker`1.EntityKeyDeleting">
+            <summary>
+            主键值删除事件
+            </summary>
+        </member>
+        <member name="E:EBA.Data.EntityKeyChangeTracker`1.EntityKeysDeleting">
+            <summary>
+            主键值删除事件
+            </summary>
+        </member>
+        <member name="E:EBA.Data.EntityKeyChangeTracker`1.EntityKeyChanging">
+            <summary>
+            主键值修改事件
+            </summary>
+        </member>
+        <member name="T:EBA.Data.EntityKeyDeletingEventHandler`1">
+            <summary>
+            主键删除委托
+            </summary>
+            <typeparam name="TEntity">对应类型</typeparam>
+            <param name="context">数据上下文</param>
+            <param name="key">主键值</param>
+        </member>
+        <member name="T:EBA.Data.EntityKeyChangingEventHandler`1">
+            <summary>
+            主键修改委托
+            </summary>
+            <typeparam name="TEntity">对应类型</typeparam>
+            <param name="context">数据上下文</param>
+            <param name="query">对象查询器</param>
+            <param name="originalKey">旧主键值</param>
+            <param name="currentKey">新主键值</param>
+        </member>
+        <member name="T:EBA.Data.EntityKeysDeletingEventHandler`1">
+            <summary>
+            主键删除委托
+            </summary>
+            <typeparam name="TEntity">对应类型</typeparam>
+            <param name="context">数据上下文</param>
+            <param name="query">对象查询提供者</param>
+            <param name="filter">主键查询条件</param>
+        </member>
+        <member name="T:EBA.Data.IEntityKeyMonitor">
+            <summary>
+            主键值监视器
+            </summary>
+        </member>
+        <member name="M:EBA.Data.IEntityKeyMonitor.AddEventListeners``1(EBA.Data.EntityKeyChangeTracker{``0})">
+            <summary>
+            注册事件监听器
+            </summary>
+            <typeparam name="TEntity">监视的对象类型</typeparam>
+            <param name="changeTracker">主键值变更跟踪器</param>
+        </member>
+        <member name="T:EBA.Data.KeyChangeTransactionNotSupportedException">
+            <summary>
+            主键值修改不支持事务。
+            </summary>
+        </member>
+        <member name="M:EBA.Data.KeyChangeTransactionNotSupportedException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.KeyChangeTransactionNotSupportedException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.KeyChangeTransactionNotSupportedException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Data.KeyChangeTransactionNotSupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Dynamic.DynamicTypeBuilder">
+            <summary>
+            动态类生成器
+            </summary>
+        </member>
+        <member name="F:EBA.Dynamic.DynamicTypeBuilder._IsPersistented">
+            <summary>
+            是否保存动态代码到磁盘。for debugging
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicTypeBuilder.GetPropertyEmitDatas(System.Type)">
+            <summary>
+            获取包括父接口在内的属性列表
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicTypeBuilder.BuildCallsiteGenericElementType(System.Type[],System.Boolean)">
+            <summary>
+            生成<see cref="T:System.Runtime.CompilerServices.CallSite`1"/>的泛型类型。
+            </summary>
+            <param name="parameterTypes"></param>
+            <param name="hasReturnValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicTypeBuilder.BuildCallsiteField(System.Reflection.Emit.TypeBuilder,System.Type,System.Collections.Generic.Dictionary{System.Type,System.Reflection.Emit.FieldBuilder})">
+            <summary>
+            生成<see cref="T:System.Runtime.CompilerServices.CallSite`1"/>的变量
+            </summary>
+            <param name="typeBuilder"></param>
+            <param name="callsiteGenericElementType"></param>
+            <param name="fields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicTypeBuilder.GetMethodEmitDatas(System.Type)">
+            <summary>
+            获取包括父接口在内的方法列表
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Dynamic.DynamicTypeBuilder.ModuleBuilder">
+            <summary>
+             Module Builder for buiding proxies
+            </summary>
+        </member>
+        <member name="T:EBA.Dynamic.DynamicEmit">
+            <summary>
+            see http://msdn.microsoft.com/zh-cn/library/812xyxy2.aspx
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Nop(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Compares two values. If they are equal, the integer value 1 (int32) is pushed onto the evaluation stack; otherwise 0 (int32) is pushed onto the evaluation stack.
+            </summary>
+            <param name="il"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Ldstr(System.Reflection.Emit.ILGenerator,System.String)">
+            <summary>
+            推送对元数据中存储的字符串的新对象引用。
+            </summary>
+            <param name="il"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Ldarg(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            将参数（由指定索引值引用）加载到堆栈上。
+            </summary>
+            <param name="il"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Ldc_I4(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            将所提供的 int32 类型的值作为 int32 推送到计算堆栈上。
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Stelem_Ref(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            用计算堆栈上的对象 ref 值（O 类型）替换给定索引处的数组元素。
+            </summary>
+            <param name="il"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Br_s(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.Label)">
+            <summary>
+            无条件地将控制转移到目标指令（短格式）。
+            </summary>
+            <param name="il"></param>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Newarr(System.Reflection.Emit.ILGenerator,System.Type,System.Int32)">
+            <summary>
+            将对新的从零开始的一维数组（其元素属于特定类型）的对象引用推送到计算堆栈上。
+            </summary>
+            <param name="il"></param>
+            <param name="elementType"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Stloc(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            从计算堆栈的顶部弹出当前值并将其存储到指定索引处的局部变量列表中。
+            </summary>
+            <param name="il"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicEmit.Ldloc(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            将指定索引处的局部变量加载到计算堆栈上。
+            </summary>
+            <param name="il"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Dynamic.MethodEmitData">
+            <summary>
+            方法编译信息
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.MethodEmitData.#ctor(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="method"></param>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.Prefix">
+            <summary>
+            类型显示实现前缀
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.TargetType">
+            <summary>
+            方法所在类型信息
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.Method">
+            <summary>
+            目标方法信息
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.CallSiteGenericElementType">
+            <summary>
+            动态调用类型
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.CSharpBinderFlags">
+            <summary>
+            方法操作绑定类型
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.Parameters">
+            <summary>
+            参数信息
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.ParameterTypes">
+            <summary>
+            参数类型集合
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.MethodEmitData.CSharpArgumentInfos">
+            <summary>
+            参数对应绑定信息
+            </summary>
+        </member>
+        <member name="T:EBA.Dynamic.PropertyEmitData">
+            <summary>
+            属性动态生成信息
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.PropertyEmitData.#ctor(System.Type,System.Reflection.PropertyInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="type"></param>
+            <param name="property"></param>
+        </member>
+        <member name="P:EBA.Dynamic.PropertyEmitData.Prefix">
+            <summary>
+            类型显示实现前缀
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.PropertyEmitData.TargetType">
+            <summary>
+            属性所在类型信息
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.PropertyEmitData.PropertyInfo">
+            <summary>
+            属性信息
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.PropertyEmitData.GetMethod">
+            <summary>
+            取值方法
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.PropertyEmitData.SetMethod">
+            <summary>
+            赋值方法
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleImplNotFoundException">
+            <summary>
+            目录中不存在有效的插件实现。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleImplNotFoundException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleImplNotFoundException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleImplNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleImplNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleAnalyzer">
+            <summary>
+            插件分析器
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleAnalyzer.GetBundleManifests``1(System.String)">
+            <summary>
+            载入指定目录底下的所有dll文件，并提取插件列表
+            </summary>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Framework.BundleConfigurationElement">
+            <summary>
+            插件配置节点
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Version">
+            <summary>
+            版本
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Context">
+            <summary>
+            对应上下文名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElement.Files">
+            <summary>
+            文件列表
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleConfigurationElementCollection">
+            <summary>
+            插件列表配置信息
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementCollection.CreateNewElement">
+            <summary>
+            新建一个插件配置节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            获取插件配置节点标识
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementCollection.Add(EBA.Framework.BundleConfigurationElement)">
+            <summary>
+            新增一个插件配置节点
+            </summary>
+            <param name="bundle"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementCollection.GetElement(System.String)">
+            <summary>
+            根据插件标识，获取对应的插件配置节点。
+            </summary>
+            <param name="bundleId">插件标识</param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Framework.BundleConfigurationElementCollection.AsEnumerable">
+            <summary>
+            迭代获取插件配置节点
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleConfigurationElementNotFoundException">
+            <summary>
+            描述在配置项<see cref="T:EBA.Framework.BundleConfigurationElementCollection"/>中找不到指定标识的插件配置节点。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementNotFoundException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementNotFoundException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleConfigurationElementNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleInstaller`1">
+            <summary>
+            插件安装器
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configPath"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.Install(System.String)">
+            <summary>
+            搜索指定文件夹获取插件信息。
+            </summary>
+            <param name="folder">插件所在文件夹</param>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.Install(EBA.Framework.BundleManifest)">
+            <summary>
+            根据插件清单安装插件到指定的运行的配置文件中。
+            </summary>
+            <param name="manifest"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.Finalize">
+            <summary>
+            析构函数，释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleInstaller`1.Dispose(System.Boolean)">
+            <summary>
+            手动释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:EBA.Framework.BundleInstaller`1.Configuration">
+            <summary>
+            框架配置信息
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleManifest">
+            <summary>
+            插件清单，包含插件信息，所需文件信息。
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleState">
+            <summary>
+            插件运行状态
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.BundleState.Stopped">
+            <summary>
+            已停止
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.BundleState.Running">
+            <summary>
+            运行中
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.BundleState.Starting">
+            <summary>
+            正在启动
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.BundleState.Stoping">
+            <summary>
+            正在停止
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.BundleState.Error">
+            <summary>
+            有错误
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.InvalidBundleContextNameException">
+            <summary>
+            描述在指定的<see cref="T:EBA.Framework.BundleConfigurationElement"/>节点中，未配置对应的上下文名称不合法。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.InvalidBundleContextNameException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.InvalidBundleContextNameException.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.InvalidBundleContextNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.InvalidBundleContextNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.MissingBundleContextNameException">
+            <summary>
+            描述在指定的<see cref="T:EBA.Framework.BundleConfigurationElement"/>节点中，未配置对应的上下文名称。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MissingBundleContextNameException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MissingBundleContextNameException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MissingBundleContextNameException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MissingBundleContextNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.MultiBundlesNotSupportedException">
+            <summary>
+            同一插件目录下不支持包含多个插件实现。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MultiBundlesNotSupportedException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MultiBundlesNotSupportedException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MultiBundlesNotSupportedException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.MultiBundlesNotSupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingBundle">
+            <summary>
+            远程插件运行包装器
+            </summary>
+        </member>
+        <member name="T:EBA.Dynamic.IDynamicContext">
+            <summary>
+            动态容器接口
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.IDynamicContext.Initialize(System.Object)">
+            <summary>
+            初始化上下文
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.IDynamicContext.ContextObject">
+            <summary>
+            实际对象
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.IDynamicContext.ContextType">
+            <summary>
+            实际对象类型
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundle.RegisterChannels(System.String,System.String)">
+            <summary>
+            初始化远程环境
+            </summary>
+            <param name="runtime"></param>
+            <param name="bundleId"></param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundle.Finalize">
+            <summary>
+            析构函数，释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundle.Dispose">
+            <summary>
+            手动释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundle.Dispose(System.Boolean)">
+            <summary>
+            手动释放资源。
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundle.Initialize(System.Object)">
+            <summary>
+            初始化动态转换上下文
+            </summary>
+            <param name="contextObject"></param>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundle.Channel">
+            <summary>
+            共享通道
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundle.ContextObject">
+            <summary>
+            待转换的对象
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundle.ContextType">
+            <summary>
+            待转换的对象类型
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleContext">
+            <summary>
+            进程内插件，只支持动态安装，但不可动态卸载和更新。
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.IBundleContext">
+            <summary>
+            插件上下文
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.IBundleContext.Initialize``1(System.String,System.String,System.String)">
+            <summary>
+            初始化上下文
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.IBundleContext.RegisterService``1(``0)">
+            <summary>
+            注册服务
+            </summary>
+            <typeparam name="TService">服务类型</typeparam>
+            <param name="service">服务实例</param>
+        </member>
+        <member name="M:EBA.Framework.IBundleContext.GetService``1">
+            <summary>
+            获取已注册的服务
+            </summary>
+            <typeparam name="TService">服务类型</typeparam>
+            <returns>服务实例</returns>
+        </member>
+        <member name="P:EBA.Framework.IBundleContext.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundleContext.Bundle">
+            <summary>
+            对应的插件
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleContext.RegisterService``1(``0)">
+            <summary>
+            注册服务实例
+            </summary>
+            <typeparam name="TService"></typeparam>
+            <param name="service"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleContext.GetService``1">
+            <summary>
+            获取注册的服务实例
+            </summary>
+            <typeparam name="TService"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleContext.Initialize``1(System.String,System.String,System.String)">
+            <summary>
+            初始化上下文
+            </summary>
+            <param name="bundleRuntimeName"></param>
+            <param name="startupPath"></param>
+            <param name="bundleId"></param>
+        </member>
+        <member name="P:EBA.Framework.BundleContext.Container">
+            <summary>
+            Default container instance
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleContext.DefaultName">
+            <summary>
+            默认的上下文名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleContext.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleContext.Bundle">
+            <summary>
+            关联的插件
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingBundleEvenHandler">
+            <summary>
+            生成远程事件委托
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleEvenHandler.FireEvent(System.Object,EBA.Framework.IBundleContext)">
+            <summary>
+            触发本地事件
+            </summary>
+            <param name="sender"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleEvenHandler.CreateDelegate(EBA.Framework.BundleEvenHandler)">
+            <summary>
+            生成事件委托
+            </summary>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="E:EBA.Framework.RemotingBundleEvenHandler.BundleEvenHandler">
+            <summary>
+            本地事件
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingProcessBundleContext">
+            <summary>
+            运行在独立进程中的远程插件上下文
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingBundleContext">
+            <summary>
+            远程插件，支持动态安装，卸载和更新。
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.RemotingBundleContext.Services">
+            <summary>
+            已经注册的服务实例列表
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.RegisterService``1(``0)">
+            <summary>
+            在上下文中注册<typeparamref name="TService"/>类型的服务实例。
+            </summary>
+            <typeparam name="TService">服务类型</typeparam>
+            <param name="service">服务实例</param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.GetService``1">
+            <summary>
+            在上下文中获取类型为<typeparamref name="TService"/>的已注册服务。
+            </summary>
+            <typeparam name="TService">服务类型</typeparam>
+            <returns>已注册的服务实例</returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.Initialize(System.String,EBA.Framework.IBundle)">
+            <summary>
+            用于远程插件已经启动情况下的上下文初始化。
+            </summary>
+            <param name="runtime"></param>
+            <param name="bundle"></param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.Initialize``1(System.String,System.String,System.String)">
+            <summary>
+            初始化上下文信息。包括注册跨域通道，启动远程插件，并获取远程插件的引用。
+            </summary>
+            <param name="runtime"></param>
+            <param name="startupPath"></param>
+            <param name="bundleId"></param>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleContext.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.Bundle">
+            <summary>
+            对应插件
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.Channel">
+            <summary>
+            共享通道
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.RemotingChannelName">
+            <summary>
+            远程共享通道名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.Runtime">
+            <summary>
+            对应的运行时名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleContext.BundleLauncher">
+            <summary>
+            插件启动器
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingProcessBundleContext.#ctor">
+            <summary>
+            构造函数。初始化插件启动器<see cref="!:RemotingProcessBundleLauncher"/>。
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingProcessBundleContext.Name">
+            <summary>
+            上下文名称
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingBundleFactory">
+            <summary>
+            独立AppDomain中的线程，用于启动<see cref="!:RemotingBundle&lt;T&gt;"/>
+            </summary>
+        </member>
+        <member name="F:EBA.Framework.RemotingBundleFactory._Container">
+            <summary>
+            IoC容器
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleFactory.CreateRemotingBundle``1(System.String,System.String)">
+            <summary>
+            创建远程插件对象
+            </summary>
+            <typeparam name="TBundle">自定义插件类型</typeparam>
+            <param name="runtime">运行时</param>
+            <param name="bundleId">插件标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingBundleFactory.GetSyncEvent(System.String,System.String)">
+            <summary>
+            获取同步对象
+            </summary>
+            <param name="runtime"></param>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Framework.RemotingBundleFactory.Container">
+            <summary>
+            IoC容器
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingUris">
+            <summary>
+            远程跨域地址
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildRuntimeChannelName(System.String,System.String)">
+            <summary>
+            运行时全局跨域通道名称
+            </summary>
+            <param name="runtime"></param>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildBundleChannelName(System.String,System.String)">
+            <summary>
+            指定插件跨域通道名称
+            </summary>
+            <param name="runtime"></param>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildServiceUri(System.String,System.String,System.Type)">
+            <summary>
+            指定插件可使用的插件跨域调用对象地址
+            </summary>
+            <param name="bundleId"></param>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildBundleContextUri(System.String,System.String)">
+             <summary>
+            获取插件的上下文跨域调用对象地址
+             </summary>
+             <param name="runtime"></param>
+             <param name="bundleId"></param>
+             <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildRuntimeSyncEventUri(System.String,System.String)">
+             <summary>
+            获取插件的同步对象跨域调用对象地址
+             </summary>
+             <param name="runtime"></param>
+             <param name="bundleId"></param>
+             <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildFullRuntimeSyncEventUri(System.String,System.String)">
+             <summary>
+            获取插件的同步对象跨域调用对象完整地址
+             </summary>
+             <param name="runtime"></param>
+             <param name="bundleId"></param>
+             <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.RemotingUris.BuildFullBundleUri(System.String,System.String)">
+             <summary>
+            获取插件跨域调用对象完整地址
+             </summary>
+             <param name="runtime"></param>
+             <param name="bundleId"></param>
+             <returns></returns>
+        </member>
+        <member name="T:EBA.Framework.ServiceUnregisteredException">
+            <summary>
+            服务未注册。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.ServiceUnregisteredException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.ServiceUnregisteredException.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.ServiceUnregisteredException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.ServiceUnregisteredException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingThreadBundleContext">
+            <summary>
+            运行在独立线程中的远程插件上下文
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleContext.#ctor">
+            <summary>
+            构造函数。初始化插件启动器<see cref="!:RemotingThreadBundleLauncher"/>。
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.RemotingThreadBundleContext.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.FileConfigurationElement">
+            <summary>
+            插件文件配置节点
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FileConfigurationElement.Name">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.FileConfigurationElementCollection">
+            <summary>
+            插件包含的文件列表
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.FileConfigurationElementCollection.CreateNewElement">
+            <summary>
+            新建一个插件文件列表配置节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.FileConfigurationElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            获取插件文件配置节点的标识
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.FileConfigurationElementCollection.Add(System.String)">
+            <summary>
+            新增一个文件配置节点
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="P:EBA.Framework.FileConfigurationElementCollection.AsEnumerable">
+            <summary>
+            文件列表
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.FrameworkConfiguration">
+            <summary>
+            框架配置信息
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.FrameworkConfiguration.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configPath"></param>
+        </member>
+        <member name="M:EBA.Framework.FrameworkConfiguration.ReloadConfig">
+            <summary>
+            重新载入配置信息
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.FrameworkConfiguration.SaveConfig">
+            <summary>
+            保存配置信息
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FrameworkConfiguration.ConfigPath">
+            <summary>
+            配置文件的完整路径
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FrameworkConfiguration.ExeConfiguration">
+            <summary>
+            完整的插件配置文件
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FrameworkConfiguration.Framework">
+            <summary>
+            插件配置信息
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.FrameworkConfigurationSection">
+            <summary>
+            插件配置文件
+            <eba>
+                <framework plugins="plugins">
+                    <bundles>
+                        <bundle id="" name="" version="" description="" context="BundleContext">
+                            <files>
+                                <file name=""></file>
+                            </files>
+                        </bundle>
+                         <bundle id="" name="" version=""  description=""  context="RemotingBundleContext">
+                        </bundle>
+                    </bundles>
+                </framework>
+            </eba>
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FrameworkConfigurationSection.Plugins">
+            <summary>
+            插件目录
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.FrameworkConfigurationSection.Bundles">
+            <summary>
+            已有插件列表
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.BundleRuntime`1">
+            <summary>
+            插件运行时。负责插件的安装，启动，停止，卸载和更新。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.CreateBundleContext(System.String)">
+            <summary>
+            为指定的插件创建相应的上下文实例
+            </summary>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.GetBundleStartupPath(System.String)">
+            <summary>
+            获取指定插件的启动路径
+            </summary>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.OnBundleStarting(EBA.Framework.IBundleContext)">
+            <summary>
+            插件启动前
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.OnBundleStarted(EBA.Framework.IBundleContext)">
+            <summary>
+            插件启动后
+            </summary>
+            <param name="contex"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.OnBundleStoping(EBA.Framework.IBundleContext)">
+            <summary>
+            插件停止前
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.OnBundleStopped(EBA.Framework.IBundleContext)">
+            <summary>
+            插件停止后
+            </summary>
+            <param name="contex"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.OnBundleUnhandledException(System.String,System.Exception)">
+            <summary>
+            插件异常后
+            </summary>
+            <param name="contex"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.Start(System.String)">
+            <summary>
+            启动插件
+            </summary>
+            <param name="bundleId"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.GetBundleContext(System.String)">
+            <summary>
+            获取指定插件的上下文。如果还没注册，则返回空。
+            </summary>
+            <param name="bundleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.Stop(System.String)">
+            <summary>
+            停止插件
+            </summary>
+            <param name="bundleId"></param>
+        </member>
+        <member name="F:EBA.Framework.BundleRuntime`1._Disposed">
+            <summary>
+            是否已被手工释放
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.Finalize">
+            <summary>
+            析构函数，释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.Dispose(System.Boolean)">
+            <summary>
+            手动释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:EBA.Framework.BundleRuntime`1.FreeManagedResources">
+            <summary>
+            释放托管资源
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleRuntime`1.Container">
+            <summary>
+            Default container instance
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleRuntime`1.Configuration">
+            <summary>
+            框架配置信息
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleRuntime`1.BundleContextes">
+            <summary>
+            上下文列表
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.BundleRuntime`1.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="E:EBA.Framework.BundleRuntime`1.BundleStarting">
+            <summary>
+            插件启动前
+            </summary>
+        </member>
+        <member name="E:EBA.Framework.BundleRuntime`1.BundleStartted">
+            <summary>
+            插件启动后
+            </summary>
+        </member>
+        <member name="E:EBA.Framework.BundleRuntime`1.BundleStopping">
+            <summary>
+            插件停止前
+            </summary>
+        </member>
+        <member name="E:EBA.Framework.BundleRuntime`1.BundleStopped">
+            <summary>
+            插件停止后
+            </summary>
+        </member>
+        <member name="E:EBA.Framework.BundleRuntime`1.BundleUnhandledException">
+            <summary>
+            插件发生异常后
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.IBundle">
+            <summary>
+            插件接口
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.IBundle.Start">
+            <summary>
+            启动
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.IBundle.Stop">
+            <summary>
+            停止
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.BundleContext">
+            <summary>
+            插件运行上下文
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.StartupPath">
+            <summary>
+            启动路径
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.Version">
+            <summary>
+            版本信息
+            </summary>
+        </member>
+        <member name="P:EBA.Framework.IBundle.State">
+            <summary>
+            运行状态
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.IBundleLauncher">
+            <summary>
+            插件启动器接口
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.IBundleLauncher.Run(System.String,System.String,System.String)">
+            <summary>
+            启动
+            </summary>
+            <param name="runtime"></param>
+            <param name="startupPath"></param>
+            <param name="bundleId"></param>
+        </member>
+        <member name="P:EBA.Framework.IBundleLauncher.ConfigurationFileName">
+            <summary>
+            配置文件名称
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingProcessBundleLauncher`1">
+            <summary>
+            进程插件启动器。在独立进程中启动插件
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingProcessBundleLauncher`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingProcessBundleLauncher`1.Finalize">
+            <summary>
+            析构函数，释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingProcessBundleLauncher`1.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingProcessBundleLauncher`1.Dispose(System.Boolean)">
+            <summary>
+            手动释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:EBA.Framework.RemotingProcessBundleLauncher`1.BundleProcess">
+            <summary>
+            远程插件所在进程
+            </summary>
+        </member>
+        <member name="T:EBA.Framework.RemotingThreadBundleLauncher`1">
+            <summary>
+            线程插件启动器。在一个子线程中启动对应的插件。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleLauncher`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleLauncher`1.Run(System.String,System.String,System.String)">
+            <summary>
+            启动指定插件。
+            </summary>
+            <param name="runtime">插件运行时标识</param>
+            <param name="startupPath">插件目录</param>
+            <param name="bundleId">插件标识</param>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleLauncher`1.Finalize">
+            <summary>
+            析构函数，释放资源。
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleLauncher`1.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:EBA.Framework.RemotingThreadBundleLauncher`1.Dispose(System.Boolean)">
+            <summary>
+            手动释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:EBA.IKnownException">
+            <summary>
+            已知异常标识。用于标识业务逻辑异常，非系统异常。
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.Container.Default">
+            <summary>
+            Default container instance
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.TypeExportConventions">
+            <summary>
+            同一类型的导出约定集合,以契约名称为主键。
+            </summary>
+        </member>
+        <member name="T:EBA.Json.IJsonSerializer">
+            <summary>
+            Serialize and deserialize object with JSON format.
+            </summary>
+        </member>
+        <member name="M:EBA.Json.IJsonSerializer.Serialize``1(``0)">
+            <summary>
+            Serialize instance into JSON.
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="instance">object instance</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Json.IJsonSerializer.SerializeObject(System.Object)">
+            <summary>
+            Serialize instance into JSON.
+            </summary>
+            <param name="instance">object instance</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Json.IJsonSerializer.DeserializeObject(System.Type,System.String)">
+            <summary>
+            Deserialize object with specified type from JSON string.
+            </summary>
+            <param name="type">Object type</param>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Json.IJsonSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserialize object with specified type from JSON string.
+            </summary>
+            <typeparam name="T">Objec type</typeparam>
+            <param name="json">JSON string</param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Json.DataContractJsonSerializerWrapper">
+            <summary>
+            Wrap <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> into <see cref="!:IJsonSerialize"/>
+            </summary>
+        </member>
+        <member name="T:EBA.Json.JsonConverter">
+            <summary>
+            JsonSerializer factory
+            </summary>
+        </member>
+        <member name="M:EBA.Json.JsonConverter.CreateJsonSerializer">
+            <summary>
+            Create a <see cref="T:EBA.Json.IJsonSerializer"/> instance, returns a <see cref="T:EBA.Json.DataContractJsonSerializerWrapper"/> instance when no implmention is exported as <see cref="!:IJsonSerialize"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Globalization.ChineseMoney">
+            <summary>
+            中文金钱大写
+            </summary>
+        </member>
+        <member name="T:EBA.Globalization.Money">
+            <summary>
+            金钱
+            </summary>
+        </member>
+        <member name="M:EBA.Globalization.Money.ToString">
+            <summary>
+            转换成字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.Money.ToStringBySign">
+            <summary>
+            转换成带金钱符号字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Globalization.Money.MoneyData">
+            <summary>
+            内部金钱变量
+            </summary>
+        </member>
+        <member name="P:EBA.Globalization.Money.Sign">
+            <summary>
+            符号
+            </summary>
+        </member>
+        <member name="F:EBA.Globalization.ChineseMoney.EndOfInt">
+            <summary>
+            整(当没有 角分 时)
+            </summary>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.#ctor(System.Decimal)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="money"></param>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.ToString">
+            <summary>
+            转换成汉字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.ToStringBySign">
+            <summary>
+            开头带符号金钱数目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.op_Addition(EBA.Globalization.ChineseMoney,System.Decimal)">
+            <summary>
+            加法
+            </summary>
+            <param name="m1"></param>
+            <param name="m2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.op_Subtraction(EBA.Globalization.ChineseMoney,System.Decimal)">
+            <summary>
+            减法
+            </summary>
+            <param name="m1"></param>
+            <param name="m2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.op_Multiply(EBA.Globalization.ChineseMoney,System.Decimal)">
+            <summary>
+            乘法
+            </summary>
+            <param name="m1"></param>
+            <param name="m2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.op_Division(EBA.Globalization.ChineseMoney,System.Decimal)">
+            <summary>
+            除法
+            </summary>
+            <param name="m1"></param>
+            <param name="m2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.ToChinese(System.Decimal)">
+            <summary>
+            把数字转换成中文
+            </summary>
+            <param name="money"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EBA.Globalization.ChineseMoney.NumLevelExponent">
+            <summary>
+            数位的指数
+            </summary>
+        </member>
+        <member name="F:EBA.Globalization.ChineseMoney.NumLeverChineseSign">
+            <summary>
+            数位的中文字符
+            </summary>
+        </member>
+        <member name="F:EBA.Globalization.ChineseMoney.NumChineseCharacter">
+            <summary>
+            大写字符
+            </summary>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.GetNumLevel(System.Decimal)">
+            <summary>
+            获取数字的数位　使用log
+            </summary>
+            <param name="Num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.IsDumpLevel(System.Decimal)">
+            <summary>
+            是否跳位
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.IsBigThanTillion(System.Decimal)">
+            <summary>
+            是否大于兆，如果大于就把字符串分为两部分，
+            一部分是兆以前的数字
+            另一部分是兆以后的数字
+            </summary>
+            <param name="money"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.SplitNum(System.String)">
+            <summary>
+            把数字字符串由‘兆’分开两个
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.CalculateChineseSign(System.Decimal,System.Nullable{EBA.Globalization.ChineseMoney.NumLevel},System.Boolean,System.Boolean)">
+            <summary>
+            计算中文字符串
+            </summary>
+            <param name="money">数字</param>
+            <param name="NL">数位级别 比如1000万的 数位级别为万</param>
+            <param name="IsExceptTen">是否以‘壹拾’开头</param>
+            <returns>中文大写</returns>
+        </member>
+        <member name="M:EBA.Globalization.ChineseMoney.IsStartOfTen(System.Decimal)">
+            <summary>
+            是否以“壹拾”开头，如果是就可以把它变为“拾”
+            </summary>
+            <param name="Num"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Globalization.ChineseMoney.NumLevel">
+            <summary>
+            数位
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.ContainerConfiguration">
+            <summary>
+            容器配置文件
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ContainerConfiguration.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ContainerConfiguration.#ctor(System.Configuration.Configuration)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ContainerConfiguration.TryLoadImports(System.Type)">
+            <summary>
+            分析类型元数据，提取Import信息
+            </summary>
+            <param name="partType"></param>
+        </member>
+        <member name="F:EBA.IoC.ContainerConfiguration.TYPE_EXPORT_CONVENTIONS">
+            <summary>
+            缓存类型的Export信息
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ContainerConfiguration.TryLoadExports(System.Type)">
+            <summary>
+            分析类型元数据，提取Export信息。
+            </summary>
+            <param name="partType"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:EBA.IoC.ContainerConfigurationSection" -->
+        <member name="T:EBA.IoC.AssemblyConfigurationElementCollection">
+            <summary>
+            分支节点集合
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.AssemblyConfigurationElementCollection.CreateNewElement">
+            <summary>
+            创建新节点内容
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.IoC.AssemblyConfigurationElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            获取内容
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.IoC.ExportConventions">
+            <summary>
+            导出约定集合
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ExportConventions.Add(EBA.IoC.ExportConvention)">
+            <summary>
+            新增一个导出约定
+            </summary>
+            <param name="contract"></param>
+        </member>
+        <member name="M:EBA.IoC.ExportConventions.GetEnumerator">
+            <summary>
+            获取导出约定迭代器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.IoC.ExportConventions.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            获取导出约定迭代器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.IoC.ExportConventions.Item(System.Type)">
+            <summary>
+            索引器
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.IoC.IContainer">
+            <summary>
+            注入容器
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExport``1(EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个<typeparamref name="TExport"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExport``1(System.String,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个名称为<paramref name="contractName"/>的<typeparamref name="TExport"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExport(System.Type,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个<paramref name="exportType"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExport(System.Type,System.String,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个名称为<paramref name="contractName"/>的<paramref name="exportType"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExports``1(EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取<typeparamref name="TExport"/>的所有实现的实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExports``1(System.String,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取名称为<paramref name="contractName"/>的<typeparamref name="TExport"/>的所有实现的实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetAllExports``1(EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取<typeparamref name="TExport"/>的所有实现的实例，不区分名称。
+            </summary>
+            <typeparam name="TExport"></typeparam>
+            <param name="lifetimeManager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExports(System.Type,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取<typeparamref name="exportType"/>的所有实现的实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetExports(System.Type,System.String,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取名称为<paramref name="contractName"/>的<paramref name="exportType"/>的所有实现的实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.GetAllExports(System.Type,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取<param name="exportType">导出类型</param>的所有实现的实例，不区分名称。
+            </summary>
+            <param name="lifetimeManager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.IoC.IContainer.TryGetExport``1(``0@,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个<typeparam name="TExport">导出类型</typeparam>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.TryGetExport``1(System.String,``0@,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个名称为<paramref name="contractName"/>的<typeparamref name="TExport"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.TryGetExport(System.Type,System.Object@,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个<paramref name="exportType"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.TryGetExport(System.Type,System.String,System.Object@,EBA.IoC.ILifetimeManager)">
+            <summary>
+            获取一个名称为<paramref name="contractName"/>的<paramref name="exportType"/>实例。
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.IContainer.BuildUp``1(``0,EBA.IoC.ILifetimeManager)">
+            <summary>
+            对指定<paramref name="instance"/>进行属性注入。
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.IContainer.LifetimeManager">
+            <summary>
+            默认<see cref="T:EBA.IoC.ILifetimeManager"/>
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.IContainer.Conventions">
+            <summary>
+            通过<seealso cref="T:System.ComponentModel.Composition.ExportAttribute"/>，<seealso cref="T:System.ComponentModel.Composition.ImportAttribute"/>,<seealso cref="T:System.ComponentModel.Composition.ImportManyAttribute"/>,<seealso cref="T:System.ComponentModel.Composition.ImportingConstructorAttribute"/>和<see cref="T:EBA.IoC.ContainerConfiguration"/>生成的映射规则。
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.ImportConvention">
+            <summary>
+            注入信息
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ImportConvention.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="hostingType"></param>
+        </member>
+        <member name="M:EBA.IoC.ImportConvention.TryLoadMebmerImport(System.Reflection.MemberInfo)">
+            <summary>
+            载入属性注入信息
+            </summary>
+            <param name="member"></param>
+        </member>
+        <member name="M:EBA.IoC.ImportConvention.TryLoadConstructorInjection">
+            <summary>
+            载入构造子注入信息
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.ImportConvention.HostingType">
+            <summary>
+            目标对象类型
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.ImportConvention.Constructor">
+            <summary>
+            构造子注入
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.ImportConvention.Members">
+            <summary>
+            属性注入
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.ExportConvention">
+            <summary>
+            导出约定
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.ExportConvention.#ctor(System.Type,System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="contractType"></param>
+            <param name="componentType"></param>
+        </member>
+        <member name="M:EBA.IoC.ExportConvention.#ctor(System.Type,System.String,System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="contractType"></param>
+            <param name="contractName"></param>
+            <param name="componentType"></param>
+        </member>
+        <member name="M:EBA.IoC.ExportConvention.GetHashCode">
+            <summary>
+            Hashcode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.IoC.ExportConvention.Equals(System.Object)">
+            <summary>
+            与另一个对象比较值是否相等
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.IoC.ExportConvention.ContractName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.ExportConvention.ContractType">
+            <summary>
+            契约类型
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.ExportConvention.ComponentType">
+            <summary>
+            实际类型
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.AutowiredParameter">
+            <summary>
+            自动注入的参数
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.AutowiredParameter.#ctor(System.Reflection.ParameterInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="P:EBA.IoC.AutowiredParameter.Parameter">
+            <summary>
+            原始参数信息
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.AutowiredParameter.ContractType">
+            <summary>
+            要导入的类型信息
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.AutowiredParameter.ContractName">
+            <summary>
+            映射的契约名称
+            </summary>
+        </member>
+        <member name="P:EBA.IoC.AutowiredParameter.IsCollection">
+            <summary>
+            是否是数组或者其他集合对象
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.WindowsAssembly">
+            <summary>
+            Assembly读取工具
+            </summary>
+        </member>
+        <member name="M:EBA.IoC.WindowsAssembly.GetAssemblies(System.String,System.String,System.Boolean)">
+            <summary>
+            尝试载入指定文件夹下的指定的文件，并返回他们所包含的.Net Assembly
+            </summary>
+            <param name="folder"></param>
+            <param name="searchPattern"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Linq.ExpressionVisitor`1">
+            <summary>
+            This class visits every Parameter expression in an expression tree and calls a delegate
+            to optionally replace the parameter.  This is useful where two expression trees need to
+            be merged (and they don't share the same ParameterExpressions).
+            </summary>
+        </member>
+        <member name="T:EBA.Linq.ExpressionVisitor">
+            <summary>
+            Expression visitor
+            (from http://blogs.msdn.com/mattwar/archive/2007/07/31/linq-building-an-iqueryable-provider-part-ii.aspx)
+            </summary>
+        </member>
+        <member name="T:EBA.Localization.EmptyLocalizationProvider">
+            <summary>
+            空的本地化提供者
+            </summary>
+        </member>
+        <member name="T:EBA.Localization.ILocalizationProvider">
+            <summary>
+            本地化
+            </summary>
+        </member>
+        <member name="M:EBA.Localization.ILocalizationProvider.GetCultures">
+            <summary>
+            已经存在的语言文化列表
+            </summary>
+        </member>
+        <member name="M:EBA.Localization.ILocalizationProvider.GetKeys(System.Globalization.CultureInfo)">
+            <summary>
+            获取指定语言文化的资源主键列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.ILocalizationProvider.GetTextValue(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            读取指定主键的文本
+            </summary>
+            <param name="culture">语言文化</param>
+            <param name="key">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.ILocalizationProvider.Translate(System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+            翻译
+            </summary>
+            <param name="key"></param>
+            <param name="culture"></param>
+            <param name="defaultText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.ILocalizationProvider.Update(System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+            更新翻译
+            </summary>
+            <param name="key">主键</param>
+            <param name="culture">语言</param>
+            <param name="text">翻译</param>
+        </member>
+        <member name="M:EBA.Localization.EmptyLocalizationProvider.Translate(System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+            翻译
+            </summary>
+            <param name="key">主键</param>
+            <param name="culture">语言文化</param>
+            <param name="defaultText">默认文本</param>
+            <returns>翻译后的文本</returns>
+        </member>
+        <member name="M:EBA.Localization.EmptyLocalizationProvider.Update(System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+            更新翻译
+            </summary>
+            <param name="key">主键</param>
+            <param name="culture">语言文化</param>
+            <param name="text">翻译后的文本</param>
+        </member>
+        <member name="M:EBA.Localization.EmptyLocalizationProvider.GetCultures">
+            <summary>
+            获取已经存在的语言文化列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.EmptyLocalizationProvider.GetKeys(System.Globalization.CultureInfo)">
+            <summary>
+            获取已经存在的主键列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.EmptyLocalizationProvider.GetTextValue(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            获得指定文化所对应主键的文本值
+            </summary>
+            <param name="key"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Localization.LocalizationProviders">
+            <summary>
+            本地化
+            </summary>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+            Translate
+            </summary>
+            <param name="key"></param>
+            <param name="culture"></param>
+            <param name="defaultText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.T(System.String,System.Object[])">
+            <summary>
+            the shortcus for <see cref="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.T(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            the shortcus for <see cref="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.M(System.String,System.String,System.Object[])">
+            <summary>
+            the shortcus for <see cref="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.M(System.String,System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            the shortcus for <see cref="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.Plural(System.String,System.String,System.Int32,System.Object[])">
+            <summary>
+            the shortcus for <see cref="M:EBA.Localization.LocalizationProviders.Translate(System.String,System.Globalization.CultureInfo,System.String)"/> with singural and plural
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Localization.LocalizationProviders.Plural(System.String,System.String,System.Int32,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            单复数文本
+            </summary>
+            <param name="singular"></param>
+            <param name="plural"></param>
+            <param name="count"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Logging.LoggingHelper">
+            <summary>
+            日志帮助
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.LoggingHelper.ConvertToLogLevel(System.String)">
+            <summary>
+            将string转成Log等级
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Logging.XmlFileLogger">
+            <summary>
+            Write the diagnostic message into a text file.
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.ILogger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.ILogger.Log(System.String,EBA.Logging.LogLevel,System.String)">
+            <summary>
+            Writes the diagnostic message at the specified level.
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="name">log name</param>
+            <param name="level">log level</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.ILogger.Log``1(System.String,``0,EBA.Logging.LogLevel,System.String)">
+            <summary>
+            支持自定义形式的数据log
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="message"></param>
+            <param name="entity"></param>
+            <param name="level"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogger.Log(System.String,EBA.Logging.LogLevel,System.String)">
+            <summary>
+            Writes the diagnostic message at the specified level.
+            </summary>
+            <param name="message">log message</param>
+            <param name="level">log level</param>
+            <param name="name"></param>
+        </member>
+        <member name="T:EBA.Logging.XmlFileLogProvider">
+            <summary>
+            Write and read the diagnostic message in a xml file.
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.ILogProvider">
+            <summary>
+            Defines LogProvider for reading and updating log messages.
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.ILogProvider.GetLogger(System.String)">
+            <summary>
+            Get a logger instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Logging.ILogProvider.Delete(System.String)">
+            <summary>
+            Deletes the log with the specified id.
+            </summary>
+            <param name="id">identifier of a log</param>
+        </member>
+        <member name="M:EBA.Logging.ILogProvider.DeleteAll(System.Linq.Expressions.Expression{System.Func{EBA.Logging.ILog,System.Boolean}})">
+            <summary>
+            Deletes the logs with the specified filter expression.
+            </summary>
+            <param name="filterExpression">filter log expression</param>
+        </member>
+        <member name="P:EBA.Logging.ILogProvider.Logs">
+            <summary>
+            The log query
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogProvider.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogProvider.GetLogger(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogProvider.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogProvider.DeleteAll(System.Linq.Expressions.Expression{System.Func{EBA.Logging.ILog,System.Boolean}})">
+            <summary>
+            批量删除
+            </summary>
+            <param name="filterExpression"></param>
+        </member>
+        <member name="P:EBA.Logging.XmlFileLogProvider.Logs">
+            <summary>
+            获取logs
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.XElementLog">
+            <summary>
+            log的XML文本
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.ILog">
+            <summary>
+            Defines log message structure
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.Id">
+            <summary>
+            The identifier of log
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.Name">
+            <summary>
+            The log name.
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.Level">
+            <summary>
+            The level of log
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.Message">
+            <summary>
+            The message of log
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.AddedTime">
+            <summary>
+            The added datetime of log
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.ILog.Data">
+            <summary>
+            the data of log
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.AddedTime">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.Data">
+            <summary>
+            自定义数据形式
+            </summary>
+        </member>
+        <member name="P:EBA.Logging.XElementLog.Name">
+            <summary>
+            类别
+            </summary>
+        </member>
+        <member name="T:EBA.IoC.LoggingConfigurationSection">
+            <summary>
+            Logger配置节点
+             </summary>
+             <example>
+            <eba>
+              <log provider="XmlLogProvider">
+                 <loggers>
+                 
+                 </loggers>
+              </log>
+            </eba>
+             </example>
+        </member>
+        <member name="P:EBA.IoC.LoggingConfigurationSection.Provider">
+            <summary>
+            Config log provider
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.LoggerEx">
+            <summary>
+            Logger utilities
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Trace``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a trace message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Debug``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a trace message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Info``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a info message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Warn``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a warn message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Error``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a error message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Fatal``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a fatal message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="M:EBA.Logging.LoggerEx.Activty``1(EBA.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Log a activty message
+            </summary>
+            <typeparam name="TData">custom log data type</typeparam>
+            <param name="logger">logger instance</param>
+            <param name="sender">log sender</param>
+            <param name="message">log message</param>
+            <param name="data">custom log data</param>
+        </member>
+        <member name="T:EBA.Logging.LogLevel">
+            <summary>
+            Defines log levels
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Trace">
+            <summary>
+            Trace log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Debug">
+            <summary>
+            Debug log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Info">
+            <summary>
+            Info log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Warn">
+            <summary>
+            Warn log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Error">
+            <summary>
+            Error log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Fatal">
+            <summary>
+            Fatal log level
+            </summary>
+        </member>
+        <member name="F:EBA.Logging.LogLevel.Activty">
+            <summary>
+            Activty log level
+            </summary>
+        </member>
+        <member name="T:EBA.Logging.LogProviderEx">
+            <summary>
+            LogProvider utilities
+            </summary>
+        </member>
+        <member name="M:EBA.Logging.LogProviderEx.GetInstance">
+            <summary>
+            Get a <see cref="T:EBA.Logging.ILogProvider"/> instance with specified name in config file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Logging.XmlFileLogSerializer">
+            <summary>
+            xml文档形式log序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogSerializer.Serialize(EBA.Logging.XElementLog)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogSerializer.Serialize``1(EBA.Logging.XElementLog)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">自定义类型</typeparam>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogSerializer.Deserialize(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Logging.XmlFileLogSerializer.Deserialize``1(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T">自定义类型</typeparam>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Dynamic.DynamicFactory">
+            <summary>
+            动态类型转换工厂
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicFactory.DynamicCastTo``1(System.Object)">
+            <summary>
+            将<paramref name="contextObject"/>动态转为<typeparamref name="TConversion"/>的对象。
+            </summary>
+            <typeparam name="TConversion">目标转换类型</typeparam>
+            <param name="contextObject">待转换对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicFactory.DynamicCastTo``2(System.Object)">
+            <summary>
+            将<paramref name="contextObject"/>动态转为<typeparamref name="TConversion"/>的对象。
+            </summary>
+            <typeparam name="TConversion">目标转换类型</typeparam>
+            <typeparam name="TDynamicContext">动态上下文类型</typeparam>
+            <param name="contextObject">待转换对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicFactory.DynamicCastTo(System.Object,System.Type,System.Type)">
+            <summary>
+            将<paramref name="contextObject"/>动态转换为<paramref name="conversionType"/>的对象。
+            </summary>
+            <param name="contextObject">待转换对象</param>
+            <param name="conversionType">目标转换类型</param>
+            <param name="dynamicContextType">动态上下文类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Dynamic.DynamicContext">
+            <summary>
+            默认包装器
+            </summary>
+        </member>
+        <member name="M:EBA.Dynamic.DynamicContext.Initialize(System.Object)">
+            <summary>
+            初始化上下文数据
+            </summary>
+            <param name="contextObject"></param>
+        </member>
+        <member name="P:EBA.Dynamic.DynamicContext.ContextObject">
+            <summary>
+            实际对象
+            </summary>
+        </member>
+        <member name="P:EBA.Dynamic.DynamicContext.ContextType">
+            <summary>
+            实际对象类型
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.BrokerRouteTable">
+            <summary>
+            消息中介路由表
+            </summary>
+        </member>
+        <member name="M:EBA.MQ.BrokerRouteTable.GetNextRoute(EBA.MQ.BrokerRoute,EBA.MQ.QueueMetadata)">
+            <summary>
+            获取达到目标队列的最短路径的第一个路由节点。
+            </summary>
+            <param name="source"></param>
+            <param name="queue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.MQ.BrokerRouteTable.GetRoutes(EBA.MQ.QueueMetadata)">
+            <summary>
+            获取目标队列所在的消息中介的路由列表。
+            </summary>
+            <param name="queue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.MQ.BrokerRouteTable.Connect(EBA.MQ.BrokerRoute,EBA.MQ.BrokerRoute)">
+            <summary>
+            建立两个路由间的通讯通道
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRouteTable.Routes">
+            <summary>
+            路由列表
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRouteTable.Channels">
+            <summary>
+            已经建立的通讯通道列表
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.ChannelData">
+            <summary>
+            通讯数据
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.IBinding">
+            <summary>
+            路由的连接方式
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.IChannel">
+            <summary>
+            消息中介路由间的通讯通道
+            </summary>
+        </member>
+        <member name="M:EBA.MQ.IChannel.WriteBytes(System.Byte[])">
+            <summary>
+            推送数据
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:EBA.MQ.IChannel.Disconnect">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.IChannel.Source">
+            <summary>
+            源
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.IChannel.Destination">
+            <summary>
+            目标
+            </summary>
+        </member>
+        <member name="E:EBA.MQ.IChannel.ConnectionEstablished">
+            <summary>
+            连接建立事件
+            </summary>
+        </member>
+        <member name="E:EBA.MQ.IChannel.ConnectionClosed">
+            <summary>
+            连接关闭事件
+            </summary>
+        </member>
+        <member name="E:EBA.MQ.IChannel.DataReceived">
+            <summary>
+            数据到达事件
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.IMessageQueue">
+            <summary>
+            消息队列。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.IMessageQueue.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.IMessageQueue.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.BrokerRoute">
+            <summary>
+            消息中介路由。用来描述可达的消息中介的路径信息。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRoute.BrokerId">
+            <summary>
+            消息中介标识。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRoute.BrokerName">
+            <summary>
+            消息中介名称。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRoute.Queues">
+            <summary>
+            消息中介支持队列元数据。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.BrokerRoute.Binding">
+            <summary>
+            连接方式
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.MessageBroker">
+            <summary>
+            消息中介。它负责把消息分发到正确的<see cref="T:EBA.MQ.MessageBroker">消息中介</see>或者<see cref="T:EBA.MQ.IMessageQueue">消息队列</see>。
+            </summary>
+        </member>
+        <member name="M:EBA.MQ.MessageBroker.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.MessageBroker.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.MessageBroker.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.MessageBroker.RouteTable">
+            <summary>
+            消息中介路由表。用来描述可达的消息中介网络结构。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.MessageBroker.Queues">
+            <summary>
+            消息队列。用来表述消息队列信息。
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.MessageBroker.Route">
+            <summary>
+            对应的路由
+            </summary>
+        </member>
+        <member name="T:EBA.MQ.QueueMetadata">
+            <summary>
+            消息队列元数据
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.QueueMetadata.QueueId">
+            <summary>
+            消息队列标识
+            </summary>
+        </member>
+        <member name="P:EBA.MQ.QueueMetadata.QueueName">
+            <summary>
+            消息队列名称
+            </summary>
+        </member>
+        <member name="T:EBA.Notifications.INotification">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotification.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotification.Recipient">
+            <summary>
+            接收者，根据不同类型的通知自定义内容
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotification.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotification.MessageName">
+            <summary>
+            消息类型名称，用于描述消息数据应该怎么解析。
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotification.MessageData">
+            <summary>
+            完整的消息数据
+            </summary>
+        </member>
+        <member name="T:EBA.Notifications.INotificationProvider">
+            <summary>
+            通知持久化提供者
+            </summary>
+        </member>
+        <member name="P:EBA.Notifications.INotificationProvider.Notifications">
+            <summary>
+            通知数据仓库
+            </summary>
+        </member>
+        <member name="T:EBA.Notifications.INotifier">
+            <summary>
+            通知器
+            </summary>
+        </member>
+        <member name="M:EBA.Notifications.INotifier.Start(EBA.Notifications.INotification)">
+            <summary>
+            发送通知
+            </summary>
+            <param name="notification"></param>
+            <returns>发送成功，返回true;其他返回false。</returns>
+        </member>
+        <member name="T:EBA.Notifications.NotificationProviderEx">
+            <summary>
+            通知推送
+            </summary>
+        </member>
+        <member name="M:EBA.Notifications.NotificationProviderEx.Send(EBA.Notifications.INotificationProvider,System.String,System.String,System.String,System.Byte[])">
+            <summary>
+            新增通知
+            </summary>
+            <param name="provider">通知数据提供者</param>
+            <param name="recipient">接收者</param>
+            <param name="title">主题</param>
+            <param name="messageName">消息名称</param>
+            <param name="messageData">完整消息内容</param>
+            <returns>通知Id</returns>
+        </member>
+        <member name="T:EBA.Reporting.IReportDataCell">
+            <summary>
+            报表数据源之数据单元
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataCell.RowIndex">
+            <summary>
+            行索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataCell.ColumnIndex">
+            <summary>
+            列索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataCell.ColumnName">
+            <summary>
+            列名称
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReportDataColumn">
+            <summary>
+            报表数据源的数据列
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataColumn.ColumnName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataColumn.ColumnIndex">
+            <summary>
+            索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataColumn.RowCells">
+            <summary>
+            数据单元
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReportDataRow">
+            <summary>
+            报表数据源的数据行
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataRow.RowIndex">
+            <summary>
+            索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataRow.ColumnCells">
+            <summary>
+            数据单元
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReport">
+            <summary>
+            报表
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.IReport.Build(EBA.Reporting.IReportData)">
+            <summary>
+            根据数据生成报表
+            </summary>
+            <param name="data">报表数据</param>
+        </member>
+        <member name="T:EBA.Reporting.IReportData">
+            <summary>
+            报表数据源
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportData.Item(System.Int32)">
+            <summary>
+            根据表索引获取数据表
+            </summary>
+            <param name="tableIndex">表索引</param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Reporting.IReportData.Tables">
+            <summary>
+            数据表集合
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReportDataTable">
+            <summary>
+            报表数据源的数据表
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataTable.TableName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataTable.TableIndex">
+            <summary>
+            索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataTable.Rows">
+            <summary>
+            数据行集合
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportDataTable.Columns">
+            <summary>
+            数据列集合
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReportTemplate">
+            <summary>
+            报表模版
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.IReportTemplate.Build">
+            <summary>
+            根据模版生成报表实例。模版为不可变量，以便用于缓存处理，而具体的报表由模版编译生成，用于绑定真实的数据。
+            </summary>
+            <returns>报表实例</returns>
+        </member>
+        <member name="P:EBA.Reporting.IReportTemplate.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportTemplate.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportTemplate.Tag">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportTemplate.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.IReportTemplateParser">
+            <summary>
+            报表模版解析器
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.IReportTemplateParser.Process">
+            <summary>
+            执行解析
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Reporting.IReportTemplateProvider">
+            <summary>
+            报表模版数据提供者
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.IReportTemplateProvider.ReportTemplates">
+            <summary>
+            报表模版库
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Data.AdoReportData">
+            <summary>
+            将<see cref="P:EBA.Reporting.Data.AdoReportData.DataSet"/>对象包装成<see cref="T:EBA.Reporting.IReportData"/>对象
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Data.AdoReportData.#ctor(System.Data.DataSet)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dataSet">数据集</param>
+        </member>
+        <member name="P:EBA.Reporting.Data.AdoReportData.Tables">
+            <summary>
+            数据表集合
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Data.AdoReportData.Item(System.Int32)">
+            <summary>
+            按索引取表
+            </summary>
+            <param name="tableIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Reporting.Data.AdoReportData.Item(System.String)">
+            <summary>
+            按表名取表
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Reporting.Data.AdoReportDataTable">
+            <summary>
+            将<see cref="T:System.Data.DataTable"/>对象包装成<see cref="T:EBA.Reporting.IReportDataTable"/>对象
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Data.AdoReportDataTable.#ctor(System.Data.DataTable,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dataTable">数据表</param>
+            <param name="tableIndex">数据表索引</param>
+        </member>
+        <member name="T:EBA.Reporting.ReportEngine">
+            <summary>
+            报表引擎
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.ReportEngine.LoadTemplate(System.String)">
+            <summary>
+            载入报表模版
+            </summary>
+            <param name="id">报表标识</param>
+            <returns></returns>
+        </member>
+        <member name="T:EBA.Reporting.ReportTemplateNotFoundException">
+            <summary>
+            描述指定的报表模版不存在。
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.ReportTemplateNotFoundException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.ReportTemplateNotFoundException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.ReportTemplateNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.ReportTemplateNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.HorizontalAlignment">
+            <summary>
+            对齐方式
+            </summary>
+        </member>
+        <member name="F:EBA.Reporting.Spreadsheet.HorizontalAlignment.Left">
+            <summary>
+            居左
+            </summary>
+        </member>
+        <member name="F:EBA.Reporting.Spreadsheet.HorizontalAlignment.Center">
+            <summary>
+            居中
+            </summary>
+        </member>
+        <member name="F:EBA.Reporting.Spreadsheet.HorizontalAlignment.Right">
+            <summary>
+            居右
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.Cell">
+            <summary>
+            单元格
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Cell.RowIndex">
+            <summary>
+            行索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Cell.ColumnIndex">
+            <summary>
+            列索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Cell.Text">
+            <summary>
+            纯文本值
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Cell.RichTexts">
+            <summary>
+            富文本值
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Cell.Indent">
+            <summary>
+            缩进
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.DuplicatedWorksheetNameException">
+            <summary>
+            描述工作表名称已经存在。
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.LetterIndex">
+            <summary>
+            字母索引，用于电子表格的列索引
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.LetterIndex.#ctor(System.Int32)">
+            <summary>
+            根据整型索引创建子母索引
+            </summary>
+            <param name="index">整型索引</param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.LetterIndex.#ctor(System.String)">
+            <summary>
+            根据字母索引创建字母索引
+            </summary>
+            <param name="name">字母索引</param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.LetterIndex.CompareTo(EBA.Reporting.Spreadsheet.LetterIndex)">
+            <summary>
+            与<paramref name="letter"/>比较大小。
+            </summary>
+            <param name="letter">字母索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.LetterIndex.Equals(EBA.Reporting.Spreadsheet.LetterIndex)">
+            <summary>
+            判断和<paramref name="letter"/>的值是否相等。
+            </summary>
+            <param name="letter">字母索引</param>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.LetterIndex.Index">
+            <summary>
+            整型索引
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.LetterIndex.Name">
+            <summary>
+            子母索引
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.SpreadsheetReport">
+            <summary>
+            电子表格报表
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.SpreadsheetReport.Build(EBA.Reporting.IReportData)">
+            <summary>
+            绑定数据
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.SpreadsheetReport.Export">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.SpreadsheetReport.Workbook">
+            <summary>
+            工作薄
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.Workbook">
+            <summary>
+            工作簿
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.Workbook.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.Workbook.AddWorksheet(EBA.Reporting.Spreadsheet.Worksheet)">
+            <summary>
+            新增工作表
+            </summary>
+            <param name="worksheet"></param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.Workbook.RemoveWorksheetAt(System.Int32)">
+            <summary>
+            根据索引删除工作表
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.Workbook.RemoveWorksheetNamed(System.String)">
+            <summary>
+            根据名称删除工作表
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Workbook.Worksheets">
+            <summary>
+            工作表集合
+            </summary>
+        </member>
+        <member name="T:EBA.Reporting.Spreadsheet.Worksheet">
+            <summary>
+            工作表
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Worksheet.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Worksheet.Height">
+            <summary>
+            总高度
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.Worksheet.Width">
+            <summary>
+            总宽度
+            </summary>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.Add(EBA.Reporting.Spreadsheet.Worksheet)">
+            <summary>
+            新增工作表
+            </summary>
+            <param name="worksheet"></param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.RemoveAt(System.Int32)">
+            <summary>
+            删除指定位置的工作表
+            </summary>
+            <param name="index">索引</param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.RemoveNamed(System.String)">
+            <summary>
+            删除指定名称的工作表
+            </summary>
+            <param name="name">工作表名称</param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.Remove(EBA.Reporting.Spreadsheet.Worksheet)">
+            <summary>
+            删除指定的工作表
+            </summary>
+            <param name="worksheet"></param>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.GetEnumerator">
+            <summary>
+            返回工作表集合的迭代器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EBA.Reporting.Spreadsheet.WorksheetCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            返回工作表集合的迭代器
+            </summary>
+        </member>
+        <member name="P:EBA.Reporting.Spreadsheet.WorksheetCollection.Item(System.String)">
+            <summary>
+            根据工作表名称获取工作表实例
+            </summary>
+            <param name="name">工作表名称</param>
+            <returns>工作表</returns>
+        </member>
+        <member name="T:EBA.WindowsServices.IWindowsServiceOutput">
+            <summary>
+            服务输出
+            </summary>
+        </member>
+        <member name="M:EBA.WindowsServices.IWindowsServiceOutput.Write(EBA.WindowsServices.OutputLevel,System.String,System.Object[])">
+            <summary>
+            输出内容
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:EBA.WindowsServices.IWindowsServiceOutput.WriteLine(EBA.WindowsServices.OutputLevel,System.String,System.Object[])">
+            <summary>
+            单行输出
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:EBA.WindowsServices.RemotingWindowsServiceOutput">
+            <summary>
+            默认服务输出实现。
+            </summary>
+        </member>
+        <member name="T:EBA.WindowsServices.ICmdableWindowsService">
+            <summary>
+            具有命令行可交互能力的服务
+            </summary>
+        </member>
+        <member name="T:EBA.WindowsServices.IWindowsService">
+            <summary>
+            Window服务
+            </summary>
+        </member>
+        <member name="M:EBA.WindowsServices.IWindowsService.Start">
+            <summary>
+            启动
+            </summary>
+        </member>
+        <member name="M:EBA.WindowsServices.IWindowsService.Stop">
+            <summary>
+            停止
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Output">
+            <summary>
+            输出
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Version">
+            <summary>
+            版本信息
+            </summary>
+        </member>
+        <member name="P:EBA.WindowsServices.IWindowsService.Configuration">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="M:EBA.WindowsServices.ICmdableWindowsService.ExecuteCmdlet(System.String)">
+            <summary>
+            执行命令
+            </summary>
+            <param name="cmdlet"></param>
+        </member>
+        <member name="T:EBA.WindowsServices.IVisualizableWindowsService">
+            <summary>
+            具有可视化能力的服务
+            </summary>
+        </member>
+        <member name="M:EBA.WindowsServices.IVisualizableWindowsService.ShowGUI">
+            <summary>
+            显示服务可视化界面
+            </summary>
+        </member>
+    </members>
+</doc>

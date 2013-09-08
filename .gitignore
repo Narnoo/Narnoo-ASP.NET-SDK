@@ -8,7 +8,6 @@
 obj/
 *.php
 *.gpState
-/Umbraco/packages
 bin/
 /Umbraco/Umbraco/
 /CSharp/src/Narnoo/bin

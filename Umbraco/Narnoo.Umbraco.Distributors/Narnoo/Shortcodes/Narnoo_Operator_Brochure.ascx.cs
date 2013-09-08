@@ -18,11 +18,13 @@ namespace Narnoo.Umbraco.Distributors.Narnoo.Shortcodes
 //img_alt:
 
 
-    public partial class Narnoo_Operator_Brochure : System.Web.UI.UserControl
+    public partial class Narnoo_Operator_Brochure : Narooo_Distributor_Brochure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
+        public string operator_id { get; set; }
     }
 }

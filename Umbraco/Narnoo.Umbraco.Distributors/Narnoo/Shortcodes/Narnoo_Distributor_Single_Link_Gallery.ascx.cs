@@ -7,11 +7,28 @@ using System.Web.UI.WebControls;
 
 namespace Narnoo.Umbraco.Distributors.Narnoo.Shortcodes
 {
-    public partial class Narnoo_Distributor_Single_Link_Gallery : System.Web.UI.UserControl
+    public partial class Narnoo_Distributor_Single_Link_Gallery : ShortcodeBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        public string album_name { get; set; }
+        public string width { get; set; }
+        public string height { get; set; }
+
+        public override string RenderContent()
+        {
+            return "<div style='height: " + this.height + "px; width: " + this.width + "px;' class='narnoo_slg' data-operator-id='' data-count='0' data-width='" + this.width + "' data-height='" + this.height + "' data-album-name='" + this.album_name + "'>"
+                 + "   <div style='height: " + this.height + "px; width: " + this.width + "px; background: #ffffff url(/umbraco/narnoo/images/loader.gif) no-repeat center center;'></div>"
+                 + "</div>";
+        }
+
+        public override string RenderDesignContent()
+        {
+            return "[narnoo_distributor_single_link_gallery album_name='" + this.album_name + "' width='" + this.width + "' height='" + this.height + "']";
         }
     }
 }
